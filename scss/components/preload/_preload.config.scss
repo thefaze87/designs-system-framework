@@ -1,0 +1,15 @@
+@use './preload.mixins' as *;
+
+// Preload Shimmer
+.preload-shimmer {
+	// Base Preload Shimmer Styles
+	@extend %preload-shimmer-base;
+
+	// Apply an override for table row td inside preload-shimmer to fix border issue
+	// Adds a border left when there's one td inside the preload shimmer row
+	// Currently the table styles adds box shadow inset to the first and last element but with preload shimmer we have one td element and the inset is missing on the first as it applies to the last of type.
+	// This is to add a 1px left border with the box shadow color
+	& > td:nth-child(1):last-child {
+		border-left: 1px solid var(--box-shadow-color-inner, var(--gray4));
+	}
+}

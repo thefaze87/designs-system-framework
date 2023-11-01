@@ -1,0 +1,34 @@
+///
+/// Chart Legend Config
+///
+/// @group 6-components
+/// @author Anthony Minnaugh and Mark Fasel
+/// @access public
+///
+.legend {
+	li {
+		a,
+		button {
+			cursor: pointer;
+			&.bull,
+			&.bar,
+			&.line,
+			&.dash {
+				&::before {
+					background-color: var(--chart-bg-color);
+				}
+			}
+		}
+	}
+	.bull,
+	.bar,
+	.line,
+	.dash {
+		&::before {
+			background-color: var(--chart-bg-color);
+		}
+		.input-range ::-webkit-slider-thumb {
+			background-color: var(--chart-bg-color);
+		}
+	}
+}

@@ -1,0 +1,16 @@
+@use 'sass:map' as map;
+@use '../base/functions/z-index' as *;
+
+///
+/// Z-index root export
+/// Generates z-index css custom properties
+///
+/// @group 2-Core
+/// @author Mark Fasel
+/// @access public
+///
+:root {
+	@each $class, $value in $z-index {
+		--z-index-#{$class}: #{$value};
+	}
+}

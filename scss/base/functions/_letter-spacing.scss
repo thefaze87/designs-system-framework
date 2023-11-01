@@ -1,0 +1,8 @@
+/*
+	Letter Spacing
+	Function to return the letter spacing based on tracking value passed
+*/
+
+@function letter-spacing($tracking) {
+	@return math.div($tracking, 1000) * 1em;
+}

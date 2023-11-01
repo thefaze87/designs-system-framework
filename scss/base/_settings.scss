@@ -1,0 +1,97 @@
+@use 'sass:list';
+@use 'sass:map';
+
+///
+/// Distributed root path (set to includes folder)
+///
+/// @group 1-Base
+/// @author Mark Fasel
+/// @access public
+///
+$dist-path: '/includes/' !default;
+
+///
+/// Use namespace
+/// Boolean variable that is used if we want to set a namespace and integrate a namespace into class names. Not currently being used.
+///
+/// @group 1-Base
+/// @author Mark Fasel
+/// @access public
+/// @example scss - Use Namespace variable
+/// 	$use-namespace: 'true'
+///
+$use-namespace: 'false' !default;
+
+///
+/// Namespace
+/// This is to set a namespace and would be integrated into classes for to prefix with the namespace. Not currently being used.
+///
+/// @group 1-Base
+/// @author Mark Fasel
+/// @access public
+/// @example scss - Namespace variable
+/// 	$namespace: 'csx'
+///
+$namespace: 'sui' !default;
+
+///
+/// Separator
+/// The separator string value for separating the namespace and the class name (default is '-'). Not currently being used.
+///
+/// @group 1-Base
+/// @author Mark Fasel
+/// @access public
+/// @example scss - Separator variable
+/// 	$separator: '-'
+///
+$separator: '-' !default;
+
+///
+/// Use custom font
+/// Boolean variable to use custom font. This would be used and integrated in situations where we may want to use a custom font and not a Google font.
+/// Used to build custom font styles, weights, and font-family rules. Not currently being used.
+///
+/// @group 1-Base
+/// @author Mark Fasel
+/// @access public
+/// @example scss - Use custom font variable
+/// 	$use-custom-font: 'false'
+///
+$use-custom-font: 'false' !default;
+
+///
+/// Use scope reset
+/// Boolean variable to set the reset to a scope reset with a class name name. Not currently being used.
+///
+/// @group 1-Base
+/// @author Mark Fasel
+/// @access public
+/// @example scss - Use scope reset variable
+/// 	$use-scope-reset: 'false'
+///
+$use-scope-reset: 'false' !default;
+
+///
+/// Scope reset prefix
+/// Prefix for scope reset. This is used for the scope reset class name. Not currently being used.
+///
+/// @group 1-Base
+/// @author Mark Fasel
+/// @access public
+/// @example scss - Scope reset prefix variable
+/// 	$scope-reset-prefix: 'false'
+///
+$scope-reset-prefix: '' !default;
+
+///
+/// Global prefixes
+/// These are global prefixes that are defined and can be integrated into component / utility class names as alternative names or extending the current class naming convention.
+/// Not currently being used.
+///
+/// @group 1-Base
+/// @author Mark Fasel
+/// @access public
+/// @example scss - Global prefixes variable
+/// 	$global-prefixes: ('gp', 'cx', 'ep', 'ms')
+///
+$global-prefixes: ('gp', 'cx', 'ep', 'ms');

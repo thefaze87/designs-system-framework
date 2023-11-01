@@ -1,0 +1,30 @@
+@use '../../base/variables/' as *;
+@use '../../base/functions/rem-em' as *;
+
+// Button Base Placeholder
+%btn-base {
+	position: relative;
+	text-align: center;
+	padding: #{get-rem(6)} #{get-rem(12)};
+	outline: none;
+	white-space: nowrap;
+	display: inline-flex;
+	place-items: center;
+	place-content: center;
+	gap: #{get-rem(8)};
+	height: auto;
+	font: {
+		family: var(--primary-font);
+		size: #{get-rem(16)};
+		weight: 500;
+	}
+	line-height: 150%;
+	background-color: var(--btn-bg-color, var(--scorp-blue));
+	color: var(--btn-color, var(--white));
+	border-radius: #{get-rem(8)};
+	transition:
+		color #{$transition-default},
+		background-color #{$transition-default},
+		box-shadow #{$transition-default},
+		box-shadow #{$transition-default};
+}

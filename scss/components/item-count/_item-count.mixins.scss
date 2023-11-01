@@ -1,0 +1,28 @@
+// Base Functions
+@use '../../base/functions/rem-em' as *;
+
+// Base Variables
+@use '../../base/variables/var' as *;
+
+///
+/// Item Count Base Placeholder
+/// Creates the base placeholder for the header component
+///
+/// @group 6-components
+/// @author Mark Fasel
+/// @access public
+///
+%item-count-base {
+	background-color: var(--item-count-bg-color);
+	color: var(--item-count-color);
+	border-radius: $border-radius;
+	padding: {
+		top: 0;
+		right: #{get-rem(7)};
+		bottom: 0;
+		left: #{get-rem(7)};
+	}
+	font-size: #{get-rem(14)};
+	line-height: #{get-rem(20)};
+	font-weight: 600;
+}

@@ -1,0 +1,28 @@
+// Global base utils
+@use '../../base/functions/rem-em' as *;
+@use '../../base/mixins/display' as *;
+@use '../../base/variables/colors/status' as *;
+
+// Component Mixins
+@use './tags.mixins' as *;
+
+.tag {
+	@extend %tag-base;
+
+	// Create modifiers for tag colors (Ex: .tag--red)
+	@each $color in $status-colors {
+		&--#{nth($color,1)} {
+			--tag-primary: var(--status-#{nth($color, 1)}-primary);
+			--tag-accent: var(--status-#{nth($color, 1)}-accent);
+		}
+	}
+
+	// Chip Group
+	&__group {
+		@include flex-display($align-items: flex-start, $gap: #{get-rem(4)});
+
+		&--stacked {
+			@include flex-display($direction: column, $align-items: flex-start, $gap: #{get-rem(4)});
+		}
+	}
+}

@@ -1,0 +1,19 @@
+// Input Select Theme Styles - CSX
+.input-select {
+	--input-border-color: var(--scorp-gray3);
+	--input-text-color: var(--scorp-black);
+	--input-bg-color: var(--white);
+	&:hover {
+		--input-border-color: var(--scorp-gray2);
+	}
+	&:focus {
+		--input-border-color: var(--scorp-blue);
+	}
+	.invalid & {
+		--input-border-color: var(--red);
+		--input-bg-color: rgba($red, 5%);
+	}
+	.focused.invalid & {
+		--input-border-color: var(--red);
+	}
+}

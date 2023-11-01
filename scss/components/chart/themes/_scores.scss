@@ -1,0 +1,102 @@
+.theme--score{
+	.ichart,
+	.ichart2,
+	&.ichart,
+	&.ichart2 {
+		> span:first-of-type {
+			--chart-color: #007ffd;
+			--chart-bg-color: #007ffd;
+			--chart-border-color: #007ffd;
+			// --chart-bg-image:;
+		}
+		> span:nth-of-type(2) {
+			--chart-color: #23bf57;
+			--chart-bg-color: #23bf57;
+			--chart-border-color: #23bf57;
+			// --chart-bg-image:;
+		}
+		> span:nth-of-type(3) {
+			--chart-color: #c7ab05;
+			--chart-bg-color: #c7ab05;
+			--chart-border-color: #c7ab05;
+			// --chart-bg-image:;
+		}
+		> span:nth-of-type(4) {
+			--chart-color: #f88622;
+			--chart-bg-color: #f88622;
+			--chart-border-color: #f88622;
+			// --chart-bg-image:;
+		}
+		> span:nth-of-type(5) {
+			--chart-color: #d12b1c;
+			--chart-bg-color: #d12b1c;
+			--chart-border-color: #d12b1c;
+			// --chart-bg-image:;
+		}
+	}
+}
+
+.theme--score {
+	tr.legend--row, li.legend--item {
+		&:first-of-type {
+			.bull,
+			.bar,
+			.line,
+			.dash,
+			&.bull,
+			&.bar,
+			&.line,
+			&.dash  {
+				--chart-bg-color: rgb(0, 127, 253); // #007ffd
+			}
+		}
+		&:nth-of-type(2) {
+			.bull,
+			.bar,
+			.line,
+			.dash,
+			&.bull,
+			&.bar,
+			&.line,
+			&.dash {
+				--chart-bg-color: rgb(35, 191, 87);
+			}
+		}
+		&:nth-of-type(3) {
+			.bull,
+			.bar,
+			.line,
+			.dash,
+			&.bull,
+			&.bar,
+			&.line,
+			&.dash  {
+				--chart-bg-color: rgb(199, 171, 5);
+			}
+		}
+		&:nth-of-type(4) {
+			.bull,
+			.bar,
+			.line,
+			.dash,
+			&.bull,
+			&.bar,
+			&.line,
+			&.dash  {
+				--chart-bg-color: rgb(248, 134, 34);
+			}
+		}
+		&:nth-of-type(5) {
+			.bull,
+			.bar,
+			.line,
+			.dash,
+			&.bull,
+			&.bar,
+			&.line,
+			&.dash  {
+				--chart-bg-color: rgb(209, 43, 28);
+			}
+		}
+	}
+}

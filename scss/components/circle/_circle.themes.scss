@@ -1,0 +1,61 @@
+@use '../../base/functions/rem-em' as *;
+@use '../../base/variables/colors/contracts' as *;
+@use '../../base/variables/colors/social' as *;
+
+.circle {
+	--bg-color: var(--scorp-blue);
+	--text-color: var(--white);
+
+	&.progress-circle {
+		--bg-color: transparent;
+		& span {
+			--progress-circle-span-color: var(--scorp-blue);
+		}
+		&--white {
+			canvas:last-child {
+				--progress-circle-last-canvas-color: var(--white);
+			}
+		}
+	}
+
+	// // Contract Colors
+	// @each $contract-type, $value in $contract-color-values {
+	// 	&--#{$contract-type} {
+	// 		--bg-color: var(--#{$contract-type});
+	// 	}
+	// }
+
+	// Social Colors
+	@each $social-type, $value in $social-media {
+		&--#{$social-type} {
+			--bg-color: var(--#{$social-type});
+		}
+	}
+
+	// Sizes (deprecated) for dynamic class sizes using a more BEM approach: .circle--size-24
+	// Kept for current legacy/testing
+	&.size-auto {
+		width: auto;
+		height: auto;
+	}
+	&.size-24 {
+		width: #{get-rem(24)};
+		height: #{get-rem(24)};
+	}
+	&.size-48 {
+		width: #{get-rem(48)};
+		height: #{get-rem(48)};
+	}
+	&.size-64 {
+		width: #{get-rem(64)};
+		height: #{get-rem(64)};
+	}
+	&.size-72 {
+		width: #{get-rem(72)};
+		height: #{get-rem(72)};
+	}
+	&.size-96 {
+		width: #{get-rem(96)};
+		height: #{get-rem(96)};
+	}
+}

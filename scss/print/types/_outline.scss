@@ -1,0 +1,42 @@
+@use 'sass:color';
+@use 'sass:map' as map;
+
+@use '../../base/functions/rem-em' as *;
+@use '../../base/variables/borders/outline-width-offset' as width;
+@use '../../base/variables/borders/outline-style' as style;
+@use '../mixins/print' as *;
+
+@include print() {
+	@each $width in width.$outline-widths {
+		// As REM
+		.print-o-#{$width} {
+			outline-width: get-rem($width);
+		}
+
+		// As Pixel
+		.print-o-#{$width}-px {
+			outline-width: #{$width} + 'px';
+		}
+
+		// As REM
+		.print-o-offset-#{$width} {
+			outline-offset: get-rem($width);
+		}
+
+		// As Pixel
+		.print-o-offset-#{$width}-px {
+			outline-offset: #{$width} + 'px';
+		}
+	}
+
+	@each $style in style.$outline-styles {
+		.print-o-#{$style} {
+			@if ($style == 'none') {
+				outline: 2px solid transparent;
+				outline-offset: get-rem(2);
+			} @else {
+				outline-style: #{$style};
+			}
+		}
+	}
+}

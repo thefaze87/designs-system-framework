@@ -1,0 +1,108 @@
+@use "../../base/functions/rem-em" as *;
+@use "../../base/variables/layout/spacing" as *;
+
+///
+/// Spacing Utilities
+/// Classes for gap, margin, padding
+///
+/// @group 5-utilities
+/// @author Anthony Minnaugh
+/// @access public
+///
+@each $size-class, $space in $spaces {
+	// Margin Utility Classes
+	.mar-#{$size-class},
+	.m-#{$size-class} {
+		margin: #{get-rem($space)};
+	}
+	.mar-horz-#{$size-class},
+	.mh-#{$size-class} {
+		margin-left: #{get-rem($space)};
+		margin-right: #{get-rem($space)};
+	}
+	.mar-vert-#{$size-class},
+	.mv-#{$size-class} {
+		margin-top: #{get-rem($space)};
+		margin-bottom: #{get-rem($space)};
+	}
+	.mar-top-#{$size-class},
+	.mt-#{$size-class} {
+		margin-top: #{get-rem($space)};
+	}
+	.mar-right-#{$size-class},
+	.mr-#{$size-class} {
+		margin-right: #{get-rem($space)};
+	}
+	.mar-bottom-#{$size-class},
+	.mb-#{$size-class} {
+		margin-bottom: #{get-rem($space)};
+	}
+	.mar-left-#{$size-class},
+	.ml-#{$size-class} {
+		margin-left: #{get-rem($space)};
+	}
+
+	// Margin Auto Utility Classes
+	.mar-auto,
+	.m-auto {
+		margin: auto;
+	}
+	.mar-horz-auto,
+	.m-h-auto {
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.mar-vert-auto,
+	.m-v-auto {
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+	.mar-top-auto,
+	.m-t-auto {
+		margin-top: auto;
+	}
+	.mar-right-auto,
+	.m-r-auto {
+		margin-right: auto;
+	}
+	.mar-bottom-auto,
+	.m-b-auto {
+		margin-bottom: auto;
+	}
+	.mar-left-auto,
+	.m-l-auto {
+		margin-left: auto;
+	}
+
+	// Padding Utility Classes
+	.pad-#{$size-class},
+	.p-#{$size-class} {
+		padding: #{get-rem($space)};
+	}
+	.pad-horz-#{$size-class},
+	.ph-#{$size-class} {
+		padding-left: #{get-rem($space)};
+		padding-right: #{get-rem($space)};
+	}
+	.pad-vert-#{$size-class},
+	.pv-#{$size-class} {
+		padding-top: #{get-rem($space)};
+		padding-bottom: #{get-rem($space)};
+	}
+	.pad-top-#{$size-class},
+	.pt-#{$size-class} {
+		padding-top: #{get-rem($space)};
+	}
+	.pad-right-#{$size-class},
+	.pr-#{$size-class} {
+		padding-right: #{get-rem($space)};
+	}
+	.pad-bottom-#{$size-class},
+	.pb-#{$size-class} {
+		padding-bottom: #{get-rem($space)};
+	}
+	.pad-left-#{$size-class},
+	.pl-#{$size-class} {
+		padding-left: #{get-rem($space)};
+	}
+}

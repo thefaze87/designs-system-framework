@@ -1,0 +1,100 @@
+// Additional Colors Definition
+$black: #000000;
+$white: #ffffff;
+$blue: #2e73e5;
+$blue2: #123251;
+$blue3: #b3d9ff;
+$blue4: #2591fc;
+$blue5: #b2d6ff;
+$blue6: #1867ff;
+$blue7: #d8eaff;
+$cyan: #20beea;
+$cyan2: #e9f9fd;
+$gray: #3f3f3f;
+$gray2: #e5e6ea;
+$gray3: #f8f8fa;
+$gray4: #dddee3;
+$gray5: #e8e8ec;
+$gray6: #ededee;
+$green: #23bf57;
+$green2: #158B3C;
+$green3: #8de0a8;
+$green4: #e9f9e6;
+$green5: #def6e6;
+$green6: #bdeccd;
+$green7: #e9f9ee;
+$orange: #ff7600;
+$orange2: #ffe0c6;
+$midnight-blue: #004080;
+$purple: #a161f1;
+$purple2: #f6f0fe;
+$red: #d12b1c;
+$red2: #fbeae8;
+$red3: #ff7272;
+$red4: #f8dfdd;
+$red5: #f1bfbb;
+$red6: #faeae8;
+$teal: #35c1c4;
+$teal2: #cceff0;
+$yellow: #edae03;
+$yellow2: #fef7e6;
+$yellow3: #fae7b3;
+$yellow4: #fdf7e6;
+$text: #626265;
+
+/// Additional Colors
+$excellent: $green; // Green
+$bogus: $red; // Red
+$tooltip: #09325c;
+
+// Additional Colors Map
+$general-colors: (
+	'black': $black,
+	'white': $white,
+	'blue': $blue,
+	'blue2': $blue2,
+	'blue3': $blue3,
+	'blue4': $blue4,
+	'blue5': $blue5,
+	'blue6': $blue6,
+	'blue7': $blue7,
+	'border': $gray4,
+	'cyan': $cyan,
+	'cyan2': $cyan2,
+	'gray': $gray,
+	'gray2': $gray2,
+	'gray3': $gray3,
+	'gray4': $gray4,
+	'gray5': $gray5,
+	'gray6': $gray6,
+	'green': $green,
+	'green2': $green2,
+	'green3': $green3,
+	'green4': $green4,
+	'green5': $green5,
+	'green6': $green6,
+	'green7': $green7,
+	'orange': $orange,
+	'orange2': $orange2,
+	'midnight-blue': $midnight-blue,
+	'purple': $purple,
+	'purple2': $purple2,
+	'red': $red,
+	'red2': $red2,
+	'red3': $red3,
+	'red4': $red4,
+	'red5': $red5,
+	'red6': $red6,
+	'teal': $teal,
+	'teal2': $teal2,
+	'yellow': $yellow,
+	'yellow2': $yellow2,
+	'yellow3': $yellow3,
+	'yellow4': $yellow4,
+	'text': $text,
+	'accent-tertiary': $blue5,
+	'accent-quarternary': $blue7,
+	'excellent': $excellent,
+	'bogus': $bogus,
+	'tooltip': $tooltip,
+);

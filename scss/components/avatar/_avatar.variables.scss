@@ -1,0 +1,120 @@
+@use '../../base/functions/rem-em' as *;
+
+// Avatar Padding Top
+$avatar-pad-top: #{get-rem(2)};
+
+// Avatar Padding Right
+$avatar-pad-right: #{get-rem(8)};
+
+// Avatar Padding Bottom
+$avatar-pad-bottom: #{get-rem(2)};
+
+// Avatar Padding Left
+$avatar-pad-left: #{get-rem(8)};
+
+// Avatar Sizes
+$avatar-sizes-local: (
+	'24': (
+		'height': 24,
+		'width': 24,
+		'radius': 6,
+		'size': 10,
+		'line-height': 20,
+	),
+	'36': (
+		'height': 36,
+		'width': 36,
+		'radius': 8,
+		'size': 14,
+		'line-height': 36,
+	),
+	'40': (
+		'height': 40,
+		'width': 40,
+		'radius': 10,
+		'size': 16,
+		'line-height': 40,
+	),
+	'44': (
+		'height': 44,
+		'width': 44,
+		'radius': 10,
+		'size': 16,
+		'line-height': 44,
+	),
+	'48': (
+		'height': 48,
+		'width': 48,
+		'radius': 11,
+		'size': 20,
+		'line-height': 48,
+	),
+	'64': (
+		'height': 64,
+		'width': 64,
+		'radius': 14,
+		'size': 26,
+		'line-height': 64,
+	),
+	'72': (
+		'height': 72,
+		'width': 72,
+		'radius': 15,
+		'size': 32,
+		'line-height': 72,
+	),
+	'96': (
+		'height': 96,
+		'width': 96,
+		'radius': 16,
+		'size': 40,
+		'line-height': 96,
+	),
+	'128': (
+		'height': 128,
+		'width': 128,
+		'radius': 20,
+		'size': 56,
+		'line-height': 128,
+	),
+);
+
+// Avatar Colors
+$avatar-colors: (
+	'blue1': (
+		'bg': #00264d,
+		'text': #ffffff,
+	),
+	'blue2': (
+		'bg': #004080,
+		'text': #ffffff,
+	),
+	'blue3': (
+		'bg': #005ab3,
+		'text': #ffffff,
+	),
+	'blue4': (
+		'bg': #1867ff,
+		'text': #ffffff,
+	),
+	'blue5': (
+		'bg': #007ffd,
+		'text': #ffffff,
+	),
+	'blue6': (
+		'bg': #0d98e3,
+		'text': #ffffff,
+	),
+	'blue7': (
+		'bg': #0cacdf,
+		'text': #ffffff,
+	),
+	'blue8': (
+		'bg': #496de7,
+		'text': #ffffff,
+	),
+	'gray': (
+		'bg': #86898f,
+		'text': #ffffff,
+	),
+);

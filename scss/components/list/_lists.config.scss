@@ -1,0 +1,61 @@
+@use '../../base/variables/colors/branding' as *;
+@use '../../base/functions/rem-em' as *;
+@use './lists.mixins' as *;
+
+.list {
+	padding: 0;
+	list-style: none;
+
+	& > li {
+		break-inside: avoid-column;
+		margin-top: get-rem(10);
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+	&--disc,
+	&--decimal,
+	&--circle,
+	&--hyphen,
+	&--square {
+		& > li {
+			break-inside: avoid-column;
+			margin-top: get-rem(8);
+			padding-left: get-rem(24);
+			position: relative;
+
+			&:first-child {
+				margin-top: 0;
+			}
+
+			&::before {
+				content: '';
+				position: absolute;
+				left: get-rem(8);
+				display: list-item;
+				list-style-position: inside;
+				text-align: right;
+				font-size: get-rem(14);
+			}
+		}
+	}
+
+	&--decimal {
+		counter-reset: decimal;
+		& > li {
+			counter-increment: decimal;
+		}
+	}
+
+	// Reset padding for cards used inside the list component
+	.card {
+		padding: {
+			top: get-rem(14);
+			right: get-rem(16);
+			bottom: get-rem(14);
+			left: get-rem(16);
+		}
+	}
+}

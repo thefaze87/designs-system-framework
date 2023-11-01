@@ -1,0 +1,39 @@
+@use '../../../base/variables/colors/index' as *;
+@use '../../../base/functions/hex-to-rgb' as *;
+
+$box-shadow: scale-color(
+	$color: $scorp-gray2,
+	$alpha: -90%,
+);
+
+.input-suggest {
+	.suggestions {
+		--suggestions-bg: var(--white);
+		--suggestions-box-shadow: 0 10px 30px #{$box-shadow};
+		& > ul {
+			&.divide-bottom {
+				--suggestions-divide-border: var(--border);
+			}
+			> li {
+				input {
+					~ label.suggest--label {
+						--suggestions-label-bg: var(--white);
+						--suggestions-label-color: var(--scorp-black);
+						&:hover {
+							--suggestions-label-bg: var(--scorp-gray1);
+						}
+					}
+					&:checked {
+						~ label.suggest--label {
+							--suggestions-label-bg: var(--scorp-blue4);
+
+							&:hover {
+								--suggestions-label-bg: var(--scorp-gray1);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

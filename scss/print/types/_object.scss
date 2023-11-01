@@ -1,0 +1,15 @@
+@use '../../base/variables/layout/object' as *;
+@use '../mixins/print' as *;
+
+@include print() {
+	@each $property in $object-fit-properties {
+		.print-object-#{$property} {
+			object-fit: #{$property};
+		}
+	}
+	@each $class, $property in $object-position-properties {
+		.print-#{$class} {
+			object-position: #{$property};
+		}
+	}
+}

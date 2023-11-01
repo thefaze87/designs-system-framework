@@ -1,0 +1,115 @@
+.theme--rating {
+	&-4-color {
+		.ichart,
+		.ichart2 {
+			> span:first-of-type {
+				--chart-color: rgb(35, 191, 87);
+				--chart-bg-color: rgb(35, 191, 87);
+			}
+			> span:nth-of-type(2) {
+				--chart-color: rgb(199, 171, 5);
+				--chart-bg-color: rgb(199, 171, 5);
+			}
+			> span:nth-of-type(3) {
+				--chart-color: rgb(209, 43, 28);
+				--chart-bg-color: rgb(209, 43, 28);
+			}
+			> span:nth-of-type(4) {
+				--chart-color: rgb(134, 137, 143);
+				--chart-bg-color: rgb(134, 137, 143);
+			}
+		}
+	}
+	&-4-color-no-gray {
+		.ichart,
+		.ichart2 {
+			> span:first-of-type {
+				--chart-bg-image: linear-gradient(to bottom, #4dc97a, #9eddb5);
+			}
+			> span:nth-of-type(2) {
+				--chart-bg-image: linear-gradient(to bottom, #eebc36, #f0d691);
+			}
+			> span:nth-of-type(3) {
+				--chart-bg-image: linear-gradient(to bottom, #f79e50, #f5c39a);
+			}
+			> span:nth-of-type(4) {
+				--chart-bg-image: linear-gradient(to bottom, #d85549, #e49d98);
+			}
+		}
+	}
+}
+
+.theme--rating {
+	&-4-color {
+		.legend {
+			.legend--item {
+				&:first-of-type {
+					.bull::before,
+					.bar::before,
+					.line::before {
+						--chart-bg-color: rgb(35, 191, 87);
+					}
+				}
+				&:nth-of-type(2) {
+					.bull::before,
+					.bar::before,
+					.line::before {
+						--chart-bg-color: rgb(199, 171, 5);
+					}
+				}
+				&:nth-of-type(3) {
+					.bull::before,
+					.bar::before,
+					.line::before {
+						--chart-bg-color: rgb(209, 43, 28);
+					}
+				}
+				&:nth-of-type(4) {
+					.bull::before,
+					.bar::before,
+					.line::before {
+						--chart-bg-color: rgb(134, 137, 143);
+					}
+				}
+			}
+		}
+	}
+	&-4-color-no-gray {
+		.legend {
+			.legend--item {
+				&:first-of-type {
+					.bull::before,
+					.bar::before,
+					.line::before,
+					.dash::before {
+						--chart-bg-color: #4dc97a;
+					}
+				}
+				&:nth-of-type(2) {
+					.bull::before,
+					.bar::before,
+					.line::before,
+					.dash::before {
+						--chart-bg-color: #eebc36;
+					}
+				}
+				&:nth-of-type(3) {
+					.bull::before,
+					.bar::before,
+					.line::before,
+					.dash::before {
+						--chart-bg-color: #f79e50;
+					}
+				}
+				&:nth-of-type(4) {
+					.bull::before,
+					.bar::before,
+					.line::before,
+					.dash::before {
+						--chart-bg-color: #d85549;
+					}
+				}
+			}
+		}
+	}
+}

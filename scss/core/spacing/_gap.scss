@@ -1,0 +1,27 @@
+@use "../../base/functions/rem-em" as *;
+@use "../../base/variables/layout/spacing" as *;
+
+///
+/// Gap Spacing Utilities
+/// Classes for gap, margin, padding
+///
+/// @group 2-Core
+/// @author Anthony Minnaugh
+/// @access public
+///
+@each $sizeClass, $space in $spaces {
+	// Gap Utility Classes (don't include for size 0) - For Flex/Grid usage
+	@if not($sizeClass == '0') {
+		.gap-#{$sizeClass} {
+			gap: #{get-rem($space)};
+		}
+		.gap-horz-#{$sizeClass},
+		.gap-h-#{$sizeClass} {
+			row-gap: #{get-rem($space)};
+		}
+		.gap-vert-#{$sizeClass},
+		.gap-v-#{$sizeClass} {
+			column-gap: #{get-rem($space)};
+		}
+	}
+}

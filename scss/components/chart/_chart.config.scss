@@ -1,0 +1,92 @@
+@use '../../base/functions/rem-em' as *;
+
+@use './chart.animations' as *;
+
+.ichart:not([class*='ctrl-']),
+.ichart2:not([class*='ctrl-']),
+.chart-group {
+	position: relative;
+}
+
+.container--chart {
+	.ichart + .legend,
+	.ichart2 + .legend {
+		margin-top: get-rem(8);
+	}
+}
+
+.ichart,
+.ichart2 {
+	// Set our css custom properties declarations for the chart (color and bg color)
+	& > span {
+		background-color: var(--chart-bg-color);
+		background-image: var(--chart-bg-image);
+		color: var(--chart-color);
+	}
+
+	// Set our css custom property declaration for line-chart-dot color for border
+	.chart-dot-container {
+		& > .line-chart-dot {
+			border-color: var(--chart-border-color);
+		}
+	}
+
+	[data-name],
+	[data-name] {
+		display: none;
+	}
+
+	[aria-role='foreground'],
+	[aria-role='background'] {
+		opacity: 0;
+	}
+
+	[aria-role='foreground'] {
+		animation: load-chart-foreground 0.6s cubic-bezier(0.3, 1, 0.6, 1) 0.2s 1 forwards;
+	}
+	[aria-role='background'] {
+		animation: load-chart-background 0.4s cubic-bezier(0.3, 1, 0.6, 1) 0.2s 1 forwards;
+	}
+	@supports not (aspect-ratio: 1/1) {
+		&::before {
+			content: '';
+			display: block;
+			padding-bottom: 21.38%;
+		}
+	}
+}
+
+// Chart Sizing maybe????
+.chart {
+	&__sm {
+		height: get-rem(187);
+	}
+}
+.chart {
+	&__md {
+		height: get-rem(295);
+	}
+}
+
+@supports not (aspect-ratio: 1/1) {
+	// Adjust the bottom padding based on the width of the container
+	.half .ichart:not(.pie-chart)::before,
+	.half .ichart2:not(.pie-chart)::before {
+		padding-bottom: 48%;
+	}
+
+	.third .ichart:not(.pie-chart)::before,
+	.third .ichart2:not(.pie-chart)::before {
+		padding-bottom: 70%;
+	}
+
+	.two-thirds .ichart:not(.pie-chart)::before,
+	.third .ichart2:not(.pie-chart)::before {
+		padding-bottom: 42%;
+	}
+
+	.three-fourths .ichart:not(.pie-chart)::before,
+	.three-fourths .ichart2:not(.pie-chart)::before {
+		padding-bottom: 40%;
+	}
+}

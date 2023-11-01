@@ -1,0 +1,80 @@
+@use '../../base/variables/var' as v;
+@use '../../base/variables/colors/index' as *;
+@use '../../base/functions/rem-em' as *;
+
+// Box Shadow Variables
+$box-shadow-inner: inset 0 0 0 2px var(--box-shadow-color-inner);
+$box-shadow-outer: 0 #{get-rem(3)} #{get-rem(24)} rgba($scorp-black, 20%);
+// Box Shadow By Side Defaults
+$box-shadow-top-inner: inset 0 -1px 0 var(--box-shadow-color-inner);
+$box-shadow-right-inner: inset -1px 0 0 var(--box-shadow-color-inner);
+$box-shadow-bottom-inner: inset 0 1px 0 var(--box-shadow-color-inner);
+$box-shadow-left-inner: inset 1px 0 0 var(--box-shadow-color-inner);
+$box-shadow-full-inner: inset 0 0 0 1px var(--box-shadow-color-inner);
+
+// Cell Default Options
+$box-shadow-cell-inner: #{$box-shadow-top-inner}, #{$box-shadow-bottom-inner};
+$box-shadow-first-cell-inner: #{$box-shadow-top-inner}, #{$box-shadow-bottom-inner}, #{$box-shadow-left-inner};
+$box-shadow-last-cell-inner: #{$box-shadow-top-inner}, #{$box-shadow-bottom-inner}, #{$box-shadow-right-inner};
+$box-shadow-only-cell-inner: #{$box-shadow-full-inner};
+
+// Box Shadow By Side Hover/Active State
+$box-shadow-top-inner-active: inset 0 -2px 0 var(--box-shadow-color-inner);
+$box-shadow-right-inner-active: inset -2px 0 0 var(--box-shadow-color-inner);
+$box-shadow-bottom-inner-active: inset 0 2px 0 var(--box-shadow-color-inner);
+$box-shadow-left-inner-active: inset 2px 0 0 var(--box-shadow-color-inner);
+$box-shadow-full-inner-active: inset 0 0 0 2px var(--box-shadow-color-inner);
+
+$box-shadow-cell-inner-active: #{$box-shadow-top-inner-active}, #{$box-shadow-bottom-inner-active};
+$box-shadow-first-cell-inner-active: #{$box-shadow-top-inner-active}, #{$box-shadow-bottom-inner-active}, #{$box-shadow-left-inner-active};
+$box-shadow-last-cell-inner-active: #{$box-shadow-top-inner-active}, #{$box-shadow-bottom-inner-active}, #{$box-shadow-right-inner-active};
+$box-shadow-only-cell-inner-active: #{$box-shadow-full-inner-active};
+
+//table head first of type
+%first-of-type {
+	border-top-left-radius: v.$border-radius;
+	border-bottom-left-radius: v.$border-radius;
+	padding-left: get-rem(16);
+}
+
+//table head last of type
+%last-of-type {
+	border-top-right-radius: v.$border-radius;
+	border-bottom-right-radius: v.$border-radius;
+	padding-right: get-rem(16);
+}
+
+//table body td first of type
+%td-first-of-type {
+	// @extend %th-first-of-type;
+	@extend %first-of-type;
+}
+
+//table body td last of type
+%td-last-of-type {
+	@extend %last-of-type;
+}
+
+//table body td only child
+%td-only-child {
+	@extend %first-of-type;
+	@extend %last-of-type;
+}
+
+//spacing for pill and twirl table rows
+%pill-table-spacing {
+	border-collapse: separate;
+	border-spacing: 0 get-rem(4);
+}
+
+%pill-table-tr-border {
+	border-top-left-radius: v.$border-radius;
+	border-top-right-radius: v.$border-radius;
+	border-bottom-right-radius: v.$border-radius;
+	border-bottom-left-radius: v.$border-radius;
+}
+
+%tr-hover-shadow {
+	box-shadow: $box-shadow-outer, $box-shadow-inner;
+	border-radius: get-rem(8);
+}

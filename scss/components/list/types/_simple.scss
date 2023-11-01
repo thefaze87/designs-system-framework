@@ -1,0 +1,31 @@
+// Simple list type. This includes list styles for simple lists that are generic vs specific component or page styles.
+@use '@scorpion/shared-ui/scss/base/variables/colors/branding' as *;
+@use '@scorpion/shared-ui/scss/base/functions/rem-em' as *;
+@use '../lists.mixins' as *;
+
+.list {
+	$list-element: &; // Reference to .list
+
+	&__simple {
+		@extend %no-list-style;
+
+		#{$list-element}--item {
+			margin-top: get-rem(8);
+			padding-top: get-rem(8);
+			&:first-child {
+				margin-top: 0;
+				padding-top: 0;
+			}
+
+			&-bdr {
+				border-top: 1px solid var(--border);
+			}
+
+			&-row {
+				display: flex;
+				gap: get-rem(16);
+				align-items: center;
+			}
+		}
+	}
+}

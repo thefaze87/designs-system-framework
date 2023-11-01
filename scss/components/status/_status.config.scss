@@ -1,0 +1,11 @@
+@use './status.mixins' as *;
+
+// Status
+.status {
+	@extend %status-base;
+
+	@extend %status-datatype;
+	&__workflow {
+		@extend %status-workflow;
+	}
+}

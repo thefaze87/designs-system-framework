@@ -1,0 +1,94 @@
+@use '../../../base/functions/rem-em' as *;
+@use '../../../base/variables/colors/branding' as *;
+
+///
+/// Pie Chart Styles
+///
+/// @group 6-components
+/// @author Anthony Minnaugh and Mark Fasel
+/// @access public
+///
+.ichart,
+.ichart2 {
+	&.pie-chart {
+		background-color: rgba(242,242,245, 0.5);
+		border-radius: 50%;
+		&.progress-circle {
+			.center {
+				box-shadow: none !important;
+				.title {
+					opacity: 0 !important;
+					visibility: hidden !important;
+				}
+			}
+			.cms-tooltip2 {
+				display: none !important;
+			}
+		}
+		width: get-em(300);
+
+		.center {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			border-radius: 50%;
+			display: flex;
+			flex-direction: column;
+			align-content: center;
+			justify-content: center;
+			background-color: var(--white);
+			box-shadow: 0px 2px 4px rgba(25,25,25, 0.2);
+			transform: translate(-50%, -50%);
+			width: get-em(225);
+			height: get-em(225);
+		}
+
+		&.mini {
+			width: get-em(64);
+
+			& .center {
+				height: get-em(48);
+				width: get-em(48);
+			}
+		}
+		&.xsmall {
+			width: get-em(150);
+
+			& .center {
+				width: get-em(112);
+				height: get-em(112);
+			}
+		}
+		&.small {
+			width: get-em(224);
+
+			& .center {
+				width: get-em(168);
+				height: get-em(168);
+			}
+		}
+		&.medium {
+			width: get-em(288);
+
+			& .center {
+				width: get-em(213);
+				height: get-em(213);
+			}
+		}
+		&.large {
+			width: get-em(400);
+			& .center {
+				width: get-em(300);
+				height: get-em(300);
+			}
+		}
+
+		&::before {
+			padding-bottom: 100%;
+		}
+
+		.cms-tooltip2 {
+			min-width: max-content !important;
+		}
+	}
+}

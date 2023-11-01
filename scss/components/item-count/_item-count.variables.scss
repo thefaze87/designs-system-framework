@@ -1,0 +1,23 @@
+@use '../../base/functions/rem-em' as *;
+@use '../../base/variables/var' as *;
+
+// Item Count Border Radius
+$item-count-border-radius: $border-radius;
+
+// Item Count BG Color
+$item-count-bg-color: var(--gray4);
+
+// Item Count Padding X
+$item-count-padding-x: #{get-rem(7)};
+
+// Item Count Padding Y
+$item-count-padding-y: 0;
+
+// Item Count Font Size
+$item-count-font-size: #{get-rem(14)};
+
+// Item CountLine Height
+$item-count-line-height: #{get-rem(20)};
+
+// Item Count Font Weight
+$item-count-font-weight: 600;

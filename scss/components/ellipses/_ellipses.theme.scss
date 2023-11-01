@@ -1,0 +1,13 @@
+.pop-btn,
+.ellipses {
+	--text-color: var(--scorp-black);
+	&::before {
+		--bg-color: transparent;
+	}
+	&:hover {
+		--text-color: var(--scorp-blue);
+		&::before {
+			--bg-color: var(--blue7);
+		}
+	}
+}

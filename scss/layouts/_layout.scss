@@ -1,0 +1,51 @@
+@use '../base/functions/rem-em' as *;
+
+.container {
+	margin-top: get-rem(24);
+}
+
+// General full width class
+.full {
+	width: 100%;
+}
+
+.h-full {
+	height: 100%;
+}
+
+.sticky-header {
+	// @TODO: Temp. This is not showing defined on the main element so I added here temporarily. Check with Fish where we need to add this.
+	// --no-jump-padding: 14.25rem;
+	top: var(--no-jump-padding);
+}
+
+.gp-sticky {
+	position: sticky !important;
+	top: 0;
+	z-index: 5;
+	width: 100%;
+	transition: top 0.3s ease;
+}
+
+/* Added utils missing */
+// TODO Chat with Fish on where we want these utils
+.round {
+	border-radius: get-rem(8);
+	overflow: hidden;
+
+	&--with-border {
+		border: 1px solid rgb(var(--border));
+	}
+}
+
+// Testing for image utils
+.full-image {
+	& > img {
+		width: 100%; // Take up the space
+	}
+}
+
+// Created this here - missing style for header shadow / util
+.shadow {
+	box-shadow: 0 get-rem(4) get-rem(8) rgba(46, 89, 132, 0.2);
+}

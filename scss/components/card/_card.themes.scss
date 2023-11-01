@@ -1,0 +1,37 @@
+.card {
+	// Gray cards (also used for child card)
+	&--gray {
+		--bg-color: var(--gray3);
+	}
+
+	// Used on Strategy Screen. Chat with Fish if we need to support
+	&--light-blue {
+		--bg-color: var(--blue3);
+		--border-color: transparent;
+	}
+
+	// Card Status Modifiers
+	&.card__status--red,
+	&.card__status--error {
+		--bg-color: var(--red4);
+		--border-color: var(--red);
+	}
+
+	// Card Status Modifiers
+	&.card__status--yellow,
+	&.card__status--warning {
+		--card-bg-color: var(--status-gold-primary);
+		--card-border-color: var(--status-gold-accent);
+	}
+
+	&.card__status--green,
+	&.card__status--success {
+		--bg-color: var(--green5);
+		--border-color: var(--green);
+	}
+
+	&.card__status--blue {
+		--card-bg-color: var(--blue3);
+		--card-border-color: var(--scorp-blue);
+	}
+}

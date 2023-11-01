@@ -1,0 +1,33 @@
+@use '../base/variables/' as *;
+@use '../base/functions/rem-em' as *;
+// @use '../base/mixins/effects' as *;
+
+// Mixins
+@use '../base/mixins/positioning' as *;
+
+///
+/// Site main template file
+///
+/// @group 4-templates
+/// @author Mark Fasel
+/// @access public
+///
+///
+.main__container {
+	padding: 0 6.969em !important;
+	width: 100%;
+	max-width: 1920px;
+	margin: 0 auto;
+
+	// Top Line Navigation
+	.main__content {
+		position: relative;
+		gap: #{get-rem(24)};
+		max-width: 1920px;
+		padding: #{get-rem(40)} 0 #{get-rem(20)};
+	}
+
+	.main--side-nav {
+		background-color: transparent !important;
+	}
+}

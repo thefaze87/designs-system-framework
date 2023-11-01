@@ -1,0 +1,5 @@
+// Load in our Tag config that sets everything up
+@forward './tags.config';
+
+// Load in our Tag types
+@forward './types/avatar';

@@ -1,0 +1,123 @@
+@use '../../base/variables/layout/axis-control' as *;
+
+///
+/// Justify Utility Classes
+/// Classes for justify, items and self
+///
+/// @group 5-utilities
+/// @author Mark Fasel
+/// @access public
+///
+@each $justify-map in $justify-properties {
+	// Justify
+	.justify {
+		// Justify Content
+		$justify-content: map-get($justify-properties, 'content');
+		@each $class, $property in $justify-content {
+			&-#{$class} {
+				justify-content: $property;
+			}
+		}
+
+		// Justify Items
+		&-items {
+			$justify-items: map-get($justify-properties, 'items');
+			@each $class, $property in $justify-items {
+				&-#{$class} {
+					justify-items: $property;
+				}
+			}
+		}
+
+		// Justify Self
+		&-self {
+			$justify-self: map-get($justify-properties, 'self');
+			@each $class, $property in $justify-self {
+				&-#{$class} {
+					justify-self: $property;
+				}
+			}
+		}
+	}
+}
+
+///
+/// Align Utility Classes
+/// Classes for align, content, items and self
+///
+/// @group 5-utilities
+/// @author Mark Fasel
+/// @access public
+///
+@each $align-map in $align-properties {
+	// Align Content
+	.content {
+		$align-content: map-get($align-properties, 'content');
+		@each $class, $property in $align-content {
+			&-#{$class} {
+				align-content: $property;
+			}
+		}
+	}
+
+	// Align Items
+	.items {
+		$align-items: map-get($align-properties, 'items');
+		@each $class, $property in $align-items {
+			&-#{$class} {
+				align-items: $property;
+			}
+		}
+	}
+
+	// Align Self
+	.self {
+		$align-self: map-get($align-properties, 'self');
+		@each $class, $property in $align-self {
+			&-#{$class} {
+				align-self: $property;
+			}
+		}
+	}
+}
+
+///
+/// Place Utility Classes
+/// Classes for place, items and self
+///
+/// @group 5-utilities
+/// @author Mark Fasel
+/// @access public
+///
+@each $place-map in $place-properties {
+	// Place
+	.place {
+		// Place Content
+		$place-content: map-get($place-properties, 'content');
+		@each $class, $property in $place-content {
+			&-#{$class} {
+				place-content: $property;
+			}
+		}
+
+		// Place Items
+		&-items {
+			$place-items: map-get($place-properties, 'items');
+			@each $class, $property in $place-items {
+				&-#{$class} {
+					place-items: $property;
+				}
+			}
+		}
+
+		// Place Self
+		&-self {
+			$place-self: map-get($place-properties, 'self');
+			@each $class, $property in $place-self {
+				&-#{$class} {
+					place-self: $property;
+				}
+			}
+		}
+	}
+}

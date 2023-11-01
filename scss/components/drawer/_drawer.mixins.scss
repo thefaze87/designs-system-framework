@@ -1,0 +1,72 @@
+@use '../../base/variables/var' as *;
+@use '../../base/functions/rem-em' as *;
+
+// Slide Panel Left
+%drawer-left-base {
+	flex: 0 1 auto;
+	width: 100%;
+	background-color: var(--bg-color, transparent);
+	transition: var(--transition);
+}
+
+// Slide Panel Right
+%drawer-right-base {
+	position: fixed;
+	z-index: 9;
+	top: calc(var(--header__title-height) + #{get-rem(48)});
+	right: -100%;
+	flex: 0 0 auto;
+	height: 100vh;
+	padding: {
+		top: get-rem(48);
+		right: get-rem(0);
+		bottom: get-rem(48);
+		left: 0;
+	}
+	border-left: 1px solid var(--border-color, var(--border));
+	border-top-left-radius: $border-radius-large;
+	background-color: var(--bg-color, var(--white));
+	transition: var(--transition);
+}
+
+%drawer-close-btn {
+	position: absolute;
+	top: get-rem(8);
+	right: get-rem(8);
+	padding: get-rem(6);
+	width: get-rem(24);
+	height: get-rem(24);
+	border: 1px solid var(--border-color);
+	border-radius: 50%;
+	z-index: 15;
+	background: {
+		image: var(--bg-image);
+		position: 50% 50%;
+		repeat: no-repeat;
+		size: 50%;
+		color: var(--bg-color);
+	}
+	transition: var(--transition);
+}
+
+%content-container-invisible {
+	visibility: hidden;
+	opacity: 0;
+	pointer-events: none;
+	width: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+	transition: var(--transition);
+}
+
+%content-container-visible {
+	visibility: visible;
+	opacity: 1;
+	pointer-events: auto;
+	overflow: visible;
+	white-space: normal;
+	padding: {
+		left: get-rem(24);
+		right: get-rem(16);
+	}
+}

@@ -1,0 +1,50 @@
+@use '../../../base/functions/rem-em' as *;
+@use '../table.mixins' as *;
+
+.table--inner {
+	margin-left: get-rem(40);
+	min-width: calc(100% - #{get-rem(40)});
+	width: calc(100% - #{get-rem(40)});
+	position: relative;
+	border-collapse: separate;
+	border-spacing: 0 get-rem(4);
+	&::before {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		right: calc(100% + #{get-rem(35)});
+		width: 1px;
+		height: 100%;
+	}
+	// THEAD
+	thead {
+		tr {
+			box-shadow: none;
+			background-color: transparent;
+			th {
+				box-shadow: none;
+				line-height: 123%;
+				padding-bottom: get-rem(4);
+			}
+		}
+	}
+
+	// TBODY
+	> tbody {
+		> tr {
+			> td {
+				box-shadow: $box-shadow-cell-inner;
+				&:first-of-type {
+					@extend %first-of-type;
+					box-shadow: $box-shadow-first-cell-inner;
+				}
+				&:last-of-type {
+					@extend %last-of-type;
+					box-shadow: $box-shadow-last-cell-inner;
+					padding-right: get-rem(16) !important;
+				}
+			}
+		}
+	}
+}

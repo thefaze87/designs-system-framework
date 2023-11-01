@@ -1,0 +1,156 @@
+@use '../../base/variables/layout/display' as *;
+
+///
+/// Display Utility Classes
+/// Classes for general layout display
+///
+/// @group 5-utilities
+/// @author Mark Fasel
+/// @access public
+///
+@each $property in $display-properties {
+	.#{$property} {
+		display: #{$property};
+	}
+}
+
+///
+/// Box Decoration Utility
+/// Classes for box decoration
+///
+/// @group 5-utilities
+/// @author Anthony Minnaugh
+/// @access public
+///
+.box-decoration-cloner {
+	box-decoration-break: clone;
+}
+
+.box-decoration-slice {
+	box-decoration-break: slice;
+}
+
+///
+/// Box Sizing Utility
+/// Classes for box sizing
+///
+/// @group 5-utilities
+/// @author Anthony Minnaugh
+/// @access public
+///
+.box-border {
+	box-sizing: border-box;
+}
+
+.box-content {
+	box-sizing: content-box;
+}
+
+///
+/// Float Utility
+/// Classes for float
+///
+/// @group 5-utilities
+/// @author Anthony Minnaugh
+/// @access public
+///
+.float-right {
+	float: right;
+}
+
+.float-left {
+	float: left;
+}
+
+.float-none {
+	float: none;
+}
+
+///
+/// Clear Utility
+/// Classes for clear
+///
+/// @group 5-utilities
+/// @author Anthony Minnaugh
+/// @access public
+///
+.clear-left {
+	clear: left;
+}
+
+.clear-right {
+	clear: right;
+}
+
+.clear-both {
+	clear: both;
+}
+
+.clear-none {
+	clear: none;
+}
+
+///
+/// Overflow Utility Classes
+/// Classes for overflow, overflow-x, overflow-y
+///
+/// @group 5-utilities
+/// @author Mark Fasel
+/// @access public
+///
+@each $property in $overflow-properties {
+	.overflow-#{$property} {
+		overflow: #{$property};
+	}
+
+	.overflow-x-#{$property} {
+		overflow-x: #{$property};
+	}
+
+	.overflow-y-#{$property} {
+		overflow-y: #{$property};
+	}
+}
+
+///
+/// Ninja / Hide Utility Classes
+/// Classes for ninja / display none
+///
+/// @group 5-utilities
+/// @author Mark Fasel
+/// @access public
+///
+.ninja,
+.hide {
+	display: none;
+}
+
+///
+/// Visible and Invisible Utility Classes
+/// Classes for visibility
+///
+/// @group 5-utilities
+/// @author Mark Fasel
+/// @access public
+///
+.visible {
+	visibility: visible;
+}
+
+.invisible {
+	visibility: hidden;
+}
+
+///
+/// Position Utility Classes
+/// Classes for position
+///
+/// @group 5-utilities
+/// @author Mark Fasel
+/// @access public
+///
+@each $class, $property in $position-properties {
+	.#{$class} {
+		position: #{$property};
+	}
+}

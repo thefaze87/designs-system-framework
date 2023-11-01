@@ -1,0 +1,76 @@
+@use 'sass:map' as map;
+@use '../../base/functions/rem-em' as *;
+@use '../../base/variables/sizing/sizing' as *;
+
+///
+/// Sizing Variables
+///
+/// @group 5-utilities
+/// @author Anthony Minnaugh
+/// @access public
+///
+$sizing-vars: map.merge($sizes-px-rem, $sizes-percent, $sizes-extra);
+
+///
+/// Generate size variables as css custom properties
+///
+/// @group 5-utilities
+/// @author Anthony Minnaugh
+/// @access public
+///
+:root {
+	@each $size-name, $size-value in $sizes-px-rem {
+		// @if $size-name != '0' or $size-name != 'px' {
+		//     --w-#{$size-name}: get-rem(#{$size-value});
+		//     --width-#{$size-name}: get-rem(#{$size-value});
+		// }
+	}
+
+	@each $size-name, $size-value in $sizes-percent {
+		--w-#{$size-name}: #{$size-value};
+		--width-#{$size-name}: #{$size-value};
+	}
+
+	@each $size-name, $size-value in $sizes-extra {
+		--w-#{$size-name}: #{$size-value};
+		--width-#{$size-name}: #{$size-value};
+	}
+}
+
+///
+/// Generate size variables pixel
+///
+/// @group 5-utilities
+/// @author Anthony Minnaugh
+/// @access public
+///
+@each $size-name, $size-value in $sizes-px-rem {
+	@if $size-name != '0' or $size-name != 'px' {
+		@debug $size-name, $size-value;
+		.w-#{$size-name},
+		.width-#{$size-name} {
+			width: get-rem(#{$size-value});
+		}
+	}
+}
+
+///
+/// Generate size variables percent
+///
+/// @group 5-utilities
+/// @author Anthony Minnaugh
+/// @access public
+///
+@each $size-name, $size-value in $sizes-percent {
+	.w-#{$size-name},
+	.width-#{$size-name} {
+		width: #{$size-value};
+	}
+}
+
+@each $size-name, $size-value in $sizes-extra {
+	.w-#{$size-name},
+	.width-#{$size-name} {
+		width: #{$size-value};
+	}
+}

@@ -1,0 +1,13 @@
+/*
+	Slice a Map
+	Function to slice a map
+*/
+@function slice($list, $start: 1, $end: length($list)) {
+	$result: ();
+
+	@for $i from $start through $end {
+		$result: append($result, nth($list, $i));
+	}
+
+	@return $result;
+}

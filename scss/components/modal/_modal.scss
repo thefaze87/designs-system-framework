@@ -1,0 +1,178 @@
+@use '../../base/variables/colors/index' as *;
+@use '../../base/functions/rem-em' as *;
+
+@use '../btn/btn.mixins' as btn;
+
+/* Popup Sizes */
+$popupSizes: (
+	'full': 100vw,
+	'1000': 62.5rem,
+	'900': 56.25rem,
+	'800': 50rem,
+	'600': 37.5rem,
+);
+
+@each $class, $width in $popupSizes {
+	.ui-dialog .size--#{$class} {
+		width: $width;
+	}
+}
+
+.ui-widget-overlay {
+	background: rgba(0, 38, 77, 0.25);
+	opacity: 1;
+	z-index: 11 !important;
+	filter: blur(1.5rem);
+	backdrop-filter: blur(1.5rem);
+}
+// Date Picker indexing
+div.ui-picker {
+	z-index: 1000 !important;
+}
+
+.ui-dialog {
+	background-color: var(--modal-bg, var(--white));
+	border-radius: get-rem(16);
+	font-size: get-rem(16);
+	font-family: var(--primary-font);
+	box-shadow: none;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	z-index: 11;
+
+	& &-titlebar {
+		position: relative;
+		top: 0;
+		left: 0;
+		height: auto;
+		padding: {
+			top: get-rem(32);
+			right: get-rem(24);
+			bottom: 0;
+			left: get-rem(24);
+		}
+		font-size: initial;
+		font-weight: initial;
+		line-height: inherit;
+		text-transform: initial;
+		color: initial;
+		font-family: initial;
+		width: 100%;
+		text-align: center;
+		flex: 0 0 auto;
+		&-close {
+			position: absolute;
+			top: get-rem(8);
+			right: get-rem(8);
+			background: {
+				// @todo: Image to resolve and decouple - Based 64 Encoded for Temp
+			  	// image: url(/cms/svg/admin/icon_cancel.24.86898F.svg);
+				image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjQgMjQiPgo8c3R5bGU+CglnIHBhdGggeyBzdHJva2U6IG5vbmU7IH0KPC9zdHlsZT4KPGcgY2xhc3M9InJvb3QiIGlkPSJjYW5jZWwiIGRhdGEtbmFtZT0iQ2FuY2VsIiBmaWxsPSIjODY4OThGIiBzdHJva2U9IiM4Njg5OEYiPgoJPGxpbmUgeDE9IjYiIHkxPSI2IiB4Mj0iMTgiIHkyPSIxOCIgc3R5bGU9InN0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS13aWR0aDoyIiAvPgoJPGxpbmUgeDE9IjE4IiB5MT0iNiIgeDI9IjYiIHkyPSIxOCIgc3R5bGU9InN0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS13aWR0aDoyIiAvPgo8L2c+Cjwvc3ZnPg==);
+				position: 50% 50%;
+				repeat: no-repeat;
+				size: 75%;
+				color: rgba($scorp-gray2, 10%);
+			}
+			border-radius: 50%;
+			padding: get-rem(6);
+			height: get-rem(24);
+			width: get-rem(24);
+		}
+	}
+
+	&-title {
+		font: {
+			family: var(--primary-font);
+			weight: 600;
+			size: get-rem(32);
+		}
+		line-height: 112%;
+		letter-spacing: -1px;
+		color: var(--scorp-black);
+	}
+
+	&-content {
+		padding: get-rem(24);
+		overflow-x: hidden;
+		overflow-y: auto;
+		flex: 1 1 auto;
+	}
+
+	& &-buttonpane {
+		flex: 0 0 auto;
+		height: auto;
+		padding: get-rem(14) get-rem(24);
+		text-align: initial;
+		line-height: 150%;
+		text-transform: none;
+		font-weight: 400;
+		border-top: solid 1px var(--border);
+		.ui-dialog-buttonset {
+			display: flex;
+			flex-direction: row-reverse;
+			align-items: center;
+			justify-content: flex-start;
+			gap: get-rem(12);
+		}
+		button {
+			@extend %btn-base;
+			border-left: none;
+			text-transform: none;
+			&.ui-btn {
+				&-save,
+				&-close,
+				&-yes,
+				&-okay,
+				&-build-proposal {
+					--btn-bg-color: var(--scorp-blue);
+					--btn-color: var(--white);
+					&:hover {
+					}
+				}
+
+				&-cancel,
+				&-discard,
+				&-no,
+				&-close {
+					--btn-bg-color: var(--scorp-blue3);
+					--btn-color: var(--scorp-blue);
+					&:hover {
+						color: var(--scorp-blue2);
+						background-color: var(--scorp-blue4);
+					}
+				}
+				&-delete {
+					--btn-bg-color: var(--red2);
+					--btn-color: var(--red);
+					&:hover {
+						background-color: var(--red);
+						color: var(--white);
+					}
+				}
+			}
+		}
+	}
+
+	&.no-titlebar {
+		.ui-dialog-titlebar {
+			height: 0;
+			min-height: 0;
+			flex: 0 0 auto;
+			border-bottom: none;
+			padding: {
+				top: 0;
+				bottom: 0;
+			}
+		}
+
+		.ui-dialog-titlebar-close {
+			z-index: 1;
+		}
+
+		.ui-dialog-buttonpane {
+			border-top: none;
+			padding-top: 0;
+		}
+	}
+}

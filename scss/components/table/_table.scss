@@ -1,0 +1,13 @@
+// table config file
+@forward './table.config';
+
+//table types
+@forward './types/basic';
+@forward './types/spacing';
+@forward './types/twirl';
+@forward './types/stacked';
+@forward './types/inner';
+@forward './types/gated';
+
+//table themes
+@forward './table.themes';

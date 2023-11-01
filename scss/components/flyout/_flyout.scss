@@ -1,0 +1,84 @@
+@use 'sass:color' as color;
+@use '../../base/functions/rem-em' as *;
+@use '../../base/variables/index' as *;
+
+@use '../../base/functions/hex-to-rgb' as *;
+@use '../../base/variables/colors/branding' as *;
+
+.wrapper--flyout {
+	position: relative;
+}
+
+.flyout {
+	position: absolute;
+	top: var(--flyout-top, calc(100% + #{get-rem(4)}));
+	left: var(--flyout-left, auto);
+	right: var(--flyout-right, 0);
+	bottom: var(--flyout-bottom, auto);
+	padding: get-rem(12);
+	background-color: var(--flyout-bg, var(--white));
+	border: {
+		style: solid;
+		width: 1px;
+		color: var(--flyout-border, var(--border));
+		radius: get-rem(12);
+	}
+	box-shadow: 0 #{get-rem(10)} #{get-rem(30)} rgba($scorp-black, 20%);
+	width: max-content;
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility $transition-default, opacity $transition-default;
+	z-index: 2;
+	li + li {
+		margin-top: get-rem(4);
+	}
+	.flyout--item {
+		--text-link: var(--scorp-black);
+		display: block;
+		border-radius: get-rem(8);
+		background-color: var(--flyout-item-bg, var(--white));
+		padding: {
+			top: get-rem(6);
+			right: get-rem(8);
+			bottom: get-rem(6);
+			left: get-rem(6);
+		}
+		font-weight: 500;
+		line-height: 150%;
+		transition: background-color $transition-default;
+		&:hover {
+			--flyout-item-bg: rgba(134, 137, 143, 0.1); // $scorp-gray2 @ 10%. @todo: this should use a variable / interplation to get the color from the branding file, but is not rendering and using a temp solution for now.
+		}
+		&:focus {
+			--flyout-item-bg: var(--scorp-blue4);
+		}
+		// Flex Layout Options
+		&__flex {
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			gap: get-rem(12);
+			> svg {
+				font-size: get-rem(24);
+			}
+		}
+	}
+	&.active {
+		visibility: visible;
+		opacity: 1;
+	}
+	&.above {
+		--flyout-top: auto;
+		--flyout-bottom: calc(100% + #{get-rem(4)});
+	}
+
+	&--right {
+		--flyout-left: 0;
+		--flyout-right: auto;
+	}
+}
+.ui-tabs .ui-tab-panel.active.flyout {
+	display: block;
+	opacity: 1;
+	visibility: visible;
+}

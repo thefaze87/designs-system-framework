@@ -1,0 +1,16 @@
+@use '../../../base/functions/rem-em' as *;
+@use '../forms.mixin' as *;
+
+.input-select {
+	position: relative;
+	&::before {
+		@extend %select-before;
+	}
+	select {
+		@extend %input-reset;
+		@extend %input-basics;
+
+		padding-right: get-rem(24);
+		-webkit-appearance: none;
+	}
+}

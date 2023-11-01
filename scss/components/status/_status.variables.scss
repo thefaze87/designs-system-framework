@@ -1,0 +1,35 @@
+@use '../../base/variables/colors/status' as *;
+
+// Data Type Colors
+$green-primary: var(--status-green-primary);
+$green-accent: var(--status-green-accent);
+
+$purple-primary: var(--status-purple-primary);
+$purple-accent: var(--status-purple-accent);
+
+$blue-primary: var(--status-blue-primary);
+$blue-accent: var(--status-blue-accent);
+
+$yellow-primary: var(--status-gold-primary);
+$yellow-accent: var(--status-gold-accent);
+
+$aqua-primary: var(--status-aqua-primary);
+$aqua-accent: var(--status-aqua-accent);
+
+$midnight-primary: var(--status-midnight-primary);
+$midnight-accent: var(--status-midnight-accent);
+
+$orange-primary: var(--status-orange-primary);
+$orange-accent: var(--status-orange-accent);
+
+$red-primary: var(--status-red-primary);
+$red-accent: var(--status-red-accent);
+
+///
+/// Status Data Types
+///
+/// @group 6-components
+/// @author Mark Fasel
+/// @access public
+///
+$data-types: ('1' $green-primary $green-accent, '2' $purple-primary $purple-accent, '3' $blue-primary $blue-accent, '4' $yellow-primary $yellow-accent, '5' $aqua-primary $aqua-accent, '6' $midnight-primary $midnight-accent);

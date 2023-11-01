@@ -1,0 +1,21 @@
+.input-file {
+	input[type='file' i] {
+		--input-file-label-color: var(--scorp-gray2);
+		&::-webkit-file-upload-button {
+			--input-file-text: var(--scorp-blue);
+			--input-file-bg: transparent;
+			--input-file-border-color: var(--scorp-blue);
+
+			&:hover {
+				--input-file-text: var(--scorp-blue2);
+				--input-file-border-color: var(--scorp-blue2);
+			}
+
+			&.active,
+			&:focus {
+				--input-file-text: var(--blue6);
+				--input-file-border-color: var(--blue6);
+			}
+		}
+	}
+}

@@ -1,0 +1,29 @@
+// Flex display mixin
+// Mixin for creating flex display base with @content for including content with the mixin.
+@mixin flex-display($display: flex, $direction: row, $flex-flow: null, $justify-content: null, $justify-self: null, $align-items: null, $gap: null, $flex: null) {
+  display: $display;
+  flex-direction: $direction;
+  @if ($flex-flow != null) {
+	  flex-flow: $flex-flow;
+  }
+  @if ($justify-content != null) {
+	  justify-content: $justify-content;
+  }
+  @if ($justify-self != null) {
+	  justify-self: $justify-self;
+  }
+  @if ($align-items != null) {
+	  align-items: $align-items;
+  }
+
+  @if ($gap != null) {
+	  gap: $gap;
+  }
+
+  @if ($flex != null) {
+	  flex: $flex;
+  }
+
+  // Custom Content - use for nesting
+  @content;
+}

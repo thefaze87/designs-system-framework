@@ -1,0 +1,58 @@
+$z-index: (
+	'fixed': 12000,
+	'modal': 11000,
+	'sticky': 10000,
+	'progress-bar': 9600,
+	'loading': 9500,
+	'tooltip': 9000,
+	'triangle': 7100,
+	'dropdown': 7000,
+	'navigation': 6000,
+	'header-controls': 5100,
+	'header': 5000,
+	'page-loading': 4900,
+	'page-filter': 4800,
+	'slide-panel': 4500,
+	'sticky-table': 4100,
+	'tooltip-content': 4050,
+	'footer': 4000,
+	'table-tooltip': 3970,
+	'chart-tooltip': 3960,
+	'table-actions': 3950,
+	'float-btn': 3800,
+	'popover': 3500,
+	'chart': 3000,
+	'alert-icon': 2251,
+	'alert': 2250,
+	'elements': 2100,
+	'card': 2050,
+	'main': 2000,
+	'lower': 1000,
+	'base': 10,
+	'default': 1,
+	'below': -1,
+);
+
+///
+/// Z-index function
+/// returns the z-index value from the z-index variable map based on the key passed into the function.
+///
+/// @group 1-Base
+/// @author Mark Fasel
+/// @access public
+///
+@function z-index($key) {
+	@return map-get($z-index, $key);
+}
+
+///
+/// Z-index mixin
+/// Sets the z-index property based on the z-index function return value.
+///
+/// @group 1-Base
+/// @author Mark Fasel
+/// @access public
+///
+@mixin z-index($key) {
+	z-index: z-index($key);
+}

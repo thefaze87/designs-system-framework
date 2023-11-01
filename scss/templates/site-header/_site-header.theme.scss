@@ -1,0 +1,30 @@
+body {
+	--header-template-bg: var(--scorp-blue);
+}
+
+// Inter Department Navigation
+.cx-header {
+	--theme-bg: var(--scorp-blue);
+	body.client & {
+		--theme-bg: var(--blue2);
+	}
+	.dept-nav {
+		--dept-color: var(--scorp-blue3);
+		--dept-before-bg: var(--scorp-blue3);
+		--dept-active-color: var(--white);
+	  	// @todo: Image to resolve and decouple - Based 64 Encoded for Temp
+	  	// --branch-caret: url(/cms/svg/site/icon_caret.36.bfddff.svg);
+		--branch-caret: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMzYgMzYiPgo8c3R5bGU+CglnIHBhdGggeyBzdHJva2U6IG5vbmU7IH0KPC9zdHlsZT4KPGcgY2xhc3M9InJvb3QiIGlkPSJjYXJldCIgZGF0YS1uYW1lPSJDYXJldCIgZmlsbD0iIzg2ODk4RiIgc3Ryb2tlPSIjODY4OThGIj4KCTxwYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZD0iTTIxLjYxMyAyOS43MjdhNC41MTEgNC41MTEgMCAwIDEtNi4yMzEgMC45NjVhNC40MzggNC40MzggMCAwIDEtMC45ODMtMC45NjVsLTEzLjU0NS0xOC4yOThhNC4zMzMgNC4zMzMgMCAwIDEgMC45ODMtNi4xMjJhNC41MTUgNC41MTUgMCAwIDEgMi42MjItMC44MzdoMjcuMDgyYTQuNDE5IDQuNDE5IDAgMCAxIDQuNDYgNC4zODNhNC4zMzMgNC4zMzMgMCAwIDEtMC44NTEgMi41NzZaIiAvPgo8L2c+Cjwvc3ZnPg==);
+	}
+
+	.cx-header__tabs {
+		.branch-nav {
+			--branch-color: var(--scorp-gray2);
+			--branch-before-bg: var(--scorp-blue);
+			--branch-active-color: var(--scorp-black);
+		  	// @todo: Image to resolve and decouple - Based 64 Encoded for Temp
+		  	// --branch-caret: url(/cms/svg/site/icon_caret.36.191919.svg);
+			--branch-caret: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMzYgMzYiPgo8c3R5bGU+CglnIHBhdGggeyBzdHJva2U6IG5vbmU7IH0KPC9zdHlsZT4KPGcgY2xhc3M9InJvb3QiIGlkPSJjYXJldCIgZGF0YS1uYW1lPSJDYXJldCIgZmlsbD0iIzE5MTkxOSIgc3Ryb2tlPSIjMTkxOTE5Ij4KCTxwYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZD0iTTIxLjYxMyAyOS43MjdhNC41MTEgNC41MTEgMCAwIDEtNi4yMzEgMC45NjVhNC40MzggNC40MzggMCAwIDEtMC45ODMtMC45NjVsLTEzLjU0NS0xOC4yOThhNC4zMzMgNC4zMzMgMCAwIDEgMC45ODMtNi4xMjJhNC41MTUgNC41MTUgMCAwIDEgMi42MjItMC44MzdoMjcuMDgyYTQuNDE5IDQuNDE5IDAgMCAxIDQuNDYgNC4zODNhNC4zMzMgNC4zMzMgMCAwIDEtMC44NTEgMi41NzZaIiAvPgo8L2c+Cjwvc3ZnPg==);
+		}
+	}
+}

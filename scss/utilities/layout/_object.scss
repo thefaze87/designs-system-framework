@@ -1,0 +1,29 @@
+@use "../../base/variables/layout/object" as *;
+
+///
+/// Object Fit Utility Classes
+/// Classes for object fit
+///
+/// @group 5-utilities
+/// @author Mark Fasel
+/// @access public
+///
+@each $property in $object-fit-properties {
+	.object-#{$property} {
+		object-fit: #{$property};
+	}
+}
+
+///
+/// Object Position Utility Classes
+/// Classes for object position
+///
+/// @group 5-utilities
+/// @author Mark Fasel
+/// @access public
+///
+@each $class, $property in $object-position-properties {
+	.#{$class} {
+		object-position: #{$property};
+	}
+}

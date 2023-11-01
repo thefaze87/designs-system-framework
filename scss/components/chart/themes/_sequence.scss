@@ -1,0 +1,374 @@
+.theme--seq{
+	.ichart,
+	.ichart2,
+	&.ichart,
+	&.ichart2   {
+		> span:first-of-type {
+			--chart-color: #007ffd;
+			--chart-bg-color: #007ffd;
+			--chart-border-color:#007ffd;
+			// --chart-bg-image:;
+		}
+		> span:nth-of-type(2) {
+			--chart-color: #66aeff;
+			--chart-bg-color: #66aeff;
+			--chart-border-color:#66aeff;
+			// --chart-bg-image:;
+		}
+		> span:nth-of-type(3) {
+			--chart-color: #bfddff;
+			--chart-bg-color: #bfddff;
+			--chart-border-color:#bfddff;
+			// --chart-bg-image:;
+		}
+		> span:nth-of-type(4) {
+			--chart-color: #886fde;
+			--chart-bg-color: #886fde;
+			--chart-border-color:#886fde;
+			// --chart-bg-image:;
+		}
+		> span:nth-of-type(5) {
+			--chart-color: #26e7a6;
+			--chart-bg-color: #26e7a6;
+			--chart-border-color: #26e7a6;
+			// --chart-bg-image:;
+		}
+		> span:nth-of-type(6) {
+			--chart-color: #6c7f91;
+			--chart-bg-color: #6c7f91;
+			--chart-border-color:#6c7f91;
+			// --chart-bg-image:;
+		}
+		> span:nth-of-type(7) {
+			--chart-color: #cff67d;
+			--chart-bg-color: #cff67d;
+			--chart-border-color: #cff67d;
+			// --chart-bg-image:;
+		}
+		> span:nth-of-type(8) {
+			--chart-color: #60cece;
+			--chart-bg-color: #60cece;
+			--chart-border-color:#60cece;
+			// --chart-bg-image:;
+		}
+		> span:nth-of-type(9) {
+			--chart-color: #febc3b;
+			--chart-bg-color: #febc3b;
+			--chart-border-color:#febc3b;
+			// --chart-bg-image:;
+		}
+		> span:nth-of-type(10) {
+			--chart-color: #ff7272;
+			--chart-bg-color: #ff7272;
+			--chart-border-color:#ff7272;
+			// --chart-bg-image:;
+		}
+		> span:nth-of-type(11) {
+			--chart-color: #28445b;
+			--chart-bg-color:#ff7272;
+			--chart-border-color:#ff7272;
+			// --chart-bg-image:;
+		}
+		> span:nth-of-type(12) {
+			--chart-color: #7180ac;
+			--chart-bg-color: #7180ac;
+			--chart-border-color:#7180ac;
+			// --chart-bg-image:;
+		}
+		> span:nth-of-type(13) {
+			--chart-color: #a8d0db;
+			--chart-bg-color: #a8d0db;
+			--chart-border-color:#a8d0db;
+			// --chart-bg-image:;
+		}
+		> span:nth-of-type(14) {
+			--chart-color: #e49273;
+			--chart-bg-color: #e49273;
+			--chart-border-color:#e49273;
+			// --chart-bg-image:;
+		}
+		> span:nth-of-type(15) {
+			--chart-color: #a37a74;
+			--chart-bg-color: #a37a74;
+			--chart-border-color:#a37a74;
+			// --chart-bg-image:;
+		}
+		> span:nth-of-type(16) {
+			--chart-color: #92c9b1;
+			--chart-bg-color: #92c9b1;
+			--chart-border-color:#92c9b1;
+			// --chart-bg-image:;
+		}
+		> span:nth-of-type(17) {
+			--chart-color: #571f4e;
+			--chart-bg-color: #571f4e;
+			--chart-border-color:#571f4e;
+			// --chart-bg-image:;
+		}
+		> span:nth-of-type(18) {
+			--chart-color: #f2dc5d;
+			--chart-bg-color: #f2dc5d;
+			--chart-border-color:#f2dc5d;
+			// --chart-bg-image:;
+		}
+		> span:nth-of-type(19) {
+			--chart-color: #594e36;
+			--chart-bg-color: #594e36;
+			--chart-border-color:#594e36;
+			// --chart-bg-image:;
+		}
+		> span:nth-of-type(20) {
+			--chart-color: #c33c54;
+			--chart-bg-color: #c33c54;
+			--chart-border-color:#c33c54;
+			// --chart-bg-image:;
+		}
+	}
+}
+
+.theme--seq {
+	.legend{
+		.legend--item {
+			&:first-of-type {
+				.bull,
+				.bar,
+				.line,
+				.dash,
+				&.bull,
+				&.bar,
+				&.line,
+				&.dash{
+					--chart-bg-color: #007ffd;
+				}
+			}
+			&:nth-of-type(2) {
+				.bull,
+				.bar,
+				.line,
+				.dash,
+				&.bull,
+				&.bar,
+				&.line,
+				&.dash{
+					--chart-bg-color: #66aeff;
+				}
+			}
+			&:nth-of-type(3) {
+				.bull,
+				.bar,
+				.line,
+				.dash,
+				&.bull,
+				&.bar,
+				&.line,
+				&.dash{
+					--chart-bg-color: #bfddff;
+				}
+			}
+			&:nth-of-type(4) {
+				.bull,
+				.bar,
+				.line,
+				.dash,
+				&.bull,
+				&.bar,
+				&.line,
+				&.dash{
+					--chart-bg-color: #886fde;
+				}
+			}
+			&:nth-of-type(5) {
+				.bull,
+				.bar,
+				.line,
+				.dash,
+				&.bull,
+				&.bar,
+				&.line,
+				&.dash{
+					--chart-bg-color: #26e7a6;
+				}
+			}
+			&:nth-of-type(6) {
+				.bull,
+				.bar,
+				.line,
+				.dash,
+				&.bull,
+				&.bar,
+				&.line,
+				&.dash{
+					--chart-bg-color: #6c7f91;
+				}
+			}
+			&:nth-of-type(7) {
+				.bull,
+				.bar,
+				.line,
+				.dash,
+				&.bull,
+				&.bar,
+				&.line,
+				&.dash{
+					--chart-bg-color: #cff67d;
+				}
+			}
+			&:nth-of-type(8) {
+				.bull,
+				.bar,
+				.line,
+				.dash,
+				&.bull,
+				&.bar,
+				&.line,
+				&.dash{
+					--chart-bg-color: #60cece;
+				}
+			}
+			&:nth-of-type(9) {
+				.bull,
+				.bar,
+				.line,
+				.dash,
+				&.bull,
+				&.bar,
+				&.line,
+				&.dash{
+					--chart-bg-color: #febc3b;
+				}
+			}
+			&:nth-of-type(10) {
+				.bull,
+				.bar,
+				.line,
+				.dash,
+				&.bull,
+				&.bar,
+				&.line,
+				&.dash{
+					--chart-bg-color: #ff7272;
+				}
+			}
+			&:nth-of-type(11) {
+				.bull,
+				.bar,
+				.line,
+				.dash,
+				&.bull,
+				&.bar,
+				&.line,
+				&.dash{
+					--chart-bg-color: #28445b;
+				}
+			}
+			&:nth-of-type(12) {
+				.bull,
+				.bar,
+				.line,
+				.dash,
+				&.bull,
+				&.bar,
+				&.line,
+				&.dash{
+					--chart-bg-color: #7180ac;
+				}
+			}
+			&:nth-of-type(13) {
+				.bull,
+				.bar,
+				.line,
+				.dash,
+				&.bull,
+				&.bar,
+				&.line,
+				&.dash{
+					--chart-bg-color: #a8d0db;
+				}
+			}
+			&:nth-of-type(14) {
+				.bull,
+				.bar,
+				.line,
+				.dash,
+				&.bull,
+				&.bar,
+				&.line,
+				&.dash{
+					--chart-bg-color: #e49273;
+				}
+			}
+			&:nth-of-type(15) {
+				.bull,
+				.bar,
+				.line,
+				.dash,
+				&.bull,
+				&.bar,
+				&.line,
+				&.dash{
+					--chart-bg-color: #a37a74;
+				}
+			}
+			&:nth-of-type(16) {
+				.bull,
+				.bar,
+				.line,
+				.dash,
+				&.bull,
+				&.bar,
+				&.line,
+				&.dash{
+					--chart-bg-color: #92c9b1;
+				}
+			}
+			&:nth-of-type(17) {
+				.bull,
+				.bar,
+				.line,
+				.dash,
+				&.bull,
+				&.bar,
+				&.line,
+				&.dash{
+					--chart-bg-color: #571f4d;
+				}
+			}
+			&:nth-of-type(18) {
+				.bull,
+				.bar,
+				.line,
+				.dash,
+				&.bull,
+				&.bar,
+				&.line,
+				&.dash{
+					--chart-bg-color: #f2dc5d;
+				}
+			}
+			&:nth-of-type(19) {
+				.bull,
+				.bar,
+				.line,
+				.dash,
+				&.bull,
+				&.bar,
+				&.line,
+				&.dash{
+					--chart-bg-color: #594e36;
+				}
+			}
+			&:nth-of-type(20) {
+				.bull,
+				.bar,
+				.line,
+				.dash,
+				&.bull,
+				&.bar,
+				&.line,
+				&.dash{
+					--chart-bg-color: #c33c54;
+				}
+			}
+		}
+	}
+}

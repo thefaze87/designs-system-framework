@@ -1,0 +1,87 @@
+@use '../table.mixins' as *;
+@use '../../../base/functions/rem-em' as *;
+@use '../../../base/variables/var' as v;
+
+.table--spacing,
+.table--pill {
+	border: {
+		collapse: separate;
+		spacing: 0 get-rem(4);
+	}
+	> thead {
+		> tr {
+			> th {
+				box-shadow: none;
+				&:first-of-type {
+					@extend %first-of-type;
+				}
+				&:last-of-type {
+					@extend %last-of-type;
+				}
+				&.gp-sticky {
+					z-index: 5;
+				}
+			}
+		}
+	}
+	// TBODY elements
+	> tbody {
+		> tr {
+			@extend %pill-table-tr-border;
+			> td {
+				box-shadow: $box-shadow-cell-inner;
+				&:first-of-type {
+					@extend %td-first-of-type;
+					box-shadow: $box-shadow-top-inner, $box-shadow-bottom-inner, $box-shadow-left-inner;
+				}
+
+				&:last-of-type {
+					@extend %td-last-of-type;
+					box-shadow: $box-shadow-top-inner, $box-shadow-bottom-inner, $box-shadow-right-inner;
+				}
+
+				// If only 1 item / child, add the box shadow and radius to the whole thing
+				&:only-child {
+					@extend %td-only-child;
+					box-shadow: $box-shadow-only-cell-inner;
+				}
+			}
+			&:hover {
+				box-shadow: $box-shadow-outer;
+				> td {
+					box-shadow: $box-shadow-cell-inner-active;
+					&:first-of-type {
+						@extend %td-first-of-type;
+						box-shadow: $box-shadow-first-cell-inner-active;
+						// box-shadow: $box-shadow-top-inner-active, $box-shadow-bottom-inner, $box-shadow-left-inner;
+					}
+
+					&:last-of-type {
+						@extend %td-last-of-type;
+						box-shadow: $box-shadow-last-cell-inner-active;
+						// box-shadow: $box-shadow-top-inner, $box-shadow-bottom-inner, $box-shadow-right-inner;
+					}
+
+					// If only 1 item / child, add the box shadow and radius to the whole thing
+					&:only-child {
+						@extend %td-only-child;
+						box-shadow: $box-shadow-only-cell-inner-active;
+					}
+				}
+			}
+
+			&.no-hover:hover {
+				box-shadow: none;
+			}
+			&.ui-tab-panel {
+				&.active {
+					> td:only-of-type,
+					> td:first-of-type,
+					> td:last-of-type {
+						padding-bottom: get-rem(18);
+					}
+				}
+			}
+		}
+	}
+}

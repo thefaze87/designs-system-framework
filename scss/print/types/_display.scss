@@ -1,0 +1,89 @@
+@use '../../base/variables/layout/axis-control' as *;
+@use '../../base/variables/layout/display' as *;
+@use '../mixins/print' as *;
+
+@include print() {
+	// Hide Classes
+	.print-ninja {
+		display: none;
+	}
+
+	// Display Property Classes
+	@each $property in $display-properties {
+		.print-#{$property} {
+			display: #{$property};
+		}
+	}
+
+	@each $property in $break-before-after-properties {
+		.print-break-before-#{$property} {
+			break-before: #{$property};
+		}
+		.print-break-after-#{$property} {
+			break-after: #{$property};
+		}
+	}
+
+	@each $property in $break-inside-properties {
+		.print-break-inside-#{$property} {
+			break-inside: #{$property};
+		}
+	}
+
+	@each $property in $overflow-properties {
+		.print-overflow-#{$property} {
+			overflow: #{$property};
+		}
+		.print-overflow-x-#{$property} {
+			overflow-x: #{$property};
+		}
+		.print-overflow-y-#{$property} {
+			overflow-y: #{$property};
+		}
+	}
+
+	@each $class, $property in $position-properties {
+		.print-#{$class} {
+			position: #{$property};
+		}
+	}
+
+	// Clear Properties
+	.print-clear-left {
+		clear: left;
+	}
+
+	.print-clear-right {
+		clear: right;
+	}
+
+	.print-clear-both {
+		clear: both;
+	}
+
+	.print-clear-none {
+		clear: none;
+	}
+
+	@each $class, $property in $overscroll-properties {
+		@if $class != 'y' or $class != 'x' {
+			.print-overscroll-#{$class} {
+				overscroll-behavior: #{$property};
+			}
+		} @else if $class == 'y' {
+			$y-properties: map-get($overscroll-properties, 'y');
+			@each $y-property in $y-properties {
+				.print-overscroll-#{$class}-#{$y-property} {
+					overscroll-behavior-y: #{$y-property};
+				}
+			}
+		} @else if $class == 'x' {
+			$x-properties: map-get($overscroll-properties, 'x');
+			@each $x-property in $x-properties {
+				.print-overscroll-#{$class}-#{$x-property} {
+					overscroll-behavior-x: #{$x-property};
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,134 @@
+// General icon size variable map for creating a utility for setting sizes for icons and avatars
+// todo: Update the main component on shared with both an icon sizes utility and general sizes utility
+// Added here for testing and use on the icon and avatar - Mark 02-01-2023
+$icon-sizes: (
+	'24': (
+		'height': 24,
+		'width': 24,
+		'radius': 4,
+		'size': 12,
+		'line-height': 24,
+	),
+	'36': (
+		'height': 36,
+		'width': 36,
+		'radius': 8,
+		'size': 18,
+		'line-height': 36,
+	),
+	'40': (
+		'height': 40,
+		'width': 40,
+		'radius': 10,
+		'size': 20,
+		'line-height': 40,
+	),
+	'44': (
+		'height': 44,
+		'width': 44,
+		'radius': 10,
+		'size': 22,
+		'line-height': 44,
+	),
+	'48': (
+		'height': 48,
+		'width': 48,
+		'radius': 11,
+		'size': 24,
+		'line-height': 48,
+	),
+	'64': (
+		'height': 64,
+		'width': 64,
+		'radius': 14,
+		'size': 36,
+		'line-height': 64,
+	),
+	'72': (
+		'height': 72,
+		'width': 72,
+		'radius': 15,
+		'size': 36,
+		'line-height': 72,
+	),
+	'96': (
+		'height': 96,
+		'width': 96,
+		'radius': 16,
+		'size': 48,
+		'line-height': 96,
+	),
+	'128': (
+		'height': 128,
+		'width': 128,
+		'radius': 20,
+		'size': 64,
+		'line-height': 128,
+	),
+);
+
+$avatar-sizes: (
+	'24': (
+		'height': 24,
+		'width': 24,
+		'radius': 6,
+		'size': 10,
+		'line-height': 24,
+	),
+	'36': (
+		'height': 36,
+		'width': 36,
+		'radius': 8,
+		'size': 14,
+		'line-height': 36,
+	),
+	'40': (
+		'height': 40,
+		'width': 40,
+		'radius': 10,
+		'size': 16,
+		'line-height': 40,
+	),
+	'44': (
+		'height': 44,
+		'width': 44,
+		'radius': 10,
+		'size': 16,
+		'line-height': 44,
+	),
+	'48': (
+		'height': 48,
+		'width': 48,
+		'radius': 11,
+		'size': 20,
+		'line-height': 48,
+	),
+	'64': (
+		'height': 64,
+		'width': 64,
+		'radius': 14,
+		'size': 26,
+		'line-height': 64,
+	),
+	'72': (
+		'height': 72,
+		'width': 72,
+		'radius': 15,
+		'size': 32,
+		'line-height': 72,
+	),
+	'96': (
+		'height': 96,
+		'width': 96,
+		'radius': 16,
+		'size': 40,
+		'line-height': 96,
+	),
+	'128': (
+		'height': 128,
+		'width': 128,
+		'radius': 20,
+		'size': 56,
+		'line-height': 128,
+	),
+);

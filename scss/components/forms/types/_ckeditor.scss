@@ -1,0 +1,35 @@
+@use '../../../base/functions/rem-em' as *;
+@use '../../../base/variables/index' as *;
+@use '../forms.mixin' as *;
+
+.input-text.html {
+	.cke_toolbox {
+		background-color: var(--cke-toolbox-bg);
+		border: {
+			top-left-radius: get-rem(8);
+			top-right-radius: get-rem(8);
+			width: 1px;
+			style: solid;
+			color: var(--input-border);
+		}
+		.cke_toolbar {
+			padding: get-rem(6);
+		}
+		.cke_button {
+			background-color: var(--cke-btn-bg);
+			color: var(--cke-btn-color);
+			transition: background-color $transition-default;
+		}
+	}
+	.cke_contents {
+		border: {
+			bottom-left-radius: get-rem(8);
+			bottom-right-radius: get-rem(8);
+			width: 1px;
+			style: solid;
+			color: var(--input-border);
+			top: none;
+		}
+		overflow: hidden;
+	}
+}

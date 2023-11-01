@@ -1,0 +1,218 @@
+// Tab Theme for Tab on White Background
+.tabs {
+	--tab-group-bg: var(--gray4);
+	& a {
+		--tab-bg: transparent;
+		--tab-color: var(--text);
+		--tab-border-color: transparent;
+		--tab-box-shadow: transparent;
+
+		&:hover {
+			--tab-bg: var(--scorp-gray1);
+		}
+
+		// Reset this to ensure that the white bg is set on the active state
+		&.active,
+		&:active {
+			--tab-bg: var(--white);
+			--tab-color: var(--scorp-black);
+		}
+	}
+
+	& input {
+		& + label {
+			--tab-bg: transparent;
+			--tab-color: var(--text);
+			--tab-border-color: transparent;
+			--tab-box-shadow: transparent;
+		}
+
+		&:hover {
+			& + label {
+				--tab-bg: var(--scorp-gray1);
+			}
+		}
+
+		// Active styles applied to the label when checked or active or focused
+		&.active,
+		&:checked,
+		&:active,
+		&:focus {
+			& + label {
+				--tab-bg: var(--white);
+				--tab-color: var(--scorp-black);
+			}
+		}
+	}
+
+	// White overrides theme
+	&--white {
+		--tab-group-bg: var(--scorp-gray1);
+
+		& a {
+			--tab-bg: transparent;
+			--tab-color: var(--text);
+			--tab-border-color: transparent;
+			--tab-box-shadow: transparent;
+
+			&:hover {
+				--tab-bg: var(--gray4);
+			}
+
+			// Reset this to ensure that the white bg is set on the active state
+			&.active,
+			&:active {
+				--tab-bg: var(--white);
+			}
+		}
+
+		& input {
+			& + label {
+				--tab-bg: transparent;
+				--tab-color: var(--text);
+				--tab-border-color: transparent;
+				--tab-box-shadow: transparent;
+			}
+
+			&:hover {
+				& + label {
+					--tab-bg: var(--gray4);
+				}
+			}
+
+			// Active styles applied to the label when checked or active or focused
+			&.active,
+			&:checked,
+			&:active,
+			&:focus {
+				& + label {
+					--tab-bg: var(--white);
+				}
+			}
+		}
+	}
+}
+
+.tabs__simple {
+	a {
+		--tab-color: var(--scorp-gray2);
+
+		// Before Styles
+		&::before {
+			--tab-before-bg: transparent;
+		}
+
+		// Hover styles
+		&:hover {
+			--tab-color: var(--scorp-black);
+		}
+
+		// Active styles
+		&.active,
+		&:active {
+			--tab-color: var(--scorp-black);
+			&::before {
+				--tab-before-bg: var(--scorp-blue);
+			}
+		}
+	}
+
+	input {
+		& + label {
+			--tab-color: var(--scorp-gray2);
+			&::before {
+				--tab-before-bg: transparent;
+			}
+		}
+
+		&:hover {
+			& + label {
+				--tab-bg: var(--scorp-black);
+			}
+		}
+
+		&.active,
+		&:checked,
+		&:active,
+		&:focus {
+			& + label {
+				--tab-color: var(--scorp-black);
+				&::before {
+					--tab-before-bg: var(--scorp-blue);
+				}
+			}
+		}
+	}
+}
+
+.tabs__framed {
+	--tab-frame-border-radius: 0.5rem;
+
+	a {
+		--tab-color: var(--scorp-gray3);
+		--tab-bg: transparent;
+		--tab-border-color: var(--scorp-gray3);
+		--z-index: 1;
+
+		&::after {
+			--tab-border-color: var(--scorp-gray3);
+		}
+
+		// Hover styles
+		&:hover {
+			--tab-color: var(--scorp-gray2);
+			--tab-border-color: var(--scorp-gray2);
+			--z-index: 2;
+
+			&::after {
+				--tab-border-color: var(--scorp-gray2);
+			}
+		}
+
+		&.active,
+		&:active {
+			--tab-color: var(--scorp-blue);
+			--tab-border-color: var(--scorp-blue);
+			--z-index: 3;
+		}
+	}
+
+	// Tab Input Styles
+	input {
+		& + label {
+			--tab-color: var(--scorp-gray3);
+			--tab-bg: transparent;
+			--tab-border-color: var(--scorp-gray3);
+			--z-index: 1;
+		}
+
+		// Hover styles
+		&:hover {
+			& + label {
+				--tab-color: var(--scorp-gray2);
+				--tab-border-color: var(--scorp-gray2);
+				--z-index: 2;
+
+				&::after {
+					--tab-border-color: var(--scorp-gray2);
+				}
+			}
+		}
+		&.active,
+		&:checked,
+		&:active,
+		&:focus {
+			& + label {
+				--tab-color: var(--scorp-blue);
+				--tab-border-color: var(--scorp-blue);
+				--z-index: 3;
+			}
+		}
+	}
+}
+
+.ui-twirl {
+	&::before {
+		--twirl-arrow: var(--scorp-blue);
+	}
+}

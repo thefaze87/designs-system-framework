@@ -1,0 +1,11 @@
+// Load in our tab component config
+@forward './tab.config';
+
+// Types
+@forward './types/default';
+@forward './types/simple';
+@forward './types/framed';
+@forward './types/ui-tab';
+
+// Load in our themes
+@forward './tab.themes';

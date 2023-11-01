@@ -1,0 +1,26 @@
+@use '../../base/functions/rem-em' as *;
+@use '../../base/mixins/display' as *;
+@use './snackbar.variables' as *;
+
+///
+/// Snackbar Mixin
+/// Generates snackbar base
+///
+/// @group 6-components
+/// @author Alli Huff
+/// @access public
+///
+%snackbar {
+	border-radius: get-rem(8);
+	padding: {
+		top: get-rem(9);
+		right: get-rem(16);
+		bottom: get-rem(9);
+		left: get-rem(16);
+	}
+	line-height: 157%;
+	color: var(--snackbar-text-color, var(--text));
+	font-size: get-rem(14);
+	position: relative;
+	@include flex-display($gap: get-rem(10), $align-items: center);
+}

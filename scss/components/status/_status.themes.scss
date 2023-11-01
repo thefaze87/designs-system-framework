@@ -1,0 +1,52 @@
+@use './status.variables' as *;
+
+// Dot Themes
+.status__dot {
+	&--half-ylw-grn {
+		&::before {
+			// Custom bg for the half yellow / green
+			// Todo: This may be deprecated for the new framework and no longer needed. Review with team / Fish
+			background: linear-gradient(-45deg, var(--green), var(--green) 44%, transparent 44%, transparent 56%, var(--yellow) 56%);
+		}
+	}
+}
+
+// Box Themes
+.status__box {
+	&--neutral {
+		&::before {
+			--status-primary: var(--scorp-gray1);
+			--status-accent: var(--scorp-gray2);
+		}
+	}
+	&--low {
+		&::before {
+			--status-primary: #{$green-primary};
+			--status-accent: #{$green-accent};
+		}
+	}
+	&--chill {
+		&::before {
+			--status-primary: #{$aqua-primary};
+			--status-accent: #{$aqua-accent};
+		}
+	}
+	&--medium {
+		&::before {
+			--status-primary: #{$yellow-primary};
+			--status-accent: #{$yellow-accent};
+		}
+	}
+	&--high {
+		&::before {
+			--status-primary: #{$orange-primary};
+			--status-accent: #{$orange-accent};
+		}
+	}
+	&--urgent {
+		&::before {
+			--status-primary: #{$red-primary};
+			--status-accent: #{$red-accent};
+		}
+	}
+}

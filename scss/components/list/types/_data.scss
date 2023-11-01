@@ -1,0 +1,28 @@
+// Data list type. This includes list styles for data display that don't include legends or other data displays.
+@use '@scorpion/shared-ui/scss/base/variables/colors/branding' as *;
+@use '@scorpion/shared-ui/scss/base/functions/rem-em' as *;
+@use '../lists.mixins' as *;
+
+.list {
+	$list-element: &; // Reference to .list
+
+	&__data {
+		@extend %no-list-style;
+
+		display: flex;
+		flex-direction: column;
+		gap: get-rem(8);
+
+		#{$list-element}--item {
+			border-top: 1px solid var(--border);
+			padding-top: get-rem(8);
+			font-size: get-rem(14);
+			display: inline-flex;
+
+			&:first-child {
+				padding-top: 0;
+				border-top: none;
+			}
+		}
+	}
+}

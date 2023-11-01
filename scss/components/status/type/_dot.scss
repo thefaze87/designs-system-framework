@@ -1,0 +1,23 @@
+@use '../../../base/variables/colors/status' as *;
+@use '../status.mixins' as *;
+
+.status__dot {
+	// Base styles
+	@extend %status-base;
+
+	// Dot before styles
+	@extend %status-dot-before;
+
+	// Set our status colors to override the dot before
+	@each $color in $status-colors {
+		&--#{nth($color,1)} {
+			&::before {
+				@if (nth($color, 1) == 'light-gray' or nth($color, 1) == 'gray') {
+					--status-primary: var(--status-#{nth($color, 1)}-primary);
+				} @else {
+					--status-primary: var(--status-#{nth($color, 1)}-accent);
+				}
+			}
+		}
+	}
+}

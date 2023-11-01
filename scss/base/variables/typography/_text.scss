@@ -1,0 +1,15 @@
+// Primary Font - Font Family for the Website based on the style guide
+$primary-font: 'Inter', sans-serif;
+
+// Base font size and used for rem / em and other computations thru the framework
+$basefont: 16; // size
+
+// Text Alignment Property - Variable map for the alignment output for text-align
+$text-align-direction: (
+	'c': center,
+	'l': left,
+	'r': right,
+);
+
+// Text Sizes - Variable text sizes.
+$text-sizes: (8, 10, 12, 14, 16, 18, 20, 22, 24, 32, 36, 40, 48, 72);

@@ -1,0 +1,71 @@
+@use '../../base/functions/rem-em' as *;
+
+:root {
+	--primary-font: Inter, sans-serif;
+}
+
+html {
+	display: block;
+}
+
+[\*edit]:not([\*loading]),
+[\*for]:not([\*loading]),
+[\*let]:not([\*loading]) {
+	display: none;
+}
+
+[\*for][\*loading],
+[\*let][\*loading] {
+	display: block;
+}
+
+[\*for][\*loading][class*='flex'],
+[\*let][\*loading][class*='flex'] {
+	display: flex;
+}
+[\*for][\*loading][class*='grid'],
+[\*let][\*loading][class*='grid'] {
+	display: grid;
+}
+
+[\*for][\*loading].d\:block,
+[\*let][\*loading].d\:block {
+	display: block;
+}
+
+[\*for][\*loading].d\:inline-block,
+[\*let][\*loading].d\:inline-block {
+	display: inline-block;
+}
+
+tr[\*for][\*loading],
+tr[\*let][\*loading] {
+	display: table-row;
+}
+
+::-webkit-scrollbar {
+	width: 12px;
+	height: 12px;
+	background: none;
+}
+
+::-webkit-scrollbar-track {
+	background: none;
+}
+
+::-webkit-scrollbar-thumb {
+	border: solid 2px transparent;
+	background-clip: padding-box;
+	border-radius: 12px;
+	background-color: rgba(16, 37, 78, 0.1);
+}
+
+::-webkit-scrollbar-button {
+	width: 0;
+	height: 0;
+	display: none;
+}
+
+::-webkit-scrollbar-corner {
+	background-color: transparent;
+}

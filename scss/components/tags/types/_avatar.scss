@@ -1,0 +1,22 @@
+@use '../../../base/functions/rem-em' as *;
+@use '../../../base/variables/var' as v;
+
+.tag--avatar {
+	--tag-pad-top: 0;
+	--tag-pad-bottom: 0;
+	--tag-pad-left: 0;
+
+	.circle {
+		// Avatar Chip Circle
+		&--tag {
+			width: #{get-rem(24)};
+			height: #{get-rem(24)};
+			border-radius: 50%;
+			line-height: 0;
+
+			img {
+				border-radius: 50%;
+			}
+		}
+	}
+}

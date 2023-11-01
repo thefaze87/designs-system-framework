@@ -1,0 +1,160 @@
+@use '../../../base/functions/rem-em' as *;
+@use '../../../base/variables/index' as *;
+@use '../forms.mixin' as *;
+
+.input-search {
+	@extend %input-basics;
+	display: flex;
+	align-items: center;
+	gap: get-rem(8);
+	width: get-rem(176);
+	box-shadow: var(--input-search-box-shadow);
+
+	input {
+		width: 100%;
+		&:active,
+		&:focus,
+		&:not(:placeholder-shown) {
+			width: 100%;
+		}
+	}
+
+	&.filled input {
+		width: 100%;
+	}
+
+	.search {
+		color: var(--input-search-color);
+		font-size: get-rem(16);
+		line-height: 1;
+	}
+
+	.search-text {
+		left: get-rem(40);
+		color: var(--input-text-color);
+	}
+
+	&.stealth {
+		&.mini {
+			border: none;
+			width: get-rem(36);
+			max-width: get-rem(36);
+			height: get-rem(36);
+			border-radius: get-rem(8);
+			background-color: var(--stealth-bg);
+			color: var(--stealth-text-color);
+			transition: width $transition-default, box-shadow $transition-default, opacity $transition-default;
+			transform-origin: right;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 0 get-rem(4);
+			gap: 0;
+			cursor: pointer;
+
+			&.active,
+			&.focused,
+			&.filled,
+			&:focus-within,
+			input:not(:placeholder-shown) {
+				max-width: get-rem(176);
+				padding: 0 get-rem(8);
+				gap: get-rem(6);
+			}
+
+			input {
+				width: 0;
+				padding: 0;
+				transition: width $transition-default, opacity $transition-default, visibility $transition-default;
+				opacity: 0;
+				visibility: hidden;
+				font-size: get-rem(14);
+				&::placeholder {
+					font-size: get-rem(14);
+				}
+				&:not(:placeholder-shown) {
+					width: 100%;
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+			.search,
+			.close {
+				flex: 0 0 auto;
+				line-height: 1;
+			}
+			.close {
+				width: 0;
+				visibility: hidden;
+				opacity: 0;
+				background-color: var(--input-search-close-bg);
+				color: var(--input-search-close-text);
+				border-radius: 50%;
+				width: 0;
+				height: 0;
+				transition: opacity $transition-default, visibility $transition-default;
+				& > svg {
+					width: get-rem(14);
+					transform: translate(3px, 2px);
+					opacity: 0;
+					visibility: hidden;
+				}
+			}
+		}
+
+		&.active,
+		&.focused,
+		&.filled,
+		&:focus-within {
+			width: 100%;
+			gap: get-rem(6);
+			.close {
+				width: get-rem(18);
+				visibility: visible;
+				opacity: 1;
+				width: get-rem(20);
+				height: get-rem(20);
+				& > svg {
+					visibility: visible;
+					opacity: 1;
+				}
+			}
+			input {
+				width: 100%;
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+	}
+	&-simple {
+		border: 1px solid var(--input-border-color);
+		padding: #{get-rem(6)} #{get-rem(8)} #{get-rem(6)} #{get-rem(8)};
+		border-radius: $border-radius;
+		background-color: var(--input-background);
+		box-shadow: unset;
+
+		input {
+			background-color: transparent;
+		}
+
+		.search {
+			color: var(--input-search-icon-color);
+			font-size: #{get-rem(18)};
+			left: #{get-rem(9)};
+		}
+
+		.search-text {
+			left: #{get-rem(40)};
+			color: var(--input-text-color);
+		}
+	}
+}
+
+// Hide the webkit pseudo element
+input[type='search']::-webkit-search-decoration,
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-results-button,
+input[type='search']::-webkit-search-results-decoration {
+	display: none;
+	-webkit-appearance: none;
+}

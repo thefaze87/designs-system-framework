@@ -1,0 +1,37 @@
+.audio-wave {
+	wave wave {
+		background-color: var(--bg-color, var(--scorp-blue4));
+	}
+
+	.play-btn {
+		svg {
+			display: none;
+		}
+
+		&.playing .playing,
+		&:not(.playing) .not-playing {
+			display: block;
+		}
+	}
+	.mute-btn {
+		> [class*='mute'] {
+			display: none;
+		}
+
+		&.muted .muted,
+		&:not(.muted) .not-muted {
+			display: flex;
+		}
+	}
+
+	a {
+		span {
+			transition: color 0.3s ease 0s;
+		}
+
+		&:hover span,
+		&:focus span {
+			color: var(--color, var(--scorp-blue2));
+		}
+	}
+}

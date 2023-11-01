@@ -1,0 +1,160 @@
+// Global Variables
+@use '../../base/variables/var' as *;
+@use '../../base/variables/typography/text' as *;
+@use '../../base/variables/colors/colors' as *;
+
+// Global functions
+@use '../../base/functions/rem-em' as *;
+
+// Button Mixin
+@use './btn.mixins';
+
+// Btn Configuration
+button {
+	color: inherit;
+	background-color: inherit;
+	&:focus {
+		outline: none;
+	}
+}
+
+.btn {
+	@extend %btn-base;
+
+	&--bubble {
+		border-radius: #{get-rem(12)};
+	}
+
+	&--no-pad {
+		padding: 0;
+	}
+
+	// Set font-size for svgs that are used in the simple btn
+	&--simple {
+		& > svg {
+			font-size: #{get-rem(12)};
+		}
+	}
+
+	&--progress {
+		position: relative;
+		text-align: center;
+		border: 2px solid var(--white);
+		border-radius: 50%;
+		padding: #{get-rem(16)};
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		transition: background-color 0.2s ease 0s, color 0.2s ease 0s;
+
+		&:hover,
+		&:active,
+		&:focus {
+			svg {
+				color: rgba($white, 90%);
+			}
+		}
+		&.play {
+			background-color: var(--green2);
+			&:hover,
+			&:active,
+			&:focus {
+				background-color: rgba($green2, 90%);
+			}
+		}
+
+		&.pause {
+			background-color: var(--yellow);
+
+			&:hover,
+			&:active,
+			&:focus {
+				background-color: rgba($yellow, 90%);
+			}
+		}
+	}
+
+	&--actions {
+		font-size: get-rem(12);
+	}
+}
+
+.btn-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+	width: var(--btn-width, #{get-rem(36)});
+	height: var(--btn-height, #{get-rem(36)});
+	min-width: 0;
+	box-shadow: var(--btn-box-shadow, transparent);
+	background-color: var(--btn-bg-color, var(--scorp-gray2));
+	color: var(--btn-color);
+	border-radius: #{get-rem(8)};
+	font-size: #{get-rem(18)};
+	border: {
+		style: solid;
+		width: var(--btn-border-width, 1px);
+		color: var(--btn-border, transparent);
+	}
+	transition: color #{$transition-default}, background-color #{$transition-default}, border-color #{$transition-default}, box-shadow #{$transition-default};
+
+	&:focus {
+		outline: none;
+	}
+
+	// Added large variation per the style guide
+	&--large {
+		border-radius: 0.625rem;
+	}
+
+	&-caret {
+		// If SVG inside class, target the SVG
+		> svg {
+			font-size: #{get-rem(6)};
+		}
+	}
+}
+
+.btn-arrow {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+	width: var(--btn-width, #{get-rem(36)});
+	height: var(--btn-height, #{get-rem(36)});
+	min-width: 0;
+	box-shadow: var(--btn-box-shadow, transparent);
+	background-color: var(--btn-bg-color, var(--scorp-gray2));
+	color: var(--btn-color);
+	border-radius: #{get-rem(8)};
+	font-size: #{get-rem(18)};
+	border: {
+		style: solid;
+		width: var(--btn-border-width, 1px);
+		color: var(--btn-border, transparent);
+	}
+	transition: color #{$transition-default}, background-color #{$transition-default}, border-color #{$transition-default}, box-shadow #{$transition-default};
+}
+
+// Carousel
+.carousel {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: get-rem(4);
+	height: #{get-rem(36)};
+	width: #{get-rem(64)};
+	border: {
+		style: solid;
+		width: 1px;
+		color: var(--gray4);
+		radius: #{get-rem(8)};
+	}
+	background-color: var(--white);
+
+	.btn-arrow {
+		border-radius: #{get-rem(4)};
+		font-size: #{get-rem(12)};
+	}
+}

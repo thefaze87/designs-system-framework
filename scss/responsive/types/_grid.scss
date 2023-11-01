@@ -1,0 +1,165 @@
+@use '../mixins/responsive' as *;
+
+// CSS Grid
+// Classes and grid using CSS grid
+@each $name, $breakpoint in $breakpoints {
+	// Loop thru breakpoints map and include dynamic breakpoint mixin
+	@include respond-to($name) {
+        .ui-tab-panel.#{$name}-grid.active {
+            display: grid;
+        }
+
+        .#{$name}-grid {
+            display: grid;
+            // Column Properties
+            // Grid Template Columns
+            @for $i from 1 through 12 {
+                &-cols-#{$i} {
+                    grid-template-columns: repeat(#{$i}, minmax(0, 1fr));
+                }
+            }
+            &-cols-auto {
+                grid-template-columns: none;
+            }
+
+            // Grid Column Start / End
+            &-col {
+                // Based on 12 Column Grid
+                // For Loop doing the bulk of the work
+                @for $i from 1 through 12 {
+                    &-span-#{$i} {
+                        grid-column: span #{$i} / span #{$i};
+                    }
+                    &-start-#{$i} {
+                        grid-column-start: #{$i};
+                    }
+                    &-end-#{$i} {
+                        grid-column-end: #{$i};
+                    }
+                }
+                &-auto {
+                    grid-column: auto;
+                }
+                &-span-full {
+                    grid-column: 1 / -1;
+                }
+                &-start {
+                    &-13 {
+                        grid-column-start: 13;
+                    }
+                    &-auto {
+                        grid-column-start: auto;
+                    }
+                }
+                &-end {
+                    &-13 {
+                        grid-column-end: 13;
+                    }
+                    &-auto {
+                        grid-column-end: auto;
+                    }
+                }
+            }
+
+            // Row Properties
+            // Grid Template Rows
+            @for $i from 1 through 6 {
+                &-rows-#{$i} {
+                    grid-template-rows: repeat(#{$i}, minmax(0, 1fr));
+                }
+            }
+            &-rows-auto {
+                grid-template-rows: none;
+            }
+
+            // Grid Row Start / End
+            &-row {
+                // Based on 6 Row Grid
+                // For Loop doing the bulk of the work
+                @for $i from 1 through 12 {
+                    &-span-#{$i} {
+                        grid-row: span #{$i} / span #{$i};
+                    }
+                    &-start-#{$i} {
+                        grid-row-start: #{$i};
+                    }
+                    &-end-#{$i} {
+                        grid-row-end: #{$i};
+                    }
+                }
+                &-auto {
+                    grid-row: auto;
+                }
+                &-span-full {
+                    grid-row: 1 / -1;
+                }
+                &-start {
+                    &-13 {
+                        grid-row-start: 13;
+                    }
+                    &-auto {
+                        grid-row-start: auto;
+                    }
+                }
+                &-end {
+                    &-13 {
+                        grid-row-end: 13;
+                    }
+                    &-auto {
+                        grid-row-end: auto;
+                    }
+                }
+            }
+
+            // Auto Flow
+            &-flow {
+                &-row {
+                    grid-auto-flow: row;
+                    &-dense {
+                        grid-auto-flow: row dense;
+                    }
+                }
+                &-col {
+                    grid-auto-flow: column;
+                    &-dense {
+                        grid-auto-flow: column dense;
+                    }
+                }
+            }
+        }
+
+        // Grid Auto Columns / Rows
+        .#{$name}-auto {
+            // Columns
+            &-cols {
+                &-auto {
+                    grid-auto-columns: auto;
+                }
+                &-min {
+                    grid-auto-columns: min-content;
+                }
+                &-max {
+                    grid-auto-columns: max-content;
+                }
+                &-fr {
+                    grid-auto-columns: minmax(0, 1fr);
+                }
+            }
+            // Rows
+            &-rows {
+                &-auto {
+                    grid-auto-rows: auto;
+                }
+                &-min {
+                    grid-auto-rows: min-content;
+                }
+                &-max {
+                    grid-auto-rows: max-content;
+                }
+                &-fr {
+                    grid-auto-rows: minmax(0, 1fr);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,82 @@
+@use '../base/functions/rem-em' as *;
+@use '../base/variables/index' as *;
+@use '../base/variables/typography/text' as *;
+
+html {
+	font: {
+		family: var(--primary-font);
+		size: 0.9375vw; // 16px at 1440 viewport
+	}
+	display: block !important;
+}
+
+body {
+	overflow: {
+		x: hidden;
+		y: auto !important;
+	}
+	background-color: var(--scorp-gray1);
+	font-size: get-rem(16);
+	color: var(--text);
+	line-height: 157%;
+	font-family: var(--primary-font);
+}
+
+.main {
+	&--header {
+		margin: 0 auto;
+		max-width: get-rem(1920);
+		width: 100%;
+		padding: 0 get-rem(48);
+	}
+	&--body {
+		margin: 0 auto;
+		max-width: get-rem(1920);
+		width: 100%;
+		padding: get-rem(25) get-rem(48) get-rem(54);
+	}
+	&--workflow {
+		margin: 0 auto;
+		max-width: get-rem(1920);
+		width: 100%;
+		padding: {
+			top: get-rem(40);
+			right: get-rem(48);
+			bottom: get-rem(90);
+			left: get-rem(48);
+		}
+		display: flex;
+	}
+}
+
+.cms-layout body {
+	padding-top: 0 !important;
+}
+
+a {
+	text-decoration: none;
+	transition: color $transition-default;
+	color: var(--text-link, var(--scorp-blue));
+	&:hover,
+	&:focus {
+		--text-link: var(--scorp-blue2);
+	}
+}
+
+strong {
+	font-weight: 600;
+}
+
+// Icon color updates to support RGB
+svg[data-use] {
+	color: var(--text-color);
+}
+
+// CMS Wide Classes
+*:disabled,
+.disabled,
+.disable {
+	opacity: 0.25;
+	pointer-events: none;
+	cursor: not-allowed;
+}

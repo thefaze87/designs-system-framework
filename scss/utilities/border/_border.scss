@@ -1,0 +1,102 @@
+@use 'sass:color';
+
+@use '../../base/variables/layout/direction' as dir;
+@use '../../base/variables/borders/border-width' as width;
+@use '../../base/variables/borders/border-style' as style;
+
+// Border Width Utility Classes
+// Classes for border widths
+@each $side in dir.$sides {
+	// Border Widths
+	@each $width in width.$border-widths {
+		@if $side == all {
+			// This is to create an "all" class - used
+			.bdr-all {
+				border: {
+					width: 1px;
+					style: var(--border-style, solid);
+					color: var(--border-color, var(--border));
+				}
+			}
+
+			.bdr-#{$width} {
+				border: {
+					width: #{$width} + px;
+					style: var(--border-style, solid);
+					color: var(--border-color, var(--border));
+				}
+			}
+		} @else if $side == horiz or $side == y {
+			.bdr-#{$side} {
+				border: {
+					left-width: 1px;
+					right-width: 1px;
+					left-style: var(--border-style, solid);
+					right-style: var(--border-style, solid);
+					color: var(--border-color, var(--border));
+				}
+			}
+			.bdr-#{$side}-#{$width} {
+				border: {
+					left-width: #{$width} + px;
+					right-width: #{$width} + px;
+					left-style: var(--border-style, solid);
+					right-style: var(--border-style, solid);
+					color: var(--border-color, var(--border));
+				}
+			}
+		} @else if $side == vert or $side == x {
+			.bdr-#{$side} {
+				border: {
+					top-width: 1px;
+					bottom-width: 1px;
+					top-style: var(--border-style, solid);
+					bottom-style: var(--border-style, solid);
+					color: var(--border-color, var(--border));
+				}
+			}
+			.bdr-#{$side}-#{$width} {
+				border: {
+					top-width: #{$width} + px;
+					bottom-width: #{$width} + px;
+					top-style: var(--border-style, solid);
+					bottom-style: var(--border-style, solid);
+					color: var(--border-color, var(--border));
+				}
+			}
+		} @else {
+			.bdr-#{$side} {
+				border: {
+					#{$side}-width: 1px;
+					#{$side}-style: var(--border-style, solid);
+					color: var(--border-color, var(--border));
+				}
+			}
+			.bdr-#{$side}-#{$width} {
+				border: {
+					#{$side}-width: #{$width} + px;
+					#{$side}-style: var(--border-style, solid);
+					color: var(--border-color, var(--border));
+				}
+			}
+
+			// Pixel
+			// TODO: Remove any -px reference once classes migrated to bdr-all, bdr-1, etc. This is kept for now until the classes are updated as we are removing the "rem" approach. Additional cleanup will be done. - Mark Fasel (02/07/23)
+			.bdr-#{$side}-#{$width}-px {
+				border: {
+					#{$side}-width: #{$width} + px;
+					#{$side}-style: var(--border-style, solid);
+					color: var(--border-color, var(--border));
+				}
+			}
+		}
+	}
+}
+
+// Border Style Utility Classes
+// Classes for border styles
+@each $style in style.$border-styles {
+	.bdr-#{$style} {
+		--border-style: #{$style};
+	}
+}

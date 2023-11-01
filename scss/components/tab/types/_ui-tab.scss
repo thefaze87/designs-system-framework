@@ -1,0 +1,39 @@
+// Base Functions
+@use '../../../base/functions/rem-em' as *;
+
+
+// TODO: remove styles from table and make small updates to bring current with that update
+.ui-tabs {
+	position: relative;
+
+	// Ui-Twirl
+	.ui-twirl {
+		position: relative;
+		cursor: pointer;
+		&::before {
+			content: '';
+			display: block;
+			position: absolute;
+			left: get-rem(-21);
+			top: get-rem(4);
+			width: 0;
+			height: 0;
+			border: {
+				top: get-rem(8) solid transparent;
+				bottom: get-rem(8) solid transparent;
+				right: get-rem(8) solid transparent;
+				left: get-rem(8) solid var(--twirl-arrow);
+				radius: get-rem(4);
+			}
+
+			transform: rotate(0);
+			transform-origin: left;
+			transition: transform 0.3s ease 0s;
+		}
+		&.active {
+			&::before {
+				transform: rotate(90deg);
+			}
+		}
+	}
+}

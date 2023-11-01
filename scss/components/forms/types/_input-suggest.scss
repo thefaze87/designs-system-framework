@@ -1,0 +1,197 @@
+@use '../../../base/functions/rem-em' as *;
+@use '../../../base/mixins/display' as *;
+@use '../../../base/variables/var' as *;
+@use '../../../base/variables/typography/text' as *;
+@use '../../../base/variables/colors/branding' as *;
+@use '../forms.mixin' as *;
+
+.input-suggest {
+	&.search.input-text {
+		overflow: visible;
+	}
+
+	&::before {
+		@extend %select-before;
+		z-index: 4; // Redeclare here to override the placeholder z-index value. If we update in the placeholder, the caret will then display above the suggestions. We only want the z-index higher for input suggest (only an issue since the space between the input with border-radius and the suggestions dropdown looked off). This may change with design / creative updates.
+	}
+
+	// Set z-index for the input to position the dropdown menu underneath the input
+	input[type='search'] {
+		z-index: 3;
+	}
+
+	.suggestions {
+		position: absolute;
+		left: 50%;
+		top: 100%;
+		width: max-content;
+		min-width: 100%;
+		margin: get-rem(1) 0 0;
+		background-color: var(--suggestions-bg);
+		border: none;
+		box-shadow: var(--suggestions-box-shadow);
+		pointer-events: none;
+		opacity: 0;
+		transform: translate(-50%, 10px);
+		transition: transform $transition-default, opacity $transition-default, z-index 0.3s;
+		z-index: 2;
+
+		&.above {
+			top: auto;
+			bottom: 100%;
+			margin-bottom: 0;
+		}
+
+		> ul {
+			overflow: auto;
+			max-height: get-rem(272);
+			transition: opacity $transition-default;
+			padding: get-rem(10);
+
+			// Set padding top on first UL to offset and provide additional space between input and dropdown menu
+			&:first-child {
+				padding-top: get-rem(15);
+			}
+
+			&.divide-bottom {
+				border-bottom: 1px solid var(--suggestions-divide-border);
+			}
+
+			> li {
+				@include flex-display($direction: row, $justify-content: flex-start, $align-items: center, $gap: #{get-rem(4)});
+				position: relative;
+				transition: background-color $transition-default;
+
+				input {
+					&[type='radio'],
+					&[type='checkbox'] {
+						position: absolute;
+						left: 0;
+						top: 0;
+						border: 0;
+						margin: 0;
+						padding: 0;
+						opacity: 0;
+						height: auto;
+						width: auto;
+						pointer-events: none;
+					}
+
+					~ label.suggest--label {
+						background-color: var(--suggestions-label-bg);
+						color: var(--suggestions-label-color);
+						width: 100%;
+						padding: get-rem(8);
+						border-radius: get-rem(4);
+						display: block;
+						cursor: pointer;
+						transition: color $transition-default, background-color $transition-default;
+						font: {
+							size: get-rem(14);
+							weight: 400;
+							family: $primary-font;
+						}
+						line-height: 1;
+					}
+				}
+
+				+ li {
+					margin-top: get-rem(4);
+				}
+			}
+		}
+	}
+}
+
+.suggest {
+	.tags {
+		padding-top: get-rem(12);
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		gap: get-rem(6);
+
+		&:empty {
+			padding-top: 0;
+		}
+
+		li {
+			@extend %suggest-tags;
+		}
+
+		label {
+			position: relative;
+			width: get-rem(18);
+			height: get-rem(18);
+			cursor: pointer;
+			transition: color $transition-default;
+
+			&::before,
+			&::after {
+				content: '';
+				position: absolute;
+				display: block;
+				width: get-rem(12);
+				height: 2px;
+				top: 50%;
+				left: 50%;
+				background-color: var(--gray6);
+				border-radius: get-rem(12);
+				transform-origin: center;
+			}
+
+			&::before {
+				transform: translate(-50%, -50%) rotate(45deg);
+			}
+
+			&::after {
+				transform: translate(-50%, -50%) rotate(-45deg);
+			}
+
+			&:hover,
+			&:focus {
+				&::before,
+				&::after {
+					background-color: var(--gray2);
+				}
+			}
+		}
+	}
+}
+
+// Set the dropdown on focused
+.input-suggest.focus .suggestions,
+.input-suggest input:focus + .suggestions,
+.ui-suggest.focus .suggestions,
+.input-suggest.focus .suggestions,
+.ui-suggest.focused .suggestions,
+.ui-suggest input:focus .suggestions,
+li.focused .input-suggest .suggestions {
+	pointer-events: all;
+	opacity: 1;
+	transform: translate(-50%, -5px);
+	margin-bottom: get-rem(48);
+	border-radius: 0 0 get-rem(8) get-rem(8);
+}
+
+/*
+** LI Focused Style Layering / Z-Index - @Faze (11/10/2022)
+** Sets z-index for the focused li containing the input-suggest to ensure that it is not behind another input-suggest or element that is after in the html structure / dom
+** There is an example found on /account-management/leadership-reports/clients-category in the filter flyout panel when more than one input-suggest is added, the input-suggest
+** is positioned below in the z-index/layering of the one after when it is focused. This is to fix the layering / z-index to ensure the focused item is on top and not cut off
+*/
+ul {
+	> li {
+		&.focused,
+		&.focus {
+			z-index: 3;
+			@extend %suggest-focus;
+		}
+	}
+}
+
+.ui-suggest {
+	&.focus {
+		@extend %suggest-focus;
+	}
+}

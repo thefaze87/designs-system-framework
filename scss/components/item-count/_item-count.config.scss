@@ -1,0 +1,12 @@
+// Global base utils
+@use '../../base/functions/rem-em' as *;
+@use '../../base/mixins/display' as *;
+
+// Component Mixins
+@use './item-count.mixins';
+
+// Item Count Configuration
+.item-count {
+	@include flex-display($align-items: center);
+	@extend %item-count-base;
+}

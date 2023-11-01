@@ -1,0 +1,229 @@
+@use '../../base/variables/index' as *;
+@use '../../base/variables/colors/index' as *;
+@use '../../base/functions/rem-em' as *;
+
+@use '../../base/mixins/positioning' as *;
+@use '../../base/mixins/twirl-caret' as *;
+
+// Mixins
+@use './site-header.mixin' as *;
+
+:root {
+	--header__title-height: 4.5rem;
+	--header__title-height-scroll: 4.5rem;
+	--dept-nav-height: 3.125rem;
+	--dept-nav-height-scroll: 0rem;
+	--header__nav-height: 3rem;
+	--hub-height: 3.75rem;
+}
+
+.cx-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	transition: transform 0.3s ease 0s;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 100%;
+
+	.btn.home {
+		padding: 0.4rem;
+		color: var(--scorp-blue3);
+		font-weight: 500;
+		border: solid 2px var(--scorp-blue);
+		height: auto;
+		box-shadow: 0 2px 6px rgba($black, 60%);
+		transition: border-color 0.3s ease, color 0.3s ease, background-color 0.3s ease, opacity 0.3s ease;
+		background-color: var(--theme-bg);
+		position: relative;
+
+		svg {
+			color: var(--scorp-blue3);
+
+			+ .close.active {
+				opacity: 0;
+			}
+		}
+
+		&:hover {
+			color: var(--white);
+			border-color: var(--white);
+
+			svg {
+				color: var(--white);
+			}
+		}
+	}
+
+	.cx-header__nav {
+		z-index: 11;
+		position: relative;
+		background-color: var(--theme-bg);
+
+		// Client Area
+		.dept {
+			color: var(--scorp-blue4);
+			letter-spacing: 0.1rem;
+			font-size: 0.625rem;
+		}
+
+		// Dept Nav
+		.dept-nav {
+			height: var(--hub-height);
+			opacity: 1;
+			visibility: visible;
+			transition: height 0.3s ease, opacity 0.3s ease, visiblity 0.3s ease;
+			.client & {
+				height: var(--header__nav-height);
+			}
+			> a,
+			.branch-nav > li.crumb > a {
+				position: relative;
+				color: var(--dept-color);
+				font-weight: 600;
+				align-items: center;
+				height: 100%;
+
+				&:hover,
+				&.active {
+					color: var(--dept-active-color);
+				}
+
+				&::before,
+				&::after {
+					content: '';
+					position: absolute;
+				}
+
+				&::before {
+					top: 0;
+					left: -0.625em;
+					bottom: 0;
+					right: -0.625em;
+				}
+
+				&::after {
+					width: 100%;
+					height: 4px;
+					border-radius: 0.5rem;
+					bottom: 0;
+					left: 0;
+					transition: transform 0.3s, visibility 0.3s, opacity 0.3s;
+					visibility: hidden;
+					opacity: 0;
+					transform: scale(0.5, 1);
+					background-color: var(--dept-before-bg);
+				}
+				&.active::after {
+					visibility: visible;
+					opacity: 1;
+					transform: none;
+				}
+			}
+		}
+	}
+
+	.client-hub,
+	.user-hub {
+		height: var(--hub-height);
+		opacity: 1;
+		visibility: visible;
+		transition: opacity 0.3s ease, visibility 0.3s ease;
+	}
+
+	.client-hub {
+		.dept {
+			color: var(--scorp-blue4);
+			letter-spacing: 0.1rem;
+			font-size: 0.625rem;
+			text-transform: uppercase;
+		}
+
+		.client {
+			color: var(--scorp-blue4);
+			font-weight: 600;
+			display: block;
+		}
+
+		.client-info-tip {
+			color: var(--scorp-blue3);
+			transition: color 0.3s ease;
+
+			cursor: pointer;
+
+			.touch-tip table {
+				width: 29rem;
+				margin-top: get-rem(12);
+				tr {
+					vertical-align: top;
+					td {
+						height: auto;
+						box-shadow: none;
+						color: var(--white);
+					}
+				}
+				td.email {
+					white-space: normal;
+				}
+			}
+
+			&:hover {
+				color: var(--white);
+			}
+		}
+	}
+
+	.page-details-bar {
+		background-color: var(--theme-bg);
+		position: relative;
+		&::before {
+			content: '';
+			width: 100%;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			background-color: var(--white);
+			border-top-left-radius: 1em;
+			border-top-right-radius: 1em;
+			position: absolute;
+			display: block;
+			transition: top 0.3s;
+		}
+	}
+
+	&__title {
+		position: relative;
+		min-height: var(--header__title-height-scroll);
+		transition: min-height 0.3s, border 0.3s;
+		width: 100%;
+
+		.gp-dd-panel {
+			left: 0;
+			min-width: 33em;
+		}
+
+		.title--page {
+			font-size: 2rem;
+			transition: font-size 0.3s;
+		}
+	}
+
+	&__tabs {
+		height: var(--header__nav-height);
+
+		&::before {
+			content: '';
+			position: absolute;
+			bottom: var(--header__nav-height);
+			left: 0;
+			width: 100vw;
+			height: 1px;
+			border-top: solid 1px var(--border);
+			opacity: 1;
+			visibility: visible;
+			transition: opacity 0.3s, visibility 0.3s;
+		}
+	}
+}

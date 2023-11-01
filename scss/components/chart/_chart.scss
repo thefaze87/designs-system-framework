@@ -1,0 +1,74 @@
+@use 'sass:string' as string;
+@use './chart.mixins' as *;
+@use './chart.variables' as *;
+
+// Partial Stylesheet references
+@forward './chart.config';
+@forward './legend.config';
+
+// Types
+@forward './types/line-chart';
+@forward './types/pie-chart';
+@forward './types/circle';
+@forward './types/gauge';
+@forward './types/table-graph';
+@forward './types/misc';
+
+// Elements
+@forward './elements/tooltips';
+@forward './elements/legend';
+
+// Themes
+@forward './themes/sequence';
+@forward './themes/line';
+@forward './themes/scores';
+@forward './themes/leads';
+@forward './themes/green-red';
+@forward './themes/range';
+@forward './themes/year-over-year';
+@forward './themes/custom-legend';
+
+///
+/// Chart theme function
+/// Builds the chart theme styles
+///
+/// @group 6-components
+/// @author Anthony Minnaugh and Mark Fasel
+/// @access public
+///
+@each $theme, $theme-values in $chart-themes {
+	@each $color-name, $color-value in $theme-values {
+		$length: length($theme-values);
+		$value: $length - index($theme-values, $color-name $color-value);
+
+		// Create our styles
+		@if $theme == 'default' {
+			// Set our nth-length variable
+			@if ($value == 0) {
+				$nth-length: #{$length}n;
+				@include create-chart-styles($nth-length, $color-value);
+			} @else {
+				$nth-length: #{$length}n - #{$value};
+				@include create-chart-styles($nth-length, $color-value);
+			}
+		} @else if $theme == "[class*='flipped-']" {
+			// Set our nth-length variable
+			@if ($value == 0) {
+				$nth-length: #{$length}n;
+				@include create-chart-styles($nth-length, $color-value, '', ':nth-last-of-type', ':nth-last-child');
+			} @else {
+				$nth-length: #{$length}n - #{$value};
+				@include create-chart-styles($nth-length, $color-value, '', ':nth-last-of-type', ':nth-last-child');
+			}
+		} @else {
+			// Set our nth-length variable
+			@if ($value == 0) {
+				$nth-length: #{$length}n;
+				@include create-chart-styles($nth-length, $color-value, $theme);
+			} @else {
+				$nth-length: #{$length}n - #{$value};
+				@include create-chart-styles($nth-length, $color-value, $theme);
+			}
+		}
+	}
+}

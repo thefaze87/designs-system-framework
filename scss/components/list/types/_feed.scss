@@ -1,0 +1,59 @@
+// Feeds list type. This includes review feeds, news feeds, a simple feed list with icons, a stacked avatar feed list and more.
+@use '@scorpion/shared-ui/scss/base/mixins/display' as *;
+@use '@scorpion/shared-ui/scss/base/functions/rem-em' as *;
+@use '../lists.mixins' as *;
+
+.list {
+	$list-element: &; // Reference to .list
+
+	&__feed {
+		$feed-element: &; // Reference to .list
+
+		@extend %no-list-style;
+
+		&-reviews {
+			// Item
+			#{$list-element}--item {
+				border-top: 1px solid var(--border);
+				margin-top: get-rem(16);
+				padding-top: get-rem(16);
+
+				&:first-child {
+					margin-top: 0;
+					padding-top: 0;
+					border-top: none;
+				}
+
+				// Header
+				&-header {
+					@include flex-display($justify-content: space-between, $align-items: center, $gap: #{get-rem(16)});
+					margin-bottom: get-rem(16);
+				}
+
+				// Platform
+				&-platform {
+					@include flex-display($align-items: center, $gap: #{get-rem(16)});
+				}
+
+				&-actions {
+					@include flex-display($align-items: center, $gap: #{get-rem(16)});
+				}
+
+				&-meta {
+					@include flex-display($direction: column, $gap: #{get-rem(6)});
+
+					h4 {
+						font-size: get-rem(16);
+					}
+
+					p {
+						--text-color: var(--text);
+						font-size: get-rem(12);
+						font-weight: 500;
+						line-height: normal;
+					}
+				}
+			}
+		}
+	}
+}

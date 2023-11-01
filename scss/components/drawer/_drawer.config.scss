@@ -1,0 +1,129 @@
+@use '../../base/variables/var' as *;
+@use '../../base/functions/rem-em' as *;
+@use './drawer.mixins' as *;
+@use './drawer.animations' as *;
+
+$drawer-width: #{get-rem(400)};
+
+.drawer--body {
+	// Slide Panel Left Styles
+	.drawer--left {
+		@extend %drawer-left-base;
+		&.open {
+			width: calc(100% - $drawer-width);
+		}
+	}
+
+	// Slide Panel Right Styles
+	.drawer--right {
+		--bg-color: var(--white);
+		@extend %drawer-right-base;
+		width: $drawer-width;
+
+		// Slide Panel Header
+		> header,
+		.drawer--header,
+		.drawer--content {
+			@extend %content-container-invisible;
+		}
+
+		> header,
+		.drawer--header {
+			border-bottom: 1px solid var(--border-color, var(--border));
+			margin-bottom: get-rem(24);
+			padding-bottom: get-rem(12);
+		}
+
+		// Close button
+		.drawer--close {
+			@extend %drawer-close-btn;
+			visibility: hidden;
+			opacity: 0;
+			pointer-events: none;
+			position: absolute;
+			&.open {
+				visibility: visible;
+				opacity: 1;
+				pointer-events: auto;
+			}
+		}
+
+		&.open {
+			right: 0;
+
+			// Slide Panel Header
+			> header,
+			.drawer--header,
+			.drawer--content {
+				@extend %content-container-visible;
+
+				// Temp for testing
+				.scroll-panel {
+					overflow-y: scroll;
+				}
+			}
+		}
+	}
+
+	// Panel Details
+	.drawer--content {
+		.drawer-container {
+			padding: 0;
+		}
+
+		// Temp for testing
+		.scroll-panel {
+			max-height: 100%;
+			overflow-y: scroll;
+			height: calc(100vh - 14rem);
+			padding-bottom: get-rem(24);
+		}
+
+		.drawer-panel--header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			.user-info {
+				display: flex;
+				flex-direction: row-reverse;
+				align-items: center;
+				gap: get-rem(16);
+			}
+		}
+
+		// Custom Info Block Container
+		.info-block {
+			display: flex;
+			flex-direction: column;
+			gap: get-rem(12);
+			border-bottom: 1px solid var(--border-color, var(--border));
+			margin-bottom: get-rem(18);
+			padding-bottom: get-rem(18);
+
+			a.btn--simple {
+				font-size: get-rem(14);
+				& > svg {
+					position: relative;
+				}
+
+				&.open {
+					& > svg {
+						transform: rotateZ(-180deg);
+					}
+				}
+			}
+		}
+
+		ul {
+			> li {
+				p,
+				span,
+				strong,
+				small {
+					color: var(--text-color, var(--text));
+				}
+			}
+		}
+	}
+}

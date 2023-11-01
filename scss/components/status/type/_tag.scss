@@ -1,0 +1,25 @@
+@use '../../../base/variables/colors/status' as *;
+@use '../status.mixins' as *;
+
+// Status box type
+.status__tag {
+	// Base styles
+	@extend %status-base;
+
+	// Tag Styles
+	padding: 0.5rem 1rem;
+	color: var(--tag-color, var(--scorp-gray2));
+	font-weight: 500;
+	display: inline-block;
+	background-color: var(--tag-bg, var(--scorp-gray1));
+	border-radius: 4px;
+	text-align: center;
+
+	// Status tag color name
+	@each $color in $status-colors {
+		&--#{nth($color,1)} {
+			--tag-bg: var(--status-#{nth($color, 1)}-primary);
+			--tag-color: var(--status-#{nth($color, 1)}-accent);
+		}
+	}
+}

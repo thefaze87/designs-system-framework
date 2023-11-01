@@ -1,0 +1,20 @@
+// Forms Config Styles
+@forward './forms.config';
+
+// Forms Types Styles
+@forward './types/input-text';
+@forward './types/input-search';
+@forward './types/input-suggest';
+@forward './types/input-stealth';
+@forward './types/input-stealth-work';
+@forward './types/input-select';
+@forward './types/input-file';
+@forward './types/input-mark';
+@forward './types/mark-tile';
+@forward './types/mock-input';
+@forward './types/input-figure';
+@forward './types/ckeditor';
+@forward './types/uploader';
+
+// Forms Themes
+@forward './forms.themes';

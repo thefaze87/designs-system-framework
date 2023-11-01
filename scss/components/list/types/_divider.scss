@@ -1,0 +1,8 @@
+.list {
+	$list-element: &; // Reference to .list
+	&__divider {
+		#{$list-element}--item {
+			border-bottom: solid 1px var(--border-color);
+		}
+	}
+}

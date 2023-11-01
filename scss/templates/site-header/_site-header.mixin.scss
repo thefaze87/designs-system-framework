@@ -1,0 +1,53 @@
+@use '../../base/variables/var' as *;
+@use '../../base/functions/rem-em' as *;
+
+@use '../../base/mixins/positioning' as *;
+
+$header-template-nav-height: #{get-rem(60)};
+$header-details-height: #{get-rem(72)};
+$header-details-nav-height: #{get-rem(48)};
+
+@mixin header-navigation {
+	display: flex;
+	gap: get-rem(24);
+	height: #{$header-details-nav-height};
+}
+
+@mixin header-navigation-links {
+	position: relative;
+	align-items: center;
+	display: flex;
+	height: 100%;
+	font-weight: 500;
+	color: var(--navigation-links);
+}
+
+@mixin header-navigation-links-before {
+	@include pseudo;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	opacity: 0;
+	visibility: hidden;
+	transform: scale(0.5, 1);
+	transition: transform $transition-default, visibility $transition-default, opacity $transition-default;
+	border-radius: get-em(8);
+	width: 100%;
+	height: get-em(4);
+	background-color: var(--navigation-links-pseudo);
+}
+
+@mixin hover-circle-bg {
+	--hover-circle-bg: rgba(173, 211, 252, 0.2);
+	@include pseudo;
+	border-radius: 50%;
+	height: get-rem(36);
+	width: get-rem(36);
+	top: get-em(-8);
+	left: get-em(-8);
+	transform: scale(0.7);
+	opacity: 0;
+	transition: transform $transition-default, opacity $transition-default;
+	z-index: 0;
+	background-color: var(--hover-circle-bg);
+}

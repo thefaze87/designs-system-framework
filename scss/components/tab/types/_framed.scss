@@ -1,0 +1,108 @@
+// Base Variables
+@use '../../../base/variables/var' as v;
+
+// Base Functions
+@use '../../../base/functions/rem-em' as *;
+
+// Base Mixins
+@use '../../../base/mixins/display' as *;
+@use '../../../base/mixins/typography' as *;
+
+// Component Mixins
+@use '../tab.mixins' as *;
+
+.tabs__framed {
+	@include flex-display($display: inline-flex, $justify-content: center, $align-items: center);
+
+	// Link Styles
+	a {
+		@extend %tab-framed-base;
+
+		&::after {
+			@extend %tab-framed-after;
+		}
+
+		// Hover styles
+		&:hover {
+			&::after {
+				opacity: 1;
+				transition-delay: 0.1s; // Use a delay for a more seamless transition
+			}
+		}
+
+		// Active styles
+		&.active,
+		&:active {
+			&::after {
+				--tab-border-color: var(--scorp-blue);
+				opacity: 1;
+			}
+		}
+	}
+
+	// Tab Input Styles
+	input {
+		// Base styles applied to the label
+		& + label {
+			@extend %tab-framed-base;
+			@extend %no-text-select;
+
+			&::after {
+				@extend %tab-framed-after;
+			}
+		}
+
+		// Hover styles
+		&:hover {
+			& + label {
+				&::after {
+					opacity: 1;
+					transition-delay: 0.1s; // Use a delay for a more seamless transition
+				}
+			}
+		}
+
+		// Active styles applied to the label when checked or active or focused
+		&.active,
+		&:checked,
+		&:active,
+		&:focus {
+			& + label {
+				&::after {
+					--tab-border-color: var(--scorp-blue);
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	li {
+		margin-left: -1px; // account for the border left and move the item left to off set for hover
+		position: relative;
+
+		&:first-child {
+			margin-left: 0; // remove margin left for the first li
+			label,
+			a {
+				// Set tab frame border-radius top left and bottom left
+				border-top-left-radius: var(--tab-frame-border-radius);
+				border-bottom-left-radius: var(--tab-frame-border-radius);
+			}
+		}
+
+		&:last-child {
+			label,
+			a {
+				// Set tab frame border-radius top right and bottom right
+				border-top-right-radius: var(--tab-frame-border-radius);
+				border-bottom-right-radius: var(--tab-frame-border-radius);
+				border-right: 1px solid var(--tab-border-color);
+
+				// Hide after pseudo element on last child li label and a tag
+				&::after {
+					display: none;
+				}
+			}
+		}
+	}
+}

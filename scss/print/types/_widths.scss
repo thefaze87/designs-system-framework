@@ -1,0 +1,126 @@
+@use '../../base/variables/var' as *;
+@use '../../base/variables/layout/spacing' as *;
+@use '../../base/functions/rem-em' as *;
+@use '../../base/variables/typography/text' as *;
+@use '../../base/variables/layout/spacing' as *;
+@use '../mixins/print' as *;
+
+@include print() {
+	@each $size-class, $space in $spaces {
+		.print-flex {
+			// Flex Basis
+			> .half {
+				flex-basis: $half;
+				width: auto;
+			}
+
+			> .third {
+				flex-basis: $third;
+				width: auto;
+			}
+
+			> .two-thirds {
+				flex-basis: $third * 2;
+				width: auto;
+			}
+
+			> .fourth {
+				flex-basis: $fourth;
+				width: auto;
+			}
+
+			> .three-fourths {
+				flex-basis: $fourth * 3;
+				width: auto;
+			}
+
+			> .fifth {
+				flex-basis: $fifth;
+				width: auto;
+			}
+
+			> .two-fifths {
+				flex-basis: $fifth * 2;
+				width: auto;
+			}
+
+			> .three-fifths {
+				flex-basis: $fifth * 3;
+				width: auto;
+			}
+
+			> .four-fifths {
+				flex-basis: $fifth * 4;
+				width: auto;
+			}
+
+			> .sixth {
+				flex-basis: $sixth;
+				width: auto;
+			}
+
+			> .five-sixths {
+				flex-basis: $sixth * 5;
+				width: auto;
+			}
+
+			// Flex Wrap Basis adjustments
+			&.print-flex-wrap.gap-#{$size-class} {
+				> .half {
+					flex-basis: calc($half - (get-rem($space) / 2));
+					width: auto;
+				}
+
+				> .third {
+					flex-basis: calc($third - (get-rem($space) / 3 * 2));
+					width: auto;
+				}
+
+				> .two-thirds {
+					flex-basis: calc(($third * 2) - (get-rem($space) / 2));
+					width: auto;
+				}
+
+				> .fourth {
+					flex-basis: calc($fourth - (get-rem($space) / 4 * 3));
+					width: auto;
+				}
+
+				> .three-fourths {
+					flex-basis: calc(($fourth * 3) - (get-rem($space) / 3));
+					width: auto;
+				}
+
+				> .fifth {
+					flex-basis: calc($fifth - (get-rem($space) / 5 * 4));
+					width: auto;
+				}
+
+				> .two-fifths {
+					flex-basis: calc(($fifth * 2) - (get-rem($space) / 5 * 3));
+					width: auto;
+				}
+
+				> .three-fifths {
+					flex-basis: calc(($fifth * 3) - (get-rem($space) / 5 * 3));
+					width: auto;
+				}
+
+				> .four-fifths {
+					flex-basis: calc(($fifth * 4) - (get-rem($space) / 5 * 2));
+					width: auto;
+				}
+
+				> .sixth {
+					flex-basis: calc($sixth - (get-rem($space) / 6 * 5));
+					width: auto;
+				}
+
+				> .five-sixths {
+					flex-basis: calc(($sixth * 5) - (get-rem($space) / 6 * 2));
+					width: auto;
+				}
+			}
+		}
+	}
+}

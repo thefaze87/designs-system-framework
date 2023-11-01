@@ -1,0 +1,75 @@
+// Base Variables
+@use '../../../base/variables/var' as v;
+
+// Base Functions
+@use '../../../base/functions/rem-em' as *;
+
+// Base Mixins
+@use '../../../base/mixins/display' as *;
+@use '../../../base/mixins/typography' as *;
+
+// Component Mixins
+@use '../tab.mixins' as *;
+
+// Tabs Simple
+.tabs__simple {
+	@include flex-display($display: inline-flex, $justify-content: center, $align-items: center, $gap: #{get-rem(32)});
+
+	&--stacked {
+		@include flex-display($direction: column, $justify-content: flex-start, $align-items: center, $gap: #{get-rem(32)});
+	}
+
+	// Link Styles
+	a {
+		@extend %tab-simple-base;
+
+		// Before Styles
+		&::before {
+			@extend %tab-simple-before;
+		}
+
+		&::after {
+			@extend %tab-simple-after;
+		}
+
+		// Active styles
+		&.active,
+		&:active {
+			// Active Before Styles
+			&::before {
+				@extend %tab-simple-before-active;
+			}
+		}
+	}
+
+	// Tab Input Styles
+	input {
+		// Base styles applied to the label
+		& + label {
+			@extend %tab-simple-base;
+			@extend %no-text-select;
+
+			// Before Styles
+			&::before {
+				@extend %tab-simple-before;
+			}
+
+			&::after {
+				@extend %tab-simple-after;
+			}
+		}
+
+		// Active styles applied to the label when checked or active or focused
+		&.active,
+		&:checked,
+		&:active,
+		&:focus {
+			& + label {
+				// Active Before Styles
+				&::before {
+					@extend %tab-simple-before-active;
+				}
+			}
+		}
+	}
+}

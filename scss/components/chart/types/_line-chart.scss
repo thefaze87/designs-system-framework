@@ -1,0 +1,58 @@
+@use '../../../base/functions/rem-em' as *;
+
+///
+/// Line Chart Styles
+///
+/// @group 6-components
+/// @author Anthony Minnaugh and Mark Fasel
+/// @access public
+///
+.line-chart,
+.bar-chart {
+	.chart-dot-container {
+		position: absolute;
+		width: #{get-rem(16)};
+		transform: translate(-50%, -50%);
+	}
+	.cms-tooltip2 {
+		min-width: max-content !important;
+	}
+}
+
+// Chart Dot Styles
+.line-chart-dot {
+	height: #{get-rem(16)};
+	width: #{get-rem(16)};
+	background-color: var(--white);
+	border-radius: 9999px;
+	border-style: solid;
+	border-color: var(--chart-border-color);
+	position: absolute;
+	transform: translate(0rem, -0.5rem);
+}
+
+.half .line-chart-dot {
+	height: #{get-rem(12)};
+	width: #{get-rem(12)};
+	margin-top: #{get-rem(-6)};
+}
+
+.third .line-chart-dot {
+	height: #{get-rem(6)};
+	width: #{get-rem(6)};
+	margin-top: #{get-rem(-3)};
+}
+
+.line-chart-marker {
+	position: absolute;
+	bottom: 0;
+	width: #{get-rem(1)};
+	background-image: repeating-linear-gradient(180deg, var(--white), #96cbff, var(--white) 3px, #96cbff 2px);
+	opacity: 0;
+	height: 100%;
+}
+
+.line-chart-marker.active {
+	opacity: 1;
+	transition: 0.3s ease 0.2s;
+}

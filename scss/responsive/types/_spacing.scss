@@ -1,0 +1,133 @@
+@use '../../base/functions/rem-em' as *;
+@use '../../base/variables/typography/text' as *;
+@use '../../base/variables/layout/spacing' as *;
+@use '../mixins/responsive' as *;
+
+@each $name, $breakpoint in $breakpoints {
+	// Loop thru breakpoints map and include dynamic breakpoint mixin
+	@include respond-to($name) {
+		@each $size-class, $space in $spaces {
+			// Margin Utility Classes
+			.#{$name}-mar-#{$size-class},
+			.#{$name}-m-#{$size-class} {
+				margin: #{get-rem($space)};
+			}
+			.#{$name}-mar-horz-#{$size-class},
+			.#{$name}-mh-#{$size-class} {
+				margin-left: #{get-rem($space)};
+				margin-right: #{get-rem($space)};
+			}
+			.#{$name}-mar-vert-#{$size-class},
+			.#{$name}-mv-#{$size-class} {
+				margin-top: #{get-rem($space)};
+				margin-bottom: #{get-rem($space)};
+			}
+			.#{$name}-mar-top-#{$size-class},
+			.#{$name}-mt-#{$size-class} {
+				margin-top: #{get-rem($space)};
+			}
+			.#{$name}-mar-right-#{$size-class},
+			.#{$name}-mr-#{$size-class} {
+				margin-right: #{get-rem($space)};
+			}
+			.#{$name}-mar-bottom-#{$size-class},
+			.#{$name}-mb-#{$size-class} {
+				margin-bottom: #{get-rem($space)};
+			}
+			.#{$name}-mar-left-#{$size-class},
+			.#{$name}-ml-#{$size-class} {
+				margin-left: #{get-rem($space)};
+			}
+
+			// Margin Auto Utility Classes
+			.#{$name}-mar-auto,
+			.#{$name}-m-auto {
+				margin: auto;
+			}
+			.#{$name}-mar-horz-auto,
+			.#{$name}-mh-auto {
+				margin-left: auto;
+				margin-right: auto;
+			}
+			.#{$name}-mar-vert-auto,
+			.#{$name}-mv-auto {
+				margin-top: auto;
+				margin-bottom: auto;
+			}
+			.#{$name}-mar-top-auto,
+			.#{$name}-mt-auto {
+				margin-top: auto;
+			}
+			.#{$name}-mar-right-auto,
+			.#{$name}-mr-auto {
+				margin-right: auto;
+			}
+			.#{$name}-mar-bottom-auto,
+			.#{$name}-mb-auto {
+				margin-bottom: auto;
+			}
+			.#{$name}-mar-left-auto,
+			.#{$name}-ml-auto {
+				margin-left: auto;
+			}
+
+			// Padding Utility Classes
+			.#{$name}-pad-#{$size-class},
+			.#{$name}-p-#{$size-class} {
+				padding: #{get-rem($space)};
+			}
+			.#{$name}-pad-horz-#{$size-class},
+			.#{$name}-ph-#{$size-class} {
+				padding-left: #{get-rem($space)};
+				padding-right: #{get-rem($space)};
+			}
+			.#{$name}-pad-vert-#{$size-class},
+			.#{$name}-pv-#{$size-class} {
+				padding-top: #{get-rem($space)};
+				padding-bottom: #{get-rem($space)};
+			}
+			.#{$name}-pad-top-#{$size-class},
+			.#{$name}-pt-#{$size-class} {
+				padding-top: #{get-rem($space)};
+			}
+			.#{$name}-pad-right-#{$size-class},
+			.#{$name}-pr-#{$size-class} {
+				padding-right: #{get-rem($space)};
+			}
+			.#{$name}-pad-bottom-#{$size-class},
+			.#{$name}-pb-#{$size-class} {
+				padding-bottom: #{get-rem($space)};
+			}
+			.#{$name}-pad-left-#{$size-class},
+			.#{$name}-pl-#{$size-class} {
+				padding-left: #{get-rem($space)};
+			}
+
+			@if not($size-class == '0') {
+				.#{$name}-gap-#{$size-class} {
+					gap: #{get-rem($space)};
+				}
+				.#{$name}-gap-horz-#{$size-class},
+				.#{$name}-gap-h-#{$size-class} {
+					row-gap: #{get-rem($space)};
+				}
+				.#{$name}-gap-vert-#{$size-class},
+				.#{$name}-gap-v-#{$size-class} {
+					column-gap: #{get-rem($space)};
+				}
+			}
+
+			@each $size in $text-sizes {
+				.#{$name}-r-#{$size},
+				.#{$name}-rem-#{$size} {
+					font-size: #{get-rem($size)};
+				}
+
+				.#{$name}-e-#{$size},
+				.#{$name}-em-#{$size} {
+					font-size: #{get-em($size)};
+				}
+			}
+		}
+	}
+}

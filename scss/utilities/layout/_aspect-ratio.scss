@@ -1,0 +1,35 @@
+///
+/// Aspect ratio
+///
+/// @group 5-utilities
+/// @author Anthony Minnaugh
+/// @access public
+///
+
+.ratio {
+	&-auto {
+		aspect-ratio: auto;
+	}
+	&-square {
+		aspect-ratio: 1 / 1;
+	}
+	&-16-9,
+	&-video {
+		aspect-ratio: 16 / 9;
+	}
+	&-3-2,
+	&-photo-sm {
+		aspect-ratio: 3 / 2;
+	}
+	&-5-4,
+	&-photo-lg {
+		aspect-ratio: 5 / 4;
+	}
+	&-21-6 {
+		aspect-ratio: 21 / 6;
+	}
+	&-21-9,
+	&-ultrawide {
+		aspect-ratio: 21 / 9;
+	}
+}

@@ -1,0 +1,121 @@
+@use '../../../base/variables/var' as *;
+@use '../../../base/variables/colors/index' as *;
+@use '../../../base/functions/rem-em' as *;
+
+// Component Mixins
+@use '../forms.mixin' as *;
+
+.input__stealth {
+	@extend %input-basics;
+	border-color: transparent;
+	background-color: rgba($scorp-gray2, 10%);
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	max-width: get-rem(176);
+	transition: background-color $transition-default, border-color $transition-default;
+
+	> a {
+		position: relative;
+		top: auto;
+		right: auto;
+		transform: none;
+		color: var(--icon-color);
+		font-size: #{get-rem(22)};
+
+		&.search {
+			font-size: #{get-rem(16)};
+			left: 0; // TODO: Temp to override non-framework pages
+			line-height: 1;
+		}
+
+		&.close {
+			--icon-color: var(--scorp-blue);
+			width: 0;
+			visibility: hidden;
+			opacity: 0;
+			display: none;
+			font-size: #{get-rem(12)};
+			line-height: 1;
+			transition: width $transition-default, opacity $transition-default, visibility $transition-default;
+		}
+	}
+	input {
+		border: none;
+		width: 0;
+		transition: width $transition-default;
+		padding: 0;
+		display: none;
+		height: auto;
+	}
+	&.active,
+	&:focus-within {
+		background-color: (var(--white));
+		border-color: var(--scorp-gray3);
+		> a {
+			&.close {
+				width: auto;
+				visibility: visible;
+				opacity: 1;
+				display: block;
+			}
+		}
+		input {
+			width: 100%;
+			opacity: 1;
+			visibility: visible;
+			display: block;
+		}
+	}
+
+	// Icon (mini)
+	&--icon {
+		width: get-rem(36);
+		.search {
+			--icon-color: var(--scorp-black);
+			width: get-rem(36);
+			height: get-rem(36);
+			left: auto;
+			right: auto;
+			top: auto;
+			bottom: auto;
+			display: block;
+
+			& > svg {
+				transform: translateY(50%);
+			}
+		}
+
+		// Active / Focus States
+		&.active,
+		&:focus-within {
+			width: 100%;
+			gap: 6px;
+			.search {
+			}
+		}
+	}
+
+	// To remove in favor of icon modifier
+	&.mini {
+		max-width: get-rem(36);
+		border-radius: get-rem(8);
+		background-color: var(--stealth-bg, rgba($scorp-gray2, 10%));
+		&.active {
+			max-width: get-rem(176);
+		}
+	}
+}
+
+// Applies Styles to the input and a.close when there is a focused class on a container around the input-text / stealth
+.focused .input__stealth {
+	& > input {
+		width: 20rem;
+	}
+
+	& a.close {
+		width: 1em;
+		visibility: visible;
+		opacity: 1;
+	}
+}

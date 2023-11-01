@@ -1,0 +1,30 @@
+@use 'sass:math';
+@use '../../base/variables/typography/text' as *;
+
+// Get Rem
+// Function to convert pixel value to rem value
+
+@function get-rem($value) {
+	@return math.div($value, $basefont) * 1rem;
+}
+
+// Get Rem Half
+// Function to convert pixel value to half rem value
+
+@function get-rem-half($value) {
+	@return math.div(math.div($value, 2), $basefont) * 1rem;
+}
+
+// Get EM
+// Function to convert pixel value to em value
+
+@function get-em($value) {
+	@return math.div($value, $basefont) * 1em;
+}
+
+// Get Half Em
+// Function to convert pixel value to half em value
+
+@function get-em-half($value) {
+	@return math.div(math.div($value, 2), $basefont) * 1em;
+}

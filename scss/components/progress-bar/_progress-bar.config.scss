@@ -1,0 +1,242 @@
+// Base Functions
+@use '../../base/functions/rem-em' as *;
+@use '../../base/variables/var' as *;
+
+.progress-bar {
+	position: relative;
+	border-radius: get-em(48);
+	transition: background-color $transition-default;
+	background-color: var(--progress-bar-bg);
+
+	&::before {
+		content: '';
+		display: block;
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		border-radius: get-rem(48);
+	}
+
+	// Progress Bar Sizes
+	// Small
+	&--small {
+		height: get-em(8);
+	}
+
+	// Medium
+	&--medium {
+		height: get-em(16);
+	}
+
+	// Large
+	&--large {
+		height: get-em(24);
+	}
+
+	// Rounded Styles (used with --thick)
+	&--rounded {
+		border-radius: get-em(32);
+		& > .meter {
+			border-radius: get-em(32);
+		}
+	}
+
+	// Thick Styles
+	&--thick {
+		height: get-em(38);
+		&:not(.progress-bar--rounded) {
+			&::before {
+				border-radius: get-em(3);
+			}
+			border-radius: get-em(3);
+			& > .meter {
+				border-radius: get-em(3);
+			}
+		}
+		&.logo{
+			height: get-em(96);
+			svg {
+				position:absolute;
+				top: calc(50% - 13rem);
+				left: calc(50% - 13rem);
+				font-size: 26rem;
+				opacity: .22;
+			}
+		}
+	}
+
+	// Box Styles
+	&--box {
+		border-radius: get-em(3);
+		&::before {
+			border-radius: get-em(3);
+		}
+		& > .meter {
+			border-radius: 0 get-em(3) get-em(3) 0;
+		}
+	}
+
+	// Meter
+	.meter {
+		display: block;
+		border-radius: get-em(32);
+		position: absolute;
+		overflow: visible;
+		height: 100%;
+		max-width: 100%;
+		margin: 0 auto 0 0;
+		box-sizing: content-box;
+		transition: width $transition-default;
+		left: 0;
+		background-color: var(--progress-bar-meter-bg);
+
+		&.progress {
+			z-index: 1;
+		}
+		&.gradient {
+			background-color: transparent;
+			background-image: var(--progress-bar-meter-gradient);
+		}
+	}
+
+	.value {
+		padding: 0 get-em(6);
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		color: var(--progress-bar-value-color);
+		font-size: get-em(18);
+		height: inherit;
+
+		&.outside {
+			position: absolute;
+			left: calc(100% + 0.6rem);
+			color: var(--progress-bar-outside-color);
+			top: 50%;
+			transform: translateY(-50%);
+		}
+	}
+}
+
+.progress-graph {
+	border: {
+		left: solid 1px var(--progress-graph-border);
+		bottom: solid 2px var(--progress-graph-border);
+	}
+
+	.progress-bar {
+		margin-bottom: get-rem(24);
+		height: get-rem(40);
+		transition: width $transition-default;
+		border-radius: 0 get-rem(4) get-rem(4) 0;
+		&.progress-bar--medium {
+			height: get-rem(16);
+			margin-bottom: get-rem(18);
+			border-radius: 0 get-rem(2) get-rem(2) 0;
+			.meter {
+				padding: 0;
+				> .value {
+					font-size: get-rem(14);
+					font-weight: 600;
+					&.outside {
+						padding: 0;
+					}
+				}
+			}
+		}
+
+		.meter {
+			height: 100%; // get-rem(32);
+			padding: get-rem(8) 0 0 0;
+			text-align: right;
+			border-radius: 0 get-rem(4) get-rem(4) 0;
+
+			> span {
+				text-shadow: none;
+				font-size: get-rem(16);
+				line-height: 1.4;
+				padding: 0 get-rem(12);
+			}
+		}
+	}
+
+	.values {
+		padding-left: get-rem(8);
+
+		li {
+			height: get-rem(40);
+			padding: get-rem(8) 0 0 0;
+			margin-bottom: get-rem(24);
+		}
+	}
+}
+
+// Progress Series
+.progress-series {
+	.progress-bar {
+		&:not(:first-of-type),
+		&:not(:first-of-type) .meter {
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+		}
+
+		&:not(:last-of-type) {
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+			margin-right: get-rem(2);
+		}
+
+		&::before {
+			content: '';
+			height: get-rem(12);
+			width: get-rem(2);
+			position: absolute;
+			top: calc(100% + 0.25rem);
+			left: -2px;
+			background-color: var(--progress-bar-before-bg);
+			border-radius: get-rem(8);
+			transition: background-color $transition-default;
+		}
+
+		& .meter {
+			background-color: var(--progress-bar-meter-bg);
+			transition: background-color $transition-default;
+		}
+		&.active,
+		&:hover {
+			background-color: var(--progress-bar-bg);
+			&::before {
+				background-color: var(--progress-bar-before-bg);
+			}
+			.meter {
+				background-color: var(--progress-bar-meter-bg);
+			}
+		}
+
+		&.complete {
+			&.active,
+			&:hover {
+				&::after {
+				  	// @todo: Image to resolve and decouple - Based 64 Encoded for Temp
+				  	// background-image: url(/cms/svg/admin/icon_checkmark.16.FFFFFF.svg);
+					background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMTYgMTYiPgo8c3R5bGU+CglnIHBhdGggeyBzdHJva2U6IG5vbmU7IH0KPC9zdHlsZT4KPGcgY2xhc3M9InJvb3QiIGlkPSJjaGVja21hcmsiIGRhdGEtbmFtZT0iQ2hlY2ttYXJrIiBmaWxsPSIjRkZGRkZGIiBzdHJva2U9IiNGRkZGRkYiPgoJPHBvbHlsaW5lIHBvaW50cz0iMiA4IDYgMTIgMTQgNCIgc3R5bGU9InN0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS13aWR0aDoyO3N0cm9rZS1saW5lam9pbjpyb3VuZDtmaWxsOm5vbmUiIC8+CjwvZz4KPC9zdmc+);
+				}
+			}
+			&::after {
+				content: '';
+				position: absolute;
+				top: 0;
+				right: get-rem(4);
+			  	// @todo: Image to resolve and decouple - Based 64 Encoded for Temp
+				// background-image: url(/cms/svg/admin/icon_checkmark.16.23bf57.svg);
+			  	background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMTYgMTYiPgo8c3R5bGU+CglnIHBhdGggeyBzdHJva2U6IG5vbmU7IH0KPC9zdHlsZT4KPGcgY2xhc3M9InJvb3QiIGlkPSJjaGVja21hcmsiIGRhdGEtbmFtZT0iQ2hlY2ttYXJrIiBmaWxsPSIjMjNiZjU3IiBzdHJva2U9IiMyM2JmNTciPgoJPHBvbHlsaW5lIHBvaW50cz0iMiA4IDYgMTIgMTQgNCIgc3R5bGU9InN0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS13aWR0aDoyO3N0cm9rZS1saW5lam9pbjpyb3VuZDtmaWxsOm5vbmUiIC8+CjwvZz4KPC9zdmc+);
+				background-size: 80%;
+				background-position: 50%;
+				background-repeat: no-repeat;
+				width: get-rem(16);
+				height: get-rem(16);
+				display: block;
+			}
+		}
+	}
+}

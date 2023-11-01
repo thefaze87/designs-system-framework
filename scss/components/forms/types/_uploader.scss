@@ -1,0 +1,272 @@
+@use '../../../base/functions/rem-em' as *;
+@use '../../../base/variables/var' as *;
+@use '../../../base/variables/typography/text' as *;
+@use '../../../base/variables/colors/branding' as *;
+@use '../../../base/variables/colors/colors' as *;
+
+@use '../forms.mixin' as *;
+
+/* Uploader */
+.uploader {
+	background-color: var(--uploader-bg-color);
+	border-radius: $border-radius;
+	border: {
+		width: 2px;
+		style: dashed;
+		color: var(--uploader-border-color);
+	}
+	padding: #{get-em(48)} #{get-em(48)};
+	text-align: center;
+	position: relative;
+	transition: background-color $transition-default, border-color $transition-default;
+
+	// Set the base for the uploader image
+	&--image {
+		display: block;
+		width: #{get-em(96)};
+		aspect-ratio: 1 / 1;
+		background: {
+			position: center center, center calc(#{get-em(96)} * -1);
+			size: #{get-em(56)} #{get-em(64)}, #{get-em(96)} #{get-em(70)};
+			repeat: no-repeat, no-repeat;
+		}
+		margin: {
+			right: auto;
+			left: auto;
+			bottom: #{get-rem(8)};
+		}
+		transition: background-position $transition-default;
+	}
+	// Table image properties
+	&--table-image {
+		width: #{get-rem(32)};
+		aspect-ratio: 1/1;
+		background-size: contain;
+	}
+
+	// Title, subtitle, and data-progress attribute set to display block
+	&--title,
+	&--subtitle,
+	[data-progress='text'] {
+		display: block;
+	}
+
+	// Title
+	&--title {
+		color: var(--uploader-title-text);
+		font-size: #{get-rem(18)};
+		font-weight: 600;
+		line-height: 1.6;
+
+		// Styles if subtitle element immediately after the title
+		+ .uploader--subtitle {
+			margin-top: #{get-rem(8)};
+		}
+	}
+
+	// Subtitle
+	&--subtitle {
+		color: var(--uploader-subtitle-text);
+		font-size: #{get-rem(14)};
+		line-height: 1.333;
+	}
+
+	// Size title and subtitle overrides
+	.half,
+	.third,
+	.fourth {
+		// Update the font-size for title and subtitle based on the size container
+		& .uploader--title {
+			font-size: #{get-rem(16)};
+		}
+
+		& .uploader--subtitle {
+			font-size: #{get-rem(16)};
+		}
+	}
+
+	[data-progress='text'] {
+		color: var(--uploader-subtitle-text);
+		font-size: #{get-rem(14)};
+		font-weight: 600;
+		line-height: 1.429;
+		text-align: left;
+		width: 4ch;
+	}
+
+	button {
+		all: unset;
+		color: var(--uploader-btn-color);
+		cursor: pointer;
+		transition: color $transition-default;
+	}
+
+	&-selected,
+	&--selected {
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		top: 0;
+		left: 0;
+		border-radius: $border-radius;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.3s ease, visibility 0s ease 0.3s;
+
+		img[data-role] {
+			display: block;
+			min-width: #{get-em(96)};
+			max-height: calc(100% - 4em);
+			max-width: calc(100% - 4em);
+
+			+ .uploader-complete {
+				margin-top: #{get-rem(8)};
+			}
+		}
+	}
+
+	// Check Styles
+	&--check {
+		display: block;
+		width: 1.111em;
+		aspect-ratio: 1 / 1;
+		clip-path: polygon(15% 55%, 15% 55%, 15% 55%, 0% 60%, 0% 60%, 20% 45%);
+	}
+
+	// Complete Styles
+	&.complete {
+		.uploader-selected {
+			opacity: 1;
+			visibility: visible;
+			transition: opacity $transition-default, visibility $transition-default;
+		}
+
+		&.dragover {
+			.uploader-selected {
+				opacity: 0;
+				visibility: hidden;
+				transition: opacity $transition-default, visibility $transition-default;
+			}
+		}
+
+		.uploader--check {
+			animation: uploadComplete 0.3s forwards;
+			animation-delay: 0.3s;
+		}
+	}
+
+	&-complete {
+		overflow: hidden;
+		display: flex;
+		align-items: center;
+
+		.uploader--title + .uploader--check {
+			margin-left: #{get-rem(7)};
+		}
+	}
+
+	// Cancel Styles
+	&--cancel,
+	&-cancel {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		top: #{get-em(8)};
+		right: #{get-em(8)};
+		width: #{get-em(24)};
+		aspect-ratio: 1 / 1;
+		color: var(--uploader-cancel-text);
+		border-radius: calc($border-radius / 2);
+		transition: background-color $transition-default;
+
+		svg {
+			display: block;
+			font-size: #{get-rem(12)};
+		}
+	}
+
+	// Progress Styles
+	&--progress {
+		position: absolute;
+		height: 100%;
+		bottom: 0;
+		left: 0;
+		border: $border-radius;
+		opacity: 0;
+		z-index: 1;
+		pointer-events: none;
+		transition: opacity $transition-default, width 0.15s ease 0s;
+	}
+
+	&.uploading .uploader--progress {
+		opacity: 0.15;
+	}
+
+	// Ui Upload Status Styles
+	.ui-upload-status {
+		margin-top: 0;
+		height: 0;
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity $transition-default, height $transition-default, margin-top $transition-default, visibility $transition-default;
+
+		&.ui-scroll.vertical {
+			max-height: #{get-rem(448)};
+		}
+	}
+
+	&.active .ui-upload-status {
+		margin-top: #{get-rem(30)};
+		height: 100%;
+		opacity: 1;
+		visibility: visible;
+		transition: opacity $transition-default, height $transition-default, margin-top $transition-default, visibility 0s ease 0.3s;
+	}
+
+	// Progress bar styles
+	.uploader-progress-bar {
+		&.cancel,
+		&.complete,
+		&.cancel + [data-progress='text'],
+		&.complete + [data-progress='text'] {
+			opacity: 0;
+			visibility: visible;
+			transition: opacity $transition-default, visibility 0s ease 0.3s;
+		}
+
+		& + [data-progress='text'] {
+			margin-left: #{get-rem(16)};
+		}
+
+		&.complete {
+			& ~ .cancel {
+				display: none;
+			}
+			& ~ .retry {
+				display: flex;
+			}
+		}
+	}
+
+	[data-progress='text'] + a {
+		margin-left: #{get-rem(24)};
+	}
+
+	// Upload complete animation keyframe
+	@keyframes uploadComplete {
+		0% {
+			clip-path: polygon(15% 55%, 15% 55%, 15% 55%, 0% 60%, 0% 60%, 20% 45%);
+		}
+		50% {
+			clip-path: polygon(35% 65%, 35% 65%, 35% 100%, 35% 100%, 0% 60%, 20% 45%);
+		}
+		100% {
+			clip-path: polygon(35% 65%, 80% 15%, 100% 35%, 35% 100%, 0% 60%, 20% 45%);
+		}
+	}
+}

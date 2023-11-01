@@ -1,0 +1,12 @@
+@use '../../../base/functions/rem-em' as *;
+@use '../forms.mixin' as *;
+
+.mock {
+	&-input {
+		@extend %input-reset;
+		@extend %input-basics;
+	}
+	&--select::before {
+		@extend %select-before;
+	}
+}

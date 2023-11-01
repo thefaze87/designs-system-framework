@@ -1,0 +1,83 @@
+@use './mixins/responsive' as *;
+
+// Build out properties for each breakpoint
+@include respond-to('phone') {
+	.phone-full-width {
+		width: 100%;
+	}
+	.phone-two-thirds {
+		width: 100%;
+	}
+	.phone-width-auto {
+		width: auto;
+	}
+}
+
+@include respond-to('tablet') {
+	.tablet-half {
+		width: 50%;
+	}
+	.tablet-full {
+		width: 100%;
+	}
+	.tablet-width-auto {
+		width: auto;
+	}
+	.tablet-height-auto {
+		height: auto;
+	}
+}
+
+@include respond-to('laptop') {
+	.laptop-full {
+		width: 100%;
+	}
+	.laptop-width-auto {
+		width: auto;
+	}
+	.laptop-half {
+		width: 50%;
+	}
+	.laptop-fourth {
+		width: 25%;
+	}
+	.laptop-two-thirds {
+		width: 66.67%;
+	}
+}
+
+@include respond-to('laptop-wide') {
+	.laptop-wide-full {
+		width: 100%;
+	}
+	.laptop-wide-width-auto {
+		width: auto;
+	}
+	.laptop-wide-half {
+		width: 50%;
+	}
+	.laptop-wide-three-fourths {
+		width: 75%;
+	}
+	.laptop-wide-two-fifths {
+		width: 40%;
+	}
+}
+
+@include respond-to('desktop') {
+	.desktop-third {
+		width: 33%;
+	}
+	.desktop-two-thirds {
+		width: 66.67%;
+	}
+	.desktop-half {
+		width: 50%;
+	}
+	.desktop-full {
+		width: 100%;
+	}
+	.desktop-width-auto {
+		width: auto;
+	}
+}

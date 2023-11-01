@@ -1,0 +1,5 @@
+// Load in our thumbnail config that sets everything up
+@forward './thumbnail.config';
+
+// Include our themes after our config to ensure the styles are applied correctly
+// @forward './thumbnail.themes';

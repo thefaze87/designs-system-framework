@@ -1,0 +1,9 @@
+@use 'sass:string';
+
+/*
+	String to Class
+	Function to return a string to a class name
+*/
+@function string-to-class($string) {
+	@return '.' + string.unquote($string);
+}

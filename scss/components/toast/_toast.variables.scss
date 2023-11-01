@@ -1,0 +1,21 @@
+@use '../../base/functions/hex-to-rgb' as *;
+
+// Toast Position Variable
+$toast-positions: (
+	absolute: absolute,
+	fixed: fixed,
+	inherit: inherit,
+	initial: initial,
+	relative: relative,
+	static: static,
+	sticky: sticky,
+);
+
+// Toast BG Box Shadow Variable
+$bg-box-shadow: var(--scorp-black);
+
+// Toast Icon BG Variable
+$toast-icon-bg: #005ab3;
+
+// Toast Icon Color Variable
+$toast-icon-color: var(--white);

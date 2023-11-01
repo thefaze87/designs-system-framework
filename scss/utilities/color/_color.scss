@@ -1,0 +1,72 @@
+@use 'sass:color';
+@use 'sass:map' as map;
+@use '../../base/functions/hex-to-rgb' as rgb;
+@use '../../base/functions/map-collect' as collection;
+@use '../../base/variables/colors/branding' as brand;
+@use '../../base/variables/colors/social' as social;
+@use '../../base/variables/colors/colors' as colors;
+@use '../../base/variables/colors/contracts' as contracts;
+@use '../../base/variables/colors/charts' as charts;
+@use '../../base/variables/colors/status' as status;
+
+// Color Vars
+// Created a map collect function that accepts more than 2 maps to merge into a new map. map.merge only will work with
+
+$color-vars: collection.map-collect(brand.$scorpion-branding, social.$social-media, colors.$general-colors, contracts.$contract-color-values, charts.$chart-colors);
+
+// Convert all colors to RGB
+
+$all-colors-rgb: ();
+@each $class, $color in $color-vars {
+	$all-colors-rgb: map.merge(
+		$all-colors-rgb,
+		(
+			$class: rgb.hex-to-rgb($color),
+		)
+	);
+}
+
+// Color Utility Classes for css custom properties
+// Classes for color
+
+:root {
+	@each $color-name, $value in $color-vars {
+		--#{$color-name}: #{$value};
+	}
+
+	// Status Colors
+	@each $color, $map in status.$status-colors {
+		$primary: map-get($map, 'primary');
+		$accent: map-get($map, 'accent');
+		--status-#{$color}-primary: #{$primary};
+		--status-#{$color}-accent: #{$accent};
+	}
+}
+
+// Color Utility Classes
+
+@each $color-name, $value in $color-vars {
+	// color property
+	.c-#{'' + $color-name} {
+		--text-color: var(--#{$color-name});
+		color: var(--#{$color-name});
+	}
+
+	// background property
+	.bg-#{'' + $color-name} {
+		--bg-color: var(--#{$color-name});
+		background-color: var(--#{$color-name});
+	}
+
+	// border property
+	.bdr-#{'' + $color-name} {
+		--border-color: var(--#{$color-name});
+		border-color: var(--#{$color-name});
+	}
+
+	// outline property
+	.o-#{'' + $color-name} {
+		--outline-color: var(--#{$color-name});
+		outline-color: var(--#{$color-name});
+	}
+}

@@ -1,0 +1,46 @@
+// Base Functions
+@use '../../base/functions/rem-em' as *;
+
+///
+/// Header Base Placeholder
+/// Creates the base placeholder for the header component
+///
+/// @group 6-components
+/// @author Mark Fasel
+/// @access public
+///
+%header-base {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	gap: #{get-rem(12)};
+}
+
+///
+/// Flex Base Placeholder
+/// Creates the flex base placeholder for the header component left and right
+///
+/// @group 6-components
+/// @author Mark Fasel
+/// @access public
+///
+%flex-base {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+}
+
+///
+/// Search Action SVG
+/// Creates the flex base placeholder for the header component left and right
+///
+/// @group 6-components
+/// @author Mark Fasel
+/// @access public
+///
+%search-action-svg {
+	flex: 0 0 auto;
+	font-size: #{get-rem(18)};
+	color: var(--scorp-gray2);
+}

@@ -1,0 +1,245 @@
+@use '../../base/functions/rem-em' as *;
+
+table {
+	border: none {
+		collapse: collapse;
+		spacing: 0;
+	}
+	font: {
+		family: var(--primary-font);
+		size: get-rem(16);
+	}
+	color: var(--text-color);
+	width: 100%;
+	line-height: 107%;
+
+	[data-dd='true'] {
+		position: relative;
+	}
+	// Tab Panel formatting
+	&.ui-tab-panel.active {
+		display: table;
+	}
+	// Client Styling (usually first cell)
+	.text--client {
+		font-weight: 500;
+		display: block;
+	}
+	tr {
+		transition: all 0.3s ease 0s;
+		&.ui-tab-panel.active {
+			display: table-row;
+		}
+	}
+	> thead {
+		> tr {
+			> th {
+				padding: get-rem(8) get-rem(10);
+				font-weight: 600;
+				font-size: get-rem(13);
+				line-height: 107%;
+				box-shadow: inset 0 -1px var(--border);
+				white-space: nowrap;
+				background-color: var(--bg-color, transparent);
+				text-align: left;
+				height: get-rem(32);
+
+				&.ui-tab-panel.active {
+					display: table-cell;
+				}
+
+				&.sticky {
+					//are we going to change gp-sticky to sticky or have another class name for this?
+					width: auto;
+				}
+			}
+		}
+	}
+	> tbody {
+		> tr {
+			> td {
+				padding: get-rem(6) get-rem(10);
+				box-shadow: var(--cell-box-shadow, inset 0 -1px var(--border));
+				transition: box-shadow 0.3s ease 0s;
+				border: none;
+
+				> * {
+					line-height: 107%;
+				}
+
+				&.thin {
+					width: get-rem(16);
+				}
+
+				&.border-left {
+					border-left: solid 1px var(--gray4);
+				}
+
+				&.border-right {
+					border-right: solid 1px var(--gray4);
+				}
+				&.ui-tab-panel.active {
+					display: table-cell;
+				}
+				// Cell containing Ellepsis component
+				&.cell--ellipses {
+					width: get-rem(40);
+					.flyout {
+						z-index: 2;
+					}
+				}
+			}
+		}
+	}
+
+	&.table-col-highlight {
+		border-collapse: initial;
+
+		& td.divide-right {
+			border-right: solid 1px var(--white);
+		}
+
+		& td.divide-left {
+			border-left: solid 1px var(--white);
+		}
+	}
+
+	&.table-col-highlight {
+		border-collapse: initial;
+
+		& td.divide-right {
+			border-right: solid 1px var(--white);
+		}
+
+		& td.divide-left {
+			border-left: solid 1px var(--white);
+		}
+	}
+
+	// Added to reduce number of classes added for a cell div for flex (Faze, 10/11/22). Used for table with checkbox input mark in cell with text
+	.cell--container {
+		display: flex;
+		align-items: center;
+		gap: get-rem(10);
+	}
+
+	&.sticky-header > thead > tr > th {
+		position: sticky;
+		top: 0;
+		z-index: 12;
+	}
+}
+th,
+td {
+	&.ui-tab-panel.active {
+		display: table-cell;
+	}
+}
+// THEAD elements
+th {
+	text-align: left;
+}
+// Sorting
+.ui-sort {
+	font-weight: 500;
+	position: relative;
+	transition: color 0.3s ease 0s;
+	// Sort Direction
+	&::before {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		left: calc(100% + 0.1rem);
+		width: get-rem(10);
+		height: 100%;
+		line-height: 1;
+		transition: opacity 0.3s ease 0s, transform 0.3s ease 0s;
+		transform: none {
+			origin: center;
+		}
+		background: {
+		  	// @todo: Image to resolve and decouple - Based 64 Encoded for Temp
+		  	// image: url(/cms/svg/site/icon_arrow_top.36.86898f.svg);
+			image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMzYgMzYiPgo8c3R5bGU+CglnIHBhdGggeyBzdHJva2U6IG5vbmU7IH0KPC9zdHlsZT4KPGcgY2xhc3M9InJvb3QiIGlkPSJhcnJvd190b3AiIGRhdGEtbmFtZT0iYXJyb3cgdG9wIiBmaWxsPSIjODY4OThmIiBzdHJva2U9IiM4Njg5OGYiPgoJPHBhdGggaWQ9IkFycm93X1JpZ2h0IiBjbGFzcz0ic3QwIiBkPSJNMTkuODggMC44MDVsNy41MjIgNy41MjJDMjcuNjcxIDguNTk2IDI3Ljk0IDguODY1IDI3Ljk0IDkuMTM0YzAuMjY5IDAuMjY5IDAuMjY5IDAuNTM3IDAuMjY5IDEuMDc1YzAgMS4zNDMtMS4wNzUgMi42ODctMi42ODcgMi42ODdIMjAuNjg2VjMzLjMxM2MwIDEuMzQzLTEuMDc1IDIuNjg3LTIuNjg3IDIuNjg3cy0yLjY4Ny0xLjA3NS0yLjY4Ny0yLjY4N1YxMi44OTVIMTAuNDc3QzkuOTQgMTIuODk1IDkuMTM0IDEyLjYyNiA4LjU5NyAxMi4wODljLTEuMDc1LTEuMDc1LTEuMDc1LTIuNjg3IDAtMy43NjFsNy41MjItNy41MjJjMCAwIDAgMCAwIDBsMCAwQzE3LjE5NC0wLjI2OSAxOC44MDYtMC4yNjkgMTkuODggMC44MDV6IiAvPgo8L2c+Cjwvc3ZnPg==);
+			repeat: no-repeat;
+			position: 50% 50%;
+		}
+		opacity: 0;
+	}
+	// Hover State
+	&:hover::before {
+		opacity: 1;
+	}
+	//Active State
+	&.active {
+		&::before {
+			opacity: 1;
+		  	// @todo: Image to resolve and decouple - Based 64 Encoded for Temp
+			// background-image: url(/cms/svg/site/icon_arrow_top.36.191919.svg);
+		  	background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMzYgMzYiPgo8c3R5bGU+CglnIHBhdGggeyBzdHJva2U6IG5vbmU7IH0KPC9zdHlsZT4KPGcgY2xhc3M9InJvb3QiIGlkPSJhcnJvd190b3AiIGRhdGEtbmFtZT0iYXJyb3cgdG9wIiBmaWxsPSIjMTkxOTE5IiBzdHJva2U9IiMxOTE5MTkiPgoJPHBhdGggaWQ9IkFycm93X1JpZ2h0IiBjbGFzcz0ic3QwIiBkPSJNMTkuODggMC44MDVsNy41MjIgNy41MjJDMjcuNjcxIDguNTk2IDI3Ljk0IDguODY1IDI3Ljk0IDkuMTM0YzAuMjY5IDAuMjY5IDAuMjY5IDAuNTM3IDAuMjY5IDEuMDc1YzAgMS4zNDMtMS4wNzUgMi42ODctMi42ODcgMi42ODdIMjAuNjg2VjMzLjMxM2MwIDEuMzQzLTEuMDc1IDIuNjg3LTIuNjg3IDIuNjg3cy0yLjY4Ny0xLjA3NS0yLjY4Ny0yLjY4N1YxMi44OTVIMTAuNDc3QzkuOTQgMTIuODk1IDkuMTM0IDEyLjYyNiA4LjU5NyAxMi4wODljLTEuMDc1LTEuMDc1LTEuMDc1LTIuNjg3IDAtMy43NjFsNy41MjItNy41MjJjMCAwIDAgMCAwIDBsMCAwQzE3LjE5NC0wLjI2OSAxOC44MDYtMC4yNjkgMTkuODggMC44MDV6IiAvPgo8L2c+Cjwvc3ZnPg==);
+		}
+		&.desc::before {
+			transform: scaleY(-1);
+		}
+	}
+}
+//TBODY element
+tr {
+	&.thead {
+		> td {
+			padding: get-rem(8) get-rem(10);
+			font-weight: 500;
+			font-size: get-rem(13);
+			line-height: 107%;
+			box-shadow: inset 0 -1px var(--border);
+			white-space: nowrap;
+			text-align: left;
+			height: get-rem(32);
+		}
+	}
+	// Divider Row
+	&.row--divider {
+		> th:only-of-type,
+		> td:only-of-type {
+			box-shadow: none !important;
+			strong {
+				font-size: get-rem(18);
+				font-weight: 600;
+				display: inline-block;
+			}
+		}
+		&:hover {
+			box-shadow: none !important;
+		}
+		> th {
+			height: get-rem(48);
+		}
+	}
+	td {
+		height: get-rem(48); // will adjust if cell height grows i.e. tab-panels
+
+		&.thin {
+			width: get-rem(16);
+		}
+		// Cell containing Ellepsis component
+		&.cell--ellipses {
+			width: get-rem(56);
+		}
+		// Cells with Progress bars
+		&.cell--progress-bar {
+			width: get-rem(220);
+		}
+		&.table-col-highlight {
+			border-collapse: initial;
+
+			& td.divide-right {
+				border-right: solid 1px var(--white);
+			}
+
+			& td.divide-left {
+				border-left: solid 1px var(--white);
+			}
+		}
+	}
+}

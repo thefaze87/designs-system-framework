@@ -1,0 +1,87 @@
+@use '../../../base/functions/rem-em' as *;
+@use '../../../base/mixins/display' as *;
+@use '../../../base/variables' as *;
+@use '../forms.mixin' as *;
+
+.mark__tile {
+	position: relative;
+
+	// make entire container the input
+	input {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		padding: 0;
+		margin: 0;
+		border: none;
+		pointer-events: none;
+		opacity: 0;
+
+		// label.replace overrides
+		+ .replace {
+			position: absolute;
+			left: 1rem;
+			pointer-events: none;
+			z-index: 1;
+		}
+	}
+
+	label.tile {
+		@include flex-display($direction: column, $justify-content: center, $align-items: center);
+		position: relative;
+		margin: 0;
+		width: 100%;
+		overflow: hidden;
+		cursor: pointer;
+		background-color: var(--tile-bg);
+		border-radius: $border-radius;
+		padding: get-rem(18);
+		box-shadow: var(--tile-box-shadow, inset 0 0 0 1px var(--gray2));
+		transition: box-shadow $transition-default;
+		text-align: center;
+		&__horiz {
+			@include flex-display($direction: row, $justify-content: flex-start, $align-items: center);
+			font-weight: 500;
+			color: var(--scorp-black);
+			padding: get-rem(12) get-rem(18);
+			.tile--icon {
+				font-size: get-rem(18);
+			}
+		}
+	}
+
+	// Input mark tile sizes
+	&.tile__small {
+		input + .replace {
+			top: #{get-rem(24)};
+			transform: none;
+		}
+		label.tile {
+			padding: #{get-rem(30)} #{get-rem(24)};
+		}
+	}
+
+	&.tile__medium {
+		input + .replace {
+			top: #{get-rem(24)};
+			transform: none;
+		}
+		label.tile {
+			padding: #{get-rem(56)} #{get-rem(24)};
+		}
+	}
+
+	&.tile__large {
+		input + .replace {
+			top: #{get-rem(24)};
+			transform: none;
+		}
+		label.tile {
+			padding: #{get-rem(93)} #{get-rem(24)};
+		}
+	}
+}

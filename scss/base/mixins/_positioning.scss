@@ -1,0 +1,7 @@
+// Pseudo mixin to set ::before or ::after, cuz... shorter lines and less repetitive code :)
+
+@mixin pseudo($display: block, $pos: absolute, $content: '') {
+	content: $content;
+	display: $display;
+	position: $pos;
+}

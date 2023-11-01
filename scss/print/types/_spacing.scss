@@ -1,0 +1,130 @@
+@use '../../base/functions/rem-em' as *;
+@use '../../base/variables/typography/text' as *;
+@use '../../base/variables/layout/spacing' as *;
+@use '../mixins/print' as *;
+
+@include print() {
+	@each $size-class, $space in $spaces {
+		// Margin Utility Classes
+		.print-mar-#{$size-class},
+		.print-m-#{$size-class} {
+			margin: #{get-rem($space)};
+		}
+		.print-mar-horz-#{$size-class},
+		.print-mh-#{$size-class} {
+			margin-left: #{get-rem($space)};
+			margin-right: #{get-rem($space)};
+		}
+		.print-mar-vert-#{$size-class},
+		.print-mv-#{$size-class} {
+			margin-top: #{get-rem($space)};
+			margin-bottom: #{get-rem($space)};
+		}
+		.print-mar-top-#{$size-class},
+		.print-mt-#{$size-class} {
+			margin-top: #{get-rem($space)};
+		}
+		.print-mar-right-#{$size-class},
+		.print-mr-#{$size-class} {
+			margin-right: #{get-rem($space)};
+		}
+		.print-mar-bottom-#{$size-class},
+		.print-mb-#{$size-class} {
+			margin-bottom: #{get-rem($space)};
+		}
+		.print-mar-left-#{$size-class},
+		.print-ml-#{$size-class} {
+			margin-left: #{get-rem($space)};
+		}
+
+		// Margin Auto Utility Classes
+		.print-mar-auto,
+		.print-m-auto {
+			margin: auto;
+		}
+		.print-mar-horz-auto,
+		.print-mh-auto {
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.print-mar-vert-auto,
+		.print-mv-auto {
+			margin-top: auto;
+			margin-bottom: auto;
+		}
+		.print-mar-top-auto,
+		.print-mt-auto {
+			margin-top: auto;
+		}
+		.print-mar-right-auto,
+		.print-mr-auto {
+			margin-right: auto;
+		}
+		.print-mar-bottom-auto,
+		.print-mb-auto {
+			margin-bottom: auto;
+		}
+		.print-mar-left-auto,
+		.print-ml-auto {
+			margin-left: auto;
+		}
+
+		// Padding Utility Classes
+		.print-pad-#{$size-class},
+		.print-p-#{$size-class} {
+			padding: #{get-rem($space)};
+		}
+		.print-pad-horz-#{$size-class},
+		.print-ph-#{$size-class} {
+			padding-left: #{get-rem($space)};
+			padding-right: #{get-rem($space)};
+		}
+		.print-pad-vert-#{$size-class},
+		.print-pv-#{$size-class} {
+			padding-top: #{get-rem($space)};
+			padding-bottom: #{get-rem($space)};
+		}
+		.print-pad-top-#{$size-class},
+		.print-pt-#{$size-class} {
+			padding-top: #{get-rem($space)};
+		}
+		.print-pad-right-#{$size-class},
+		.print-pr-#{$size-class} {
+			padding-right: #{get-rem($space)};
+		}
+		.print-pad-bottom-#{$size-class},
+		.print-pb-#{$size-class} {
+			padding-bottom: #{get-rem($space)};
+		}
+		.print-pad-left-#{$size-class},
+		.print-pl-#{$size-class} {
+			padding-left: #{get-rem($space)};
+		}
+
+		@if not($size-class == '0') {
+			.print-gap-#{$size-class} {
+				gap: #{get-rem($space)};
+			}
+			.print-gap-horz-#{$size-class},
+			.print-gap-h-#{$size-class} {
+				row-gap: #{get-rem($space)};
+			}
+			.print-gap-vert-#{$size-class},
+			.print-gap-v-#{$size-class} {
+				column-gap: #{get-rem($space)};
+			}
+		}
+
+		@each $size in $text-sizes {
+			.print-r-#{$size},
+			.print-rem-#{$size} {
+				font-size: #{get-rem($size)};
+			}
+
+			.print-e-#{$size},
+			.print-em-#{$size} {
+				font-size: #{get-em($size)};
+			}
+		}
+	}
+}

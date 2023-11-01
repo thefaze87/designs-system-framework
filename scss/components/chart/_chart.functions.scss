@@ -1,0 +1,34 @@
+@use './chart.mixins' as *;
+///
+/// Set iChart Styles Function
+///
+///
+/// @group 6-components
+/// @author Anthony Minnaugh and Mark Fasel
+/// @access public
+/// @deprecated This is not used.
+///
+@function set-ichart-styles($themes) {
+	@each $theme, $theme-values in $themes {
+		@each $color-name, $color-value in $theme-values {
+			$length: length($theme-values);
+			$value: $length - index($theme-values, $color-name $color-value);
+
+			// Set our nth-length variable
+			@if ($value == 0) {
+				$nth-length: #{$len}n;
+			} @else {
+				$nth-length: #{$length}n - #{$value};
+			}
+
+			// Create our styles
+			@if ($theme == 'default') or ($theme == "[class*='flipped-']") {
+				@include create-chart-styles($nth-length, $color-name);
+				@debug $nth-length;
+			} @else {
+				@include create-chart-styles($nth-length, $color-name, $theme);
+				@debug $nth-length;
+			}
+		}
+	}
+}

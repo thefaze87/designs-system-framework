@@ -1,0 +1,18 @@
+.input-text.html {
+	--input-border: var(--scorp-gray3);
+
+	.cke_toolbox {
+		--cke-toolbox-bg: var(--white);
+		--input-border: var(--scorp-gray3);
+		.cke_button {
+			--cke-btn-bg: var(--scorp-blue4);
+			--cke-btn-color: var(--scorp-blue);
+			&:hover {
+				--cke-btn-bg: var(--scorp-blue3);
+			}
+		}
+	}
+	.cke_contents {
+		--input-border: var(--scorp-gray3);
+	}
+}

@@ -1,0 +1,36 @@
+// Base Functions
+@use '../../../base/functions/rem-em' as *;
+
+// Base Mixins
+@use '../../../base/mixins/display' as *;
+@use '../../../base/mixins/typography' as *;
+
+// Component Mixins
+@use '../tab.mixins' as *;
+
+// Tabs
+.tabs {
+	// Tab group styles
+	@include flex-display($display: inline-flex, $justify-content: center, $align-items: center, $gap: #{get-rem(2)});
+	background-color: var(--tab-group-bg);
+	border-radius: #{get-rem(10)};
+	padding: #{get-rem(2)};
+
+	&--stacked {
+		@include flex-display($direction: column, $justify-content: flex-start, $align-items: center, $gap: #{get-rem(2)});
+	}
+
+	// Link Styles
+	a {
+		@extend %tab-base;
+	}
+
+	// Tab Input Styles
+	input {
+		// Base styles applied to the label
+		& + label {
+			@extend %tab-base;
+			@extend %no-text-select;
+		}
+	}
+}

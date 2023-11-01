@@ -1,0 +1,127 @@
+@use 'sass:color';
+@use 'sass:map' as map;
+
+@use '../../base/functions/rem-em' as *;
+@use '../../base/variables/layout/direction' as dir;
+@use '../../base/variables/borders/border-width' as width;
+@use '../../base/variables/borders/border-style' as style;
+@use '../../base/variables/borders/border-radius' as radius;
+
+@use '../mixins/responsive' as *;
+
+// Build out properties for each breakpoint
+@each $name, $breakpoint in $breakpoints {
+	// Loop thru breakpoints map and include dynamic breakpoint mixin
+	@include respond-to($name) {
+		@each $side in dir.$sides {
+			// Border Widths
+			@each $width in width.$border-widths {
+				@if $side == all {
+					// This is to create an "all" class - used
+					.#{$name}-bdr-all {
+						border: {
+							width: 1px;
+							style: var(--border-style, solid);
+							color: var(--border-color, var(--border));
+						}
+					}
+
+					.#{$name}-bdr-#{$width} {
+						border: {
+							width: #{$width} + px;
+							style: var(--border-style, solid);
+							color: var(--border-color, var(--border));
+						}
+					}
+				} @else if $side == horiz or $side == y {
+					.#{$name}-bdr-#{$side} {
+						border: {
+							left-width: 1px;
+							right-width: 1px;
+							left-style: var(--border-style, solid);
+							right-style: var(--border-style, solid);
+							color: var(--border-color, var(--border));
+						}
+					}
+					.#{$name}-bdr-#{$side}-#{$width} {
+						border: {
+							left-width: #{$width} + px;
+							right-width: #{$width} + px;
+							left-style: var(--border-style, solid);
+							right-style: var(--border-style, solid);
+							color: var(--border-color, var(--border));
+						}
+					}
+				} @else if $side == vert or $side == x {
+					.#{$name}-bdr-#{$side} {
+						border: {
+							top-width: 1px;
+							bottom-width: 1px;
+							top-style: var(--border-style, solid);
+							bottom-style: var(--border-style, solid);
+							color: var(--border-color, var(--border));
+						}
+					}
+					.#{$name}-bdr-#{$side}-#{$width} {
+						border: {
+							top-width: #{$width} + px;
+							bottom-width: #{$width} + px;
+							top-style: var(--border-style, solid);
+							bottom-style: var(--border-style, solid);
+							color: var(--border-color, var(--border));
+						}
+					}
+				} @else {
+					.#{$name}-bdr-#{$side} {
+						border: {
+							#{$side}-width: 1px;
+							#{$side}-style: var(--border-style, solid);
+							color: var(--border-color, var(--border));
+						}
+					}
+					.#{$name}-bdr-#{$side}-#{$width} {
+						border: {
+							#{$side}-width: #{$width} + px;
+							#{$side}-style: var(--border-style, solid);
+							color: var(--border-color, var(--border));
+						}
+					}
+				}
+			}
+		}
+
+		@each $side, $side-value in radius.$sides {
+			@each $radius-name, $radius-value in radius.$border-radius {
+				@if $side == all {
+					$all-radius: map-get(radius.$border-radius, 'all');
+					@each $all-name, $all-value in $all-radius {
+						.#{$name}-bdr-rounded-#{$all-name} {
+							@if $all-name == full {
+								border-radius: #{$all-value} + 'px';
+							} @else {
+								border-radius: get-rem($all-value);
+							}
+						}
+					}
+				} @else if ($radius-name != default) and ($radius-name != all) {
+					@if ($side == t) or ($side == r) or ($side == b) or ($side == l) {
+						.#{$name}-bdr-rounded-#{$side}-#{$radius-name} {
+							border-#{$side-value}-left-radius: get-rem($radius-value);
+							border-#{$side-value}-right-radius: get-rem($radius-value);
+						}
+					} @else {
+						.#{$name}-bdr-rounded-#{$side}-#{$radius-name} {
+							border-#{$side-value}-radius: get-rem($radius-value);
+						}
+					}
+				}
+			}
+		}
+
+		@each $style in style.$border-styles {
+			.bdr-#{$style} {
+				border-style: #{$style};
+			}
+		}
+	}
+}

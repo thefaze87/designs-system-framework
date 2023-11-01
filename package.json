@@ -1,0 +1,57 @@
+{
+	"name": "@scorpion/shared-ui",
+	"version": "0.4.2",
+	"description": "Shared UI Framework for the internal product development for Scorpion",
+	"repository": {
+		"type": "git",
+		"url": "https://dev.azure.com/UberDev/Dicycle/_git/Shared"
+	},
+	"keywords": [
+		"Scorpion",
+		"Shared",
+		"UI",
+		"Scorpion",
+		"Front-end",
+		"Framework",
+		"Shared",
+		"UI",
+		"Framework"
+	],
+	"author": "Mark Fasel <mark.fasel@scorpion.co> (https://scorpion.co)",
+	"license": "UNLICENSED",
+	"main": "src/styles.scss",
+	"sass": "src/styles.scss",
+	"style": "dist/css/all/styles.min.css",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"dependencies": {
+		"autoprefixer": "^9.8.8",
+		"clean-css-cli": "^4.3.0",
+		"gulp": "^4.0.2",
+		"gulp-autoprefixer": "^8.0.0",
+		"gulp-clean": "^0.4.0",
+		"gulp-clean-css": "^4.3.0",
+		"gulp-if": "^3.0.0",
+		"gulp-mode": "^1.1.0",
+		"gulp-rename": "^2.0.0",
+		"gulp-replace": "^1.1.4",
+		"gulp-sass": "^5.1.0",
+		"gulp-sourcemaps": "^3.0.0",
+		"gulp-uglify": "^3.0.2",
+		"postcss-cli": "^7.1.2",
+		"prettier": "^2.8.8",
+		"rimraf": "^3.0.2",
+		"sass": "^1.64.2",
+		"yargs": "^17.7.2"
+	},
+	"overrides": {
+		"chokidar": "3.5.3",
+		"glob-parent": "6.0.2",
+		"trim": "^1.0.0",
+		"trim-newlines": "^3.0.1"
+	},
+	"optionalDependencies": {
+		"fsevents": "~2.3.2"
+	}
+}

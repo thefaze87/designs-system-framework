@@ -1,0 +1,15 @@
+@use 'sass:map' as map;
+
+/*
+	Map Collect
+	Function to merge multiple maps (greater than 2) as map merge only works to merge 2 maps without nested map.merge()
+*/
+
+@function map-collect($maps...) {
+	$collection: ();
+
+	@each $map in $maps {
+		$collection: map.merge($collection, $map);
+	}
+	@return $collection;
+}

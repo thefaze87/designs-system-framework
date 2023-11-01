@@ -1,0 +1,88 @@
+// Image list type. This includes list styles for image grid and image lists that are generic vs specific component or page styles.
+@use '@scorpion/shared-ui/scss/base/variables/colors/branding' as *;
+@use '@scorpion/shared-ui/scss/base/functions/rem-em' as *;
+@use '../lists.mixins' as *;
+
+.list {
+	$list-element: &; // Reference to .list
+	&__image-grid {
+		@extend %no-list-style;
+
+		position: relative;
+		display: grid;
+
+		#{$list-element}--item {
+			display: flex;
+			flex-direction: column;
+			gap: get-rem(16);
+
+			&-link {
+				position: relative;
+
+				&::before {
+					content: '';
+					display: block;
+					position: absolute;
+					background-color: transparent;
+					transition: background-color 0.3s ease 0s;
+					width: 100%;
+					height: 100%;
+					top: 0;
+					bottom: 0;
+					left: 0;
+					right: 0;
+					border-radius: get-rem(8);
+					z-index: 1;
+				}
+
+				span {
+					display: block;
+					position: absolute;
+					z-index: 1;
+					top: get-rem(16);
+					right: get-rem(16);
+					padding: 5px;
+					width: 36px;
+					height: 36px;
+					border-radius: 9999px;
+					color: var(--white);
+					background-color: rgba($scorp-black, 75%);
+					transition: background-color 0.3s ease 0s;
+
+					> svg {
+						transform: translate(7px, 1px);
+						font-size: 14px;
+					}
+				}
+
+				&:hover {
+					&::before {
+						background-color: rgba($scorp-blue, 60%);
+					}
+
+					span {
+						background-color: rgba($scorp-black, 85%);
+					}
+				}
+			}
+
+			&-menu {
+				position: relative;
+
+				&.has-flyout {
+					height: get-rem(36);
+				}
+			}
+
+			&-content {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				gap: get-rem(24);
+			}
+
+			&-text {
+			}
+		}
+	}
+}

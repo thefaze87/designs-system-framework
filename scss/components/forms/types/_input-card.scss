@@ -1,0 +1,15 @@
+@use '../../../base/functions/rem-em' as *;
+@use '../../../base/variables/index' as *;
+
+.input-card {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	background-color: var(--gray3);
+	box-shadow: inset 0 0 0 1px var(--gray4);
+	border-radius: get-rem(8);
+	transition: box-shadow $transition-default, background-color $transition-default, opacity $transition-default;
+	&:hover {
+		box-shadow: inset 0 0 0 2px var(--gray4);
+	}
+}

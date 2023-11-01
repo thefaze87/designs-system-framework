@@ -1,0 +1,22 @@
+@use '../base/functions/rem-em' as *;
+
+.fixed {
+	&-panel {
+		position: relative;
+		background-color: var(--fixed-panel-bg, var(--white));
+		color: var(--fixed-panel-color, var(--text));
+		z-index: 1;
+	}
+	&--top {
+		top: 0;
+		left: 0;
+		border: {
+			top: 1px solid var(--border);
+			bottom: 1px solid var(--border);
+		}
+		padding: get-rem(24) 0;
+		max-height: 50vh;
+		overflow-y: auto;
+		overflow-x: hidden;
+	}
+}

@@ -1,0 +1,35 @@
+@use '../../base/functions/rem-em' as *;
+@use '../../base/variables/var' as *;
+@use '../../base/variables/colors/branding' as *;
+///
+/// Snackbar Variables
+/// Variables for Snackbar Component
+///
+/// @group 6-components
+/// @author Alli Huff
+/// @access public
+///
+
+// TODO: Revisit colors -- these are all new per design and not consistent with status colors
+$snackbar: (
+	'error': (
+		'bg': var(--red6),
+		'border': var(--red5),
+		'icon': var(--red),
+	),
+	'warning': (
+		'bg': var(--yellow4),
+		'border': var(--yellow3),
+		'icon': var(--yellow),
+	),
+	'success': (
+		'bg': var(--green7),
+		'border': var(--green6),
+		'icon': var(--green),
+	),
+	'notice': (
+		'bg': var(--scorp-blue4),
+		'border': var(--blue5),
+		'icon': var(--scorp-blue),
+	),
+);

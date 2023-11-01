@@ -1,0 +1,23 @@
+@use 'sass:map' as map;
+@use '../../base/variables/sizing/sizing' as *;
+@use '../mixins/print' as *;
+
+@include print() {
+	@each $name, $size-value in $sizes-default {
+		.print-#{$name} {
+			width: #{$size-value};
+		}
+	}
+
+	@each $name, $size-value in $sizes-percent {
+		.print-#{$name} {
+			width: #{$size-value};
+		}
+	}
+
+	@each $name, $size-value in $sizes-extra {
+		.print-#{$name} {
+			width: #{$size-value};
+		}
+	}
+}

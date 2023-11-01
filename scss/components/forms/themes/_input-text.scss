@@ -1,0 +1,47 @@
+@use '../../../base/variables/colors/index' as *;
+
+.input-text {
+	--input-border-color: var(--scorp-gray3);
+	--input-text-color: var(--scorp-black);
+	--input-bg-color: var(--white);
+	&:hover {
+		--input-border-color: var(--scorp-gray2);
+	}
+	&:focus {
+		--input-border-color: var(--scorp-blue);
+	}
+	.invalid & {
+		--input-border-color: var(--red);
+		--input-bg-color: rgba($red, 5%);
+	}
+	.focused.invalid & {
+		--input-border-color: var(--red);
+	}
+
+	// Invalid styles based on data-validity
+	[data-validity='badInput'] &,
+	[data-validity='customError'] &,
+	[data-validity='patterMismatch'] &,
+	[data-validity='rangeOverflow'] &,
+	[data-validity='stepMismatch'] &,
+	[data-validity='tooLong'] &,
+	[data-validity='tooShort'] &,
+	[data-validity='typeMismatch'] &,
+	[data-validity='valueMissing'] & {
+		--input-border-color: var(--red);
+		--input-bg-color: rgba($red, 5%);
+	}
+
+	// Invalid focus styles based on data-validity
+	[data-validity='badInput'] &:focus,
+	[data-validity='customError'] &:focus,
+	[data-validity='patterMismatch'] &:focus,
+	[data-validity='rangeOverflow'] &:focus,
+	[data-validity='stepMismatch'] &:focus,
+	[data-validity='tooLong'] &:focus,
+	[data-validity='tooShort'] &:focus,
+	[data-validity='typeMismatch'] &:focus,
+	[data-validity='valueMissing'] &:focus {
+		--input-border-color: var(--red);
+	}
+}

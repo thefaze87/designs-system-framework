@@ -1,0 +1,98 @@
+@use '../../../base/functions/rem-em' as *;
+@use '../../../base/functions/map-collect' as collection;
+@use '../../../base/variables/colors/branding' as brand;
+@use '../../../base/variables/colors/social' as social;
+@use '../../../base/variables/colors/colors' as colors;
+
+// Load in colors to override circle chart bg / color
+// Temp like progress bars for circle / gauge
+$chart-colors: collection.map-collect(brand.$scorpion-branding, social.$social-media, colors.$general-colors);
+
+.ichart.circle,
+.ichart2.circle {
+	border-radius: 50%;
+	background-color: var(--white);
+	.center {
+		position: absolute;
+		top: get-rem(40);
+		right: get-rem(40);
+		bottom: get-rem(40);
+		left: get-rem(40);
+		border-radius: 50%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-content: center;
+		box-shadow: 0 0.125rem 0.25rem rgb(19, 19, 19, 0.15); //var(--rgb-scorp-black)
+		padding: 1rem;
+		height: calc(100% - (#{get-rem(40)} * 2));
+		width: calc(100% - (#{get-rem(40)} * 2));
+		color: var(--scorp-blue) !important;
+
+		// Temp til we add the color normalizing into the framework
+		// Todo: remove when we have normalized the color util to work with all components and override the css vars in the theme/component with the correct value
+		&:not([class*='bg-']) {
+			background-color: var(--white);
+		}
+
+		.center__label {
+			display: block;
+			font-size: get-rem(18);
+			font-weight: 400;
+			color: var(--scorp-gray2);
+		}
+
+		.center__value {
+			display: block;
+			color: var(--scorp-black);
+			font-size: get-rem(48);
+			font-weight: 600;
+			line-height: normal;
+		}
+	}
+
+	> span[data-name]:only-of-type {
+		// Temp til we add the color normalizing into the framework
+		// Todo: remove when we have normalized the color util to work with all components and override the css vars in the theme/component with the correct value
+		&:not([class*='bg-']) {
+			background-color: var(--scorp-gray1);
+		}
+		&:not([class*='c-']) {
+			color: var(--scorp-blue);
+		}
+	}
+
+	&.progress-circle {
+		background: transparent;
+
+		&--white {
+			canvas:last-child {
+				color: var(--white);
+			}
+		}
+
+		// Temp til we add the color normalizing into the framework
+		// Todo: remove when we have normalized the color util to work with all components and override the css vars in the theme/component with the correct value
+		& span:not([class*='c-']) {
+			color: var(--scorp-blue);
+		}
+	}
+
+	// Temp color overrides in chart component with CSS classes
+	// Todo: remove when we have normalized the color util to work with all components and override the css vars in the theme/component with the correct value
+	@each $color-name, $value in $chart-colors {
+		.center,
+		> span[data-name]:only-of-type {
+			&.chart-bg-#{'' + $color-name},
+			&.bg-#{'' + $color-name} {
+				--chart-bg-color: var(--#{$color-name}) !important;
+			}
+		}
+		> span[data-name]:only-of-type {
+			&.chart-color-#{'' + $color-name},
+			&.c-#{'' + $color-name} {
+				--chart-color: var(--#{$color-name}) !important;
+			}
+		}
+	}
+}

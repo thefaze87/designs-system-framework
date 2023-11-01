@@ -1,0 +1,27 @@
+/*
+	Overwrite Map Values
+	Function to turn maps into its negative variant
+	Compare 2 maps of like key:value pairs, the OGs values will be overwritten by the overwrites matching key
+*/
+@function overwrite-map-values($ogMap, $overwriteMap) {
+	$finalMap: ();
+	@each $ogSpaceName, $ogSpaceVal in $ogMap {
+		$possibleVal: map.get($overwriteMap, $ogSpaceName);
+		@if ($possibleVal) {
+			$finalMap: map.merge(
+				$finalMap,
+				(
+					$ogSpaceName: $possibleVal,
+				)
+			);
+		} @else {
+			$finalMap: map.merge(
+				$finalMap,
+				(
+					$ogSpaceName: $ogSpaceVal,
+				)
+			);
+		}
+	}
+	@return $finalMap;
+}

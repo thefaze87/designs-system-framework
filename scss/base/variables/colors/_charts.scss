@@ -1,0 +1,28 @@
+// Colors for all chart and graph base line styles
+$qualitative-data-point-1: #007ffd;
+$qualitative-data-point-2: #58dbda;
+$qualitative-data-point-3: #6d59ff;
+$qualitative-data-point-4: #77c767;
+$qualitative-data-point-5: #f6cd4c;
+$qualitative-data-point-6: #ca4b45;
+$qualitative-data-point-7: #a3c2de;
+$qualitative-data-point-8: #e59438;
+$qualitative-data-point-9: #66bfff;
+$qualitative-data-point-10: #d561da;
+$filler: #86898f;
+$target: #bcbec7;
+
+$chart-colors: (
+	'chart-blue': $qualitative-data-point-1,
+	'chart-aqua': $qualitative-data-point-2,
+	'chart-purple': $qualitative-data-point-3,
+	'chart-green': $qualitative-data-point-4,
+	'chart-yellow': $qualitative-data-point-5,
+	'chart-red': $qualitative-data-point-6,
+	'chart-steel-blue': $qualitative-data-point-7,
+	'chart-orange': $qualitative-data-point-8,
+	'chart-cyan': $qualitative-data-point-9,
+	'chart-magenta': $qualitative-data-point-10,
+	'chart-filler': $filler,
+	'chart-target': $target,
+);

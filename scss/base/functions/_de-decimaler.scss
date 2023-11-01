@@ -1,0 +1,10 @@
+@use 'sass:math' as math;
+
+/*
+	De Decimaler
+	Function to remove a decimal and round to the floor (down)
+*/
+
+@function de_decimaler($value) {
+	@return math.floor($value * 100000);
+}

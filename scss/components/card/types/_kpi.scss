@@ -1,0 +1,18 @@
+@use '../../../base/functions/rem-em' as *;
+
+// Container to set layout for Key Point Idicators (KPI) with an icon displayed before/after
+// Icon sizes can be adjusted using the size- class and are specific to icon sizes when used with the .icon class
+.kpi {
+	&--container {
+		display: flex;
+		align-items: flex-start;
+		justify-content: flex-start;
+		gap: get-rem(16);
+
+		.icon {
+			--icon-height: #{get-rem(36)};
+			--icon-width: #{get-rem(36)};
+			flex: 0 0 auto;
+		}
+	}
+}

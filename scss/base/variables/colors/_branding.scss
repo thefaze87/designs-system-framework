@@ -1,0 +1,27 @@
+// Branding Colors Definition
+// Follows color naming set by Corporate Marketing here: https://brandpad.io/scorpion
+
+$scorp-blue: #007ffd;
+$scorp-blue2: #66aeff;
+$scorp-blue3: #bfddff;
+$scorp-blue4: #e6f1ff;
+$scorp-gray1: #f2f2f5;
+$scorp-gray2: #86898f;
+$scorp-gray3: #bcbec7;
+$scorp-black: #191919;
+
+// Branding Colors Map
+
+$scorpion-branding: (
+	'scorp-blue': $scorp-blue,
+	'scorp-blue2': $scorp-blue2,
+	'scorp-blue3': $scorp-blue3,
+	'scorp-blue4': $scorp-blue4,
+	'scorp-gray1': $scorp-gray1,
+	'scorp-gray2': $scorp-gray2,
+	'scorp-gray3': $scorp-gray3,
+	'scorp-black': $scorp-black,
+	'accent-primary': $scorp-blue,
+	'accent-secondary': $scorp-blue2,
+	'accent-quinary': $scorp-blue4,
+);

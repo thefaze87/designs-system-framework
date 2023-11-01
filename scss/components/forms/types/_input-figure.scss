@@ -1,0 +1,33 @@
+@use '../../../base/functions/rem-em' as *;
+@use '../../../base/variables/var' as *;
+@use '../../../base/variables/typography/text' as *;
+@use '../forms.mixin' as *;
+
+.input-figure {
+	position: relative;
+	input {
+		position: absolute;
+		opacity: 0;
+		visibility: hidden;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+
+		+ label > figure {
+			width: get-rem(40);
+			height: get-rem(40);
+			border: {
+				style: solid;
+				width: 2px;
+				color: var(--input-figure-border);
+			}
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: var(--input-figure-bg);
+			color: var(--input-figure-text);
+			transition: border-color 0.3s ease 0s;
+		}
+	}
+}

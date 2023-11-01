@@ -1,0 +1,24 @@
+$breakpoints: (
+	'phone': 250px,
+	'tablet': 700px,
+	'laptop': 1025px,
+	'laptop-wide': 1280px,
+	'desktop': 1650px,
+	'desktop-wide': 1920px,
+) !default;
+
+@mixin respond-to($breakpoint) {
+	@if map-has-key($breakpoints, $breakpoint) {
+		@media screen and (min-width: map-get($breakpoints, $breakpoint)) {
+			@content;
+		}
+	}
+}
+
+@mixin respond-between($breakpointMin, $breakpointMax, $orientation: portrait) {
+	@if map-has-key($breakpoints, $breakpointMin) {
+		@media screen and (min-width: map-get($breakpoints, $breakpointMin)) and (max-width: map-get($breakpoints, $breakpointMax)) and (orientation: $orientation) {
+			@content;
+		}
+	}
+}

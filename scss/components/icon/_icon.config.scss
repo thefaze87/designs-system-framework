@@ -1,0 +1,40 @@
+// Global base utils
+@use '../../base/functions/rem-em' as *;
+@use '../../base/variables/index' as *;
+@use '../../base/variables/colors/status' as *;
+@use '../../base/variables/colors/social' as *;
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+	width: var(--icon-width, #{get-rem(36)});
+	height: var(--icon-height, #{get-rem(36)});
+	min-width: 0;
+	color: var(--icon-text-color, var(--scorp-blue));
+	background-color: var(--icon-bg-color, var(--blue7));
+	border-radius: var(--icon-bg-radius, #{get-rem(8)});
+	font-size: var(--icon-font-size, #{get-rem(18)});
+	transition: color #{$transition-default}, background-color #{$transition-default}, border-color #{$transition-default}, box-shadow #{$transition-default};
+
+	// Create modifiers for chip colors (Ex: .chip--red)
+	@each $class, $map in $status-colors {
+		$bg-color: map-get($map, 'primary');
+		$text-color: map-get($map, 'accent');
+		&--#{$class}-st {
+			--icon-bg-color: #{$bg-color};
+			--icon-text-color: #{$text-color};
+		}
+	}
+	@each $class, $color in $social-media {
+		&--#{$class} {
+			--icon-bg-color: #{$color};
+			--icon-text-color: var(--white);
+		}
+	}
+	&.size-48 {
+		--icon-width: #{get-rem(48)};
+		--icon-height: #{get-rem(48)};
+	}
+}

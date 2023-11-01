@@ -1,0 +1,58 @@
+///
+/// Chart Animation Styles
+///
+/// @group 6-components
+/// @author Anthony Minnaugh and Mark Fasel
+/// @access public
+///
+@keyframes load-chart-foreground {
+	0% {
+		opacity: 0; /* standard animation attached to chart canvas foreground */
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes load-chart-background {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes chart-tip {
+	0% {
+		transform: translate(0, -10px);
+		opacity: 0;
+	}
+	100% {
+		transform: none;
+		opacity: 1;
+	}
+}
+
+@keyframes load-circle-chart {
+	0% {
+		transform: translate(0, 30px) scale(0.8);
+		opacity: 0;
+	}
+	100% {
+		transform: none;
+		opacity: 1;
+	}
+}
+
+/* Chart Tool Tip Animation */
+@keyframes chart-tip {
+	0% {
+		transform: translate(0, -10px);
+		opacity: 0;
+	}
+	100% {
+		transform: none;
+		opacity: 1;
+	}
+}

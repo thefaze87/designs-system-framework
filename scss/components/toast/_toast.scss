@@ -1,0 +1,22 @@
+@use './toast.variables' as *;
+@use './toast.mixins' as *;
+
+///
+/// Toast
+///
+/// @group 6-components
+/// @author Anthony Minnaugh and Mark Fasel
+/// @access public
+///
+.toast {
+	@extend %toast-base;
+
+	// Pass toast positions arg list to the mixin
+	@include toast-position($toast-positions...);
+
+	// Toast Icon
+	@extend %toast-icon;
+
+	// Toast Content
+	@extend %toast-content;
+}

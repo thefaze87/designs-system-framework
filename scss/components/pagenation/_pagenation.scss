@@ -1,0 +1,97 @@
+@use '../../base/functions/rem-em' as *;
+
+.pagination {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	label {
+		color: var(--text);
+	}
+	font-size: get-rem(14);
+	.select--simple {
+		position: relative;
+		padding-right: get-rem(8);
+		margin: 0;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			right: 0.25rem;
+			transform: translateY(-50%);
+			height: 0.375rem;
+			width: 0.25rem;
+			background: {
+			  	// @todo: Image to resolve and decouple - Based 64 Encoded for Temp
+			  	// image: url(/cms/svg/site/icon_caret.36.86898F.svg);
+				image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMzYgMzYiPgo8c3R5bGU+CglnIHBhdGggeyBzdHJva2U6IG5vbmU7IH0KPC9zdHlsZT4KPGcgY2xhc3M9InJvb3QiIGlkPSJjYXJldCIgZGF0YS1uYW1lPSJDYXJldCIgZmlsbD0iIzg2ODk4RiIgc3Ryb2tlPSIjODY4OThGIj4KCTxwYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZD0iTTIxLjYxMyAyOS43MjdhNC41MTEgNC41MTEgMCAwIDEtNi4yMzEgMC45NjVhNC40MzggNC40MzggMCAwIDEtMC45ODMtMC45NjVsLTEzLjU0NS0xOC4yOThhNC4zMzMgNC4zMzMgMCAwIDEgMC45ODMtNi4xMjJhNC41MTUgNC41MTUgMCAwIDEgMi42MjItMC44MzdoMjcuMDgyYTQuNDE5IDQuNDE5IDAgMCAxIDQuNDYgNC4zODNhNC4zMzMgNC4zMzMgMCAwIDEtMC44NTEgMi41NzZaIiAvPgo8L2c+Cjwvc3ZnPg==);
+				size: contain;
+				repeat: no-repeat;
+				position: 50%;
+			}
+		}
+		select {
+			color: var(--text);
+			font-family: inherit;
+			font-size: get-rem(14);
+			margin: 0;
+			background-color: transparent;
+			border-radius: 0;
+			border: none;
+			line-height: 1;
+			display: flex;
+			align-items: center;
+			-webkit-appearance: none;
+			padding: 0 0.5rem;
+		}
+	}
+	.results {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		gap: get-rem(4);
+		&--container {
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			gap: get-rem(18);
+		}
+	}
+	.paging {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		gap: get-rem(16);
+
+		&-count {
+			display: flex;
+			align-items: center;
+			gap: get-rem(4);
+			line-height: 157%;
+			.input--simple {
+				input {
+					width: get-rem(30);
+					line-height: 157%;
+					border-bottom: solid 1px var(--scorp-gray3);
+					text-align: center;
+					padding: 0 0.5rem;
+					background-color: transparent;
+				}
+			}
+			span {
+				display: inline-block;
+				margin-right: 0.5rem;
+			}
+		}
+		&-nav {
+			display: flex;
+			align-items: center;
+			gap: get-rem(8);
+			.btn-icon {
+				--btn-width: #{get-rem(32)};
+				--btn-height: #{get-rem(32)};
+				font-size: get-rem(14);
+			}
+		}
+	}
+}

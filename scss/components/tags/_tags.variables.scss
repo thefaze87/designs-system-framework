@@ -1,0 +1,79 @@
+@use '../../base/functions/rem-em' as *;
+
+// Tag Background Color
+$tag-bg-color: var(--scorp-gray2);
+
+// Tag Text Color
+$tag-text-color: var(--gray6);
+
+// Tag Padding Top
+$tag-pad-top: #{get-rem(2)};
+
+// Tag Padding Right
+$tag-pad-right: #{get-rem(8)};
+
+// Tag Padding Bottom
+$tag-pad-bottom: #{get-rem(2)};
+
+// Tag Padding Left
+$tag-pad-left: #{get-rem(8)};
+
+// Tag Colors
+$tag-colors: (
+	'light-gray': (
+		'bg': #ededee,
+		'text': #86898f,
+	),
+	'gray': (
+		'bg': #86898f,
+		'text': #ededee,
+	),
+	'red': (
+		'bg': #f8dfdd,
+		'text': #d12b1c,
+	),
+	'burgundy': (
+		'bg': #f4dfe4,
+		'text': #b32d4a,
+	),
+	'brown': (
+		'bg': #eae4e2,
+		'text': #74493e,
+	),
+	'orange': (
+		'bg': #feedde,
+		'text': #f88622,
+	),
+	'gold': (
+		'bg': #f7f3d9,
+		'text': #c7ab05,
+	),
+	'green': (
+		'bg': #def6e6,
+		'text': #23bf57,
+	),
+	'mint': (
+		'bg': #dcf4ef,
+		'text': #1ab491,
+	),
+	'aqua': (
+		'bg': #def6f8,
+		'text': #24c2d0,
+	),
+	'blue': (
+		'bg': #d9ecff,
+		'text': #007ffd,
+	),
+	'midnight': (
+		'bg': #dde3ed,
+		'text': #1f4686,
+	),
+	'purple': (
+		'bg': #ece5f7,
+		'text': #7e51c5,
+	),
+	'magenta': (
+		'bg': #f8e5fc,
+		'text': #ce51eb,
+	),
+);

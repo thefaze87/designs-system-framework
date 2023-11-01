@@ -1,0 +1,79 @@
+@use '../../base/functions/rem-em' as *;
+
+/*
+**
+This file will be removed once documentation is created with Storybook and is used as a reference for the time being since this was built already. The mixins and component is no longer utilizing the variables file and have set the values where needed vs a SCSS Variable.
+**
+*/
+
+///
+/// Button Font Size
+///
+/// @group 6-components
+/// @author Mark Fasel
+/// @access public
+///
+$btn-font-size: get-rem(16);
+
+///
+/// Button Line Height
+///
+/// @group 6-components
+/// @author Mark Fasel
+/// @access public
+///
+$btn-line-height: 150%;
+
+///
+/// Button Padding Y (vertical)
+///
+/// @group 6-components
+/// @author Mark Fasel
+/// @access public
+///
+$btn-padding-y: get-rem(6);
+
+///
+/// Button Padding X (horizontal)
+///
+/// @group 6-components
+/// @author Mark Fasel
+/// @access public
+///
+$btn-padding-x: get-rem(12);
+
+///
+/// Button Gap
+///
+/// @group 6-components
+/// @author Mark Fasel
+/// @access public
+///
+$btn-gap: get-rem(10);
+
+///
+/// Button Width
+///
+/// @group 6-components
+/// @author Mark Fasel
+/// @access public
+///
+$btn-width: 36;
+
+///
+/// Button Height
+///
+/// @group 6-components
+/// @author Mark Fasel
+/// @access public
+///
+$btn-height: 36;
+
+///
+/// Button Active Bg Color
+///
+/// @group 6-components
+/// @author Mark Fasel
+/// @access public
+///
+$btn-secondary-active-bg: #b2d6ff;

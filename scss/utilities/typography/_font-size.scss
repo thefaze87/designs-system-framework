@@ -1,0 +1,38 @@
+@use 'sass:map' as map;
+@use '../../base/functions/rem-em' as *;
+@use '../../base/variables/typography/text' as *;
+
+///
+/// Generate text size variables in REM and EM as css custom properties
+///
+/// @group 5-utilities
+/// @author Mark Fasel
+/// @access public
+///
+:root {
+	@each $size in $text-sizes {
+		--r-#{$size}: #{get-rem($size)};
+		--rem-#{$size}: #{get-rem($size)};
+		--e-#{$size}: #{get-em($size)};
+		--em-#{$size}: #{get-em($size)};
+	}
+}
+
+///
+/// Generate text size variables
+///
+/// @group 5-utilities
+/// @author Mark Fasel
+/// @access public
+///
+@each $size in $text-sizes {
+	.r-#{$size},
+	.rem-#{$size} {
+		font-size: #{get-rem($size)};
+	}
+
+	.e-#{$size},
+	.em-#{$size} {
+		font-size: #{get-em($size)};
+	}
+}

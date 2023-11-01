@@ -1,0 +1,59 @@
+/// Status Colors - Used in tags, icons, status and more components.
+$status-colors: (
+	'light-gray': (
+		'primary': #ededee,
+		'accent': #86898f,
+	),
+	'gray': (
+		'primary': #86898f,
+		'accent': #ededee,
+	),
+	'red': (
+		'primary': #f8dfdd,
+		'accent': #d12b1c,
+	),
+	'burgundy': (
+		'primary': #f4dfe4,
+		'accent': #b32d4a,
+	),
+	'brown': (
+		'primary': #eae4e2,
+		'accent': #74493e,
+	),
+	'orange': (
+		'primary': #feedde,
+		'accent': #f88622,
+	),
+	'gold': (
+		'primary': #f7f3d9,
+		'accent': #c7ab05,
+	),
+	'green': (
+		'primary': #def6e6,
+		'accent': #23bf57,
+	),
+	'mint': (
+		'primary': #dcf4ef,
+		'accent': #1ab491,
+	),
+	'aqua': (
+		'primary': #def6f8,
+		'accent': #24c2d0,
+	),
+	'blue': (
+		'primary': #d9ecff,
+		'accent': #007ffd,
+	),
+	'midnight': (
+		'primary': #dde3ed,
+		'accent': #1f4686,
+	),
+	'purple': (
+		'primary': #ece5f7,
+		'accent': #7e51c5,
+	),
+	'magenta': (
+		'primary': #f8e5fc,
+		'accent': #ce51eb,
+	),
+);

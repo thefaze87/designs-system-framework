@@ -1,0 +1,13 @@
+///
+/// Toast Animations
+///
+/// @group 6-components
+/// @author Mark Fasel
+/// @access public
+///
+@keyframes spinner {
+	to {
+		transform: rotate(360deg);
+		transform-origin: center;
+	}
+}

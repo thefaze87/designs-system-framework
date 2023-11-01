@@ -1,0 +1,49 @@
+@use '../chart.mixins' as *;
+@use '../../../base/functions/rem-em' as *;
+
+.cms-tooltip2 {
+	@include toolTip;
+	@include tipBG;
+	font-size: #{get-rem(12)};
+	box-shadow: 0 4px 8px rgba(25,25,25, 0.2);
+	color: var(--text-color, var(--scorp-gray3));
+	padding: #{get-rem(16)};
+	white-space: nowrap;
+	max-width: #{get-rem(270)};
+	width: max-content;
+	transform: translate(-50%, 10%);
+	z-index: 10;
+	.ichart & {
+		transform: translate(0, 10%);
+	}
+
+	&::before {
+		@include caret;
+	}
+
+	&.active {
+		@include toolTipActive;
+		// animation: chart-tip 0.3s cubic-bezier(0.3, 1, 0.6, 1) 0.2s 1 normal;
+	}
+
+	& .title {
+		@include tipTitle;
+		font-weight: 700;
+		display: block;
+		text-align: center;
+
+		&--small {
+			letter-spacing: #{get-rem(3)};
+			font-size: #{get-rem(12)};
+			color: var(--text-color, var(--scorp-gray2));
+			text-transform: uppercase;
+		}
+	}
+
+	// Basic legend colors styles for the tooltip
+	.legend {
+		color: var(--white);
+		font-size: #{get-em(16)};
+	}
+}
+

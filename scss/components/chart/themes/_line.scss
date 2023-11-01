@@ -1,0 +1,204 @@
+.theme--line{
+	.ichart,
+	.ichart2,
+	&.ichart,
+	&.ichart2 {
+		> span:first-of-type,
+		.line-chart-dot:first-of-type {
+			--chart-color: rgb(0, 127, 253);
+			--chart-border-color: rgb(0, 127, 253);
+			--chart-bg-color: rgb(0, 127, 253);
+			--chart-bg-image: linear-gradient(to bottom, rgb(0, 127, 253),rgb(102, 178, 254)) ;
+		}
+		> span:nth-of-type(2),
+		.line-chart-dot:nth-of-type(2) {
+			--chart-color: rgb(88, 219, 218);
+			--chart-border-color: rgb(88, 219, 218);
+			--chart-bg-color: rgb(88, 219, 218);
+			--chart-bg-image: linear-gradient(to bottom, rgb(88, 219, 218), rgb(155, 233, 233)) ;
+		}
+		> span:nth-of-type(3),
+		.line-chart-dot:nth-of-type(3) {
+			--chart-color: rgb(109, 89, 255);
+			--chart-border-color: rgb(109, 89, 255);
+			--chart-bg-color: rgb(109, 89, 255);
+			--chart-bg-image: linear-gradient(to bottom, rgb(109, 89, 255), rgb(168, 156, 255) ) ;
+		}
+		> span:nth-of-type(4),
+		.line-chart-dot:nth-of-type(4) {
+			--chart-color: rgb(119, 199, 103);
+			--chart-border-color: rgb(119, 199, 103);
+			--chart-bg-color: rgb(119, 199, 103);
+			--chart-bg-image: linear-gradient(to bottom, rgb(119, 199, 103),rgb(174, 221, 164)) ;
+		}
+		> span:nth-of-type(5),
+		.line-chart-dot:nth-of-type(5) {
+			--chart-color: rgb(246, 205, 76);
+			--chart-border-color: rgb(246, 205, 76);
+			--chart-bg-color: rgb(246, 205, 76);
+			--chart-bg-image: linear-gradient(to bottom, rgb(246, 205, 76),rgb(250, 225, 148)) ;
+		}
+		> span:nth-of-type(6),
+		.line-chart-dot:nth-of-type(6) {
+			--chart-color: rgb(202, 75, 69);
+			--chart-border-color: rgb(202, 75, 69);
+			--chart-bg-color: rgb(202, 75, 69);
+			--chart-bg-image: linear-gradient(to bottom, rgb(202, 75, 69), rgb(223, 147, 144)) ;
+		}
+		> span:nth-of-type(7),
+		.line-chart-dot:nth-of-type(7) {
+			--chart-color: rgb(163, 194, 222);
+			--chart-border-color: rgb(163, 194, 222);
+			--chart-bg-color: rgb(163, 194, 222);
+			--chart-bg-image: linear-gradient(to bottom, rgb(163, 194, 222),rgb(200, 219, 235)) ;
+		}
+		> span:nth-of-type(8),
+		.line-chart-dot:nth-of-type(8) {
+			--chart-color: rgb(229, 148, 56);
+			--chart-border-color: rgb(229, 148, 56);
+			--chart-bg-color: rgb(229, 148, 56);
+			--chart-bg-image: linear-gradient(to bottom, rgb(229, 148, 56),rgb(239, 191, 136)) ;
+		}
+		> span:nth-of-type(9),
+		.line-chart-dot:nth-of-type(9) {
+			--chart-color: rgb(102, 191, 255);
+			--chart-border-color: rgb(102, 191, 255);
+			--chart-bg-color: rgb(102, 191, 255);
+			--chart-bg-image: linear-gradient(to bottom, rgb(102, 191, 255), rgb(164, 217, 255)) ;
+		}
+		> span:nth-of-type(10),
+		.line-chart-dot:nth-of-type(10) {
+			--chart-color: rgb(213, 97, 218);
+			--chart-border-color: rgb(213, 97, 218);
+			--chart-bg-color: rgb(213, 97, 218);
+			--chart-bg-image: linear-gradient(to bottom, rgb(213, 97, 218),rgb(230, 161, 233)) ;
+		}
+	}
+}
+
+.theme--line {
+	.legend{
+		.legend--item {
+			&:first-of-type {
+				.bull,
+				.bar,
+				.line,
+				.dash,
+				&.bull,
+				&.bar,
+				&.line,
+				&.dash{
+					--chart-bg-color: rgb(0, 127, 253);
+				}
+			}
+			&:nth-of-type(2) {
+				.bull,
+				.bar,
+				.line,
+				.dash,
+				&.bull,
+				&.bar,
+				&.line,
+				&.dash{
+					--chart-bg-color: rgb(88, 219, 218);
+				}
+			}
+			&:nth-of-type(3) {
+				.bull,
+				.bar,
+				.line,
+				.dash,
+				&.bull,
+				&.bar,
+				&.line,
+				&.dash{
+					--chart-bg-color: rgb(109, 89, 255);
+				}
+			}
+			&:nth-of-type(4) {
+				.bull,
+				.bar,
+				.line,
+				.dash,
+				&.bull,
+				&.bar,
+				&.line,
+				&.dash{
+					--chart-bg-color: rgb(119, 199, 103);
+				}
+			}
+			&:nth-of-type(5) {
+				.bull,
+				.bar,
+				.line,
+				.dash,
+				&.bull,
+				&.bar,
+				&.line,
+				&.dash{
+					--chart-bg-color: rgb(246, 205, 76);
+				}
+			}
+			&:nth-of-type(6) {
+				.bull,
+				.bar,
+				.line,
+				.dash,
+				&.bull,
+				&.bar,
+				&.line,
+				&.dash{
+					--chart-bg-color: rgb(202, 75, 69);
+				}
+			}
+			&:nth-of-type(7) {
+				.bull,
+				.bar,
+				.line,
+				.dash,
+				&.bull,
+				&.bar,
+				&.line,
+				&.dash{
+					--chart-bg-color: rgb(163, 194, 222);
+				}
+			}
+			&:nth-of-type(8) {
+				.bull,
+				.bar,
+				.line,
+				.dash,
+				&.bull,
+				&.bar,
+				&.line,
+				&.dash{
+					--chart-bg-color: rgb(229, 148, 56);
+				}
+			}
+			&:nth-of-type(9) {
+				.bull,
+				.bar,
+				.line,
+				.dash,
+				&.bull,
+				&.bar,
+				&.line,
+				&.dash{
+					--chart-bg-color: rgb(102, 191, 255);
+				}
+			}
+			&:nth-of-type(10) {
+				.bull,
+				.bar,
+				.line,
+				.dash,
+				&.bull,
+				&.bar,
+				&.line,
+				&.dash{
+					--chart-bg-color: rgb(213, 97, 218);
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,18 @@
+@use '../../base/variables/layout/object' as *;
+@use '../mixins/responsive' as *;
+
+@each $name, $breakpoint in $breakpoints {
+	// Loop thru breakpoints map and include dynamic breakpoint mixin
+	@include respond-to($name) {
+		@each $property in $object-fit-properties {
+			.#{$name}-object-#{$property} {
+				object-fit: #{$property};
+			}
+		}
+		@each $class, $property in $object-position-properties {
+			.#{$name}-#{$class} {
+				object-position: #{$property};
+			}
+		}
+	}
+}

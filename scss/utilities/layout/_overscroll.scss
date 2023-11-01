@@ -1,0 +1,31 @@
+@use '../../base/variables/layout/display' as *;
+
+///
+/// Overscroll Utility Classes
+/// Classes for overscroll
+///
+/// @group 5-utilities
+/// @author Mark Fasel
+/// @access public
+///
+@each $class, $property in $overscroll-properties {
+	@if $class != 'y' or $class != 'x' {
+		.overscroll-#{$class} {
+			overscroll-behavior: #{$property};
+		}
+	} @else if $class == 'y' {
+		$y-properties: map-get($overscroll-properties, 'y');
+		@each $y-property in $y-properties {
+			.overscroll-#{$class}-#{$y-property} {
+				overscroll-behavior-y: #{$y-property};
+			}
+		}
+	} @else if $class == 'x' {
+		$x-properties: map-get($overscroll-properties, 'x');
+		@each $x-property in $x-properties {
+			.overscroll-#{$class}-#{$x-property} {
+				overscroll-behavior-x: #{$x-property};
+			}
+		}
+	}
+}

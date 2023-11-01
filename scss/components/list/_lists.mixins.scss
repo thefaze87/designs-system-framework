@@ -1,0 +1,11 @@
+%no-list-style {
+	& > li {
+		list-style: none;
+		break-inside: unset;
+		margin-top: unset;
+
+		&:first-child {
+			margin-top: unset;
+		}
+	}
+}

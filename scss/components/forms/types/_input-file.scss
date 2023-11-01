@@ -1,0 +1,36 @@
+@use '../../../base/functions/rem-em' as *;
+@use '../../../base/variables/var' as *;
+@use '../../../base/variables/typography/text' as *;
+@use '../forms.mixin' as *;
+
+.input-file {
+	input[type='file' i] {
+		all: unset;
+		font-size: #{get-rem(16)};
+		line-height: 1;
+		color: var(--input-file-label-color);
+
+		&::-webkit-file-upload-button {
+			color: var(--input-file-text);
+			background-color: var(--input-file-bg);
+			padding: #{get-rem(6)} #{get-rem(12)};
+			outline: none;
+			margin-right: #{get-rem(16)};
+			border: 2px solid var(--input-file-border-color);
+			border-radius: $border-radius;
+			cursor: pointer;
+			outline: none;
+			font: {
+				family: $primary-font;
+				size: #{get-rem(16)};
+				weight: 500;
+			}
+			transition: color $transition-default, background-color $transition-default, border-color $transition-default;
+
+			&.disable,
+			&:disabled {
+				@extend %input-disable;
+			}
+		}
+	}
+}

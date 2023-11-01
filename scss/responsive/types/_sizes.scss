@@ -1,0 +1,145 @@
+@use '../../base/functions/rem-em' as *;
+@use '../../base/variables/sizing/sizing' as *;
+@use '../mixins/responsive' as *;
+
+// Build out properties for each breakpoint
+@each $name, $breakpoint in $breakpoints {
+	// Loop thru breakpoints map and include dynamic breakpoint mixin
+	@include respond-to($name) {
+		@if ($name == 'phone') {
+			.#{$name}-full {
+				width: 100%;
+			}
+			.#{$name}-two-thirds {
+				width: 100%;
+			}
+			.#{$name}-auto {
+				width: auto;
+			}
+			.#{$name}-half {
+				width: 100%;
+			}
+			.#{$name}-third {
+				width: 100%;
+			}
+			.#{$name}-fourth {
+				width: 100%;
+			}
+			.#{$name}-three-fourths {
+				width: 100%;
+			}
+			.#{$name}-fifth {
+				width: 100%;
+			}
+			.#{$name}-two-fifths {
+				width: 100%;
+			}
+			.#{$name}-three-fifths {
+				width: 100%;
+			}
+			.#{$name}-four-fifths {
+				width: 100%;
+			}
+			.#{$name}-sixth {
+				width: 100%;
+			}
+			.#{$name}-five-sixths {
+				width: 100%;
+			}
+		}
+
+		@if ($name == 'tablet') {
+			.#{$name}-full {
+				width: 100%;
+			}
+			.#{$name}-half {
+				width: 50%;
+			}
+			.#{$name}-auto {
+				width: auto;
+			}
+			.#{$name}-auto-height {
+				height: auto;
+			}
+		}
+
+		@if ($name == 'laptop') {
+			.#{$name}-full {
+				width: 100%;
+			}
+
+			.#{$name}-auto {
+				width: auto;
+			}
+
+			.#{$name}-half {
+				width: 50%;
+			}
+
+			.#{$name}-fourth {
+				width: 25%;
+			}
+
+			.#{$name}-two-thirds {
+				width: 66.67%;
+			}
+		}
+
+		@if ($name == 'laptop-wide') {
+			.#{$name}-full {
+				width: 100%;
+			}
+
+			.#{$name}-auto {
+				width: auto;
+			}
+
+			.#{$name}-half {
+				width: 50%;
+			}
+
+			.#{$name}-third {
+				width: 75%;
+			}
+
+			.#{$name}-two-fifths {
+				width: 40%;
+			}
+		}
+
+		@if ($name == 'desktop') {
+			.#{$name}-third {
+				width: 33%;
+			}
+			.#{$name}-two-thirds {
+				width: 66.67%;
+			}
+			.#{$name}-half {
+				width: 50%;
+			}
+			.#{$name}-full {
+				width: 100%;
+			}
+			.#{$name}-auto {
+				width: auto;
+			}
+		}
+
+		@each $size-name, $size-value in $sizes-default {
+			.#{$name}-#{$size-name} {
+				width: #{$size-value};
+			}
+		}
+		@each $size-name, $size-value in $sizes-percent {
+			.#{$name}-#{$size-name} {
+				width: #{$size-value};
+			}
+		}
+
+		@each $size-name, $size-value in $sizes-extra {
+			.#{$name}-#{$size-name} {
+				width: #{$size-value};
+			}
+		}
+	}
+}

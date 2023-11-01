@@ -1,0 +1,45 @@
+@use '../../base/functions/rem-em' as *;
+
+.dd-panel {
+	--flyout-left: auto;
+	--flyout-right: 0;
+	--flyout-top: 100%;
+}
+
+.filter--header {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: get-rem(20);
+	.close {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: get-rem(4);
+		height: get-rem(18);
+		width: get-rem(18);
+		background-color: var(--scorp-gray1);
+		color: var(--scorp-black);
+		border-radius: 50%;
+	}
+}
+
+.filter--footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: get-rem(24);
+	border-top: solid 1px var(--border);
+	padding-top: get-rem(12);
+	margin-top: get-rem(12);
+	> ul {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		flex-direction: row-reverse;
+		gap: get-rem(12);
+		li + li {
+			margin-top: 0;
+		}
+	}
+}

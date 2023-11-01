@@ -1,0 +1,39 @@
+// Display Variables -  Variables for break properties for layout
+$display-properties: ('block', 'inline-block', 'inline', 'flex', 'inline-flex', 'table', 'inline-table', 'table-caption', 'table-cell', 'table-column', 'table-column-group', 'table-footer-group', 'table-header-group', 'table-row-group', 'table-row', 'flow-root', 'grid', 'inline-grid', 'contents', 'hidden');
+
+// Break Before After Variable List- -List for break before after properties for layout
+$break-before-after-properties: ('auto', 'avoid', 'all', 'avoid-page', 'page', 'right', 'column');
+
+// Break Inside Variable List -  List for break inside properties for layout
+$break-inside-properties: ('auto', 'avoid', 'avoid-page', 'column');
+
+// Overflow Variable List - List for overflow properties for layout
+$overflow-properties: ('auto', 'hidden', 'clip', 'visible', 'scroll');
+
+// Position Variable Map - Map for position properties for layout
+$position-properties: (
+	'position-static': 'static',
+	'position-fixed': 'fixed',
+	'position-absolute': 'absolute',
+	'abs': 'absolute',
+	'position-relative': 'relative',
+	'rel': 'relative',
+	'position-sticky': 'sticky',
+);
+
+// Overscroll Variable Map Map for overscroll properties for layout
+$overscroll-properties: (
+	'auto': 'auto',
+	'contain': 'contain',
+	'none': 'none',
+	'y': (
+		'auto',
+		'contain',
+		'none',
+	),
+	'x': (
+		'auto',
+		'contain',
+		'none',
+	),
+);

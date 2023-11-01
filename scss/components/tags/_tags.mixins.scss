@@ -1,0 +1,31 @@
+// Base Variables
+@use '../../base/variables/var' as v;
+@use '../../base/variables/colors/branding' as b;
+@use '../../base/variables/typography/text' as t;
+
+// Base Functions
+@use '../../base/functions/rem-em' as *;
+
+// Tag Base Placeholder
+%tag-base {
+	display: inline-flex;
+	align-items: center;
+	gap: #{get-rem(6)};
+	color: var(--tag-accent, var(--gray6));
+	background-color: var(--tag-primary, var(--scorp-gray2));
+	border-radius: 9999px;
+	padding: {
+		top: var(--tag-pad-top, #{get-rem(2)});
+		right: var(--tag-pad-right, #{get-rem(8)});
+		bottom: var(--tag-pad-bottom, #{get-rem(2)});
+		left: var(--tag-pad-left, #{get-rem(8)});
+	}
+	line-height: #{get-rem(22)};
+	font-size: #{get-rem(14)};
+	font-weight: 500;
+
+	& .text {
+		list-style: none;
+		display: inline-block;
+	}
+}

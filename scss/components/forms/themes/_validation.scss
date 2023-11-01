@@ -1,0 +1,15 @@
+// Component Mixins
+@use '../forms.mixin' as *;
+
+.validation {
+	--validation-color: var(--red);
+}
+
+.invalid {
+	input {
+		// Sets the replace label border color to red (found in input mark as an example)
+		& + .replace {
+			--input-border-color: var(--red);
+		}
+	}
+}

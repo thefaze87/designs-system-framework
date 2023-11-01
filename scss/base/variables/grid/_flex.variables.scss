@@ -1,0 +1,93 @@
+@use '../var' as *;
+@use '../layout/spacing' as *;
+
+$flexVariables: (
+    flexDirection: (
+		row: row,
+		column: column,
+		row-reverse: row-reverse,
+		column-reverse: column-reverse,
+	),
+	flexWrap: (
+		wrap: wrap,
+		nowrap: nowrap,
+		wrap-reverse: wrap-reverse,
+	),
+	justifyContent: (
+		start: flex-start,
+		end: flex-end,
+		center: center,
+		between: space-between,
+		around: space-around,
+		evenly: space-evenly,
+	),
+	alignItems: (
+		start: flex-start,
+		end: flex-end,
+		center: center,
+		baseline: baseline,
+		stretch: stretch,
+	),
+	alignContent: (
+		start: flex-start,
+		end: flex-end,
+		center: center,
+		between: space-between,
+		around: space-around,
+		stretch: stretch,
+	),
+	alignSelf: (
+		auto: auto,
+		start: flex-start,
+		end: flex-end,
+		center: center,
+		baseline: baseline,
+		stretch: stretch,
+	),
+    widths: (
+        'half': (
+            flex-basis: $half,
+            width: auto
+        ),
+        'third': (
+            flex-basis: $third,
+            width: auto
+        ),
+        'two-thirds': (
+            flex-basis: $third * 2,
+            width: auto
+        ),
+        'fourth': (
+            flex-basis: $fourth,
+            width: auto
+        ),
+        'three-fourths': (
+            flex-basis: $fourth * 3,
+            width: auto
+        ),
+        'fifth': (
+            flex-basis: $fifth,
+            width: auto
+        ),
+        'two-fifths': (
+            flex-basis: $fifth * 2,
+            width: auto
+        ),
+        'three-fifths': (
+            flex-basis: $fifth * 3,
+            width: auto
+        ),
+        'four-fifths': (
+            flex-basis: $fifth * 4,
+            width: auto
+        ),
+        'sixth': (
+            flex-basis: $sixth,
+            width: auto
+        ),
+        'five-sixths': (
+            flex-basis: $sixth * 5,
+            width: auto
+        )
+    )
+);

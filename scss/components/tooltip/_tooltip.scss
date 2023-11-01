@@ -1,0 +1,276 @@
+@use '../../base/variables/colors/index' as *;
+
+// :root {
+// 	--tip-color: var(--white);
+// 	--tip-title: var(--white);
+// 	--tip-accent: var(--scorp-black);
+// 	--tip-shadow: 0 5px 25px rgba(0, 68, 128, 0.251);
+// 	--tip-bubble: 4px;
+// 	--tip-border: none;
+// 	--tip-tail-y: 8px;
+// 	--tip-tail-x: 8px;
+// }
+@mixin toolTip {
+	position: absolute;
+	white-space: pre;
+	text-align: left;
+	visibility: hidden;
+	opacity: 0;
+	z-index: 3;
+	pointer-events: none;
+}
+@mixin toolTipActive {
+	visibility: visible;
+	opacity: 1;
+	transition: visibility 0s linear 0.2s;
+}
+@mixin tipBG {
+	background-color: var(--tip-bg);
+	color: var(--tip-color);
+	box-shadow: var(--tip-shadow);
+	border-radius: var(--tip-bubble);
+	border: var(--tip-border);
+	text-align: left;
+}
+@mixin caret {
+	content: '';
+	border-style: solid solid none solid;
+	border-color: var(--tip-bg) transparent;
+	border-width: 10px;
+	position: absolute;
+	top: 99%;
+	left: 50%;
+	margin-left: -10px;
+	border-radius: 8px;
+}
+
+// Tooltip Title Mixin
+@mixin tipTitle {
+	color: var(--tip-color);
+	font-size: 1.5rem;
+}
+/* Chart Tool Tip Animation */
+@keyframes chart-tip {
+	0% {
+		transform: translate(0, -10px);
+		opacity: 0;
+	}
+	100% {
+		transform: none;
+		opacity: 1;
+	}
+}
+
+:root {
+	--tip-bg: rgba(9, 50, 92, 0.9);
+	--tip-title: var(--white);
+	--tip-accent: rgba(9, 50, 92, 0.9);
+	--tip-bubble: 8px;
+	--tip-shadow: none;
+}
+
+[data-tip],
+.has-tip {
+	cursor: pointer;
+}
+
+[data-tip],
+.has-tip > .tip {
+	transition: all 0.3s ease 0s;
+	&::after {
+		border-radius: 8px;
+	}
+
+	&.tal {
+		text-align: left;
+	}
+
+	&.tar {
+		text-align: right;
+	}
+
+	.title {
+		color: var(--tip-title);
+		font-size: 1.125rem;
+	}
+
+	> [data-use*='info.36'] {
+		transition: color 0.3s ease 0s;
+	}
+
+	&:hover {
+		> [data-use*='info.36'] {
+			color: var(--scorp-blue2);
+		}
+	}
+
+	& .ui-scroll {
+		&::-webkit-scrollbar-thumb {
+			background-color: rgba($scorp-gray3, 70%);
+		}
+		&::-webkit-scrollbar {
+			width: 0.52rem;
+			height: 0.52rem;
+		}
+	}
+
+	&.tip-white {
+		--tip-bg: var(--white);
+		--tip-accent: var(--white);
+	}
+}
+
+[data-tip] {
+	&[class*='size-']::before {
+		white-space: normal;
+	}
+	&.size-small::before {
+		width: 10rem;
+	}
+	&.size-medium::before {
+		width: 20rem;
+	}
+	&.size-large::before {
+		width: 30rem;
+	}
+	&.size-larger::before {
+		width: 40rem;
+	}
+}
+
+.has-tip > .tip {
+	&[class*='size-'] {
+		white-space: normal;
+	}
+	&.size-small {
+		width: 10rem;
+	}
+	&.size-medium {
+		width: 20rem;
+	}
+	&.size-large {
+		width: 30rem;
+	}
+	&.size-larger {
+		width: 40rem;
+	}
+}
+// Tutorial Tips
+.tutorial-con {
+	position: relative;
+	display: inline-block;
+
+	// Tutorial Trigger
+	.page-tutorial-trigger {
+		height: 8px;
+		width: 8px;
+		display: block;
+		border-radius: 50%;
+		background-color: var(--scorp-blue);
+		position: relative;
+		cursor: pointer;
+
+		&::before {
+			content: '';
+			background-color: rgba($scorp-blue, 20%);
+			border-radius: 50%;
+			height: 1.5rem;
+			width: 1.5rem;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%) scale(0, 0);
+			transform-origin: center;
+			transition: transform 0.3s ease;
+		}
+
+		&:hover::before,
+		&.active::before {
+			transform: translate(-50%, -50%) scale(1, 1);
+		}
+	}
+
+	// Tutorial Tip
+	.tutorial-tip {
+		--tip-bg: var(--scorp-blue);
+		--tip-accent: var(--white);
+		--tip-title: var(--white);
+		--tip-color: rgba($white, 70%);
+		@include toolTip;
+		@include tipBG;
+		white-space: normal;
+		pointer-events: auto;
+		bottom: calc(100% + 5px);
+		left: 50%;
+		transform: translate(-50%, -10px);
+		display: block !important;
+		padding: 1rem;
+		width: 16.688rem;
+		font-size: 12px;
+
+		&::before {
+			@include caret;
+		}
+
+		&.active {
+			@include toolTipActive;
+		}
+
+		.title {
+			font-size: 1rem;
+			display: block;
+			color: var(--tip-title);
+		}
+
+		.close {
+			color: var(--tip-color);
+			display: block;
+			text-align: right;
+		}
+
+		footer {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			.btn {
+				font-size: 14px;
+				height: 2em;
+				width: 4.5em;
+				color: var(--tip-color);
+				border: solid 2px var(--tip-color);
+				transition: color 0.3s ease, border-color 0.3s ease;
+				background-color: transparent;
+				box-shadow: none;
+
+				&:hover {
+					color: var(--tip-title);
+					border-color: var(--tip-title);
+					background-color: transparent;
+				}
+			}
+		}
+	}
+}
+
+.has-tip > .tip.engage {
+	white-space: normal;
+	pointer-events: auto;
+	&::before {
+		content: '';
+		top: 100%;
+		left: 0;
+		width: 100%;
+		height: 1.2rem;
+		position: absolute;
+	}
+
+	& header {
+		width: calc(100% + 32px);
+		margin-top: -9px;
+		margin-bottom: 16px;
+		margin-left: -16px;
+		border-top-left-radius: var(--tip-bubble);
+		border-top-right-radius: var(--tip-bubble);
+	}
+}

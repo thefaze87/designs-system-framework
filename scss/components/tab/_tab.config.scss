@@ -1,0 +1,147 @@
+// Base Mixins
+@use '../../base/mixins/display' as *;
+
+// Component Mixins
+@use './tab.mixins' as *;
+
+// Set Config Defaults for our tabs and tabs__simple
+.tabs,
+.tabs__simple {
+	&--stacked {
+		// If we have an li, div, or span container - set to 100% width and display property
+		> li,
+		> div,
+		> span {
+			width: 100%;
+			display: block; // This could be flex or block, chose inline-block since it was only to apply a width
+		}
+
+		a,
+		input + label {
+			// Resets to display flex on the label or a element when stacked
+			@include flex-display($justify-content: center, $gap: #{get-rem(6)}, $align-items: center);
+		}
+	}
+	li + li {
+		margin-top: 0;
+	}
+	a {
+		// Item Count
+		.item-count {
+			@extend %tab-item-count;
+		}
+
+		// Active styles
+		&.active,
+		&:active {
+			& .item-count {
+				--item-count-bg-color: var(--scorp-blue);
+				--item-count-color: var(--white);
+			}
+		}
+		// Disabled styles
+		&.disable {
+			& .item-count {
+				--item-count-bg-color: var(--gray4);
+			}
+		}
+	}
+
+	input {
+		// Hide Input
+		position: absolute;
+		opacity: 0;
+		top: 0;
+		left: 0;
+		margin: 0;
+		padding: 0;
+		-webkit-appearance: none;
+		cursor: pointer;
+
+		& + label {
+			.item-count {
+				@extend %tab-item-count;
+			}
+		}
+		&.active,
+		&:checked,
+		&:active,
+		&:focus {
+			& + label {
+				& .item-count {
+					--item-count-bg-color: var(--scorp-blue);
+					--item-count-color: var(--white);
+				}
+			}
+		}
+		&:disabled {
+			& + label {
+				& .item-count {
+					--item-count-bg-color: var(--gray4);
+				}
+			}
+		}
+	}
+}
+
+.tabs__framed {
+	a {
+		// Item Count
+		.item-count {
+			@extend %tab-item-count;
+		}
+
+		// Active styles
+		&.active,
+		&:active {
+			& .item-count {
+				--item-count-bg-color: var(--scorp-blue);
+				--item-count-color: var(--white);
+			}
+		}
+
+		// Disabled styles
+		&.disable {
+			& .item-count {
+				--item-count-bg-color: var(--gray4);
+			}
+		}
+	}
+	input {
+		// Hide Input
+		position: absolute;
+		opacity: 0;
+		top: 0;
+		left: 0;
+		margin: 0;
+		padding: 0;
+		-webkit-appearance: none;
+		cursor: pointer;
+
+		& + label {
+			.item-count {
+				@extend %tab-item-count;
+			}
+		}
+
+		&.active,
+		&:checked,
+		&:active,
+		&:focus {
+			& + label {
+				& .item-count {
+					--item-count-bg-color: var(--scorp-blue);
+					--item-count-color: var(--white);
+				}
+			}
+		}
+
+		&:disabled {
+			& + label {
+				& .item-count {
+					--item-count-bg-color: var(--gray4);
+				}
+			}
+		}
+	}
+}

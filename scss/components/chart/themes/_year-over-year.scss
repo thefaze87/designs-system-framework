@@ -1,0 +1,133 @@
+.theme--yoy {
+	&__2-year {
+		.ichart,
+		.ichart2,
+		&.ichart,
+		&.ichart2 {
+			> span:first-of-type {
+				--chart-bg-image: linear-gradient(to bottom, #bcf1f0, #d9f0f2);
+				--chart-bg-color: #bcf1f0;
+			}
+			> span:nth-of-type(2) {
+				--chart-bg-image: linear-gradient(to bottom, #007ffd, #66b3ff);
+			}
+		}
+		&--invert {
+			.ichart,
+			.ichart2,
+			&.ichart,
+			&.ichart2 {
+				> span:first-of-type {
+					--chart-bg-image: linear-gradient(to bottom, #007ffd, #66b3ff);
+					--chart-bg-color: #007ffd;
+				}
+				> span:nth-of-type(2) {
+					--chart-bg-image: linear-gradient(to bottom, #bcf1f0, #d9f0f2);
+					--chart-bg-color: #bcf1f0;
+				}
+			}
+		}
+	}
+	&__3-year {
+		.ichart,
+		.ichart2,
+		&.ichart,
+		&.ichart2 {
+			> span:first-of-type {
+				--chart-bg-image: linear-gradient(to bottom, #c5bdff, #dcd7ff);
+			}
+			> span:nth-of-type(2) {
+				--chart-bg-image: linear-gradient(to bottom, #c5f2f2, #d7f6f6);
+			}
+			> span:nth-child(3) {
+				--chart-bg-image: linear-gradient(to bottom, #0180fe, #66b2ff);
+			}
+		}
+	}
+}
+
+.theme--yoy {
+	&__2-year {
+		.legend {
+			.legend--item {
+				&:first-of-type {
+					.bar::before,
+					.bull::before,
+					.line::before,
+					.dash::before {
+						--chart-bg-color: #bcf1f0;
+					}
+				}
+				&:nth-of-type(2) {
+					.bar::before,
+					.bull::before,
+					.line::before,
+					.dash::before {
+						--chart-bg-color: #007ffd;
+					}
+				}
+			}
+		}
+		&--invert {
+			.legend {
+				.legend--item {
+					&:first-of-type {
+						.bar::before,
+						.bull::before,
+						.line::before,
+						.dash::before {
+							--chart-bg-color: #007ffd;
+						}
+					}
+					&:nth-of-type(2) {
+						.bar::before,
+						.bull::before,
+						.line::before,
+						.dash::before {
+							--chart-bg-color: #bcf1f0;
+						}
+					}
+				}
+			}
+			.chart-dot-container > .line-chart-dot {
+				&:first-of-type {
+					--chart-border-color: #007ffd !important;
+				}
+				&:nth-of-type(2) {
+					--chart-border-color: #bcf1f0 !important;
+				}
+			}
+		}
+	}
+	&__3-year {
+		.legend,
+		&.legend {
+			.legend--item {
+				&:first-of-type {
+					.bull::before,
+					.bar::before,
+					.line::before,
+					.dash::before {
+						--chart-bg-color: #6d59ff;
+					}
+				}
+				&:nth-of-type(2) {
+					.bull::before,
+					.bar::before,
+					.line::before,
+					.dash::before {
+						--chart-bg-color: #58dbda;
+					}
+				}
+				&:nth-of-type(3) {
+					.bull::before,
+					.bar::before,
+					.line::before,
+					.dash::before {
+						--chart-bg-color: #007ffd;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,110 @@
+@use '../../base/functions/map-collect' as collection;
+
+@use '../../base/variables/colors/branding' as brand;
+@use '../../base/variables/colors/social' as social;
+@use '../../base/variables/colors/colors' as colors;
+
+// Load in colors to override progress meter bg colors
+// Alternatives: Use important in color declaration (this is common in other frameworks for utilities to use important as overrides), or use :not (but this is something we are trying to limit or reduce in the new framework)
+// Used new classes for testing for setting meter and bar bg (uses important declaration to ensure that when a user declares the bar or meter bg it uses the corresponding color not default
+// TODO: Discuss with Fish the various options and what his preferred method is. Using new color classes in a way like this does provide a positive in that it is scoped for the component as well as utilizes different class names for the bar and meter to distinguish easier between each.
+// $color-vars: collection.map-collect(brand.$scorpion-branding, social.$social-media, colors.$general-colors);
+
+.progress-bar {
+	--progress-bar-bg: var(--bg-color, var(--scorp-gray1));
+
+	.meter {
+		--progress-bar-meter-bg: var(--bg-color, var(--green));
+		&.gradient {
+			&.bg-chart-blue {
+				--progress-bar-meter-gradient: linear-gradient(to right, #66b2fe, var(--chart-blue));
+			}
+			&.bg-chart-aqua {
+				--progress-bar-meter-gradient: linear-gradient(to right, #9be9e9, var(--chart-aqua));
+			}
+			&.bg-chart-purple {
+				--progress-bar-meter-gradient: linear-gradient(to right, #a89cff, var(--chart-purple));
+			}
+			&.bg-chart-green {
+				--progress-bar-meter-gradient: linear-gradient(to right, #aedda4, var(--chart-green));
+			}
+			&.bg-chart-yellow {
+				--progress-bar-meter-gradient: linear-gradient(to right, #fae194, var(--chart-yellow));
+			}
+			&.bg-chart-red {
+				--progress-bar-meter-gradient: linear-gradient(to right, #df9390, var(--chart-red));
+			}
+			&.bg-chart-steel-blue {
+				--progress-bar-meter-gradient: linear-gradient(to right, #c8daeb, var(--chart-steel-blue));
+			}
+			&.bg-chart-orange {
+				--progress-bar-meter-gradient: linear-gradient(to right, #efbf87, var(--chart-orange));
+			}
+			&.bg-chart-cyan {
+				--progress-bar-meter-gradient: linear-gradient(to right, #a2d8ff, var(--chart-cyan));
+			}
+			&.bg-chart-magenta {
+				--progress-bar-meter-gradient: linear-gradient(to right, #e59fe8, var(--chart-magenta));
+			}
+		}
+	}
+
+	.value {
+		--progress-bar-value-color: var(--white);
+		&.outside {
+			--progress-bar-outside-color: var(--scorp-black);
+		}
+	}
+}
+
+.progress-graph {
+	--progress-graph-border: var(--gray4);
+
+	.progress-bar {
+		--progress-bar-bg: var(--bg-color, var(--green));
+	}
+}
+
+.progress-series {
+	.progress-bar {
+		&::before {
+			--progress-bar-before-bg: var(--scorp-gray3);
+		}
+
+		& .meter {
+			--progress-bar-meter-bg: var(--bg-color, var(--scorp-gray3));
+		}
+
+		&.active,
+		&:hover {
+			--progress-bar-bg: var(--bg-color, var(--scorp-blue4));
+			&::before {
+				--progress-bar-before-bg: var(--scorp-blue);
+			}
+
+			& .meter {
+				--progress-bar-meter-bg: var(--bg-color, var(--scorp-blue));
+			}
+		}
+
+		&.complete {
+			&::before {
+				--progress-bar-before-bg: #def5e6;
+			}
+
+			& .meter {
+				--progress-bar-meter-bg: var(--bg-color, #def5e6);
+			}
+
+			&.active,
+			&:hover {
+				&::before {
+					--progress-bar-before-bg: var(--green);
+				}
+				.meter {
+					--progress-bar-meter-bg: var(--bg-color, var(--green));
+				}
+			}
+		}
+	}
+}

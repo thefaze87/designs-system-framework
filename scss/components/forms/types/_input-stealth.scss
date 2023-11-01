@@ -1,0 +1,62 @@
+@use '../../../base/variables/var' as *;
+@use '../../../base/functions/rem-em' as *;
+
+@use '../forms.mixin' as *;
+
+.input-stealth {
+	@extend %input-basics;
+	justify-content: center;
+	display: flex;
+	max-width: get-rem(176);
+	width: 100%;
+	> a {
+		position: relative;
+		top: auto;
+		right: auto;
+		transform: none;
+		color: var(--icon-color);
+		font-size: #{get-rem(22)};
+		&.search {
+			left: 0; // TODO: Temp to override non-framework pages
+		}
+		&.close {
+			width: 0;
+			visibility: hidden;
+			opacity: 0;
+			display: none;
+			transition: width $transition-default, opacity $transition-default, visibility $transition-default;
+		}
+	}
+	input {
+		border: none;
+		width: 0;
+		transition: width $transition-default;
+		padding: 0;
+		display: none;
+	}
+	&.active,
+	&:focus-within {
+		> a {
+			&.close {
+				width: auto;
+				visibility: visible;
+				opacity: 1;
+				display: block;
+			}
+		}
+		input {
+			width: 100%;
+			opacity: 1;
+			visibility: visible;
+			display: block;
+		}
+	}
+	&.mini {
+		max-width: get-rem(36);
+		border-radius: get-rem(8);
+		background-color: var(--stealth-bg);
+		&.active {
+			max-width: get-rem(176);
+		}
+	}
+}

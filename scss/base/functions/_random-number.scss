@@ -1,0 +1,10 @@
+/*
+	Random Number Generator
+	Function to generate a random number within a value range
+*/
+@function randomNumber($min, $max) {
+	$rand: random();
+	$randomNumber: $min + floor($rand * (($max - $min) + 1));
+
+	@return $randomNumber;
+}

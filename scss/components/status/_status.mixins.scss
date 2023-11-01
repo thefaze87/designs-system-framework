@@ -1,0 +1,128 @@
+// Base Variables
+@use '../../base/variables/var' as v;
+@use '../../base/variables/colors/branding' as b;
+@use '../../base/variables/typography/text' as t;
+@use '../../base/variables/colors/status' as *;
+
+// Base Functions
+@use '../../base/functions/rem-em' as *;
+
+// Base Mixins
+@use '../../base/mixins/display' as *;
+
+// Component Variables
+@use './status.variables' as *;
+
+// Status Base
+%status-base {
+	position: relative;
+	text-align: unset;
+}
+
+// Status Box Before
+%status-box-before {
+	display: block;
+	position: relative;
+	// Set a min width / height so this can be used with out an inner span with text and can be used within flex and a span sibling. See csx.scorpion.co/documentation/docs/components/status/ for more details and example
+	min-width: #{get-rem(14)};
+	min-height: #{get-rem(14)};
+	&::before {
+		content: '';
+		width: #{get-rem(12)};
+		height: #{get-rem(12)};
+		border-radius: #{get-rem(5)};
+		border: 2px solid var(--status-accent, var(--scorp-gray2));
+		display: block;
+		position: absolute;
+		background-color: var(--status-primary, var(--scorp-gray1));
+		top: 50%;
+		left: 0;
+		transform: translateY(#{get-rem(-6)});
+	}
+
+	// If content is inside the figure and is a span, let's add left padding. This allows us to no use flex or other layout and can nest the content directly inside the figure for a more compact and semantic html. You can still use this with a figure and span sibling inside flex grid if needed. See csx.scorpion.co/documentation/docs/components/status/ for more details and example
+	> span {
+		padding-left: #{get-rem(18)};
+	}
+}
+
+// Status Dot Before
+%status-dot-before {
+	display: block;
+	position: relative;
+	// Set a min width / height so this can be used with out an inner span with text and can be used within flex and a span sibling. See csx.scorpion.co/documentation/docs/components/status/ for more details and example
+	min-width: #{get-rem(8)};
+	min-height: #{get-rem(8)};
+	&:before {
+		content: '';
+		display: block;
+		width: #{get-rem(8)};
+		height: #{get-rem(8)};
+		position: absolute;
+		top: 50%;
+		left: 0;
+		transform: translateY(#{get-rem(-4)});
+		border-radius: 50%;
+		background-color: var(--status-primary, var(--scorp-gray1));
+	}
+
+	// If content is inside the figure and is a span, let's add left padding. This allows us to no use flex or other layout and can nest the content directly inside the figure for a more compact and semantic html. You can still use this with a figure and span sibling inside flex grid if needed. See csx.scorpion.co/documentation/docs/components/status/ for more details and example
+	> span {
+		padding-left: #{get-rem(12)};
+	}
+}
+
+// Status Data Type
+%status-datatype {
+	&[data-type] {
+		padding: 0.5rem 1rem;
+		color: var(--scorp-gray2);
+		font-weight: 500;
+		display: inline-block;
+		background-color: var(--scorp-gray1);
+		border-radius: 4px;
+		text-align: center;
+		cursor: pointer;
+	}
+
+	// Custom Colors Defined for data-type 1-6
+	@each $data-type, $bg-color, $color in $data-types {
+		&[data-type='#{$data-type}'] {
+			background-color: $bg-color;
+			color: $color;
+		}
+	}
+
+	// Data type by color name
+	@each $color in $status-colors {
+		&[data-type='#{nth($color,1)}'] {
+			background-color: var(--status-#{nth($color, 1)}-primary);
+			color: var(--status-#{nth($color, 1)}-accent);
+		}
+	}
+}
+
+// Status Workflow
+%status-workflow {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: #{get-rem(24)};
+	width: #{get-rem(24)};
+	border-radius: #{get-em(1600)};
+	border: 2px solid var(--status-workflow-border-color, var(--scorp-gray2));
+	margin-right: #{get-rem(8)};
+	background-color: var(--status-workflow-bg, var(--white));
+	transition: background-color #{v.$transition-default}, border #{v.$transition-default};
+
+	&.status__workflow--complete {
+	  	// @todo: Image to resolve and decouple - Based 64 Encoded for Temp
+	  	// background-image: url(/cms/svg/admin/icon_checkmark.16.FFFFFF.svg);
+		background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMTYgMTYiPgo8c3R5bGU+CglnIHBhdGggeyBzdHJva2U6IG5vbmU7IH0KPC9zdHlsZT4KPGcgY2xhc3M9InJvb3QiIGlkPSJjaGVja21hcmsiIGRhdGEtbmFtZT0iQ2hlY2ttYXJrIiBmaWxsPSIjRkZGRkZGIiBzdHJva2U9IiNGRkZGRkYiPgoJPHBvbHlsaW5lIHBvaW50cz0iMiA4IDYgMTIgMTQgNCIgc3R5bGU9InN0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS13aWR0aDoyO3N0cm9rZS1saW5lam9pbjpyb3VuZDtmaWxsOm5vbmUiIC8+CjwvZz4KPC9zdmc+);
+		background-size: 75%;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-color: var(--green);
+		border-color: var(--green);
+	}
+}

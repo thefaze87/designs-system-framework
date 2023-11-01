@@ -1,0 +1,23 @@
+@use '../../../base/variables/colors/status' as *;
+@use '../status.mixins' as *;
+
+// Status box type
+.status__box {
+	// Base styles
+	@extend %status-base;
+
+	// Box before styles
+	@extend %status-box-before;
+
+	// Set our status colors to override the box before
+	@each $color in $status-colors {
+		@if (nth($color, 1) != 'gray') {
+			&--#{nth($color,1)} {
+				&::before {
+					--status-primary: var(--status-#{nth($color, 1)}-primary);
+					--status-accent: var(--status-#{nth($color, 1)}-accent);
+				}
+			}
+		}
+	}
+}

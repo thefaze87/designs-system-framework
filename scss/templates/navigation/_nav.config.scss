@@ -1,0 +1,158 @@
+@use '../../base/variables/colors/index' as *;
+@use '../../base/functions/rem-em' as *;
+
+//Branch Navigation
+
+.branch-nav {
+	height: 100%;
+	> li.crumb {
+		position: relative;
+
+		> a {
+			color: var(--branch-color); // b.$scorp-gray2
+			transition: color 0.3s ease;
+			font-weight: 500;
+
+			&::before {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				height: 4px;
+				width: 100%;
+				border-radius: 8px;
+				background-color: var(--branch-before-bg); // b.$scorp-blue
+				opacity: 0;
+				visibility: hidden;
+				transition: opacity 0.3s ease, visibility 0.3s ease;
+			}
+
+			&:hover,
+			&.active {
+				color: var(--branch-active-color); //b.$scorp-black
+			}
+
+			&.active {
+				&::before {
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+		}
+		// Branch Navigation
+		&.has-children {
+			padding-right: 1rem;
+
+			&::before {
+				content: '';
+				display: block;
+				position: absolute;
+				top: calc(50% - 0.25rem);
+				right: 0;
+				width: 0.375rem;
+				height: 0.5rem;
+				background-image: var(--branch-caret);
+				background-position: 50%;
+				background-repeat: no-repeat;
+			}
+		}
+
+		ul.nav-flyout {
+			position: absolute;
+		  	top: calc(100% - get-rem(4));
+			left: 0;
+			background-color: var(--white);
+			padding: 0.75rem;
+			border-radius: 6px;
+			box-shadow: 0px 0.438rem 1.25rem rgba($white, 20%);
+			visibility: hidden;
+			opacity: 0;
+			transition: visibility 0.2s ease 0.2s, opacity 0.2s ease 0.2s;
+			z-index: 1;
+
+			> li {
+				position: relative;
+
+				> a {
+					display: block;
+					line-height: 1.4;
+					padding: 0.5rem {
+						right: 2rem;
+					}
+					white-space: nowrap;
+					color: var(--scorp-black);
+					transition: background-color 0.15s;
+					border-radius: 0.375rem;
+					font-size: 1rem;
+					font-weight: 600;
+
+					&:hover {
+						background-color: var(--scorp-gray1);
+					}
+
+					&.active {
+						background-color: var(--scorp-blue2);
+						color: var(--white);
+					}
+				}
+			}
+		}
+
+		&:hover > ul.nav-flyout {
+			visibility: visible;
+			opacity: 1;
+			transition: visibility 0.2s, opacity 0.2s;
+		}
+	}
+}
+
+// Breadcrumb Navigation
+.breadcrumb-nav {
+	.crumb {
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+		justify-content: space-between;
+		padding-right: 1rem;
+		margin-right: 1rem;
+
+		&::after {
+			content: '';
+			position: absolute;
+			right: 0;
+			background: {
+			  	// @todo: Image to resolve and decouple - Based 64 Encoded for Temp
+				// image: url(/cms/svg/admin/icon_caret_right.24.BCBEC7.svg);
+			  	image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjQgMjQiPgo8c3R5bGU+CglnIHBhdGggeyBzdHJva2U6IG5vbmU7IH0KPC9zdHlsZT4KPGcgY2xhc3M9InJvb3QiIGlkPSJjYXJldF9yaWdodCIgZGF0YS1uYW1lPSJDYXJldCBSaWdodCIgZmlsbD0iI0JDQkVDNyIgc3Ryb2tlPSIjQkNCRUM3Ij4KCTxwYXRoIGQ9Ik01LjcyNSAyMS42MzFMMTUuMzMzIDEyLjAwOUw1LjcwOCAyLjM3QzUuMTY2IDEuODI3IDUuMTY2IDAuOTQ5IDUuNzA4IDAuNDA3QzYuMjQ5LTAuMTM1IDcuMTI3LTAuMTM1IDcuNjY4IDAuNDA3TDE4LjE4OCAxMC45NDFDMTguMjIxIDEwLjk2OCAxOC4yNjIgMTAuOTc5IDE4LjI5MiAxMS4wMUMxOC44MzQgMTEuNTUxIDE4LjgzNCAxMi40MzEgMTguMjkyIDEyLjk3M0wxOC4yNzYgMTIuOTg5QzE4LjI3NiAxMi45ODkgMTguMjc2IDEyLjk5IDE4LjI3NSAxMi45OUMxOC4yNzUgMTIuOTkxIDE4LjI3NCAxMi45OTEgMTguMjc0IDEyLjk5MUw3LjY4NSAyMy41OTNDNy4xNDQgMjQuMTM1IDYuMjY2IDI0LjEzNSA1LjcyNSAyMy41OTNDNS4xODQgMjMuMDUxIDUuMTg0IDIyLjE3MyA1LjcyNSAyMS42MzFaIiAvPgo8L2c+Cjwvc3ZnPg==);
+				position: center;
+				repeat: no-repeat;
+			}
+			height: 10px;
+			width: 6px;
+		}
+
+		&:only-of-type {
+			padding-right: 0;
+			margin-right: 0;
+
+			&::after {
+				display: none;
+			}
+		}
+
+		> a {
+			color: var(--scorp-gray);
+			display: flex;
+			align-items: center;
+			height: 100%;
+
+			&:hover {
+				color: var(--scorp-black);
+			}
+		}
+	}
+	.selected {
+		display: flex;
+		align-items: center;
+	}
+}

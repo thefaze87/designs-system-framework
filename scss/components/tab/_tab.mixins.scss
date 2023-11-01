@@ -1,0 +1,129 @@
+// Base Variables
+@use '../../base/variables/var' as v;
+
+// Base Functions
+@use '../../base/functions/rem-em' as *;
+
+// Base Mixins
+@use '../../base/mixins/display' as *;
+
+// Tab Item Base Styles
+%tab-base {
+	@include flex-display($display: inline-flex, $justify-content: center, $gap: 0.375rem, $align-items: center);
+	font-weight: 500;
+	background-color: var(--tab-bg);
+	color: var(--tab-color);
+	box-shadow: var(--tab-box-shadow);
+	border-radius: #{get-rem(8)};
+	border: 2px solid var(--tab-border-color);
+	line-height: #{get-rem(20)};
+	padding: {
+		top: #{get-rem(6)};
+		right: #{get-rem(12)};
+		bottom: #{get-rem(6)};
+		left: #{get-rem(12)};
+	}
+	cursor: pointer;
+	transition:
+		background-color #{v.$transition-default},
+		border-color #{v.$transition-default};
+}
+
+// Tab Simple Item Base Styles
+%tab-simple-base {
+	@include flex-display($display: inline-flex, $justify-content: center, $gap: 0.375rem, $align-items: center);
+	color: var(--tab-color);
+	transition: color #{v.$transition-default};
+	position: relative;
+	cursor: pointer;
+	padding-bottom: #{get-rem(20)};
+}
+
+// Tab Simple Item Before Styles
+%tab-simple-before {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 4px;
+	width: 100%;
+	background-color: var(--tab-before-bg);
+	opacity: 0;
+	visibility: hidden;
+	transform: scale(0.75, 1);
+	transform-origin: center;
+	transition:
+		opacity #{v.$transition-default},
+		visibility #{v.$transition-default},
+		transform #{v.$transition-default};
+	border-radius: v.$border-radius;
+}
+
+// Tab Simple Item Before Active Styles
+%tab-simple-before-active {
+	opacity: 1;
+	visibility: visible;
+	transform: scale(1, 1);
+}
+
+// Tab Simple Item Before Styles
+%tab-simple-after {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -1em;
+	width: calc(100% + 2em);
+	height: 100%;
+}
+
+// Tab Framed Item Base Styles
+%tab-framed-base {
+	@include flex-display($display: inline-flex, $justify-content: center, $gap: 0.375rem, $align-items: center);
+	cursor: pointer;
+	width: 100%;
+	color: var(--tab-color);
+	background-color: var(--tab-bg);
+	border: 1px solid var(--tab-border-color);
+	border-right: none;
+	font-size: #{get-rem(16)};
+	line-height: #{get-rem(16)};
+	padding: #{get-rem(8)} #{get-rem(16)};
+	position: relative;
+	z-index: var(--z-index);
+	transition:
+		border-color #{v.$transition-default},
+		color #{v.$transition-default};
+}
+
+// Tab Simple Item Base Styles
+%tab-framed-after {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	height: 100%;
+	width: 1px;
+	background-color: var(--tab-border-color);
+	opacity: 0;
+	transition:
+		background-color #{v.$transition-default},
+		opacity #{v.$transition-default};
+}
+
+// Tab Item Count Style
+%tab-item-count {
+	--item-count-bg-color: var(--scorp-gray3);
+	--item-count-color: var(--white);
+	padding: {
+		top: 0;
+		right: #{get-rem(4)};
+		bottom: 0;
+		left: #{get-rem(4)};
+	}
+	font-size: #{get-rem(12)};
+	line-height: normal;
+	font-weight: 500;
+}

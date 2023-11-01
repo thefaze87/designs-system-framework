@@ -1,0 +1,51 @@
+
+.theme--green-red {
+	.ichart,
+	.ichart2,
+	&.ichart,
+	&.ichart2 {
+		> span:first-of-type {
+			--chart-bg-color:rgb(35, 191, 87);
+			--chart-color:rgb(35, 191, 87);
+			--chart-border-color:rgb(35, 191, 87);
+			--chart-bg-image: linear-gradient(to bottom,rgb(35, 191, 87), rgb(159,221,181));
+		}
+		> span:nth-of-type(2) {
+			--chart-bg-color:rgb(209, 43, 28);
+			--chart-color:rgb(209, 43, 28);
+			--chart-border-color:rgb(209, 43, 28);
+			--chart-bg-image: linear-gradient(to bottom,rgb(209, 43, 28),rgb(220,204,207));
+		}
+	}
+}
+
+.theme--green-red {
+	.legend{
+		.legend--item {
+			&:first-of-type {
+				.bull,
+				.bar,
+				.line,
+				.dash,
+				&.bull,
+				&.bar,
+				&.line,
+				&.dash {
+					--chart-bg-color: rgb(35, 191, 87);
+				}
+			}
+			&:nth-of-type(2) {
+				.bull,
+				.bar,
+				.line,
+				.dash,
+				&.bull,
+				&.bar,
+				&.line,
+				&.dash {
+					--chart-bg-color: rgb(209, 43, 28);
+				}
+			}
+		}
+	}
+}

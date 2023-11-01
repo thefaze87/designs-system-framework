@@ -1,0 +1,95 @@
+// Base Functions
+@use '../../../base/functions/rem-em' as *;
+
+// Component Mixins
+@use '../forms.mixin' as *;
+
+.input-text {
+	position: relative;
+	input,
+	select,
+	textarea {
+		@extend %input-reset;
+		@extend %input-basics;
+
+		&:disabled {
+			opacity: 0.5;
+			pointer-events: none;
+		}
+	}
+
+	select {
+		-webkit-appearance: none;
+	}
+
+	textarea {
+		height: auto;
+		min-height: #{get-rem(110)};
+	}
+
+	// For adding link icon when using page selector
+	&.link {
+		position: relative;
+
+		& > a {
+			position: absolute;
+			right: get-rem(10);
+			top: 0;
+			font-size: get-rem(18);
+			transform: translateY(get-rem(8));
+			z-index: 1;
+		}
+	}
+
+	// Disable style
+	&.disabled,
+	&.disable,
+	.disabled &,
+	.disable & {
+		opacity: 0.5;
+		pointer-events: none;
+	}
+
+	/*
+	*************************************************
+	** Input - Date
+	*************************************************
+	*/
+	@supports (-webkit-appearance: none) {
+		.input-text input[type='date'],
+		.input-text input[type='time'],
+		.input-text input[type='datetime'],
+		.input-text input[type='datetime-local'] {
+			-webkit-appearance: none;
+		}
+	}
+
+	// Hide Shadow Pseudo Elements
+	input::-webkit-clear-button {
+		display: none;
+	}
+
+	input::-webkit-inner-spin-button {
+		display: none;
+	}
+
+	input::-webkit-calendar-picker-indicator {
+		display: none;
+	}
+
+	input::-webkit-search-cancel-button {
+		display: none;
+	}
+
+	// Date Picker
+	&.ui-date > a,
+	&.input-text--date > a {
+		@extend %input-svg-pos-right;
+	}
+
+	//Input Link
+	.input-text.link > a,
+	.input-text--link > a {
+		@extend %input-svg-pos-right;
+	}
+}

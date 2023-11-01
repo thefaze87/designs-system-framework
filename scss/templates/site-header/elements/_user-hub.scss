@@ -1,0 +1,77 @@
+@use '../../../base/variables/colors/index' as *;
+
+.user-hub {
+	> li > a {
+		position: relative;
+		display: block;
+		&:not(.no-hover):before {
+			content: '';
+			position: absolute;
+			background-color: rgba(173, 211, 252, 0.2);
+			border-radius: 50%;
+			display: block;
+			height: 2.25rem;
+			width: 2.25rem;
+			top: -0.5rem;
+			left: -0.5rem;
+			transform: scale(0.7);
+			opacity: 0;
+			transition: transform 0.3s, opacity 0.3s;
+			z-index: 0;
+		}
+		&:hover::before {
+			transform: none;
+			opacity: 1;
+
+			svg {
+				color: var(--white);
+			}
+		}
+	}
+
+	svg {
+		color: var(--scorp-blue3);
+		line-height: 1;
+		display: block;
+		position: relative;
+		z-index: 1;
+		transition: color 0.3s ease 0s;
+	}
+
+	.user-switching {
+		display: flex;
+		align-items: center;
+
+		a.no-hover figure {
+			border: solid 2px var(--scorp-blue3);
+		}
+
+		> span {
+			margin-right: 1rem;
+			font-size: 0.75em;
+			text-transform: uppercase;
+			letter-spacing: 0.1em;
+			color: var(--scorp-blue3);
+		}
+		*:not(.input-figure) > input + label > {
+			figure {
+				border: {
+					style: solid;
+					width: 2px;
+					color: var(--scorp-blue3);
+				}
+				transition: border-color 0.3s ease 0s;
+			}
+		}
+		.user__you {
+			border-color: var(--white);
+			color: var(--scorp-blue);
+			box-shadow: 0 2px 4px rgba($scorp-black, 10%);
+			border-radius: 50%;
+
+			&:hover {
+				border-color: var(--scorp-gray1);
+			}
+		}
+	}
+}

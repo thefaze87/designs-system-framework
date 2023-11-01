@@ -1,0 +1,186 @@
+@use '../../base/functions/rem-em' as *;
+@use '../../base/mixins/positioning' as *;
+@use './chart.variables' as *;
+
+// Create Chart Styles
+@mixin create-chart-styles($length, $color-value, $theme: '', $nth-of-type: ':nth-of-type', $nth-child: ':nth-child') {
+	@if $theme != '' {
+		.theme-#{$theme}.ichart,
+		.theme-#{$theme}.ichart2,
+		.theme-#{$theme} .ichart,
+		.theme-#{$theme} .ichart2 {
+			& > span#{$nth-of-type}(#{$length}) {
+				--chart-color: #{$color-value};
+				--chart-bg-color: #{$color-value};
+				--chart-bg-image: #{$color-value};
+			}
+
+			.chart-dot-container {
+				& > .line-chart-dot#{$nth-child}(#{$length}) {
+					--chart-border-color: #{$color-value};
+				}
+			}
+		}
+
+		// Legend
+		.theme-#{$theme} .legend:not(.custom) {
+			li {
+				&#{$nth-of-type}(#{$length}) {
+					a,
+					button {
+						&.bull {
+							&::before {
+								--chart-bg-color: #{$color-value};
+							}
+						}
+					}
+				}
+			}
+			.bull {
+				&#{$nth-of-type}(#{$length}) {
+					&::before {
+						--chart-bg-color: #{$color-value};
+					}
+				}
+				.input-range ::-webkit-slider-thumb {
+					--chart-bg-color: #{$color-value};
+				}
+			}
+		}
+	} @else {
+		.ichart,
+		.ichart2 {
+			& > span#{$nth-of-type}(#{$length}) {
+				--chart-color: #{$color-value};
+				--chart-bg-color: #{$color-value};
+				--chart-bg-image: #{$color-value};
+			}
+
+			.chart-dot-container {
+				& > .line-chart-dot#{$nth-child}(#{$length}) {
+					--chart-border-color: #{$color-value};
+				}
+			}
+		}
+
+		// Legend/
+		.legend:not(.custom) {
+			li {
+				&#{$nth-of-type}(#{$length}) {
+					a,
+					button {
+						&.bull {
+							&::before {
+								--chart-bg-color: #{$color-value};
+							}
+						}
+					}
+				}
+			}
+			.bull {
+				// &#{$nth-of-type}(#{$length}) {
+				// 	&::before {
+				// 		--chart-bg-color: #{$color-value};
+				// 	}
+				// }
+				.input-range ::-webkit-slider-thumb {
+					--chart-bg-color: #{$color-value};
+				}
+			}
+		}
+	}
+}
+
+// Legend Pseduo Mixin
+@mixin legend-before($top: 5px) {
+	@include pseudo;
+	background-color: var(--chart-bg-color, var(--chart-aqua));
+	left: 0;
+}
+
+// @mixin legend-pseudo($height: '', $width: '', $top: '', $left: 0, $transform: '') {
+// 	content: '';
+// 	position: absolute;
+// 	@if $height != '' {
+// 		height: #{$height};
+// 	}
+// 	@if $width != '' {
+// 		width: #{$width};
+// 	}
+// 	@if $top != '' {
+// 		top: #{$top};
+// 	}
+// 	left: #{$left};
+// 	transform: #{$transform};
+// 	@content;
+// }
+
+//	Bull hover/active Placeholders
+
+%bull-hover-active-placeholder {
+	box-shadow: 0 0.25rem 0.5rem rgba(46, 89, 132, 0.2);
+	background-color: var(--white);
+}
+
+//	Legend Filter Mixin
+
+@mixin legend-filter($border-color: #dddee3, $background-color: var(--white)) {
+	padding: 0.4375rem 0.75rem;
+	border-radius: 0.375rem;
+	border: solid 1px $border-color;
+	transition: border 0.3s ease 0s, background-color 0.3s ease 0s, box-shadow 0.3s ease 0s;
+	background-color: $background-color;
+	position: relative;
+	display: block;
+	cursor: pointer;
+	@content;
+}
+
+// Tooltip Mixin
+
+@mixin toolTip {
+	position: absolute;
+	text-align: center;
+	visibility: hidden;
+	opacity: 0;
+	pointer-events: none;
+}
+
+// Tooltip Active Mixin
+
+@mixin toolTipActive {
+	visibility: visible;
+	opacity: 1;
+	transition: visibility 0s linear 0.2s;
+}
+
+// Tooltip BG Mixin
+
+@mixin tipBG {
+	background-color: $tip-bg;
+	color: $tip-color;
+	box-shadow: $tip-shadow;
+	border-radius: $tip-bubble;
+	border: $tip-border;
+	text-align: left;
+}
+
+// Tooltip Caret Mixin
+
+@mixin caret {
+	content: '';
+	border-style: solid solid none solid;
+	border-color: $tip-bg transparent;
+	border-width: 5px;
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-left: -5px;
+}
+
+// Tooltip Title Mixin
+
+@mixin tipTitle {
+	color: $tip-color;
+	font-size: 1.5rem;
+}

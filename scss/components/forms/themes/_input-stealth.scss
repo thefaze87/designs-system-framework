@@ -1,0 +1,15 @@
+@use '../../../base/variables/colors/index' as *;
+
+.input-stealth {
+	--input-bg-color: var(--white);
+	--icon-color: var(--scorp-blue);
+	> a {
+		--icon-color: var(--scorp-gray2); // Default Icon Color
+		&.search {
+			--icon-color: var(--scorp-black); // Search Icon Color
+		}
+	}
+	&.mini {
+		--stealth-bg: rgba($scorp-gray2, 10%);
+	}
+}

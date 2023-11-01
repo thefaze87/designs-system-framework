@@ -1,0 +1,55 @@
+@use '../../base/variables/var' as *;
+@use '../../base/functions/rem-em' as *;
+
+// Pop Btn
+.pop-btn,
+.ellipses {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--text-color);
+	height: get-rem(36);
+	width: get-rem(36);
+
+	&::before {
+		content: '';
+		display: block;
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		top: 0;
+		left: 0;
+		background-color: transparent;
+		border-radius: get-rem(8);
+		transform: scale(0.8);
+		transition: opacity $transition-default, background-color $transition-default, transform $transition-default;
+		z-index: 0;
+	}
+
+	svg {
+		font-size: get-rem(18);
+		z-index: 1;
+	}
+
+	&:hover {
+		&::before {
+			background-color: var(--bg-color);
+			transform: scale(1);
+		}
+	}
+}
+.legend .ellipses {
+	transform: rotate(90deg);
+	height: 2rem;
+	width: 2rem;
+	&::before {
+		transform: none;
+		background-color: var(--scorp-gray1);
+	}
+	&:hover {
+		color: var(--text);
+		&::before {
+			background-color: var(--gray4);
+		}
+	}
+}

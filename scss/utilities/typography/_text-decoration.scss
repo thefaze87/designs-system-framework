@@ -1,0 +1,68 @@
+// Base Mixins
+@use '../../base/mixins/typography' as *;
+
+.word-break-all,
+.wb-all {
+	word-break: break-all;
+}
+
+.word-break-keep,
+.wb-keep {
+	word-break: keep-all;
+}
+
+.white-space-normal,
+.ws-normal {
+	white-space: normal;
+}
+
+.no-text-select {
+	@extend %no-text-select;
+}
+
+// Truncating Classes
+.truncate {
+	@include text-clamp($lines: 1, $line-height: 1.6);
+}
+.truncate-2 {
+	@include text-clamp($lines: 2, $line-height: 1.6);
+}
+.truncate-3 {
+	@include text-clamp($lines: 3, $line-height: 1.6);
+}
+.truncate-4 {
+	@include text-clamp($lines: 4, $line-height: 1.6);
+}
+
+// TODO Remove when typography is finished (temp only - needed for SEO strategy v2 task QC)
+$font-weight: (
+	'900': 900,
+	'800': 800,
+	'700': 700,
+	'600': 600,
+	'500': 500,
+	'400': 400,
+	'300': 300,
+	'200': 200,
+	'100': 100,
+);
+@each $class, $weight in $font-weight {
+	.fw-#{$class} {
+		font-weight: $weight;
+	}
+}
+
+// TODO Remove when typography is finished (temp only - needed for SEO strategy v2 task QC)
+$line-height: (
+	'0': 0,
+	'1': 1,
+	'1-2': 1.2,
+	'1-4': 1.4,
+	'1-8': 1.8,
+);
+
+@each $class, $height in $line-height {
+	.lh-#{$class} {
+		line-height: $height;
+	}
+}

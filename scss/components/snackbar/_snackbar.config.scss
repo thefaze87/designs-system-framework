@@ -1,0 +1,57 @@
+// Global base utils
+@use '../../base/functions/rem-em' as *;
+@use '../../base/variables/colors/index' as *;
+@use '../../base/functions/hex-to-rgb' as *;
+@use '../../base/variables/colors/branding' as *;
+
+// Base Mixins
+@use '../../base/mixins/display' as *;
+
+// Component Mixins
+@use './snackbar.mixins' as *;
+
+// Component Variables
+@use './snackbar.variables' as *;
+
+.snackbar {
+	@extend %snackbar;
+
+	@each $color, $map in $snackbar {
+		$bg-color: map-get($map, 'bg');
+		$border-color: map-get($map, 'border');
+		$icon: map-get($map, 'icon');
+
+		&--#{$color} {
+			background-color: #{$bg-color};
+			border: 1px solid #{$border-color};
+
+			svg {
+				color: #{$icon};
+			}
+		}
+	}
+
+	a {
+		font-weight: 500;
+		color: var(--snackbar-link-color, var(--scorp-blue));
+	}
+
+	svg {
+		font-size: get-rem(22);
+	}
+
+	&--close {
+		@include flex-display($justify-content: center, $align-items: center);
+		background-color: var(--snackbar-close-bg, rgba($scorp-black, 20%));
+		border-radius: 50%;
+		height: get-rem(20);
+		width: get-rem(20);
+		right: get-rem(8);
+		position: absolute;
+
+		svg {
+			font-size: get-rem(8);
+			color: var(--snackbar-close-text-color, var(--white));
+		}
+	}
+}

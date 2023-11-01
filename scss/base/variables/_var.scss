@@ -1,0 +1,69 @@
+@use 'sass:math' as math;
+@use 'sass:map' as map;
+@use 'sass:color' as color;
+
+@use '../variables/colors/index' as *;
+@use '../functions/rem-em' as *;
+
+// Cursor Properties List
+$cursor-properties: ('alias', 'all-scroll', 'auto', 'cell', 'context-menu', 'col-resize', 'copy', 'crosshair', 'default', 'e-resize', 'ew-resize', 'grab', 'help', 'move', 'n-resize', 'ne-resize', 'nesw-resize', 'ns-resize', 'nw-resize', 'nwse-resize', 'no-drop', 'none', 'not-allowed', 'pointer', 'progress', 'row-resize', 's-resize', 'se-resize', 'sw-resize', 'text', 'w-resize', 'wait', 'zoom-in', 'zoom-out');
+
+// Full Size
+$full: 100%;
+
+// Half Size
+$half: math.div(100%, 2);
+
+// Third Size
+$third: math.div(100%, 3);
+
+// Fourth Size
+$fourth: math.div(100%, 4);
+
+// Fifth Size
+$fifth: math.div(100%, 5);
+
+// Sixth Size
+$sixth: math.div(100%, 6);
+
+// Body Width Sizes
+$body-width: (
+	body: 1920px,
+	medium: 1682px,
+	small: 1200px,
+	narrow: 850px,
+	mobile: 600px,
+);
+
+// Heights Map List
+$heights: (0, 25, 50, 75, 100, 125, 150, 175, 200, 225, 250, 275, 300, 325, 350, 375, 400, 425, 450, 475, 500, 525, 550, 575, 600, 625, 650, 675, 700, 725, 750, 775, 800, 825, 850, 875, 900, 925, 950, 975, 1000);
+
+// Border Radius
+$border-radius: get-rem(8);
+
+// Border Radius Small
+$border-radius-small: get-rem(4);
+
+// Border Radius Large
+$border-radius-large: get-rem(16);
+
+// Box Shadow Flyout
+$box-shadow-flyout: 0 0.625rem 1.875rem rgba($scorp-black, 20%);
+
+// Box Shadow Card
+$box-shadow-outer: 0 #{get-rem(3)} #{get-rem(30)} var(--box-shadow-color-outer);
+
+// Box Shadow Card Selected
+$box-shadow-card-selected: $box-shadow-flyout;
+
+// Box Shadow Border Transparent
+$box-shadow-inner-transparent: inset 0 0 0 2px var(--box-shadow-color-inner);
+
+// Box Shadow Border Hover
+$box-shadow-inner-hover: inset 0 0 0 2px var(--box-shadow-color-inner);
+
+// Box Shadow Border Selected
+$box-shadow-inner-selected: inset 0 0 0 2px var(--box-shadow-color-inner);
+
+// Default transition
+$transition-default: 0.3s ease 0s;

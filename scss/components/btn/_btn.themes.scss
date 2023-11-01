@@ -1,0 +1,298 @@
+@use '../../base/variables/colors/index' as *;
+@use '../../base/functions/rem-em' as *;
+
+/* Btn Types */
+.btn {
+	&--primary {
+		--btn-bg-color: var(--scorp-blue);
+		--btn-color: var(--white);
+
+		&:hover {
+			--btn-bg-color: var(--scorp-blue2);
+		}
+		&.active,
+		&:focus {
+			--btn-color: var(--white);
+			--btn-bg-color: var(--blue6);
+		}
+	}
+
+	&--secondary {
+		--btn-bg-color: var(--blue7);
+		--btn-color: var(--scorp-blue);
+		&:hover {
+			--btn-color: var(--scorp-blue2);
+			--btn-bg-color: var(--scorp-blue4);
+		}
+
+		&.active,
+		&:focus {
+			--btn-bg-color: var(--blue5);
+		}
+	}
+
+	&--tertiary {
+		--btn-color: var(--scorp-blue);
+		--btn-bg-color: transparent;
+		--btn-border: var(--scorp-blue);
+		box-shadow: inset 0 0 0 2px var(--btn-border);
+
+		&:hover {
+			--btn-color: var(--scorp-blue2);
+			--btn-border: var(--scorp-blue2);
+		}
+
+		&.active,
+		&:focus {
+			--btn-color: var(--blue6);
+			--btn-border: var(--blue6);
+		}
+	}
+
+	&--simple {
+		--btn-color: var(--scorp-blue);
+		--btn-bg-color: transparent;
+		--btn-border: transparent;
+
+		&:hover {
+			--btn-color: var(--scorp-blue2);
+		}
+
+		&.active,
+		&:focus {
+			--btn-color: var(--blue6);
+		}
+	}
+	&--action {
+		--btn-bg-color: rgba(var(--scorp-gray2),0.1); // 10% per the design for this style of button
+		--btn-color: rgb(var(--scorp-black));
+		&:hover {
+		  --btn-color: rgb(var(--scorp-black));
+		  --btn-bg-color: rgba(var(--scorp-gray2),0.2); // Increase to 20% per the design for this style of button
+		}
+
+		&.active,
+		&:focus {
+		  --btn-bg-color: rgba(var(--scorp-gray2),0.3); // Increase to 30% per the design for this style of button
+		}
+	}
+
+	&--status {
+		&.play {
+		  --btn-bg-color: rgb(var(--green));
+		  --bg-color: rgb(var(--green));
+		  --btn-color: rgb(var(--white));
+		  --text-color: rgb(var(--white));
+		}
+		&.pause {
+		  --btn-bg-color: rgb(var(--yellow));
+		  --bg-color: rgb(var(--yellow));
+		  --btn-color: rgb(var(--white));
+		  --text-color: rgb(var(--white));
+		}
+	}
+
+	&--round {
+		border-radius: 50%;
+		--btn-bg-color: rgb(var(--white));
+		--btn-color: rgb(var(--scorp-blue));
+		width: get-rem(48);
+		height: get-rem(48);
+		padding: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border: solid 2px var(--border-color, rgb(var(--gray4)));
+		box-shadow: 0 2px 4px rgb(78 78 51 / 10%);
+		&:hover,
+		&.active{
+		  --border-color: rgb(var(--scorp-blue));
+		}
+	}
+}
+
+.btn-icon {
+	--btn-color: var(--gray6);
+	--btn-bg-color: var(--scorp-gray2);
+
+	&:hover {
+		--btn-color: var(--scorp-blue);
+		--btn-bg-color: var(--scorp-blue4);
+		--btn-border: transparent;
+	}
+
+	&.active,
+	&:focus {
+		--btn-color: var(--gray6);
+		--btn-bg-color: var(--scorp-gray2);
+		--btn-border: transparent;
+	}
+
+	&--white {
+		--btn-color: var(--scorp-black);
+		--btn-bg-color: var(--white);
+		--btn-border: var(--gray4);
+
+		&:hover {
+			--btn-color: var(--scorp-blue);
+			--btn-bg-color: var(--scorp-blue4);
+			--btn-border: transparent;
+		}
+
+		&.active,
+		&:focus {
+			--btn-color: var(--scorp-blue);
+			--btn-bg-color: var(--white);
+			--btn-border: var(--scorp-blue);
+		}
+	}
+
+	&--gray {
+		--btn-color: var(--scorp-black);
+		--btn-bg-color: var(--gray5);
+		--btn-border: transparent;
+
+		&:hover {
+			--btn-color: var(--scorp-blue);
+			--btn-bg-color: var(--scorp-blue4);
+			--btn-border: transparent;
+		}
+
+		&.active,
+		&:focus {
+			--btn-color: var(--scorp-blue);
+			--btn-bg-color: rgba($scorp-gray2, 10%);
+			--btn-border: transparent;
+		}
+	}
+
+	&--actions {
+		--btn-color: var(--scorp-black);
+		--btn-bg-color: var(--white);
+		--btn-border: var(--gray4);
+		--btn-border-width: 2px;
+
+		&:hover {
+			--btn-color: var(--scorp-black);
+			--btn-bg-color: var(--white);
+			--btn-border: var(--scorp-blue);
+			--btn-box-shadow: 0px 0px 0px 6px var(--scorp-blue4);
+		}
+
+		&.active,
+		&:focus {
+			--btn-color: var(--scorp-blue);
+			--btn-bg-color: var(--white);
+			--btn-border: var(--scorp-blue);
+			--btn-box-shadow: none;
+		}
+
+		&-blue {
+			--btn-color: var(--white);
+			--btn-bg-color: var(--scorp-blue);
+			--btn-border: transparent;
+			--btn-box-shadow: 0px 4px 12px rgba($scorp-black, 20%);
+
+			&:hover {
+				--btn-color: var(--white);
+				--btn-bg-color: var(--scorp-blue2);
+				--btn-border: transparent;
+				--btn-box-shadow: 0px 4px 12px rgba($scorp-black, 20%);
+			}
+
+			&.active,
+			&:focus {
+				--btn-color: var(--white);
+				--btn-bg-color: var(--blue6);
+				--btn-border: transparent;
+				--btn-box-shadow: none;
+			}
+		}
+	}
+
+	// Styles that follow the primary, secondary, tertiary for just btn-icon
+	// Example of .btn-icon.btn-icon--primary is found here /seo/queue/execution and /seo/queue/selection used in the Section Activity & Information > SEO Actions and Notes panels
+	&--primary {
+		--btn-bg-color: var(--scorp-blue);
+		--btn-color: var(--white);
+
+		&:hover {
+			--btn-color: var(--white);
+			--btn-bg-color: var(--scorp-blue2);
+		}
+		&.active,
+		&:focus {
+			--btn-bg-color: var(--blue6);
+		}
+	}
+
+	&--secondary {
+		--btn-bg-color: var(--blue7);
+		--btn-color: var(--scorp-blue);
+		&:hover {
+			--btn-color: var(--scorp-blue2);
+			--btn-bg-color: var(--scorp-blue4);
+		}
+
+		&.active,
+		&:focus {
+			--btn-bg-color: var(--blue5);
+		}
+	}
+
+	&--tertiary {
+		--btn-color: var(--scorp-blue);
+		--btn-bg-color: transparent;
+		--btn-border: var(--scorp-blue);
+		box-shadow: inset 0 0 0 2px var(--btn-border);
+
+		&:hover {
+			--btn-color: var(--scorp-blue2);
+			--btn-border: var(--scorp-blue2);
+		}
+
+		&.active,
+		&:focus {
+			--btn-color: var(--blue6);
+			--btn-border: var(--blue6);
+		}
+	}
+}
+
+.carousel {
+	.btn-arrow {
+		--btn-color: var(--scorp-black);
+		--btn-bg-color: transparent;
+		--btn-border: transparent;
+		--btn-box-shadow: none;
+		--btn-width: #{get-rem(24)};
+		--btn-height: #{get-rem(24)};
+
+		&:hover {
+			--btn-bg-color: rgba($scorp-gray2, 10%);
+		}
+		&.active,
+		&:focus {
+			--btn-color: var(--scorp-blue);
+			--btn-bg-color: var(--scorp-blue4);
+		}
+	}
+}
+
+// Deprecated
+.pop-btn {
+	--btn-color: var(--scorp-gray3);
+
+	&:hover {
+		--btn-color: var(--scorp-gray2);
+	}
+}
+
+.btn-icon-caret {
+	&.active {
+		> svg {
+			// When active, display the caret up to show an active state
+			transform: rotate(180deg);
+		}
+	}
+}

@@ -1,0 +1,71 @@
+@use '../../base/functions/rem-em' as *;
+
+.map-container-panel {
+	width: 100%;
+	flex: 0 1 auto;
+	transition: width 0.2s ease 0.5s;
+
+	figure.map {
+		border-bottom-right-radius: get-em(8);
+		border-bottom-left-radius: get-em(8);
+		border-top: 1px solid var(--border-color,var(--border));
+	}
+
+	&.open {
+		width: calc(100% - 29rem);
+		transition: width 0.2s ease 0s;
+	}
+}
+
+.container-panel.open .map-container-panel {
+	width: calc(100% - 29rem);
+	transition: width 0.2s ease 0.2s;
+}
+
+.slide-panel {
+
+	width: 0;
+	flex: 0 0 auto;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	height: 41rem;
+	background-color: var(--bg-color, var(--white));
+	border-top: 1px solid var(--border-color, var(--border));
+	z-index: 2;
+	transition: width 0.2s ease 0.2s, padding 0.2s ease 0.2s, background-color 0.2s ease 0.2s;
+
+	.slide-panel__content {
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.2s ease 0.2s;
+	}
+
+	&.open {
+		width: get-rem(464);
+		transition: width 0.2s ease 0s, padding 0.2s ease 0s, background-color 0.2s ease 0s;
+
+		.slide-panel__content {
+			opacity: 1;
+			visibility: visible;
+			transition: opacity 0.2s ease 0s;
+		}
+
+		.btn__floating-action {
+			visibility: visible;
+			opacity: 1;
+			pointer-events: auto;
+			transition: opacity 0.2s ease 0s;
+		}
+	}
+
+	.btn__floating-action {
+		position: absolute;
+		left: get-rem(-24);
+		top: get-rem(32);
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+		transition: opacity 0.2s ease 0.2s;
+	}
+}

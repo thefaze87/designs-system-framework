@@ -1,0 +1,104 @@
+@use 'sass:math' as math;
+@use '../../base/variables/grid/flex.variables' as *;
+@use '../../base/variables/layout/spacing' as *;
+@use '../../base/variables/var' as *;
+@use '../../base/functions/rem-em' as *;
+@use '../mixins/print' as *;
+
+$printFlexWidths: map-get($flexVariables, 'widths');
+
+@include print() {
+	// Flex Property Classes
+	.print-flex {
+		// Flex Basis
+		@each $class, $properties in $printFlexWidths {
+			> .#{$class} {
+				@each $property, $value in $properties {
+					#{$property}: $value;
+				}
+			}
+		}
+
+		// Flex Wrap Basis adjustments
+		@each $spaceClass, $space in $spaces {
+			&.flex-wrap.gap-#{$spaceClass} {
+				> .half {
+					flex-basis: calc($half - (get-rem($space) / 2));
+					width: auto;
+				}
+				> .third {
+					flex-basis: calc($third - (get-rem($space) / 3 * 2));
+					width: auto;
+				}
+				> .two-thirds {
+					flex-basis: calc(($third * 2) - (get-rem($space) / 2));
+					width: auto;
+				}
+				> .fourth {
+					flex-basis: calc($fourth - (get-rem($space) / 4 * 3));
+					width: auto;
+				}
+				> .three-fourths {
+					flex-basis: calc(($fourth * 3) - (get-rem($space) / 3));
+					width: auto;
+				}
+				> .fifth {
+					flex-basis: calc($fifth - (get-rem($space) / 5 * 4));
+					width: auto;
+				}
+				> .two-fifths {
+					flex-basis: calc(($fifth * 2) - (get-rem($space) / 5 * 3));
+					width: auto;
+				}
+				> .three-fifths {
+					flex-basis: calc(($fifth * 3) - (get-rem($space) / 5 * 3));
+					width: auto;
+				}
+				> .four-fifths {
+					flex-basis: calc(($fifth * 4) - (get-rem($space) / 5 * 2));
+					width: auto;
+				}
+				> .sixth {
+					flex-basis: calc($sixth - (get-rem($space) / 6 * 5));
+					width: auto;
+				}
+				> .five-sixths {
+					flex-basis: calc(($sixth * 5) - (get-rem($space) / 6 * 2));
+					width: auto;
+				}
+			}
+		}
+
+		// Direction
+		&-row {
+			flex-direction: row;
+		}
+
+		&-row-reverse {
+			flex-direction: row-reverse;
+		}
+
+		&-col,
+		&-column {
+			flex-direction: column;
+		}
+
+		&-col-reverse,
+		&-column-reverse {
+			flex-direction: column-reverse;
+		}
+
+		// Wrap
+		&-wrap {
+			flex-wrap: wrap;
+		}
+
+		&-wrap-reverse {
+			flex-wrap: wrap-reverse;
+		}
+
+		&-nowrap {
+			flex-wrap: nowrap;
+		}
+	}
+}

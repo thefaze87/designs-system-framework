@@ -1,0 +1,57 @@
+@use '../../base/functions/rem-em' as *;
+
+.card {
+	background-color: var(--bg-color, var(--white));
+	color: var(--text-color, var(--scorp-black));
+	padding: {
+		top: get-rem(24);
+		right: get-rem(24);
+		bottom: get-rem(24);
+		left: get-rem(24);
+	}
+	border: {
+		style: solid;
+		width: 1px;
+		color: var(--border-color, var(--gray4));
+		radius: get-rem(12);
+	}
+
+	// .card within a .card
+	.card {
+		padding: {
+			top: get-rem(16);
+			right: get-rem(16);
+			bottom: get-rem(16);
+			left: get-rem(16);
+		}
+	}
+	// Reduced padding size for cards
+	// Sometimes needed in designs with lots of cards in a row
+	&.pad__sm {
+		padding: {
+			top: get-rem(16);
+			right: get-rem(16);
+			bottom: get-rem(16);
+			left: get-rem(16);
+		}
+	}
+
+	.header--left {
+		display: flex;
+		align-items: baseline;
+		gap: get-rem(8);
+		small {
+			font: {
+				size: get-rem(12);
+				weight: 500;
+			}
+			line-height: 150%;
+			color: var(--text-color, var(--text));
+		}
+	}
+
+	// Card Content
+	&--content {
+		margin-top: get-rem(12);
+	}
+}

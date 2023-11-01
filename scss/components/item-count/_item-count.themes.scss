@@ -1,0 +1,9 @@
+.item-count {
+	--item-count-bg-color: var(--gray4);
+	--item-count-color: var(--scorp-black);
+
+	&--white {
+		--item-count-bg-color: var(--white);
+		--item-count-color: var(--scorp-gray2);
+	}
+}

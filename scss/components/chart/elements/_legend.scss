@@ -1,0 +1,196 @@
+@use '../chart.mixins' as *;
+@use '../../../base/functions/rem-em' as *;
+
+.legend {
+	--text-color: var(--scorp-black);
+	color: var(--text-color);
+	&.row {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		gap: get-rem(8);
+	}
+	&.column {
+		.legend--item {
+			min-height: get-rem(38);
+			padding: {
+				top: get-rem(7);
+				right: get-rem(8);
+				bottom: get-rem(7);
+				left: get-rem(8);
+			}
+			border-bottom: {
+				width: 1px;
+				style: solid;
+				color: var(--border-color, var(--border));
+			}
+			.bar::before {
+				top: get-rem(16);
+				left: get-rem(8);
+			}
+			.bull::before {
+				top: get-rem(16);
+				left: get-rem(8);
+			}
+			.line::before {
+				top: get-rem(18);
+				left: get-rem(8);
+			}
+		}
+	}
+	&.grid {
+		display: grid;
+		gap: inherit;
+		gap: get-rem(8);
+	}
+	// Legend Key Types
+	// Bar Chart
+	.bar {
+		display: flex;
+		align-items: center;
+		gap: get-rem(4);
+		padding-left: get-rem(14);
+		&::before {
+			@include legend-before;
+			border-radius: 2px;
+			top: get-rem(9);
+			width: #{get-rem(8)};
+			height: get-rem(8);
+		}
+	}
+	// Circle Chart
+	.bull {
+		display: flex;
+		align-items: center;
+		gap: get-rem(4);
+		padding-left: get-rem(14);
+		&::before {
+			@include legend-before;
+			border-radius: 50%;
+			top: get-rem(8);
+			width: #{get-rem(8)};
+			height: get-rem(8);
+		}
+	}
+	// Line Chart
+	.line {
+		display: flex;
+		align-items: center;
+		gap: get-rem(4);
+		padding-left: get-rem(20);
+		&::before {
+			@include legend-before;
+			border-radius: 2px;
+			top: get-rem(12);
+			width: #{get-rem(12)};
+			height: get-rem(3);
+		}
+	}
+	// Target Line usually
+	.dash {
+		display: flex;
+		align-items: center;
+		gap: get-rem(4);
+		padding-left: get-rem(18);
+		&::before {
+			@include legend-before;
+			border-radius: 2px;
+			top: get-rem(12);
+			width: #{get-rem(12)};
+			height: get-rem(3);
+		}
+	}
+	// Legend Item Container
+	&--item {
+		font-weight: 600;
+		line-height: 150%;
+		display: flex;
+		align-items: center;
+		position: relative;
+		// &::before {
+		// 	@include legend-before;
+		// }
+		// for gray bg and interactivity options
+		&.btn {
+			--btn-bg-color: var(--scorp-gray1);
+			--btn-color: var(--scorp-black);
+			border-radius: get-rem(6);
+			padding: get-rem(7) get-rem(12);
+			font-size: get-rem(12);
+			// Keep for now. Will need for EP and prob CSX
+			// &:hover {
+			// 	--btn-bg-color: var(--gray4);
+			// }
+			.bar::before {
+				left: get-rem(12);
+				top: get-rem(12);
+			}
+			.bull::before {
+				left: get-rem(12);
+				top: get-rem(12);
+			}
+			.line::before {
+				left: get-rem(12);
+				top: get-rem(15);
+			}
+		}
+	}
+
+	.aqua::before {
+		--chart-bg-color: #2dd2df;
+	}
+	.scorp-blue::before {
+		--chart-bg-color: var(--scorp-blue);
+	}
+	.gray::before {
+		--chart-bg-color: #bcbec7;
+	}
+	//Legend Filter - Default
+	&--filter-default {
+		color: var(--scorp-black);
+		.legend--item.btn {
+			@include legend-filter();
+			&:has(.active){
+				background-color: var(--scorp-gray1);
+				border-color: transparent;
+			}
+			& a {
+				color: var(--text-color, var(--scorp-black));
+			}
+            &:hover {
+				border-color: #dddee3;
+            }
+			& .active {
+				border-color: transparent;
+				background-color: var(--scorp-gray1);
+				&:hover {
+					color: rgba(0,0,0, 0.7);
+				}
+			}
+
+			&::before {
+				margin-top: 0;
+			}
+		}
+	}
+}
+
+.cms-tooltip2 .legend {
+	gap: 0;
+	&.grid {
+		column-gap: get-rem(12);
+		row-gap: 0;
+	}
+	.bar::before {
+		top: 4px;
+	}
+	.bull::before {
+		top: 4px;
+	}
+	.line::before {
+		top: 7px;
+	}
+	.dash::before {
+		top: 7px;
+	}
+}

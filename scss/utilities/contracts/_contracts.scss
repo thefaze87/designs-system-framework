@@ -1,0 +1,32 @@
+@use '../../base/variables/colors/contracts' as *;
+
+// Contract Cirlce
+.contract {
+	@each $contract-name, $value in $contract-color-values {
+		&.#{$contract-name} {
+			--bg-color: #{$value};
+		}
+	}
+	&::before {
+		font-size: get-rem(18);
+		color: var(--text-color, var(--white));
+		display: block;
+		line-height: 1;
+		font-weight: 500;
+	}
+	@each $contract-type, $abbr in $abrevs {
+		&.#{$contract-type}::before {
+			content: '#{$abbr}';
+		}
+	}
+	@each $contract-type in $dark-text {
+		&.#{$contract-type}::before {
+			--text-color: var(--scorp-black);
+		}
+	}
+	// Type specific updates
+	&.type0 {
+		--text-color: var(--scorp-black);
+		border: solid 2px var(--scorp-black);
+	}
+}

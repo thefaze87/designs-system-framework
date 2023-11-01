@@ -1,0 +1,52 @@
+@use '../../base/variables/var' as *;
+@use '../../base/functions/rem-em' as *;
+@use '../../base/variables/colors/branding' as *;
+
+$scorp-gray-rgb: rgba($scorp-gray2, 10%);
+
+.drawer--body {
+	.drawer--left {
+		--transition: width 0.3s ease 0.5s;
+		&.open {
+			--transition: width 0.5s ease 0s;
+		}
+	}
+
+	.drawer--right {
+		--transition: right 0.3s ease 0.5s, padding 0.3s ease 0.5s, background-color 0.3s ease 0.5s;
+
+		> header,
+		.drawer--header,
+		.drawer--content {
+			--transition: width 0.3s ease 0.5s, padding 0.3s ease 0.5s, visibility 0.3s ease 0.5s, opacity 0.3s ease 0.5s;
+		}
+		&.open {
+			--transition: right 0.3s ease 0s, padding 0.5s ease 0s, background-color 0.5s ease 0s;
+
+			> header,
+			.drawer--header,
+			.drawer--content {
+				--transition: width 0.5s ease 0s, padding 0.5s ease 0s, visibility 0.5s ease 0s, opacity 0.5s ease 0s;
+			}
+		}
+	}
+
+	.drawer--close {
+	  	// @todo: Image to resolve and decouple - Based 64 Encoded for Temp
+	  	//--bg-image: url('/cms/svg/admin/icon_cancel.24.86898F.svg');
+	  	--bg-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjQgMjQiPgo8c3R5bGU+CglnIHBhdGggeyBzdHJva2U6IG5vbmU7IH0KPC9zdHlsZT4KPGcgY2xhc3M9InJvb3QiIGlkPSJjYW5jZWwiIGRhdGEtbmFtZT0iY2FuY2VsIiBmaWxsPSIjODY4OThGIiBzdHJva2U9IiM4Njg5OEYiPgoJPHBhdGggY2xhc3M9InN0MCIgZD0iTTIzLjIyNCAwLjc5MWMtMS4wNTUtMS4wNTUtMi42MzctMS4wNTUtMy42OTIgMEwxMS44ODMgOC4xNzZMNC40OTkgMC43OTFjLTEuMDU1LTEuMDU1LTIuNjM3LTEuMDU1LTMuNjkyIDBjLTEuMDU1IDEuMDU1LTEuMDU1IDIuNjM3IDAgMy42OTJsNy4zODUgNy4zODVMMC44MDYgMTkuNTE3Yy0xLjA1NSAxLjA1NS0xLjA1NSAyLjYzNyAwIDMuNjkyYzEuMDU1IDEuMDU1IDIuNjM3IDEuMDU1IDMuNjkyIDBsNy4zODUtNy4zODVsNy4zODUgNy4zODVjMS4wNTUgMS4wNTUgMi42MzcgMS4wNTUgMy42OTIgMGMxLjA1NS0xLjA1NSAxLjA1NS0yLjYzNyAwLTMuNjkyTDE1LjU3NiAxMS44NjhsNy4zODUtNy4zODVDMjQuMjc5IDMuNDI5IDI0LjI3OSAxLjg0NiAyMy4yMjQgMC43OTF6IiAvPgo8L2c+Cjwvc3ZnPg==);
+		--bg-color: #{$scorp-gray-rgb};
+		--border-color: transparent;
+		--transition: visibility 0.3s ease 0.1s, opacity 0.3s ease 0.1s;
+
+		&:hover,
+		&:active,
+		&:focus {
+			--border-color: var(--close-btn-border);
+		}
+
+		&.open {
+			--transition: visibility 0.3s ease 0s, opacity 0.3s ease 0s, color 0.3s ease, border-color 0.3s ease;
+		}
+	}
+}

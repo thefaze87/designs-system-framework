@@ -1,0 +1,49 @@
+@use 'sass:color';
+@use 'sass:map' as map;
+
+@use '../../base/functions/rem-em' as *;
+@use '../../base/variables/borders/outline-width-offset' as width;
+@use '../../base/variables/borders/outline-style' as style;
+
+///
+/// Outline Width and Offset Utility Classes
+/// Classes for outline width and offset
+///
+/// @group 5-utilities
+/// @author Mark Fasel
+/// @access public
+///
+@each $width in width.$outline-widths {
+	.o-#{$width},
+	.otl-#{$width},
+	.outline-#{$width} {
+		outline-width: #{$width} + 'px';
+	}
+
+	.o-offset-#{$width},
+	.otl-offset-#{$width},
+	.outline-offset-#{$width} {
+		outline-offset: #{$width} + 'px';
+	}
+}
+
+///
+/// Outline Style Utility Classes
+/// Classes for outline styles
+///
+/// @group 5-utilities
+/// @author Mark Fasel
+/// @access public
+///
+@each $style in style.$outline-styles {
+	.o-#{$style},
+	.otl-#{$style},
+	.outline-#{$style} {
+		@if ($style == 'none') {
+			outline: 2px solid transparent;
+			outline-offset: 2px;
+		} @else {
+			outline-style: #{$style};
+		}
+	}
+}

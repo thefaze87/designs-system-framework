@@ -1,0 +1,94 @@
+@use '../../base/functions/rem-em' as *;
+@use '../../base/variables/colors/index' as *;
+
+.burger {
+	height: get-em(32);
+	width: get-em(32);
+	position: relative;
+	font-size: get-rem(12);
+	cursor: pointer;
+	transition: 0.2s all;
+	-webkit-tap-highlight-color: transparent;
+
+	.burger-lines:after {
+		left: 0;
+		top: -0.75em;
+	}
+	.burger-lines:before {
+		left: 0;
+		top: 0.75em;
+	}
+
+	&::after {
+		content: '';
+		display: block;
+		position: absolute;
+		height: 150%;
+		width: 150%;
+		top: -25%;
+		left: -25%;
+	}
+
+	.burger-lines {
+		top: 50%;
+
+		&,
+		&::after,
+		&::before {
+			content: '';
+			pointer-events: none;
+			display: block;
+			width: 100%;
+			border-radius: 8px;
+			background-color: var(--bg-color, var(--white));
+			height: get-rem(2);
+			position: absolute;
+			transform: rotate(0);
+		}
+		::after {
+			left: 0;
+			top: -1em;
+		}
+		::before {
+			left: 0;
+			top: 1em;
+		}
+	}
+
+	// Arrow Styles
+	&.burger-arrow {
+		.burger-lines {
+			&,
+			&:after,
+			&:before {
+				transition: 0.2s top, 0.2s left, 0.2s transform, 0.4s background-color 0.2s;
+			}
+		}
+		&.open {
+			.burger-lines {
+				&,
+				&:after,
+				&:before {
+					transition: 0.2s background-color, 0.2s top, 0.2s left, 0.2s transform, 0.2s width;
+				}
+				& {
+					background-color: rgba($white, 70%);
+				}
+				&:before,
+				&:after {
+					left: -0.15em;
+					top: 0px;
+					width: 50%;
+				}
+				&:before {
+					top: get-em(-4.5);
+					transform: rotate(-45deg);
+				}
+				&:after {
+					top: get-em(4.5);
+					transform: rotate(45deg);
+				}
+			}
+		}
+	}
+}

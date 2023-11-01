@@ -1,0 +1,32 @@
+@use '../../base/functions/rem-em' as *;
+
+@use './circle.variables' as *;
+
+// @each $circle-size, $i in $circle-sizes {
+// 	@if $circleSize == '96' {
+// 		.size-#{$circleSize} {
+// 			width: $i;
+// 			aspect-ratio: 1 / 1;
+// 		}
+// 		.size-#{$circleSize} > span {
+// 			font-size: $i / 3;
+// 		}
+// 	} @else {
+// 		.size-#{$circleSize} {
+// 			width: $i;
+// 			aspect-ratio: 1 / 1;
+// 		}
+// 	}
+// }
+
+///
+/// Placeholder for setting the circle properties
+///
+/// @group 6-components
+/// @author Anthony Minnaugh
+/// @access public
+///
+%circle {
+	aspect-ratio: 1 / 1;
+	border-radius: 50%;
+}

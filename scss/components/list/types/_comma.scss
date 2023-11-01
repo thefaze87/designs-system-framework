@@ -1,0 +1,17 @@
+.list {
+	$list-element: &; // Reference to .list
+	&__comma {
+		#{$list-element}--item {
+            &::after {
+                content: ', ';
+                color: var(--text-color, var(--scorp-gray2));
+            }
+
+            &:last-child::after,
+            &:nth-last-child(2)::after { 
+                // If there is a template html element at the end of the list, we need to account for that and set the nth-last-child to 2 to override the display of the comma in addition to the last-child
+                content: '';
+            }
+        }
+    }
+}

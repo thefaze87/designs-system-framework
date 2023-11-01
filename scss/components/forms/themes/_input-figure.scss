@@ -1,0 +1,19 @@
+.input-figure {
+	input {
+		+ label > figure {
+			--input-figure-border: var(--white);
+			--input-figure-bg: var(--white);
+			--input-figure-text: var(--scorp-blue);
+
+			&:hover {
+				--input-figure-border: var(--scorp-gray2);
+				--input-figure-text: var(--scorp-blue2);
+			}
+		}
+		&:checked {
+			+ label > figure {
+				--input-figure-border: var(--scorp-blue);
+			}
+		}
+	}
+}

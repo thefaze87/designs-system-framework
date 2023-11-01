@@ -1,0 +1,21 @@
+@use './positioning' as *;
+
+@mixin twirl-caret($top: #{get-rem(18)}, $left: #{get-rem(18)}, $right: auto, $bottom: auto) {
+	@include pseudo;
+	top: $top;
+	right: $right;
+	bottom: $bottom;
+	left: $left;
+	width: 0;
+	height: 0;
+	border: {
+		top: get-rem(6) solid transparent;
+		bottom: get-rem(6) solid transparent;
+		right: get-rem(6) solid transparent;
+		left: get-rem(6) solid var(--caret-color);
+	}
+	border-radius: 2px;
+	transform: rotate(0);
+	transform-origin: left;
+	transition: transform 0.3s ease 0s, border 0.3s ease 0s;
+}

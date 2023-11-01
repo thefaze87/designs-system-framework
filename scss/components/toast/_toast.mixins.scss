@@ -1,0 +1,119 @@
+@use "sass:meta";
+@use '../../base/functions/rem-em' as *;
+@use './toast.variables' as *;
+@use './toast.animiations' as *;
+
+// Toast Position Mixin
+@mixin toast-position($args...) {
+	/// Use the args list and loop thru the keywords and get the name and value to build the class
+	/// Argument list allows the ability top pass a list or multiple values with out declaring each variable
+	/// Returns the keywords passed to a mixin or function that takes arbitrary arguments.
+	/// The $args argument must be an argument list
+	@each $pos, $val in meta.keywords($args) {
+		&.toast--#{$pos} {
+			position: #{$pos};
+		}
+	}
+}
+
+// Toast Base Placeholder
+%toast-base {
+	--toast-bg-color: var(--white);
+	--toast-border: var(--gray4);
+	--toast-border-width: 1px;
+	--toast-box-shadow-bg: #{$bg-box-shadow};
+
+	position: absolute;
+	top: auto;
+	right: auto;
+	bottom: auto;
+	left: auto;
+	box-shadow: 0px 3px 30px rgba(var(--toast-box-shadow-bg), 0.2);
+	width: #{get-rem(400)};
+	background-color: var(--toast-bg-color);
+	border: {
+		style: solid;
+		width: var(--btn-border-width);
+		color: var(--btn-border);
+	}
+	display: inline-flex;
+	border-radius: #{get-rem(8)};
+	gap: #{get-rem(12)};
+	padding: #{get-rem(12)};
+	flex-direction: row;
+}
+
+// Toast Icon Placeholder
+%toast-icon {
+	.toast__icon {
+		--toast-icon-bg: #{$toast-icon-bg};
+		--toast-icon-color: #{$toast-icon-color};
+
+		// Flex
+		display: inline-flex;
+		place-items: center;
+		place-content: center;
+		flex: 0 0 auto;
+
+		// Width & Height
+		width: #{get-rem(36)};
+		height: #{get-rem(36)};
+
+		// Background and Color
+		background-color: var(--toast-icon-bg);
+		color: var(--toast-icon-color);
+
+		// Border Radius
+		border-radius: #{get-rem(8)};
+
+		// Set svg font size
+		& > svg {
+			font-size: #{get-rem(18)};
+		}
+	}
+}
+
+// Toast Content Placeholder
+%toast-content {
+	.toast__content {
+		// Flex
+		display: inline-flex;
+		flex: 1 1 auto;
+		flex-direction: row;
+		gap: #{get-rem(12)};
+
+		.toast__content--text {
+			display: inline-flex;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: #{get-rem(4)};
+		}
+
+		.toast__content--actions {
+			display: inline-flex;
+			flex-direction: column;
+			align-items: flex-end;
+			justify-content: space-between;
+			gap: #{get-rem(4)};
+
+			.toast__close {
+				width: #{get-rem(24)};
+				height: #{get-rem(24)};
+				border-radius: 50%;
+				font-size: #{get-rem(9)};
+			}
+
+			.toast__link {
+				color: var(--scorp-blue);
+				transition: color 0.2s ease 0s;
+				font-size: #{get-rem(14)};
+				line-height: #{get-rem(22)};
+				font-weight: 500;
+
+				&:hover {
+					color: var(--text); // Temp - need to find the proper link styles for states
+				}
+			}
+		}
+	}
+}

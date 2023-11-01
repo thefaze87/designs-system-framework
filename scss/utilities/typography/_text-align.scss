@@ -1,0 +1,18 @@
+@use '../../base/variables/typography/text' as *;
+
+///
+/// Text Alignment / General Alignment
+/// @group 5-utilities
+/// @author Mark Fasel
+/// @access public
+/// @example
+/// 	// .tac, .text-center {text-align: center;}
+/// 	// .tar, .text-right {text-align: right;}
+/// 	// .tal, .text-left {text-align: left;}
+///
+@each $align-direction, $align in $text-align-direction {
+	.ta#{$align-direction},
+	.text-#{$align} {
+		text-align: $align;
+	}
+}

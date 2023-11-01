@@ -1,0 +1,25 @@
+@use '../../base/functions/rem-em' as *;
+
+.no-results {
+	&--box {
+		padding: get-rem(25);
+		border-radius: get-rem(8);
+		text-align: center;
+		background-color: var(--no-results-bg, var(--scorp-gray1));
+		margin-top: get-rem(8);
+	}
+	&--title {
+		display: block;
+		font-weight: 600;
+		color: var(--scorp-black);
+		font-size: get-rem(18); //Updated from 32px (from Creative)
+		line-height: get-rem(24);
+	}
+	&--subtitle {
+		font-size: get-rem(14);
+		line-height: 157%;
+		color: var(--text);
+		display: block;
+		margin-top: get-rem(16);
+	}
+}

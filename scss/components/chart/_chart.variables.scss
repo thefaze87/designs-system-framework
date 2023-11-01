@@ -1,0 +1,139 @@
+@use "sass:list";
+@use "sass:map";
+
+$default1: #007ffd;
+$default2: #66aeff;
+$default3: #bfddff;
+$default4: #886fde;
+$default5: #26e7a6;
+$default6: #6c7f91;
+$default7: #cff67b;
+$default8: #60cece;
+$default9: #febc3b;
+$default10: #ff7272;
+$default11: #28445b;
+$progress-default1: #23bf57;
+$progress-default2: #f2f2f5;
+$leads-default1: linear-gradient(to bottom,rgb(109, 89, 255), rgb(219,214,255));
+$leads-default2: linear-gradient(to bottom,rgb(88,219,218),rgb(214,246,246));
+$leads-default3: linear-gradient(to bottom, rgb(0,127,253), rgb(102,178,254));
+$green-red-default1: linear-gradient(to bottom,rgb(35, 191, 87), rgb(159,221,181));
+$green-red-default2: linear-gradient(to bottom,rgb(209, 43, 28),rgb(220,204,207));
+
+$chart-themes: (
+	'default': (
+		default1: $default1,
+		default2: $default2,
+		default3: $default3,
+		default4: $default4,
+		default5: $default5,
+		default6: $default6,
+		default7: $default7,
+		default8: $default8,
+		default9: $default9,
+		default10: $default10,
+		default11: $default11,
+	),
+	'primary': (
+		primary1: $default1,
+		primary2: $default2,
+		primary3: $default3,
+		primary4: $default4,
+		primary5: $default5,
+		primary6: $default6,
+		primary7: $default7,
+		primary8: $default8,
+		primary9: $default9,
+		primary10: $default10,
+		primary11: $default11,
+	),
+	'channels': (
+		channel1: $default1,
+		channel2: $default4,
+		channel3: $default6,
+		channel4: $default8,
+		channel5: $default9,
+		channel6: $default2,
+		channel7: $default5,
+		channel8: $default7,
+		channel9: $default3,
+		channel0: $default10,
+		channel11: $default11,
+	),
+	'line': (
+		line1: $default1,
+		line2: $default2,
+		line3: $default4,
+		line4: $default5,
+		line5: $default6,
+		line6: $default7,
+		line7: $default8,
+		line8: $default9,
+		line9: $default10,
+		line10: $default11,
+	),
+	'status': (
+		'red': $default10,
+		'yellow': $default7,
+		'green': $default5,
+	),
+	'spend': (
+		spend: $default5,
+		target: $default1,
+	),
+	'flipped-blue': (
+		default1: $default3,
+		default2: $default2,
+		default3: $default1,
+	),
+	'progress': (
+		default1: $progress-default1,
+		default2: $progress-default2,
+	),
+	'single-line-blue': (
+		line1: $default1,
+	),
+	'single-line-blue2': (
+		line2: $default2,
+	),
+	'single-line-purple': (
+		line3: $default4,
+	),
+	'-leads':(
+		leads1:$leads-default1,
+		leads2:$leads-default2,
+		leads3:$leads-default3
+	),
+	'-green-red':(
+		leads1:$green-red-default1,
+		leads2:$green-red-default2
+	),
+);
+
+// Create new chart color map
+$chart-color-map: ();
+
+// This map will collect all the possible color values, and add them to the empty map
+@each $theme, $themeValues in $chart-themes {
+	@each $name, $color in $themeValues {
+		$check-if-color-exists: index($chart-color-map, $name $color);
+		@if ($check-if-color-exists == null) {
+			$chart-color-map: map.merge(
+				$chart-color-map,
+				(
+					$name: $color,
+				)
+			);
+		}
+	}
+}
+
+$tip-bg: rgba(9, 50, 92, 0.9); // var(--tooltip)
+$tip-color: var(--white);
+$tip-title: var(--white);
+$tip-accent: rgba(9, 50, 92, 0.9);
+$tip-shadow: none;
+$tip-bubble: 8px;
+$tip-border: none;
+$tip-tail-y: px;
+$tip-tail-x: 10px;

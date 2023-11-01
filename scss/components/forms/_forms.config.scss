@@ -1,0 +1,121 @@
+// Base Functions
+@use '../../base/functions/rem-em' as *;
+
+// Base Mixins
+@use '../../base/mixins/display' as *;
+
+@use './forms.mixin' as *;
+
+::placeholder {
+	color: var(--input-placeholder, var(--scorp-gray3));
+	font-size: get-rem(16);
+}
+
+// Non-check/radio/toggle label
+label {
+	&.text--label {
+		// Default text label styles
+		font: {
+			size: get-em(12);
+			weight: 500;
+		}
+		line-height: get-em(24);
+		color: var(--label-color, var(--scorp-gray2));
+		display: block;
+
+		// With Info Class Styles part of text label
+		&.with-info {
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			gap: 4px;
+
+			// Set the label required (with info) second span
+			span + span {
+				color: var(--label-required-color, var(--red));
+			}
+
+			// Adjust the line height of the svg for spacing
+			svg {
+				line-height: 1;
+			}
+		}
+
+		// Update the align self and color
+		> .required {
+			color: var(--validation-color, var(--red));
+			align-self: flex-start;
+		}
+
+		// Disable style
+		&.disabled,
+		&.disable,
+		.disabled &,
+		.disable & {
+			opacity: 0.5;
+			pointer-events: none;
+		}
+	}
+}
+
+// Character Counter
+.char-counter {
+	display: flex;
+	text-align: right;
+	font: {
+		size: get-em(12);
+		weight: 500;
+	}
+	color: var(--char-counter, var(--scorp-gray2));
+	justify-content: flex-end;
+	justify-self: flex-end;
+	margin: {
+		top: 4px;
+		left: auto;
+	}
+}
+
+.input__helper {
+	@extend %input-helper;
+
+	&--red {
+		--input-helper-text-color: var(--red);
+		& > svg {
+			--input-helper-svg-color: var(--red);
+		}
+	}
+}
+
+// Validation
+$validationTypes: ('badInput', 'customError', 'patterMismatch', 'rangeOverflow', 'stepMismatch', 'tooLong', 'tooShort', 'typeMismatch', 'valueMissing', 'rangeUnderflow');
+
+.validation {
+	--input-helper-text-color: var(--red);
+	display: none;
+	visibility: hidden;
+	font-size: #{get-rem(12)};
+	pointer-events: none;
+	@each $type in $validationTypes {
+		.invalid[data-validity='#{$type}'] & {
+			display: flex;
+			visibility: visible;
+			margin-top: #{get-rem(2)};
+		}
+	}
+	svg {
+		--input-helper-svg-color: var(--red);
+		line-height: 1;
+	}
+}
+
+.invalid .validation {
+	display: flex;
+	visibility: visible;
+}
+
+// Input Footer
+.input__footer {
+	display: flex;
+	align-items: center;
+	gap: #{get-rem(24)};
+}
