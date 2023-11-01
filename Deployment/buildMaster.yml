@@ -1,0 +1,29 @@
+name: $(Build.BuildId)
+
+pool:
+  name: VMSSProdLinuxAgentPool01
+
+trigger:
+- master
+pr: none
+
+jobs:
+- job: Build
+  workspace:
+    clean: all
+  steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: 14.x
+
+  - task: npmAuthenticate@0
+    inputs:
+      workingFile: .npmrc
+
+  - bash: |
+      npm install
+    displayName: Install dependencies
+
+  - bash: |
+      npm publish
+    displayName: Build a package
