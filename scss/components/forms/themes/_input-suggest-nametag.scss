@@ -1,0 +1,96 @@
+@use '../../../base/functions/rem-em' as *;
+
+.ui-suggest {
+	.input-suggest {
+		&--nametag {
+			border: 1px solid var(--border-color, transparent);
+			padding: get-rem(4);
+			border-radius: get-rem(8);
+			transition: border-color 0.3s ease 0s;
+			background-color: var(--bg-color, var(--white));
+
+			&:hover {
+				--border-color: var(--border);
+			}
+
+			.suggestions {
+				border-radius: get-rem(8);
+				padding: get-rem(10);
+				transform: translateY(-1px); // Removes the transform due to skewed offset of 1px
+				left: -1px; // Removes the transform due to skewed offset of 1px
+
+				// Input Search in the suggestions flyout list
+				.input-search {
+					width: 100%;
+					margin-bottom: get-rem(10);
+					input {
+						border: none;
+						height: 100%;
+						padding-left: 0;
+					}
+				}
+
+				// Remove the padding on the ul
+				& > ul {
+					padding: 0;
+				}
+
+				// Input Mark - Name Tag
+				.input-mark {
+					width: 100%;
+					padding: get-rem(8);
+					border-radius: get-rem(8);
+
+					// Hover styles
+					&:hover {
+						cursor: pointer;
+						background-color: var(--scorp-blue4);
+					}
+
+					&--nametag {
+						.content {
+							display: flex;
+							align-items: center;
+							gap: get-rem(8);
+
+							.icon {
+								--icon-bg-color: transparent;
+								--icon-text-color: var(--yellow);
+								--icon-width: #{get-rem(18)};
+								--icon-height: #{get-rem(18)};
+								--icon-font-size: get-rem(18);
+							}
+							.text {
+								font-size: get-rem(14);
+								font-weight: 600;
+							}
+						}
+
+						.nametag {
+							width: 100%;
+							// Initials - Resize smaller for the input mark in the suggestions flyout list
+							.initials {
+								--height: #{get-rem(24)};
+								--width: #{get-rem(24)};
+								font-size: get-rem(10);
+								border-radius: get-rem(6);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&.focus {
+		.input-suggest {
+			&--nametag {
+				border-color: var(--border);
+
+				&::before {
+					transform: translateY(-50%) rotate(-180deg);
+				}
+			}
+		}
+	}
+}

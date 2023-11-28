@@ -1,0 +1,88 @@
+.theme--lead-qual{
+	.ichart,
+	.ichart2,
+	&.ichart,
+	&.ichart2{
+		> span[data-name="Good"],
+		> span:first-of-type {
+			--chart-bg-color: var(--chart-green);
+			--chart-color: var(--chart-green);
+			--chart-border-color: var(--chart-green);
+			--chart-bg-image: linear-gradient(to bottom, var(--chart-green), #9fddb5);
+		}
+		> span[data-name="Bad"],
+		> span:nth-of-type(2) {
+			--chart-bg-color: var(--chart-red);
+			--chart-color: var(--chart-red);
+			--chart-border-color: var(--chart-red);
+			--chart-bg-image: linear-gradient(to bottom, var(--chart-red), #df9390);
+		}
+		> span[data-name="Other"],
+		> span:nth-of-type(3) {
+			--chart-bg-color: var(--chart-purple);
+			--chart-color: var(--chart-purple);
+			--chart-border-color: var(--chart-purple);
+			--chart-bg-image: linear-gradient(to bottom, var(--chart-purple), #a89cff);
+		}
+		> span[data-name="Won"],
+		> span:nth-of-type(4) {
+			--chart-bg-color: var(--chart-blue);
+			--chart-color: var(--chart-blue);
+			--chart-border-color: var(--chart-blue);
+			--chart-bg-image: linear-gradient(to bottom, var(--chart-blue), #66b2fe);
+		}
+	}
+}
+.theme--lead-qual{
+	.legend--item{
+		&:first-of-type {//Good
+			.bull,
+			.bar,
+			.line,
+			.dash,
+			&.bull,
+			&.bar,
+			&.line,
+			&.dash {
+				--chart-bg-color: var(--chart-green);
+			}
+		}
+		&:nth-of-type(2) {//Bad
+			.bull,
+			.bar,
+			.line,
+			.dash,
+			&.bull,
+			&.bar,
+			&.line,
+			&.dash {
+				--chart-bg-color: var(--chart-red);
+			}
+		}
+		&:nth-of-type(3) {//Other
+			.bull,
+			.bar,
+			.line,
+			.dash,
+			&.bull,
+			&.bar,
+			&.line,
+			&.dash {
+				--chart-bg-color: var(--chart-purple);
+			}
+		}
+		&:nth-of-type(4) {//Won
+			.bull,
+			.bar,
+			.line,
+			.dash,
+			&.bull,
+			&.bar,
+			&.line,
+			&.dash {
+				--chart-bg-color: var(--chart-blue);
+			}
+		}
+	}
+}
+

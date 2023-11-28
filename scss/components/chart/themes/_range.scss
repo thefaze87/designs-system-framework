@@ -3,20 +3,20 @@
 		.ichart,
 		.ichart2 {
 			> span:first-of-type {
-				--chart-color: rgb(35, 191, 87);
-				--chart-bg-color: rgb(35, 191, 87);
+				--chart-color: #23bf57;
+				--chart-bg-color: #23bf57;
 			}
 			> span:nth-of-type(2) {
-				--chart-color: rgb(199, 171, 5);
-				--chart-bg-color: rgb(199, 171, 5);
+				--chart-color: #c7ab05;
+				--chart-bg-color: #c7ab05;
 			}
 			> span:nth-of-type(3) {
-				--chart-color: rgb(209, 43, 28);
-				--chart-bg-color: rgb(209, 43, 28);
+				--chart-color: #d12b1c;
+				--chart-bg-color: #d12b1c;
 			}
 			> span:nth-of-type(4) {
-				--chart-color: rgb(134, 137, 143);
-				--chart-bg-color: rgb(134, 137, 143);
+				--chart-color: #86898f;
+				--chart-bg-color: #86898f;
 			}
 		}
 	}
@@ -47,28 +47,28 @@
 					.bull::before,
 					.bar::before,
 					.line::before {
-						--chart-bg-color: rgb(35, 191, 87);
+						--chart-bg-color: #23bf57;
 					}
 				}
 				&:nth-of-type(2) {
 					.bull::before,
 					.bar::before,
 					.line::before {
-						--chart-bg-color: rgb(199, 171, 5);
+						--chart-bg-color: #c7ab05;
 					}
 				}
 				&:nth-of-type(3) {
 					.bull::before,
 					.bar::before,
 					.line::before {
-						--chart-bg-color: rgb(209, 43, 28);
+						--chart-bg-color: #d12b1c;
 					}
 				}
 				&:nth-of-type(4) {
 					.bull::before,
 					.bar::before,
 					.line::before {
-						--chart-bg-color: rgb(134, 137, 143);
+						--chart-bg-color: #86898f;
 					}
 				}
 			}

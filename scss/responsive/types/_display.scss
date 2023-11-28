@@ -12,6 +12,7 @@
 
 		// Display Property Classes
 		@each $property in $display-properties {
+			.#{$name}-d-#{$property},
 			.#{$name}-#{$property} {
 				display: #{$property};
 			}

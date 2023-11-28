@@ -1,0 +1,18 @@
+@use 'sass:color';
+@use '../../base/variables/colors/branding' as b;
+@use '../../base/variables/colors/colors' as c;
+
+// Input Mark Box Shadow
+$input-shadow-hover: scale-color(
+	$color: b.$scorp-gray2,
+	$alpha: -90%
+);
+// Validation
+// Invalid Background Color
+$invalid-bg-color: scale-color(
+	$color: c.$red,
+	$alpha: -95%
+);
+
+// Validation Type [data-#{validationTypes}]
+$validationTypes: ('badInput', 'customError', 'patterMismatch', 'rangeOverflow', 'stepMismatch', 'tooLong', 'tooShort', 'typeMismatch', 'valueMissing', 'rangeUnderflow');

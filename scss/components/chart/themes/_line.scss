@@ -1,83 +1,83 @@
-.theme--line{
+.theme--line {
 	.ichart,
 	.ichart2,
 	&.ichart,
 	&.ichart2 {
 		> span:first-of-type,
 		.line-chart-dot:first-of-type {
-			--chart-color: rgb(0, 127, 253);
-			--chart-border-color: rgb(0, 127, 253);
-			--chart-bg-color: rgb(0, 127, 253);
-			--chart-bg-image: linear-gradient(to bottom, rgb(0, 127, 253),rgb(102, 178, 254)) ;
+			--chart-color: #007ffd;
+			--chart-border-color: #007ffd;
+			--chart-bg-color: #007ffd;
+			--chart-bg-image: linear-gradient(to bottom, #007ffd, #66b2fe);
 		}
 		> span:nth-of-type(2),
 		.line-chart-dot:nth-of-type(2) {
-			--chart-color: rgb(88, 219, 218);
-			--chart-border-color: rgb(88, 219, 218);
-			--chart-bg-color: rgb(88, 219, 218);
-			--chart-bg-image: linear-gradient(to bottom, rgb(88, 219, 218), rgb(155, 233, 233)) ;
+			--chart-color: #58dbda;
+			--chart-border-color: #58dbda;
+			--chart-bg-color: #58dbda;
+			--chart-bg-image: linear-gradient(to bottom, #58dbda, #9be9e9);
 		}
 		> span:nth-of-type(3),
 		.line-chart-dot:nth-of-type(3) {
-			--chart-color: rgb(109, 89, 255);
-			--chart-border-color: rgb(109, 89, 255);
-			--chart-bg-color: rgb(109, 89, 255);
-			--chart-bg-image: linear-gradient(to bottom, rgb(109, 89, 255), rgb(168, 156, 255) ) ;
+			--chart-color: #6d59ff;
+			--chart-border-color: #6d59ff;
+			--chart-bg-color: #6d59ff;
+			--chart-bg-image: linear-gradient(to bottom, #6d59ff, #a89cff);
 		}
 		> span:nth-of-type(4),
 		.line-chart-dot:nth-of-type(4) {
-			--chart-color: rgb(119, 199, 103);
-			--chart-border-color: rgb(119, 199, 103);
-			--chart-bg-color: rgb(119, 199, 103);
-			--chart-bg-image: linear-gradient(to bottom, rgb(119, 199, 103),rgb(174, 221, 164)) ;
+			--chart-color: #77c767;
+			--chart-border-color: #77c767;
+			--chart-bg-color: #77c767;
+			--chart-bg-image: linear-gradient(to bottom, #77c767, #aedda4);
 		}
 		> span:nth-of-type(5),
 		.line-chart-dot:nth-of-type(5) {
-			--chart-color: rgb(246, 205, 76);
-			--chart-border-color: rgb(246, 205, 76);
-			--chart-bg-color: rgb(246, 205, 76);
-			--chart-bg-image: linear-gradient(to bottom, rgb(246, 205, 76),rgb(250, 225, 148)) ;
+			--chart-color: #f6cd4c;
+			--chart-border-color: #f6cd4c;
+			--chart-bg-color: #f6cd4c;
+			--chart-bg-image: linear-gradient(to bottom, #f6cd4c, #fae194);
 		}
 		> span:nth-of-type(6),
 		.line-chart-dot:nth-of-type(6) {
-			--chart-color: rgb(202, 75, 69);
-			--chart-border-color: rgb(202, 75, 69);
-			--chart-bg-color: rgb(202, 75, 69);
-			--chart-bg-image: linear-gradient(to bottom, rgb(202, 75, 69), rgb(223, 147, 144)) ;
+			--chart-color: #ca4b45;
+			--chart-border-color: #ca4b45;
+			--chart-bg-color: #ca4b45;
+			--chart-bg-image: linear-gradient(to bottom, #ca4b45, #df9390);
 		}
 		> span:nth-of-type(7),
 		.line-chart-dot:nth-of-type(7) {
-			--chart-color: rgb(163, 194, 222);
-			--chart-border-color: rgb(163, 194, 222);
-			--chart-bg-color: rgb(163, 194, 222);
-			--chart-bg-image: linear-gradient(to bottom, rgb(163, 194, 222),rgb(200, 219, 235)) ;
+			--chart-color: #a3c2de;
+			--chart-border-color: #a3c2de;
+			--chart-bg-color: #a3c2de;
+			--chart-bg-image: linear-gradient(to bottom, #a3c2de, #c8dbeb);
 		}
 		> span:nth-of-type(8),
 		.line-chart-dot:nth-of-type(8) {
-			--chart-color: rgb(229, 148, 56);
-			--chart-border-color: rgb(229, 148, 56);
-			--chart-bg-color: rgb(229, 148, 56);
-			--chart-bg-image: linear-gradient(to bottom, rgb(229, 148, 56),rgb(239, 191, 136)) ;
+			--chart-color: #e59438;
+			--chart-border-color: #e59438;
+			--chart-bg-color: #e59438;
+			--chart-bg-image: linear-gradient(to bottom, #e59438, #efbf88);
 		}
 		> span:nth-of-type(9),
 		.line-chart-dot:nth-of-type(9) {
-			--chart-color: rgb(102, 191, 255);
-			--chart-border-color: rgb(102, 191, 255);
-			--chart-bg-color: rgb(102, 191, 255);
-			--chart-bg-image: linear-gradient(to bottom, rgb(102, 191, 255), rgb(164, 217, 255)) ;
+			--chart-color: #66bfff;
+			--chart-border-color: #66bfff;
+			--chart-bg-color: #66bfff;
+			--chart-bg-image: linear-gradient(to bottom, #66bfff, #a4d9ff);
 		}
 		> span:nth-of-type(10),
 		.line-chart-dot:nth-of-type(10) {
-			--chart-color: rgb(213, 97, 218);
-			--chart-border-color: rgb(213, 97, 218);
-			--chart-bg-color: rgb(213, 97, 218);
-			--chart-bg-image: linear-gradient(to bottom, rgb(213, 97, 218),rgb(230, 161, 233)) ;
+			--chart-color: #d561da;
+			--chart-border-color: #d561da;
+			--chart-bg-color: #d561da;
+			--chart-bg-image: linear-gradient(to bottom, #d561da, #e6a1e9);
 		}
 	}
 }
 
 .theme--line {
-	.legend{
+	.legend {
 		.legend--item {
 			&:first-of-type {
 				.bull,
@@ -87,8 +87,8 @@
 				&.bull,
 				&.bar,
 				&.line,
-				&.dash{
-					--chart-bg-color: rgb(0, 127, 253);
+				&.dash {
+					--chart-bg-color: #007ffd;
 				}
 			}
 			&:nth-of-type(2) {
@@ -99,8 +99,8 @@
 				&.bull,
 				&.bar,
 				&.line,
-				&.dash{
-					--chart-bg-color: rgb(88, 219, 218);
+				&.dash {
+					--chart-bg-color: #58dbda;
 				}
 			}
 			&:nth-of-type(3) {
@@ -111,8 +111,8 @@
 				&.bull,
 				&.bar,
 				&.line,
-				&.dash{
-					--chart-bg-color: rgb(109, 89, 255);
+				&.dash {
+					--chart-bg-color: #6d59ff;
 				}
 			}
 			&:nth-of-type(4) {
@@ -123,8 +123,8 @@
 				&.bull,
 				&.bar,
 				&.line,
-				&.dash{
-					--chart-bg-color: rgb(119, 199, 103);
+				&.dash {
+					--chart-bg-color: #77c767;
 				}
 			}
 			&:nth-of-type(5) {
@@ -135,8 +135,8 @@
 				&.bull,
 				&.bar,
 				&.line,
-				&.dash{
-					--chart-bg-color: rgb(246, 205, 76);
+				&.dash {
+					--chart-bg-color: #f6cd4c;
 				}
 			}
 			&:nth-of-type(6) {
@@ -147,8 +147,8 @@
 				&.bull,
 				&.bar,
 				&.line,
-				&.dash{
-					--chart-bg-color: rgb(202, 75, 69);
+				&.dash {
+					--chart-bg-color: #ca4b45;
 				}
 			}
 			&:nth-of-type(7) {
@@ -159,8 +159,8 @@
 				&.bull,
 				&.bar,
 				&.line,
-				&.dash{
-					--chart-bg-color: rgb(163, 194, 222);
+				&.dash {
+					--chart-bg-color: #a3c2de;
 				}
 			}
 			&:nth-of-type(8) {
@@ -171,8 +171,8 @@
 				&.bull,
 				&.bar,
 				&.line,
-				&.dash{
-					--chart-bg-color: rgb(229, 148, 56);
+				&.dash {
+					--chart-bg-color: #e59438;
 				}
 			}
 			&:nth-of-type(9) {
@@ -183,8 +183,8 @@
 				&.bull,
 				&.bar,
 				&.line,
-				&.dash{
-					--chart-bg-color: rgb(102, 191, 255);
+				&.dash {
+					--chart-bg-color: #66bfff;
 				}
 			}
 			&:nth-of-type(10) {
@@ -195,8 +195,8 @@
 				&.bull,
 				&.bar,
 				&.line,
-				&.dash{
-					--chart-bg-color: rgb(213, 97, 218);
+				&.dash {
+					--chart-bg-color: #d561da;
 				}
 			}
 		}

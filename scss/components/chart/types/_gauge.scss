@@ -10,20 +10,19 @@
 figure.ichart.circle.gauge,
 figure.ichart2.circle.gauge,
 figure.ichartvNext.circle.gauge {
-	overflow:hidden;
-	width:100%;
+	overflow: hidden;
+	width: 100%;
 	.center {
-		position: relative;
-		top:1rem;
-		right:2.5rem;
-		bottom:2.5rem;
-		left:1rem;
-		height:calc(100% - (1rem * 2));
-		width:calc(100% - (1rem * 2));
+		top: 1rem;
+		right: 2.5rem;
+		bottom: 2.5rem;
+		left: 1rem;
+		height: calc(100% - (1rem * 2));
+		width: calc(100% - (1rem * 2));
 		background-color: var(--white);
 		z-index: 1;
-		animation:none;
-		opacity:1;
+		animation: none;
+		opacity: 1;
 		box-shadow: none;
 		span,
 		strong {
@@ -37,19 +36,19 @@ figure.ichartvNext.circle.gauge {
 			background-color: var(--white);
 			// width: 45%;
 			// height: 45%;
-			svg{
+			svg {
 				transform: rotateZ(-45deg);
 				font-size: 2.75em;
 			}
 		}
-		.sm-title{
-			z-index:1;
+		.sm-title {
+			z-index: 1;
 		}
 		.center__label {
 			font-size: get-rem(16);
 		}
-		&::before{
-			display:none;
+		&::before {
+			display: none;
 		}
 	}
 	canvas {
@@ -68,7 +67,7 @@ figure.ichartvNext.circle.gauge {
 			position: absolute;
 			z-index: 1;
 			font-size: 1em;
-			color: rgb(144, 156, 163);
+			color: #909ca3;
 			&:first-child {
 				left: 20%;
 				bottom: 10%;

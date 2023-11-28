@@ -1,11 +1,10 @@
-@use '../../../base/variables/colors/index' as *;
-@use '../../../base/functions/hex-to-rgb' as *;
+@use 'sass:color';
+@use '../../../base/variables/colors/branding' as b;
 
 $box-shadow: scale-color(
-	$color: $scorp-gray2,
-	$alpha: -90%,
+	$color: b.$scorp-gray2,
+	$alpha: -90%
 );
-
 .input-suggest {
 	.suggestions {
 		--suggestions-bg: var(--white);

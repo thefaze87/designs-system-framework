@@ -1,11 +1,16 @@
-@use '../../base/variables/colors/index' as *;
+@use 'sass:color';
 @use '../../base/functions/rem-em' as *;
-
-// Component Mixins and Variables
+@use '../../base/variables/colors/colors' as proj;
 @use './circle.mixin' as *;
 @use './circle.variables' as *;
 
+$shadow: scale-color(
+	$color: proj.$black,
+	$alpha: -70%
+);
+
 // Circle
+
 .circle {
 	@extend %circle;
 	width: #{get-rem(36)};
@@ -15,20 +20,20 @@
 	justify-content: center;
 	display: flex;
 	flex: 0 0 auto;
-	background-color: var(--bg-color);
-	color: var(--text-color);
+	background-color: var(--bg-color, var(--scorp-blue));
+	color: var(--text-color, var(--white));
 
 	&.shadow {
-		box-shadow: 0 0.15em 0.5em -0.1em rgba($black, 30%);
+		box-shadow: 0 0.15em 0.5em -0.1em $shadow;
 	}
 
 	// Staff Circle
 	&.staff {
 		border: {
-			width: 2px;
+			width: 1px;
 			style: solid;
 		}
-		border-color: var(--outline-color, var(--scorp-blue3));
+		border-color: var(--outline-color, var(--scorp-blue3)); // Didn't change this (it uses outline color instead of border color due to the component using o- to a component driven theme color to allow for o- class to change the color
 
 		.profile {
 			@extend %circle;
@@ -37,8 +42,7 @@
 			background: {
 				size: cover;
 				position: center;
-			  	// @todo: Image to resolve and decouple
-			  	image: url(https://success.scorpion.co/cms/thumbnails/34/62x62/images/staff-2020/headshots/.jpg);
+				image: url(https://success.scorpion.co/cms/thumbnails/34/62x62/images/staff-2020/headshots/.jpg);
 			}
 		}
 	}

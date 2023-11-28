@@ -10,6 +10,10 @@
 	width: get-rem(176);
 	box-shadow: var(--input-search-box-shadow);
 
+	> svg {
+		font-size: get-rem(24);
+	}
+
 	input {
 		width: 100%;
 		&:active,
@@ -34,6 +38,8 @@
 		color: var(--input-text-color);
 	}
 
+	// Legacy
+	// @todo: when this stealth is fully removed, we should update and remove this legacy styles
 	&.stealth {
 		&.mini {
 			border: none;
@@ -43,7 +49,10 @@
 			border-radius: get-rem(8);
 			background-color: var(--stealth-bg);
 			color: var(--stealth-text-color);
-			transition: width $transition-default, box-shadow $transition-default, opacity $transition-default;
+			transition:
+				width $transition-default,
+				box-shadow $transition-default,
+				opacity $transition-default;
 			transform-origin: right;
 			display: flex;
 			align-items: center;
@@ -65,7 +74,10 @@
 			input {
 				width: 0;
 				padding: 0;
-				transition: width $transition-default, opacity $transition-default, visibility $transition-default;
+				transition:
+					width $transition-default,
+					opacity $transition-default,
+					visibility $transition-default;
 				opacity: 0;
 				visibility: hidden;
 				font-size: get-rem(14);
@@ -84,7 +96,6 @@
 				line-height: 1;
 			}
 			.close {
-				width: 0;
 				visibility: hidden;
 				opacity: 0;
 				background-color: var(--input-search-close-bg);
@@ -92,7 +103,9 @@
 				border-radius: 50%;
 				width: 0;
 				height: 0;
-				transition: opacity $transition-default, visibility $transition-default;
+				transition:
+					opacity $transition-default,
+					visibility $transition-default;
 				& > svg {
 					width: get-rem(14);
 					transform: translate(3px, 2px);
@@ -109,7 +122,6 @@
 			width: 100%;
 			gap: get-rem(6);
 			.close {
-				width: get-rem(18);
 				visibility: visible;
 				opacity: 1;
 				width: get-rem(20);
@@ -157,4 +169,96 @@ input[type='search']::-webkit-search-results-button,
 input[type='search']::-webkit-search-results-decoration {
 	display: none;
 	-webkit-appearance: none;
+}
+
+/* Floating Search */
+
+.search--floating {
+	max-width: 87rem;
+	width: 100%;
+	label {
+		font-size: 1.125rem;
+		display: block;
+		text-align: center;
+	}
+
+	.search-bar {
+		background-color: var(--white);
+		padding: 1.25rem 1.25em 1.25rem 4rem;
+		height: 5rem;
+		border-radius: 0.5rem;
+		position: relative;
+		transition: background-color 0.3s ease;
+		box-shadow: 0 0.25rem 0.5rem rgba(46, 89, 132, 0.2);
+
+		> svg {
+			color: var(--scorp-black);
+			font-size: 1.75rem;
+			position: absolute;
+			top: 50%;
+			left: 1.25rem;
+			transform: translate(0, -50%);
+			margin: 0;
+		}
+
+		input {
+			background-color: transparent;
+			border: none;
+			color: var(--scorp-black);
+			padding: 0.8rem 0.5rem;
+			font-family: inherit;
+			font-size: 1rem;
+			resize: none;
+			width: 100%;
+			display: block;
+			font-weight: 400;
+			transition: color 0.3s ease;
+		}
+
+		button {
+			opacity: 0;
+			visibility: hidden;
+			transition:
+				opacity 0.3s ease,
+				background-color 0.3s ease,
+				visibility 0.3s ease 0.3s;
+		}
+
+		&:focus-within button {
+			opacity: 1;
+			visibility: visible;
+			transition:
+				opacity 0.3s ease,
+				background-color 0.3s ease;
+		}
+
+		.tags {
+			display: none;
+			opacity: 0;
+			transition: opacity 0.3s ease;
+
+			> li {
+				border-radius: var(--border-radius);
+				background-color: var(--scorp-gray1);
+				padding: 0.625rem 1.25rem;
+
+				span {
+					color: var(--scorp-gray2);
+				}
+
+				a {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					font-size: 0.625rem;
+					color: var(--scorp-gray3);
+					margin-left: 1rem;
+				}
+			}
+		}
+	}
+
+	.input-suggest::before {
+		display: none;
+	}
 }

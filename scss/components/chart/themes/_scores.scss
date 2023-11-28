@@ -1,4 +1,4 @@
-.theme--score{
+.theme--score {
 	.ichart,
 	.ichart2,
 	&.ichart,
@@ -37,7 +37,7 @@
 }
 
 .theme--score {
-	tr.legend--row, li.legend--item {
+	tr.legend--row {
 		&:first-of-type {
 			.bull,
 			.bar,
@@ -46,8 +46,8 @@
 			&.bull,
 			&.bar,
 			&.line,
-			&.dash  {
-				--chart-bg-color: rgb(0, 127, 253); // #007ffd
+			&.dash {
+				--chart-bg-color: #007ffd; // #007ffd
 			}
 		}
 		&:nth-of-type(2) {
@@ -59,7 +59,7 @@
 			&.bar,
 			&.line,
 			&.dash {
-				--chart-bg-color: rgb(35, 191, 87);
+				--chart-bg-color: #23bf57;
 			}
 		}
 		&:nth-of-type(3) {
@@ -70,8 +70,8 @@
 			&.bull,
 			&.bar,
 			&.line,
-			&.dash  {
-				--chart-bg-color: rgb(199, 171, 5);
+			&.dash {
+				--chart-bg-color: #c7ab05;
 			}
 		}
 		&:nth-of-type(4) {
@@ -82,8 +82,8 @@
 			&.bull,
 			&.bar,
 			&.line,
-			&.dash  {
-				--chart-bg-color: rgb(248, 134, 34);
+			&.dash {
+				--chart-bg-color: #f88622;
 			}
 		}
 		&:nth-of-type(5) {
@@ -94,8 +94,8 @@
 			&.bull,
 			&.bar,
 			&.line,
-			&.dash  {
-				--chart-bg-color: rgb(209, 43, 28);
+			&.dash {
+				--chart-bg-color: #d12b1c;
 			}
 		}
 	}

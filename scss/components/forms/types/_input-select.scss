@@ -1,7 +1,8 @@
 @use '../../../base/functions/rem-em' as *;
 @use '../forms.mixin' as *;
 
-.input-select {
+.input-select,
+.input-text.select {
 	position: relative;
 	&::before {
 		@extend %select-before;

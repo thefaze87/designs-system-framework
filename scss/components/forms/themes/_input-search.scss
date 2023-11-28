@@ -18,11 +18,13 @@
 		&.filled,
 		&:focus-within {
 			--stealth-bg: var(--white);
+			--input-bg-color: var(--white);
 		}
 	}
 
 	&-simple {
 		--input-border-color: var(--scorp-gray3);
+		--input-background: var(--white);
 		--input-bg-color: var(--white);
 
 		.search {

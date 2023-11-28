@@ -1,5 +1,18 @@
 @use "sass:list";
 @use "sass:map";
+@use 'sass:color';
+
+@use '../../base/variables/colors/branding' as b;
+
+$chart-track-bg: scale-color(
+	$color: b.$scorp-gray1,
+	$alpha: -50%
+);
+
+$center-box-shadow: scale-color(
+	$color: b.$scorp-black,
+	$alpha: -85%
+);
 
 $default1: #007ffd;
 $default2: #66aeff;
@@ -14,11 +27,15 @@ $default10: #ff7272;
 $default11: #28445b;
 $progress-default1: #23bf57;
 $progress-default2: #f2f2f5;
-$leads-default1: linear-gradient(to bottom,rgb(109, 89, 255), rgb(219,214,255));
-$leads-default2: linear-gradient(to bottom,rgb(88,219,218),rgb(214,246,246));
-$leads-default3: linear-gradient(to bottom, rgb(0,127,253), rgb(102,178,254));
-$green-red-default1: linear-gradient(to bottom,rgb(35, 191, 87), rgb(159,221,181));
-$green-red-default2: linear-gradient(to bottom,rgb(209, 43, 28),rgb(220,204,207));
+$leads-default1: linear-gradient(to bottom, #6d59ff, #dbd6ff);
+$leads-default2: linear-gradient(to bottom, #58dbda, #d6f6f6);
+$leads-default3: linear-gradient(to bottom, #007ffd, #66b2fe);
+$leads-4-color-default1: linear-gradient(to bottom, #007ffd, #66b2fe);
+$leads-4-color-default2: linear-gradient(to bottom, #58dbda, #d6f6f6);
+$leads-4-color-default3: linear-gradient(to bottom, #6d59ff, #dbd6ff);
+$leads-4-color-default4: linear-gradient(to bottom, #77c767, #aedda4);
+$green-red-default1: linear-gradient(to bottom, #23bf57, #9fddb5);
+$green-red-default2: linear-gradient(to bottom, #d12b1c, #dccccf);
 
 $chart-themes: (
 	'default': (
@@ -32,7 +49,7 @@ $chart-themes: (
 		default8: $default8,
 		default9: $default9,
 		default10: $default10,
-		default11: $default11,
+		default11: $default11
 	),
 	'primary': (
 		primary1: $default1,
@@ -45,7 +62,7 @@ $chart-themes: (
 		primary8: $default8,
 		primary9: $default9,
 		primary10: $default10,
-		primary11: $default11,
+		primary11: $default11
 	),
 	'channels': (
 		channel1: $default1,
@@ -58,7 +75,7 @@ $chart-themes: (
 		channel8: $default7,
 		channel9: $default3,
 		channel0: $default10,
-		channel11: $default11,
+		channel11: $default11
 	),
 	'line': (
 		line1: $default1,
@@ -70,44 +87,50 @@ $chart-themes: (
 		line7: $default8,
 		line8: $default9,
 		line9: $default10,
-		line10: $default11,
+		line10: $default11
 	),
 	'status': (
 		'red': $default10,
 		'yellow': $default7,
-		'green': $default5,
+		'green': $default5
 	),
 	'spend': (
 		spend: $default5,
-		target: $default1,
+		target: $default1
 	),
 	'flipped-blue': (
 		default1: $default3,
 		default2: $default2,
-		default3: $default1,
+		default3: $default1
 	),
 	'progress': (
 		default1: $progress-default1,
-		default2: $progress-default2,
+		default2: $progress-default2
 	),
 	'single-line-blue': (
-		line1: $default1,
+		line1: $default1
 	),
 	'single-line-blue2': (
-		line2: $default2,
+		line2: $default2
 	),
 	'single-line-purple': (
-		line3: $default4,
+		line3: $default4
 	),
-	'-leads':(
-		leads1:$leads-default1,
-		leads2:$leads-default2,
-		leads3:$leads-default3
+	'-leads': (
+		leads1: $leads-default1,
+		leads2: $leads-default2,
+		leads3: $leads-default3
 	),
-	'-green-red':(
-		leads1:$green-red-default1,
-		leads2:$green-red-default2
+	'-leads-4-color': (
+		leads4color1: $leads-4-color-default1,
+		leads4color2: $leads-4-color-default2,
+		leads4color3: $leads-4-color-default3,
+		leads4color4: $leads-4-color-default4
 	),
+	'-green-red': (
+		leads1: $green-red-default1,
+		leads2: $green-red-default2
+	)
 );
 
 // Create new chart color map
@@ -121,17 +144,23 @@ $chart-color-map: ();
 			$chart-color-map: map.merge(
 				$chart-color-map,
 				(
-					$name: $color,
+					$name: $color
 				)
 			);
 		}
 	}
 }
 
-$tip-bg: rgba(9, 50, 92, 0.9); // var(--tooltip)
+$tip-bg: scale-color(
+	$color: #09325c,
+	$alpha: -10%
+);
 $tip-color: var(--white);
 $tip-title: var(--white);
-$tip-accent: rgba(9, 50, 92, 0.9);
+$tip-accent: scale-color(
+	$color: #09325c,
+	$alpha: -10%
+);
 $tip-shadow: none;
 $tip-bubble: 8px;
 $tip-border: none;

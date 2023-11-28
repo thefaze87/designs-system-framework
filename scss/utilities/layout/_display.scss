@@ -9,6 +9,7 @@
 /// @access public
 ///
 @each $property in $display-properties {
+	.d-#{$property},
 	.#{$property} {
 		display: #{$property};
 	}

@@ -1,6 +1,6 @@
 {
 	"name": "@scorpion/shared-ui",
-	"version": "0.4.2",
+	"version": "0.4.9",
 	"description": "Shared UI Framework for the internal product development for Scorpion",
 	"repository": {
 		"type": "git",

@@ -1,3 +1,15 @@
+@use 'sass:color';
+@use '../../base/variables/colors/branding' as brand;
+@use '../../base/variables/colors/colors' as colors;
+$invert-bg: scale-color(
+	$color: brand.$scorp-black,
+	$alpha: -80%,
+);
+$invert-interactive-color: scale-color(
+	$color: colors.$white,
+	$alpha: -30%,
+);
+
 .card {
 	// Gray cards (also used for child card)
 	&--gray {
@@ -33,5 +45,16 @@
 	&.card__status--blue {
 		--card-bg-color: var(--blue3);
 		--card-border-color: var(--scorp-blue);
+	}
+
+	&.invert .card {
+		--text-color: var(--scorp-black);
+		--bg-color: #{$invert-bg};
+		--border-color: transparent;
+
+		&--interactive {
+			--text-color: #{$invert-interactive-color};
+			--bg-color: #{$invert-bg};
+		}
 	}
 }

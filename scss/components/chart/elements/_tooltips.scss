@@ -1,11 +1,13 @@
-@use '../chart.mixins' as *;
 @use '../../../base/functions/rem-em' as *;
+@use '../../../base/variables/var' as *;
+
+@use '../chart.mixins' as *;
 
 .cms-tooltip2 {
 	@include toolTip;
 	@include tipBG;
 	font-size: #{get-rem(12)};
-	box-shadow: 0 4px 8px rgba(25,25,25, 0.2);
+	box-shadow: 0 4px 8px $flyout-shadow-color;
 	color: var(--text-color, var(--scorp-gray3));
 	padding: #{get-rem(16)};
 	white-space: nowrap;
@@ -46,4 +48,3 @@
 		font-size: #{get-em(16)};
 	}
 }
-

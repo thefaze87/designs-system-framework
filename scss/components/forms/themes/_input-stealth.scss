@@ -1,15 +1,54 @@
-@use '../../../base/variables/colors/index' as *;
-
-.input-stealth {
-	--input-bg-color: var(--white);
+.input-stealth,
+.input-text.stealth {
+	--input-bg-color: var(--gray5);
 	--icon-color: var(--scorp-blue);
+	--input-border-color: transparent;
+	--input-text-color: var(--scorp-black);
+
+	&:focus-within,
+	&:hover,
+	&:focus {
+		--input-border-color: var(--scorp-gray3);
+		--input-bg-color: var(--white);
+	}
+
 	> a {
 		--icon-color: var(--scorp-gray2); // Default Icon Color
 		&.search {
 			--icon-color: var(--scorp-black); // Search Icon Color
 		}
 	}
+
+	// TODO: This needs to be reviewed and removed across CSX and opt for just stealh or search modifiers
 	&.mini {
-		--stealth-bg: rgba($scorp-gray2, 10%);
+		--stealth-bg: rgba(134, 137, 143, 0.1);
 	}
+}
+
+.input-text.search {
+	--input-bg-color: var(--white);
+	--icon-color: var(--scorp-blue);
+	--input-border-color: var(--scorp-gray3);
+	--input-text-color: var(--scorp-black);
+
+	&:focus-within {
+		--input-border-color: var(--scorp-gray2);
+		--input-bg-color: var(--white);
+	}
+
+	&:focus-within,
+	&:hover,
+	&:focus {
+		--input-border-color: var(--scorp-gray2);
+		--input-bg-color: var(--white);
+	}
+}
+
+.focused.invalid .input-stealth,
+.invalid .input-stealth,
+.invalid .input-text.stealth,
+.focused.invalid .input-text.stealth,
+.invalid .input-text.search,
+.focused.invalid .input-text.search {
+	--input-border-color: var(--red);
 }

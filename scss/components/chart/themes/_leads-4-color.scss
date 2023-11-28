@@ -1,0 +1,102 @@
+@use '../../../base/variables/colors/branding' as brand;
+
+.ichart,
+.ichart2 {
+	&.theme--leads-4-color {
+		> span:first-of-type {
+			--chart-bg-image: linear-gradient(to bottom, #007ffd, #66b2fe);
+			--chart-bg-color: #007ffd;
+			--chart-color: #007ffd;
+			--chart-border-color: #007ffd;
+		}
+		> span:nth-of-type(2) {
+			--chart-bg-image: linear-gradient(to bottom, #58dbda, #d6f6f6);
+			--chart-bg-color: #58dbda;
+			--chart-color: #58dbda;
+			--chart-border-color: #58dbda;
+		}
+		> span:nth-of-type(3) {
+			--chart-bg-image: linear-gradient(to bottom, #6d59ff, #dbd6ff);
+			--chart-bg-color: #6d59ff;
+			--chart-color: #6d59ff;
+			--chart-border-color: #6d59ff;
+		}
+		> span:nth-of-type(4) {
+			--chart-bg-image: linear-gradient(to bottom, #77c767, #aedda4);
+			--chart-bg-color: #77c767;
+			--chart-color: #77c767;
+			--chart-border-color: #77c767;
+		}
+	}
+}
+
+.theme--leads-4-color {
+	.legend--item {
+		&:first-of-type {
+			.bull,
+			.bar,
+			.line,
+			.dash,
+			&.bull,
+			&.bar,
+			&.line,
+			&.dash {
+				--chart-bg-color: #007ffd;
+			}
+		}
+		&:nth-of-type(2) {
+			.bull,
+			.bar,
+			.line,
+			.dash,
+			&.bull,
+			&.bar,
+			&.line,
+			&.dash {
+				--chart-bg-color: #58dbda;
+			}
+		}
+		&:nth-of-type(3) {
+			.bull,
+			.bar,
+			.line,
+			.dash,
+			&.bull,
+			&.bar,
+			&.line,
+			&.dash {
+				--chart-bg-color: #6d59ff;
+			}
+		}
+		&:nth-of-type(4) {
+			.bull,
+			.bar,
+			.line,
+			.dash,
+			&.bull,
+			&.bar,
+			&.line,
+			&.dash {
+				--chart-bg-color: #77c767;
+			}
+		}
+	}
+	.legend--row {
+		&__1 {
+			.bull,
+			.bar,
+			.line,
+			.dash {
+				--chart-bg-color: #{brand.$scorp-blue};
+			}
+		}
+		&__2 {
+			.bull,
+			.bar,
+			.line,
+			.dash {
+				--chart-bg-color: #58dbda;
+			}
+		}
+	}
+}

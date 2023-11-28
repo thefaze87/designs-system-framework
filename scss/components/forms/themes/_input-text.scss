@@ -1,4 +1,4 @@
-@use '../../../base/variables/colors/index' as *;
+@use '../forms.var' as *;
 
 .input-text {
 	--input-border-color: var(--scorp-gray3);
@@ -12,10 +12,14 @@
 	}
 	.invalid & {
 		--input-border-color: var(--red);
-		--input-bg-color: rgba($red, 5%);
+		--input-bg-color: #{$invalid-bg-color};
 	}
 	.focused.invalid & {
 		--input-border-color: var(--red);
+	}
+	&.invert {
+		--input-border-color: transparent;
+		--input-bg-color: var(--scorp-gray1);
 	}
 
 	// Invalid styles based on data-validity
@@ -29,7 +33,7 @@
 	[data-validity='typeMismatch'] &,
 	[data-validity='valueMissing'] & {
 		--input-border-color: var(--red);
-		--input-bg-color: rgba($red, 5%);
+		--input-bg-color: #{$invalid-bg-color};
 	}
 
 	// Invalid focus styles based on data-validity

@@ -3,60 +3,159 @@
 
 @use '../forms.mixin' as *;
 
-.input-stealth {
-	@extend %input-basics;
-	justify-content: center;
+// TODO: remove input-stealth and input-text.stealth here when all HTML instances have been removed and updated to .input-text.search
+.input-stealth,
+.input-text.stealth,
+.input-text.search {
 	display: flex;
-	max-width: get-rem(176);
-	width: 100%;
-	> a {
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition:
+		background-color $transition-default,
+		width $transition-default,
+		border-color $transition-default;
+	padding: 0;
+}
+
+.input-text.search {
+	@extend %input-basics;
+	display: flex;
+	align-items: center;
+	gap: get-rem(8);
+	width: get-rem(176);
+
+	// Search Icon
+	.search {
 		position: relative;
-		top: auto;
-		right: auto;
-		transform: none;
+		top: get-rem(1);
+		left: get-rem(8);
+	}
+
+	input {
+		@extend %search-input;
+		border: none;
+		width: 100%;
+	}
+}
+
+.input-stealth,
+.input-text.stealth {
+	@extend %stealth-basics;
+	width: get-rem(36);
+
+	// Stealth Input Action Links (Search action and Close Action)
+	> a {
+		display: block;
 		color: var(--icon-color);
-		font-size: #{get-rem(22)};
+		font-size: #{get-rem(16)};
+		line-height: 0;
+		position: absolute;
+		top: 50%;
+		left: get-rem(8);
+		z-index: 1;
+		transform: translateY(#{get-rem(-8)});
+
+		// Search Icon
 		&.search {
-			left: 0; // TODO: Temp to override non-framework pages
+			top: get-rem(9);
+			left: 0;
+			padding: get-rem(8);
 		}
+
 		&.close {
+			display: block;
 			width: 0;
 			visibility: hidden;
 			opacity: 0;
-			display: none;
-			transition: width $transition-default, opacity $transition-default, visibility $transition-default;
+			top: 50%;
+			right: 0;
+			left: unset;
+			transition:
+				opacity $transition-default,
+				visibility $transition-default,
+				width 0.3s ease 0s;
+			svg {
+				fill: var(--icon-color);
+			}
+			order: 3;
 		}
 	}
+
+	// Input Styles
 	input {
+		display: none;
+		padding: 0 0 0 get-rem(32);
 		border: none;
 		width: 0;
+		height: 100%;
 		transition: width $transition-default;
-		padding: 0;
-		display: none;
-	}
-	&.active,
-	&:focus-within {
-		> a {
-			&.close {
-				width: auto;
+
+		&:focus {
+			~ .close {
+				width: get-rem(24);
+				height: get-rem(24);
 				visibility: visible;
 				opacity: 1;
-				display: block;
+				transition:
+					opacity $transition-default,
+					visibility $transition-default,
+					width 0.3s ease 0s;
 			}
 		}
+	}
+
+	// Active, Focused, Filled, and Focus-within Styles
+	&.active,
+	&.focused,
+	&.filled,
+	&:focus-within {
+		gap: get-rem(4);
+		width: get-rem(176);
+
+		// Stealth Input Action Links (Search action and Close Action)
+		> a {
+			&.close {
+				width: get-rem(24);
+				height: get-rem(24);
+				visibility: visible;
+				opacity: 1;
+			}
+		}
+
+		// Input Styles
 		input {
+			display: block;
 			width: 100%;
 			opacity: 1;
 			visibility: visible;
-			display: block;
+
+			&:focus {
+				~ .close {
+					width: get-rem(24);
+					height: get-rem(24);
+					visibility: visible;
+					opacity: 1;
+				}
+			}
 		}
 	}
-	&.mini {
-		max-width: get-rem(36);
-		border-radius: get-rem(8);
-		background-color: var(--stealth-bg);
-		&.active {
-			max-width: get-rem(176);
+}
+
+// Applies Styles to the input and a.close when there is a focused class on a container around the input-text / stealth
+.focused {
+	.input-stealth,
+	.input-text.search,
+	.input-text.stealth {
+		& > input {
+			width: get-rem(320);
+		}
+
+		& a.close {
+			width: get-rem(24);
+			height: get-rem(24);
+			visibility: visible;
+			opacity: 1;
 		}
 	}
 }

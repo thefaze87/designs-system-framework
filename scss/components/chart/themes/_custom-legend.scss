@@ -1,69 +1,75 @@
 @use '../../../base/variables/colors/charts' as *;
-.legend.custom{
+.legend.custom {
 	.bull,
 	.bar,
 	.line,
 	.dash,
-	.legend--item {//.legend--item is in here for the documentation page, it will not set the bg without the inline styling
-		.bg-chart-blue,
-		&.bg-chart-blue {
+	.legend--item {
+		//.legend--item is in here for the documentation page, it will not set the bg without the inline styling
+		.bg-chart-blue, // This should be the default way of using. Please create the legend type as it's own element.
+		&.bg-chart-blue,
+		&.bg-chart-blue::before {
 			--chart-bg-color: var(--chart-blue);
 		}
+		.bg-chart-light-blue,
+		&.bg-chart-light-blue,
+		&.bg-chart-light-blue::before {
+			--chart-bg-color: var(--chart-light-blue);
+		}
 		.bg-chart-aqua,
-		&.bg-chart-aqua {
+		&.bg-chart-aqua,
+		&.bg-chart-aqua::before {
 			--chart-bg-color: var(--chart-aqua);
 		}
 		.bg-chart-purple,
-		&.bg-chart-purple
-			{
+		&.bg-chart-purple,
+		&.bg-chart-purple::before {
 			--chart-bg-color: var(--chart-purple);
 		}
 		.bg-chart-green,
-		&.bg-chart-green
-			{
+		&.bg-chart-green,
+		&.bg-chart-green::before {
 			--chart-bg-color: var(--chart-green);
 		}
 		.bg-chart-yellow,
-		&.bg-chart-yellow
-			{
+		&.bg-chart-yellow,
+		&.bg-chart-yellow::before {
 			--chart-bg-color: var(--chart-yellow);
 		}
 		.bg-chart-red,
-		&.bg-chart-red
-			{
+		&.bg-chart-red,
+		&.bg-chart-red::before {
 			--chart-bg-color: var(--chart-red);
 		}
 		.bg-chart-steel-blue,
-		&.bg-chart-steel-blue
-			{
+		&.bg-chart-steel-blue,
+		&.bg-chart-steel-blue::before {
 			--chart-bg-color: var(--chart-steel-blue);
 		}
 		.bg-chart-orange,
-		&.bg-chart-orange
-			{
+		&.bg-chart-orange,
+		&.bg-chart-orange::before {
 			--chart-bg-color: var(--chart-orange);
 		}
 		.bg-chart-cyan,
-		&.bg-chart-cyan
-			{
+		&.bg-chart-cyan,
+		&.bg-chart-cyan::before {
 			--chart-bg-color: var(--chart-cyan);
 		}
 		.bg-chart-magenta,
-		&.bg-chart-magenta
-			{
+		&.bg-chart-magenta,
+		&.bg-chart-magenta::before {
 			--chart-bg-color: var(--chart-magenta);
 		}
 		.bg-chart-filler,
-		&.bg-chart-filler
-			{
+		&.bg-chart-filler,
+		&.bg-chart-filler::before {
 			--chart-bg-color: var(--chart-filler);
 		}
 		.bg-chart-target,
-		&.bg-chart-target
-			{
+		&.bg-chart-target,
+		&.bg-chart-target::before {
 			--chart-bg-color: var(--chart-target);
 		}
 	}
 }
-
-

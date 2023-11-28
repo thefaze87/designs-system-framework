@@ -3,9 +3,6 @@
 @use '../../base/variables/colors/social' as *;
 
 .circle {
-	--bg-color: var(--scorp-blue);
-	--text-color: var(--white);
-
 	&.progress-circle {
 		--bg-color: transparent;
 		& span {
@@ -18,7 +15,7 @@
 		}
 	}
 
-	// // Contract Colors
+	// Contract Colors
 	// @each $contract-type, $value in $contract-color-values {
 	// 	&--#{$contract-type} {
 	// 		--bg-color: var(--#{$contract-type});
@@ -37,6 +34,10 @@
 	&.size-auto {
 		width: auto;
 		height: auto;
+	}
+	&.size-16 {
+		width: #{get-rem(16)};
+		height: #{get-rem(16)};
 	}
 	&.size-24 {
 		width: #{get-rem(24)};

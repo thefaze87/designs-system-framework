@@ -3,8 +3,13 @@
 
 .mock {
 	&-input {
-		@extend %input-reset;
+		outline: none;
+		margin: 0;
+		resize: none;
 		@extend %input-basics;
+		input {
+			width: 100%;
+		}
 	}
 	&--select::before {
 		@extend %select-before;

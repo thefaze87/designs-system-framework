@@ -1,26 +1,25 @@
-
 .theme--green-red {
 	.ichart,
 	.ichart2,
 	&.ichart,
 	&.ichart2 {
 		> span:first-of-type {
-			--chart-bg-color:rgb(35, 191, 87);
-			--chart-color:rgb(35, 191, 87);
-			--chart-border-color:rgb(35, 191, 87);
-			--chart-bg-image: linear-gradient(to bottom,rgb(35, 191, 87), rgb(159,221,181));
+			--chart-bg-color: #23bf57;
+			--chart-color: #23bf57;
+			--chart-border-color: #23bf57;
+			--chart-bg-image: linear-gradient(to bottom, #23bf57, #9fddb5);
 		}
 		> span:nth-of-type(2) {
-			--chart-bg-color:rgb(209, 43, 28);
-			--chart-color:rgb(209, 43, 28);
-			--chart-border-color:rgb(209, 43, 28);
-			--chart-bg-image: linear-gradient(to bottom,rgb(209, 43, 28),rgb(220,204,207));
+			--chart-bg-color: #d12b1c;
+			--chart-color: #d12b1c;
+			--chart-border-color: #d12b1c;
+			--chart-bg-image: linear-gradient(to bottom, #d12b1c, #dccccf);
 		}
 	}
 }
 
 .theme--green-red {
-	.legend{
+	.legend {
 		.legend--item {
 			&:first-of-type {
 				.bull,
@@ -31,7 +30,7 @@
 				&.bar,
 				&.line,
 				&.dash {
-					--chart-bg-color: rgb(35, 191, 87);
+					--chart-bg-color: #23bf57;
 				}
 			}
 			&:nth-of-type(2) {
@@ -43,7 +42,29 @@
 				&.bar,
 				&.line,
 				&.dash {
-					--chart-bg-color: rgb(209, 43, 28);
+					--chart-bg-color: #d12b1c;
+				}
+			}
+		}
+		.legend--row {
+			&__1 {
+				.legend--item {
+					.bull,
+					.bar,
+					.line,
+					.dash {
+						--chart-bg-color: #23bf57;
+					}
+				}
+			}
+			&__2 {
+				.legend--item {
+					.bull,
+					.bar,
+					.line,
+					.dash {
+						--chart-bg-color: #d12b1c;
+					}
 				}
 			}
 		}

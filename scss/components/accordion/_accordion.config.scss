@@ -1,0 +1,226 @@
+@use '../../base/functions/rem-em' as *;
+
+.accordion {
+	$accordion-element: &;
+	&--simple {
+		border-bottom: 1px solid var(--border-color, var(--border));
+		margin-bottom: get-rem(18);
+		padding-bottom: get-rem(18);
+	}
+
+	// Helper accordion classes to reduce the amount of utility classes
+	// Accordion Row
+	&--row {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: get-rem(8);
+	}
+
+	// Accordion Column
+	&--col {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: get-rem(8);
+	}
+
+	// Accordion Header
+	> header,
+	&--header {
+		position: relative;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: get-rem(5);
+		padding-left: get-rem(14);
+		justify-content: space-between;
+		cursor: pointer;
+
+		// Set styles to twirl down if it is added to the accordion header element
+		&.ui-twirl {
+			&::before {
+				--twirl-arrow: var(--scorp-black);
+				left: get-rem(5);
+				transition: transform 0.3s ease 0.2s;
+				transform: rotateZ(0deg) scale(0.75);
+				top: 50%;
+				margin-top: get-rem(-8);
+			}
+		}
+
+		// Set styles to twirl down if active is added to the accordion header element
+		&.active {
+			&.ui-twirl {
+				&::before {
+					transition: transform 0.2s ease 0s;
+					transform: rotateZ(90deg) scale(0.75);
+				}
+			}
+		}
+	}
+
+	// Accordion Title
+	&--title {
+		font-size: get-rem(16);
+		font-weight: 600;
+		line-height: 150%;
+		color: var(--text-color, var(--scorp-black));
+		pointer-events: none;
+		padding-left: get-rem(8);
+
+		.icon {
+			--icon-bg-color: var(--gray6);
+			--icon-text-color: var(--scorp-black);
+		}
+	}
+
+	// Disable pointer events on the item count element to not interfere with the accordion header
+	.item-count {
+		pointer-events: none;
+	}
+
+	// Accordion Panel
+	&--panel {
+		margin-top: get-rem(12);
+
+		.accordion--content {
+			&.card--gray {
+				--border-color: transparent;
+				padding: get-rem(12);
+			}
+		}
+
+		&.open {
+			--transition: transform 0.5s ease 0s, opacity 0.5s ease 0s;
+		}
+	}
+
+	&--options {
+		& > li {
+			border-top: 1px solid var(--border-color, var(--border));
+			padding-top: get-rem(8);
+			margin-top: get-rem(8);
+			&:first-child,
+			&.no-results,
+			&.preloader {
+				border-top: none;
+				padding-top: 0;
+				margin-top: 0;
+			}
+		}
+	}
+
+	&.active {
+		.ui-twirl {
+			&::before {
+				transition: transform 0.2s ease 0s;
+				transform: rotateZ(90deg) scale(0.5);
+			}
+		}
+	}
+
+	// Actions
+	&--actions {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: get-rem(10);
+		margin-top: get-rem(10);
+		justify-content: flex-end;
+		margin-top: get-rem(8);
+		padding-top: get-rem(22);
+		border-top: 1px solid var(--border-color, var(--border));
+	}
+
+	&--card {
+		#{$accordion-element}--header {
+			--card-border-radius: 0.75rem;
+			--card-opacity: 1;
+
+			padding: get-rem(16);
+			background-color: var(--bg-color, var(--gray3));
+			color: var(--text-color, var(--scorp-black));
+			border-radius: var(--card-border-radius);
+			opacity: var(--card-opacity);
+			box-shadow:
+				inset 1px 0 0 var(--border),
+				inset -1px 0 0 var(--border),
+				inset 0 1px 0 var(--border),
+				inset 0 -1px 0 var(--border);
+
+			&.active {
+				box-shadow:
+					inset 1px 0 0 var(--scorp-blue),
+					inset -1px 0 0 var(--scorp-blue),
+					inset 0 1px 0 var(--scorp-blue),
+					inset 0 -1px 0 transparent;
+				border-bottom-left-radius: 0;
+				border-bottom-right-radius: 0;
+			}
+
+			&.ui-twirl {
+				&::before {
+					--twirl-arrow: var(--scorp-gray2); // Sets the color based on the designs
+					border-radius: get-rem(3); // More rounded
+					left: get-rem(12);
+				}
+			}
+		}
+
+		#{$accordion-element}--panel {
+			--card-border-radius: 0.75rem;
+			--card-opacity: 1;
+
+			position: relative;
+			margin-top: 0;
+			padding: get-rem(8) get-rem(16) get-rem(16);
+			background-color: var(--bg-color, var(--gray3));
+			color: var(--text-color, var(--scorp-black));
+			border-bottom-left-radius: var(--card-border-radius);
+			border-bottom-right-radius: var(--card-border-radius);
+			opacity: var(--card-opacity);
+			box-shadow:
+				inset 1px 0 0 transparent,
+				inset -1px 0 0 transparent,
+				inset 0 -1px 0 transparent;
+
+			// Divider between panel and header
+			&::before {
+				display: block;
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 1px;
+				width: calc(100% - 2px);
+				height: 1px;
+				background-color: var(--border);
+			}
+
+			&.active {
+				box-shadow:
+					inset 1px 0 0 var(--scorp-blue),
+					inset -1px 0 0 var(--scorp-blue),
+					inset 0 -1px 0 var(--scorp-blue);
+			}
+
+			.setting {
+				&--header {
+					display: flex;
+					flex-direction: row;
+					align-items: flex-start;
+					gap: get-rem(16);
+					justify-content: space-between;
+					width: 100%;
+				}
+				&--group {
+					display: flex;
+					flex-direction: column;
+					gap: get-rem(16);
+					justify-content: space-between;
+					width: 100%;
+				}
+			}
+		}
+	}
+}

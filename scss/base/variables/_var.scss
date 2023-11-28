@@ -2,13 +2,18 @@
 @use 'sass:map' as map;
 @use 'sass:color' as color;
 
-@use '../variables/colors/index' as *;
 @use '../functions/rem-em' as *;
 
+@use './colors/branding' as b;
+@use './colors/social' as s;
+@use './colors/contracts' as c;
+
 // Cursor Properties List
+// @todo Move to a utility variable file and integrate this in a utility class
 $cursor-properties: ('alias', 'all-scroll', 'auto', 'cell', 'context-menu', 'col-resize', 'copy', 'crosshair', 'default', 'e-resize', 'ew-resize', 'grab', 'help', 'move', 'n-resize', 'ne-resize', 'nesw-resize', 'ns-resize', 'nw-resize', 'nwse-resize', 'no-drop', 'none', 'not-allowed', 'pointer', 'progress', 'row-resize', 's-resize', 'se-resize', 'sw-resize', 'text', 'w-resize', 'wait', 'zoom-in', 'zoom-out');
 
 // Full Size
+// @todo Check if we are going to use this. It's currently not being used or outputted in the layout or grid utilities.
 $full: 100%;
 
 // Half Size
@@ -36,6 +41,8 @@ $body-width: (
 );
 
 // Heights Map List
+// This is an initial concept for heights based on other frameworks. This will need refactored and expanded to utilize current height classes as well as best practices.
+// @todo May be deprecated or no longer needed based on recent discovery with Fish and may not need to generate height utilities. Check to see if we need height utility classes.
 $heights: (0, 25, 50, 75, 100, 125, 150, 175, 200, 225, 250, 275, 300, 325, 350, 375, 400, 425, 450, 475, 500, 525, 550, 575, 600, 625, 650, 675, 700, 725, 750, 775, 800, 825, 850, 875, 900, 925, 950, 975, 1000);
 
 // Border Radius
@@ -47,8 +54,13 @@ $border-radius-small: get-rem(4);
 // Border Radius Large
 $border-radius-large: get-rem(16);
 
+$flyout-shadow-color: scale-color(
+	$color: b.$scorp-black,
+	$alpha: -80%,
+);
+
 // Box Shadow Flyout
-$box-shadow-flyout: 0 0.625rem 1.875rem rgba($scorp-black, 20%);
+$box-shadow-flyout: 0 0.625rem 1.875rem #{$flyout-shadow-color};
 
 // Box Shadow Card
 $box-shadow-outer: 0 #{get-rem(3)} #{get-rem(30)} var(--box-shadow-color-outer);
@@ -65,5 +77,64 @@ $box-shadow-inner-hover: inset 0 0 0 2px var(--box-shadow-color-inner);
 // Box Shadow Border Selected
 $box-shadow-inner-selected: inset 0 0 0 2px var(--box-shadow-color-inner);
 
-// Default transition
+// Transition
 $transition-default: 0.3s ease 0s;
+
+// Flex Variable
+$flex: "[class*='nlf']";
+
+// Flex Wrap Variable
+$flex-wrap: "[class*='-wrap']";
+
+// Flex Notwrap Variable
+$flex-notwrap: ":not([class*='-wrap'])";
+
+// Flex Col Variable
+$flex-col: "[class*='-column']";
+
+// Flex Notcol Variable
+$flex-notcol: ":not([class*='-column'])";
+
+// Flex Reverse Variable
+$flex-reverse: "[class*='-reverse']";
+
+// Flex Notreverse Variable
+$flex-notreverse: ":not([class*='-reverse'])";
+
+/// Direct sib Variable
+$direct-sib: '> .fc:not(option)';
+
+// Not last Variable
+$not-last: ':not(:last-child)';
+
+// Pad Type List Variable
+$pad-type-list: (
+	'pt': top,
+	'pb': bottom,
+	'pr': right,
+	'pl': left,
+	'pv': (
+		top,
+		bottom,
+	),
+	'ph': (
+		left,
+		right,
+	),
+);
+
+// Mar Type List Variable
+$mar-type-list: (
+	'mt': top,
+	'mb': bottom,
+	'mr': right,
+	'ml': left,
+	'mv': (
+		top,
+		bottom,
+	),
+	'mh': (
+		left,
+		right,
+	),
+);

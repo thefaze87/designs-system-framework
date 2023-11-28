@@ -1,5 +1,5 @@
+@use '../../base/functions/rem-em' as *;
 @use '../../base/functions/map-collect' as collection;
-
 @use '../../base/variables/colors/branding' as brand;
 @use '../../base/variables/colors/social' as social;
 @use '../../base/variables/colors/colors' as colors;
@@ -103,6 +103,13 @@
 				}
 				.meter {
 					--progress-bar-meter-bg: var(--bg-color, var(--green));
+				}
+			}
+		}
+		&--large {
+			&.complete {
+				&::after {
+					top: get-rem(4);
 				}
 			}
 		}

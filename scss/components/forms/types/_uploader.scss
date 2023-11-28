@@ -11,8 +11,8 @@
 	background-color: var(--uploader-bg-color);
 	border-radius: $border-radius;
 	border: {
-		width: 2px;
-		style: dashed;
+		width: 1px;
+		style: solid;
 		color: var(--uploader-border-color);
 	}
 	padding: #{get-em(48)} #{get-em(48)};

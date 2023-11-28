@@ -1,3 +1,18 @@
+@use 'sass:color';
+@use '../../base/variables/colors/branding' as brand;
+$invert-tab-group: scale-color(
+	$color: brand.$scorp-black,
+	$alpha: -80%,
+);
+$invert-tab-hover: scale-color(
+	$color: brand.$scorp-black,
+	$alpha: -80%,
+);
+$invert-tab-active: scale-color(
+	$color: brand.$scorp-black,
+	$alpha: -50%,
+);
+
 // Tab Theme for Tab on White Background
 .tabs {
 	--tab-group-bg: var(--gray4);
@@ -41,6 +56,53 @@
 			& + label {
 				--tab-bg: var(--white);
 				--tab-color: var(--scorp-black);
+			}
+		}
+	}
+
+	&.invert {
+		--tab-group-bg: #{$invert-tab-group};
+		& a {
+			--tab-bg: transparent;
+			--tab-color: var(--white);
+			--tab-border-color: transparent;
+			--tab-box-shadow: transparent;
+
+			&:hover {
+				--tab-bg: #{$invert-tab-hover};
+			}
+
+			// Reset this to ensure that the white bg is set on the active state
+			&.active,
+			&:active,
+			&:focus {
+				--tab-color: var(--white);
+				--tab-bg: #{$invert-tab-active};
+			}
+		}
+		& input {
+			& + label {
+				--tab-bg: transparent;
+				--tab-color: var(--white);
+				--tab-border-color: transparent;
+				--tab-box-shadow: transparent;
+			}
+
+			&:hover {
+				& + label {
+					--tab-bg: #{$invert-tab-hover};
+				}
+			}
+
+			// Active styles applied to the label when checked or active or focused
+			&.active,
+			&:checked,
+			&:active,
+			&:focus {
+				& + label {
+					--tab-color: var(--white);
+					--tab-bg: #{$invert-tab-active};
+				}
 			}
 		}
 	}

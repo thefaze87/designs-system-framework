@@ -1,3 +1,5 @@
+@use '../forms.var' as form;
+
 // Input Select Theme Styles - CSX
 .input-select {
 	--input-border-color: var(--scorp-gray3);
@@ -11,7 +13,7 @@
 	}
 	.invalid & {
 		--input-border-color: var(--red);
-		--input-bg-color: rgba($red, 5%);
+		--input-bg-color: #{form.$invalid-bg-color};
 	}
 	.focused.invalid & {
 		--input-border-color: var(--red);

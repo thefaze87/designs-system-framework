@@ -1,10 +1,6 @@
-// Base Functions
+// Base Functions, Mixins, Variables
 @use '../../base/functions/rem-em' as *;
-
-// Base Mixins
 @use '../../base/mixins/display' as *;
-
-// Base Variables
 @use '../../base/variables' as *;
 
 %input-reset {
@@ -41,7 +37,10 @@
 		radius: $border-radius;
 	}
 	box-shadow: none;
-	transition: border-color $transition-default, color $transition-default, background-color $transition-default;
+	transition:
+		border-color $transition-default,
+		color $transition-default,
+		background-color $transition-default;
 }
 
 // Input Disable
@@ -91,6 +90,32 @@
 	font-size: #{get-rem(18)};
 }
 
+%search-icon {
+	width: get-rem(36);
+	height: get-rem(36);
+	order: 1;
+}
+
+%search-input {
+	border: none;
+	width: 0;
+	height: 100%;
+	transition: width $transition-default;
+
+	&:focus {
+		~ .close {
+			width: get-rem(24);
+			height: get-rem(24);
+			visibility: visible;
+			opacity: 1;
+			transition:
+				opacity $transition-default,
+				visibility $transition-default,
+				width 0.3s ease 0s;
+		}
+	}
+}
+
 // Stealth Specific Basics Mixin
 // WIP
 %stealth-basics {
@@ -106,12 +131,6 @@
 	line-height: 150%; // Same as 24px
 	color: var(--input-text-color, var(--scorp-black));
 	background-color: var(--input-bg-color, var(--white));
-	padding: {
-		top: get-rem(6);
-		right: get-rem(8);
-		bottom: get-rem(6);
-		left: get-rem(8);
-	}
 	border: {
 		width: 1px;
 		style: solid;
@@ -119,7 +138,10 @@
 		radius: $border-radius;
 	}
 	box-shadow: none;
-	transition: border-color $transition-default, color $transition-default, background-color $transition-default;
+	transition:
+		border-color $transition-default,
+		color $transition-default,
+		background-color $transition-default;
 }
 
 // Select Placeholder (arrow)
@@ -132,9 +154,7 @@
 	height: get-rem(8);
 	pointer-events: none;
 	background: {
-	  	// @todo: Image to resolve and decouple - Based 64 Encoded for Temp
-	  	// image: url(/cms/svg/site/icon_caret.36.86898F.svg);
-	  	image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMzYgMzYiPgo8c3R5bGU+CglnIHBhdGggeyBzdHJva2U6IG5vbmU7IH0KPC9zdHlsZT4KPGcgY2xhc3M9InJvb3QiIGlkPSJjYXJldCIgZGF0YS1uYW1lPSJDYXJldCIgZmlsbD0iIzg2ODk4RiIgc3Ryb2tlPSIjODY4OThGIj4KCTxwYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZD0iTTIxLjYxMyAyOS43MjdhNC41MTEgNC41MTEgMCAwIDEtNi4yMzEgMC45NjVhNC40MzggNC40MzggMCAwIDEtMC45ODMtMC45NjVsLTEzLjU0NS0xOC4yOThhNC4zMzMgNC4zMzMgMCAwIDEgMC45ODMtNi4xMjJhNC41MTUgNC41MTUgMCAwIDEgMi42MjItMC44MzdoMjcuMDgyYTQuNDE5IDQuNDE5IDAgMCAxIDQuNDYgNC4zODNhNC4zMzMgNC4zMzMgMCAwIDEtMC44NTEgMi41NzZaIiAvPgo8L2c+Cjwvc3ZnPg==);
+		image: url(/cms/svg/site/icon_caret.36.86898F.svg);
 		position: center center;
 		repeat: no-repeat;
 		size: cover;
@@ -143,6 +163,11 @@
 	transform: translateY(-50%);
 }
 
+/*
+************************************************************************************
+Input Mark Mixin/Placeholder Styles
+************************************************************************************
+*/
 // Input Mark Placeholders
 %replace-label {
 	display: inline-block;
@@ -157,7 +182,11 @@
 		color: var(--input-border-color);
 	}
 	background-color: var(--input-background);
-	transition: opacity $transition-default, border-color $transition-default, background-color $transition-default, box-shadow $transition-default;
+	transition:
+		opacity $transition-default,
+		border-color $transition-default,
+		background-color $transition-default,
+		box-shadow $transition-default;
 	box-shadow: var(--input-shadow);
 }
 
@@ -194,13 +223,11 @@
 
 	&::before {
 		opacity: 1;
-	  // @todo: Image to resolve and decouple
-	  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMzYgMzYiPgo8c3R5bGU+CglnIHBhdGggeyBzdHJva2U6IG5vbmU7IH0KPC9zdHlsZT4KPGcgY2xhc3M9InJvb3QiIGlkPSJzdGFyX291dGxpbmUiIGRhdGEtbmFtZT0iU3RhciBPdXRsaW5lIiBmaWxsPSIjQkNCRUM3IiBzdHJva2U9IiNCQ0JFQzciPgoJPHBhdGggZD0iTTI3LjY2NSAzNS4yMjhhMi4zNjcgMi4zNjcgMCAwIDEtMS4xMDUtMC4yNzRsLTcuODIyLTQuMTEyYTEuNTc4IDEuNTc4IDAgMCAwLTEuNDcgMGwtMS44MDQgMC45NDZhMS41NzggMS41NzggMCAwIDEtMS40Ny0yLjc5NmwxLjgwNC0wLjk0NmE0LjczMyA0LjczMyAwIDAgMSA0LjQwNSAwbDYuNDA3IDMuMzdsLTEuMjI1LTcuMTM1YTQuNzMzIDQuNzMzIDAgMCAxIDEuMzYyLTQuMTlsNS4xODMtNS4wNDhsLTcuMTYzLTEuMDQxYTQuNzMzIDQuNzMzIDAgMCAxLTMuNTY0LTIuNTlsLTMuMjA0LTYuNDkxbC0zLjIwNCA2LjQ5MWE0LjczMyA0LjczMyAwIDAgMS0zLjU2NSAyLjU5bC03LjE2MyAxLjA0MWw1LjE4MyA1LjA0OGE0LjczMyA0LjczMyAwIDAgMSAxLjM2MiA0LjE5bC0xLjQ5NCA4LjcwOWExLjU3OCAxLjU3OCAwIDAgMS0zLjExMi0wLjUzNGwxLjQ5NC04LjcwOWExLjU3OCAxLjU3OCAwIDAgMC0wLjQ1NC0xLjM5NmwtNi4zMjktNi4xNjdhMi4zNjcgMi4zNjcgMCAwIDEgMS4zMTItNC4wMzlsOC43NDUtMS4yNzJhMS41NzggMS41NzggMCAwIDAgMS4xODktMC44NjRMMTUuODggMi4wOTNhMi4zNjcgMi4zNjcgMCAwIDEgNC4yNDYgMGwzLjkxMyA3LjkyN2ExLjU3OCAxLjU3OCAwIDAgMCAxLjE4OCAwLjg2Mmw4Ljc0NSAxLjI3MmEyLjM2NyAyLjM2NyAwIDAgMSAxLjMxMiA0LjAzN2wtNi4zMjkgNi4xNjlhMS41NzggMS41NzggMCAwIDAtMC40NTMgMS4zOTZsMS40OTQgOC43MDlBMi4zNjcgMi4zNjctMTM0Ni4yNyAwIDEgMjcuNjY1IDM1LjIyOFoiIC8+CjwvZz4KPC9zdmc+);
+		background-image: url(/cms/svg/site/icon_star_fill.36.BCBEC7.svg);
 	}
 
 	&::after {
-	  // @todo: Image to resolve and decouple
-	  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMzYgMzYiPgo8c3R5bGU+CglnIHBhdGggeyBzdHJva2U6IG5vbmU7IH0KPC9zdHlsZT4KPGcgY2xhc3M9InJvb3QiIGlkPSJzdGFyX2ZpbGwiIGRhdGEtbmFtZT0iU3RhciBGaWxsIiBmaWxsPSIjZWRhZTAzIiBzdHJva2U9IiNlZGFlMDMiPgoJPHBhdGggZD0iTTI4LjExMiAzNi4wNDFjLTAuMTggMC0wLjU0MSAwLTAuNzIxLTAuMThMMTguMDIxIDMxLjM1NmwtOS4xOTEgNC41MDVjLTAuNTQxIDAuMzYtMS4yNjEgMC4xOC0xLjgwMi0wLjE4Yy0wLjU0MS0wLjM2LTAuOTAxLTEuMDgxLTAuNzIxLTEuODAybDEuMjYxLTEwLjYzMkwwLjU0MSAxNS40OThDMCAxNC45NTctMC4xOCAxNC4yMzYgMCAxMy42OTZjMC4xOC0wLjcyMSAwLjcyMS0xLjA4MSAxLjQ0Mi0xLjI2MWwxMC4wOTItMS45ODJsNC44NjYtOS4zNzFjMC4zNi0wLjkwMSAxLjQ0Mi0xLjI2MSAyLjM0My0wLjcyMWMwLjM2IDAuMTggMC43MjEgMC41NDEgMC43MjEgMC43MjFsNC44NjYgOS4zNzFsMTAuMDkyIDEuOTgyYzAuNzIxIDAuMTggMS4yNjEgMC41NDEgMS40NDIgMS4yNjFjMC4xOCAwLjcyMSAwIDEuNDQyLTAuMzYgMS44MDJsLTcuMDI4IDcuNzQ5bDEuMjYxIDEwLjYzMmMwIDAuNzIxLTAuMTggMS40NDItMC43MjEgMS44MDJDMjguODMzIDM1Ljg2MSAyOC40NzMgMzYuMDQxIDI4LjExMiAzNi4wNDF6IiAvPgo8L2c+Cjwvc3ZnPg==);
+		background-image: url(/cms/svg/site/icon_star_fill.36.edae03.svg);
 	}
 
 	&:hover {
@@ -213,6 +240,11 @@
 	}
 }
 
+/*
+************************************************************************************
+Toggle Mixin/Placeholder Styles
+************************************************************************************
+*/
 // Toggle placeholders
 %toggle-label {
 	position: relative;
@@ -264,6 +296,6 @@ Input Suggest Mixin/Placeholder Styles
 		}
 	}
 	.suggestions {
-		z-index: 5;
+		z-index: 14;
 	}
 }

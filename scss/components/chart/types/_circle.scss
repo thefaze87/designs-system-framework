@@ -1,17 +1,20 @@
+@use 'sass:color';
 @use '../../../base/functions/rem-em' as *;
 @use '../../../base/functions/map-collect' as collection;
-@use '../../../base/variables/colors/branding' as brand;
-@use '../../../base/variables/colors/social' as social;
-@use '../../../base/variables/colors/colors' as colors;
+@use '../../../base/variables/colors/branding' as b;
+@use '../../../base/variables/colors/social' as s;
+@use '../../../base/variables/colors/colors' as c;
+
+@use '../chart.variables' as chart;
 
 // Load in colors to override circle chart bg / color
 // Temp like progress bars for circle / gauge
-$chart-colors: collection.map-collect(brand.$scorpion-branding, social.$social-media, colors.$general-colors);
+$chart-colors: collection.map-collect(b.$scorpion-branding, s.$social-media, c.$general-colors);
 
 .ichart.circle,
 .ichart2.circle {
 	border-radius: 50%;
-	background-color: var(--white);
+	background-color: var(--bg-color, var(--white));
 	.center {
 		position: absolute;
 		top: get-rem(40);
@@ -23,7 +26,7 @@ $chart-colors: collection.map-collect(brand.$scorpion-branding, social.$social-m
 		flex-direction: column;
 		justify-content: center;
 		align-content: center;
-		box-shadow: 0 0.125rem 0.25rem rgb(19, 19, 19, 0.15); //var(--rgb-scorp-black)
+		box-shadow: 0 0.125rem 0.25rem chart.$center-box-shadow; // rgb(19, 19, 19, 0.15); //var(--rgb-scorp-black)
 		padding: 1rem;
 		height: calc(100% - (#{get-rem(40)} * 2));
 		width: calc(100% - (#{get-rem(40)} * 2));

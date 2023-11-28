@@ -47,7 +47,7 @@
 	// Bar Chart
 	.bar {
 		display: flex;
-		align-items: center;
+		align-items: flex-start;
 		gap: get-rem(4);
 		padding-left: get-rem(14);
 		&::before {
@@ -106,6 +106,7 @@
 		line-height: 150%;
 		display: flex;
 		align-items: center;
+		gap: get-rem(8);
 		position: relative;
 		// &::before {
 		// 	@include legend-before;
@@ -134,6 +135,18 @@
 				top: get-rem(15);
 			}
 		}
+		// .bar {
+		// 	border-radius: 2px;
+		// 	width: #{get-rem(8)};
+		// 	height: get-rem(8);
+		// 	padding-left: 0;
+		// 	gap: 0;
+		// 	display: initial;
+		// 	background-color: var(--chart-bg-color);
+		// 	&::before {
+		// 		display: none;
+		// 	}
+		// }
 	}
 
 	.aqua::before {
@@ -150,22 +163,31 @@
 		color: var(--scorp-black);
 		.legend--item.btn {
 			@include legend-filter();
-			&:has(.active){
+			input {
+				cursor: pointer;
+			}
+			&:has(.active),
+			&:has(input:checked) {
 				background-color: var(--scorp-gray1);
-				border-color: transparent;
+				border-color: var(--scorp-blue);
+				&:hover {
+					background-color: var(--gray2);
+				}
+			}
+			&:hover {
+				color: rgba(0, 0, 0, 0.7);
+				background-color: var(--gray2);
 			}
 			& a {
 				color: var(--text-color, var(--scorp-black));
 			}
-            &:hover {
+			&:hover {
 				border-color: #dddee3;
-            }
-			& .active {
-				border-color: transparent;
+			}
+			& .active,
+			& input:checked {
 				background-color: var(--scorp-gray1);
-				&:hover {
-					color: rgba(0,0,0, 0.7);
-				}
+				border-color: var(--scorp-blue);
 			}
 
 			&::before {

@@ -34,6 +34,34 @@
 					border-right: solid 1px var(--gray4);
 				}
 			}
+			&.level-2 {
+				> td:first-of-type {
+					padding-left: get-rem(28);
+				}
+			}
+			&.level-3 {
+				> td:first-of-type {
+					padding-left: get-rem(96);
+				}
+			}
+			&.level-4 {
+				> td:first-of-type {
+					padding-left: get-rem(136);
+				}
+			}
+			&.row--no-results {
+				td {
+					height: auto;
+					padding: 0 !important;
+					box-shadow: none !important;
+				}
+				&:hover {
+					box-shadow: none !important;
+					td {
+						box-shadow: none !important;
+					}
+				}
+			}
 		}
 	}
 }

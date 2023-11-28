@@ -1,10 +1,7 @@
-///
-/// Table Graph Chart Styles
-///
-/// @group 6-components
-/// @author Anthony Minnaugh and Mark Fasel
-/// @access public
-///
+@use 'sass:color';
+@use '../../../base/variables/colors/branding' as brand;
+// Table Graph Chart Styles
+
 .table-graph {
 	.hour-row {
 		display: grid;
@@ -15,7 +12,7 @@
 		.hour {
 			font-size: 0.75em;
 			padding-right: 0.875rem;
-			color: var(--gray3);
+			color: var(--scorp-gray3);
 			justify-self: flex-end;
 			align-self: center;
 		}
@@ -32,7 +29,7 @@
 				background-color: var(--bg-color, var(--scorp-blue));
 			}
 
-			.tip span{
+			.tip span {
 				background-color: var(--bg-color, transparent);
 			}
 		}
@@ -42,12 +39,12 @@
 		display: grid;
 		grid-template-columns: 1.813rem 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 		grid-template-rows: 1.75em;
-		border-top: solid 2px var(--scorp-gray1);
+		border-top: solid 2px var(--scorp-gray3);
 		justify-items: center;
 		align-items: flex-end;
 		.day {
 			font-size: 0.75em;
-			color: var(--scorp-gray1);
+			color: var(--scorp-gray3);
 		}
 	}
 }

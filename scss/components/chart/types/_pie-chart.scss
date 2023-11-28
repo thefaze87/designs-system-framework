@@ -1,17 +1,13 @@
 @use '../../../base/functions/rem-em' as *;
-@use '../../../base/variables/colors/branding' as *;
 
-///
-/// Pie Chart Styles
-///
-/// @group 6-components
-/// @author Anthony Minnaugh and Mark Fasel
-/// @access public
-///
+@use '../chart.variables' as chart;
+
+// Pie Chart Styles
+
 .ichart,
 .ichart2 {
 	&.pie-chart {
-		background-color: rgba(242,242,245, 0.5);
+		background-color: chart.$chart-track-bg;
 		border-radius: 50%;
 		&.progress-circle {
 			.center {
@@ -37,7 +33,7 @@
 			align-content: center;
 			justify-content: center;
 			background-color: var(--white);
-			box-shadow: 0px 2px 4px rgba(25,25,25, 0.2);
+			box-shadow: 0px 2px 4px chart.$center-box-shadow;
 			transform: translate(-50%, -50%);
 			width: get-em(225);
 			height: get-em(225);

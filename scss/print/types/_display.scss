@@ -10,6 +10,7 @@
 
 	// Display Property Classes
 	@each $property in $display-properties {
+		.print-d-#{$property},
 		.print-#{$property} {
 			display: #{$property};
 		}

@@ -94,7 +94,7 @@
 // Legend Pseduo Mixin
 @mixin legend-before($top: 5px) {
 	@include pseudo;
-	background-color: var(--chart-bg-color, var(--chart-aqua));
+	background-color: var(--chart-bg-color);
 	left: 0;
 }
 
@@ -124,7 +124,7 @@
 
 //	Legend Filter Mixin
 
-@mixin legend-filter($border-color: #dddee3, $background-color: var(--white)) {
+@mixin legend-filter($border-color: #dddee3, $background-color: ar(--white)) {
 	padding: 0.4375rem 0.75rem;
 	border-radius: 0.375rem;
 	border: solid 1px $border-color;

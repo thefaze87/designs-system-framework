@@ -55,18 +55,15 @@ $all-colors-rgb: ();
 	// background property
 	.bg-#{'' + $color-name} {
 		--bg-color: var(--#{$color-name});
-		background-color: var(--#{$color-name});
 	}
 
 	// border property
 	.bdr-#{'' + $color-name} {
 		--border-color: var(--#{$color-name});
-		border-color: var(--#{$color-name});
 	}
 
 	// outline property
 	.o-#{'' + $color-name} {
 		--outline-color: var(--#{$color-name});
-		outline-color: var(--#{$color-name});
 	}
 }

@@ -2,22 +2,22 @@
 .ichart2 {
 	&.theme--leads {
 		> span:first-of-type {
-			--chart-bg-image: linear-gradient(to bottom, rgb(109, 89, 255), rgb(219, 214, 255));
-			--chart-bg-color: rgb(109, 89, 255);
-			--chart-color: rgb(109, 89, 255);
-			--chart-border-color: rgb(109, 89, 255);
+			--chart-bg-image: linear-gradient(to bottom, #6d59ff, #dbd6ff);
+			--chart-bg-color: #6d59ff;
+			--chart-color: #6d59ff;
+			--chart-border-color: #6d59ff;
 		}
 		> span:nth-of-type(2) {
-			--chart-bg-image: linear-gradient(to bottom, rgb(88, 219, 218), rgb(214, 246, 246));
-			--chart-bg-color: rgb(88, 219, 218);
-			--chart-color: rgb(88, 219, 218);
-			--chart-border-color: rgb(88, 219, 218);
+			--chart-bg-image: linear-gradient(to bottom, #58dbda, #d6f6f6);
+			--chart-bg-color: #58dbda;
+			--chart-color: #58dbda;
+			--chart-border-color: #58dbda;
 		}
 		> span:nth-of-type(3) {
-			--chart-bg-image: linear-gradient(to bottom, rgb(0, 127, 253), rgb(102, 178, 254));
-			--chart-bg-color: rgb(0, 127, 253);
-			--chart-color: rgb(0, 127, 253);
-			--chart-border-color: rgb(0, 127, 253);
+			--chart-bg-image: linear-gradient(to bottom, #007ffd, #66b2fe);
+			--chart-bg-color: #007ffd;
+			--chart-color: #007ffd;
+			--chart-border-color: #007ffd;
 		}
 	}
 }
@@ -33,7 +33,7 @@
 			&.bar,
 			&.line,
 			&.dash {
-				--chart-bg-color: rgb(109, 89, 255);
+				--chart-bg-color: #6d59ff;
 			}
 		}
 		&:nth-of-type(2) {
@@ -45,7 +45,7 @@
 			&.bar,
 			&.line,
 			&.dash {
-				--chart-bg-color: rgb(88, 219, 218);
+				--chart-bg-color: #58dbda;
 			}
 		}
 		&:nth-of-type(3) {
@@ -57,7 +57,7 @@
 			&.bar,
 			&.line,
 			&.dash {
-				--chart-bg-color: rgb(0, 127, 253);
+				--chart-bg-color: #007ffd;
 			}
 		}
 	}
